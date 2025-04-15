@@ -1,0 +1,90 @@
+flex-row, .flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+flex-wrap-row, .flex-wrap-row, .flex-wrap-row-align-items-center-justify-space-between, .flex-wrap-row-align-items-end, .flex-wrap-row-justify-center, .flex-wrap-row-justify-space-around, .flex-wrap-row-justify-space-between, .flex-wrap-row-justify-space-evenly {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+flex-wrap-reversed-row, .flex-wrap-reversed-row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+}
+
+.flex-wrap-row-justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+.flex-wrap-row-justify-space-between {
+  justify-content: space-between;
+}
+
+.flex-wrap-row-justify-space-around {
+  justify-content: space-around;
+}
+
+.flex-wrap-row-justify-center {
+  justify-content: center;
+}
+
+.flex-wrap-row-align-items-end {
+  align-items: flex-end;
+}
+
+.flex-wrap-row-align-items-center-justify-space-between {
+  align-items: center;
+  justify-content: space-between;
+}
+
+flex-column, .flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+flex-wrap-column, .flex-wrap-column, .flex-wrap-column-align-content-center-justify-content-space-evenly, .flex-wrap-column-align-items-center, .flex-wrap-column-align-content-center {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+flex-wrap-reversed-column, .flex-wrap-reversed-column {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
+}
+
+.flex-wrap-column-align-content-center {
+  align-content: center;
+}
+
+.flex-wrap-column-align-items-center {
+  align-items: center;
+}
+
+.flex-wrap-column-align-content-center-justify-content-space-evenly {
+  align-content: center;
+  justify-content: space-evenly;
+}
+
+.flex-justify-center {
+  display: flex;
+}
+
+.flex-justify-center {
+  justify-content: center;
+}
+
+.nav-item {
+  margin-inline-start: 0.9em;
+}
+
+.logo-container {
+  margin-inline-end: 0.9em;
+}
+.logo-container :nth-child(1) {
+  justify-content: flex-start;
+}/*# sourceMappingURL=index.css.map */
