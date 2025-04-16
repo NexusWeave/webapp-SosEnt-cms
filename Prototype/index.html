@@ -1,20 +1,72 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
-    <meta name="description" content="SOSENT">
-        <meta name="keywords" content="SOSENT, Sosiale, entrepenører">
-        <meta name="author" content="Your Name">
+        <meta http-equiv="X-OK-Compatible" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>SOSENT - Norge</title>
-
         <link rel="stylesheet" href="static/css/index.css">
+        <title> SOSENT -- NORGE</title>
+
+        <!-- Model Initialization (First) -->
+        <script src="static/js/model.js"></script>
+
+        <!-- Views (Next, before controllers) -->
+        <script src="static/js/view.js"></script>
+        <script src="static/js/news/view.js"></script>
+        <script src="static/js/aboutUs/view.js"></script>
+        <script src="static/js/questpack/view.js"></script>
+        <script src="static/js/vedtekter/view.js"></script>
+
+        <!-- Controllers (After views) -->
+        <script src="static/js/controller.js"></script>
+        <script src="static/js/news/controller.js"></script>
+        <script src="static/js/aboutUs/controller.js"></script>
+        <script src="static/js/questpack/controller.js"></script>
+        <script src="static/js/vedtekter/controller.js"></script>
+        
     </head>
     <body>
-        <div id ='app'>
-        </div>
+        <main id="app"></main>
+        <script>
+            updateView();
+            function updateView() {
 
-        <script src="./static/js/model.js"></script>
-        <script src="./static/js/view.js"></script>
-        <script src="./static/js/controller.js"></script>
+                /*
+                    Ensures that the correct view is displayed.
+                    The view is determined by the currentPage,
+                    property of the model.
+                */
+                let html;
+
+                // Get the model from the model.js file
+                const page = model.app.currentPage;
+                console.warn(page);
+
+
+                switch (page)
+                {
+                    case 'aboutUs':
+                        html = aboutUsView('aboutUs');
+                        break;
+
+                    case 'questpack':
+                        html = questpackView('questpack');
+                        break;
+
+                    case 'vedtekter':
+                        html = vedtekterView('vedtekter');
+                        break;
+                    
+                    case 'news':
+                        html = newsView('news');
+                        break;
+
+                    default:
+                        html = aboutUsView('aboutUs');
+                }
+
+                document.getElementById('app').innerHTML = html;
+            }
+        </script>
     </body>
 </html>

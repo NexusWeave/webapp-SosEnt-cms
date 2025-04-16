@@ -1,18 +1,8 @@
-//  Controller functionallity for SOSENT Prototype
+// Updates the view based on the current page
 
-function showAboutUsPage()
+function navigateView(view)
 {
-    
-}
-function showQuestBackPage()
-{
-    
-}
-function showNewsPage()
-{
-
-}
-function showBylawsPage()
-{
-
+    //  Navigate to view
+    model.app.currentPage = view;
+    updateView();
 }

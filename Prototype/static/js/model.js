@@ -1,6 +1,6 @@
 //  Modal tree
 
-const modal =
+const model =
 {
     // Application state
     app: 
@@ -13,34 +13,7 @@ const modal =
     {
         title: "Sosialentreprenørskap i Norge",
         description: "- Sosialentreprenørskap i Norge",
-        cls: "header-container flex-wrap-column-align-content-center-justify-content-space-evenly",
-        nav: 
-        {
-            cls: "nav-container flex-wrap-row-justify-center",
-            pages:
-                [
-                {
-                    name: "news",
-                    href: "news.html",
-                    title: "Nytt i SOSENT",
-                },
-                {
-                    name: "vedtekter",
-                    title: "Vedtekter",
-                    href: "vedtekter.html",
-                },
-                {
-                    name: "questpack",
-                    title: "questPack",
-                    href: "questpack.html",
-                },
-                {
-                    name: "aboutUs",
-                    title: "Om oss",
-                    href: "aboutUs.html",
-                }
-            ],
-        },
+        cls: "header-container flex-wrap-column-align-content-center-justify-space-evenly",
         image:
             //  Logo for the header
             {
@@ -49,99 +22,98 @@ const modal =
             src: "./static/img/logo/SOSENT_Norge_Logo.jpg",
             
         },
-        
-
     },
-    main: 
-    {
-        headline: "",
-        paragraphs: [
-            "Sosialentreprenørskap i Norge er en organisasjon som jobber for å fremme sosialt entreprenørskap i Norge. Vi ønsker å skape et nettverk av sosialentreprenører og støtte dem i deres arbeid.",
-            "Vi tilbyr kurs, workshops og rådgivning for sosialentreprenører, samt informasjon om finansiering og støtteordninger.",
-            "Vi jobber også for å øke bevisstheten om sosialt entreprenørskap i Norge og for å påvirke politiske beslutningstakere.",
-        ],
-    },
+    nav: 
+        {
+            cls: "nav-container flex-wrap-row-justify-center",
+            pages:
+                [
+                {
+                    name: "news",
+                    title: "Nytt i SOSENT",
+                    content:
+                    {
+                        headline: "Nytt i SOSENT",
+                        article: [
+                            {
+                                headline: "Norges Lands forening for sosialt entreprenørskap",
+                                paragraphs: [
+                                ],
+                            },
+                        ],
+                    },
+                },
+                {
+                    name: "vedtekter",
+                    title: "SOSENT Vedtekter",
+                    content:
+                    {
+                        headline: "Nytt i SOSENT",
+                        article: [
+                            {
+                                headline: "Norges Lands forening for sosialt entreprenørskap",
+                                paragraphs: [
+                                ],
+                            },
+                        ],
+                    },
+                },
+                {
+                    name: "questpack",
+                    title: "Questpack",
+                    content:
+                    {
+                        headline: "QuestPack",
+                        article: [
+                            {
+                                headline: "",
+                                paragraphs: [
+                                ],
+                            },
+                        ],
+                    },
+                },
+                {
+                    name: "aboutUs",
+                    title: "Om SOSENT",
+                    content:
+                    {
+                        banner:
+                            {
+                                src: "",
+                                alt: "Banner for SOSENT",
+                            },
+                        headline: "SOSENT- Norge Sammen for et bærekraftig Norge",
+                        paragraphs: [
+                            `Vi i SOSENT jobber for at sosialt entreprenørskap skal være en sentral del av et bærekraftig samfunn og synliggjøre sosiale entreprenører
+                            som viktige samfunnsaktører. Foreningen søker å bli et bindeledd på tvers av tradisjonelle skillelinjer som bidrar til at offentlig, privat,
+                            frivillig og ideell sektor jobber sterkere sammen, og en kompetanseaktør på feltet i sosialt entreprenørskap i Norge.`,
+                
+                            `Formålet med foreningen er å definere sosialt entreprenørskap i norsk kontekst, spre kunnskap om denne fjerde sektoren og interessepolitisk
+                            påvirkningsarbeid for å bedre levekårene til sosiale entreprenører i Norge, herunder organisasjonsformer. Videre å gjøre det lettere å finne
+                            finansiering til drift og lage partnerskap med det offentlige, svare ut aktuelle høringer som angår de sosiale entreprenørene, kunnskapsspredning,
+                            samt etablere matnyttige nettverk og møteplasser for foreningens medlemmer.`,
+                        ],
+                    },
+                },
+            ],
+        },
     footer:
     {
-
+        cls: "footer-container flex-wrap-column-align-items-center-justify-space-evenly",
+        contact:
+        {
+            cls: "contact-container flex-wrap-row-justify-space-evenly",
+            content:
+            {
+                phone: "+47 123 45 678",
+                email: " sample@domaine.no",
+                address: "1234 Street Name",
+                postalCode: " 1234",
+                city: "Oslo",
+            },
+        },
     },
-    pages:
-
-    [
-        {
-            name: "questpack",
-            title: "questPack",
-            description: "- Sosialentreprenørskap i Norge",
-            image:
-            [
-                {
-                    src: "",
-                    alt: "",
-                }
-            ],
-            index: false,
-        },
-        {
-            name: "aboutUs",
-            title: "Om oss",
-            description: "",
-            image:
-            [
-                {
-                    src: "",
-                    alt: "",
-                }
-            ],
-            index: true,
-        },
-        {
-            name: "Våre Vedtekter",
-            title: "",
-            description: "",
-            image:
-            [
-                {
-                    src: "",
-                    alt: "",
-                }
-            ],
-            index: false,
-        },
-        {
-            name: "news",
-            title: "Nytt i SOSENT",
-            description: "",
-            image:
-            [
-                {
-                    src: "",
-                    alt: "",
-                }
-            ],
-            index: false,
-        },
-        {
-            name: "bylaws",
-            title: "Våre Vedtekter",
-            description: "",
-            image:
-            [
-                {
-                    src: "",
-                    alt: "",
-                }
-            ],
-            index: false,
-        },
-    ],
-    rules:
-    [
-        {
-            headline: "Regel 1",
-            paragraphs: [
-            ]
-        }
-    ],
     members:
     [
         {

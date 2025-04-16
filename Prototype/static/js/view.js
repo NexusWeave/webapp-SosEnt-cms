@@ -1,81 +1,51 @@
 //  Prototype | View.js
+function navigationMenu()
+{
+    // Iterating over the pages and return the navigation
 
-function index() {
-    const app = document.querySelector('#app');
+    const nav = model.nav;
 
-    app.innerHTML = /* HTML */ `
-    <header>
-        ${header()}
-    </header>
-    <main>
-        ${main()}
-    </main>
-    `;
+    html = /*HTML*/`<nav class = "${nav.cls}">`;
+
+    for (let i = 0; i < nav.pages.length; i++)
+    {
+        html += /*HTML*/ `<button class='nav-item' onclick="navigateView('${nav.pages[i].name}')">${nav.pages[i].title}</button>`;
+    }
+
+    html += /*HTML*/ `</nav>`;
+
+    return html;
 }
 
 function header()
 {
-    //  Initializing the variables
-    const header = modal.header;
-
-    let html = /* HTML*/`
-    <div class="${header.cls ? header.cls : null}">
-        <div class="${header.image.cls ? header.image.cls : null}">
-            <img  src="${header.image.src ? header.image.src : null}" alt="${header.image.alt ? header.image.alt : null}" class="logo" />
-            <h1>${header.title}</h1>
+    //  Header
+    let html = /*HTML*/ `
+    <header class="${model.header.cls}">
+        <div class="flex-wrap-row-align-items-center-justify-space-between">
+            <img class="${model.header.image.cls}" alt="${model.header.image.alt}" src="${model.header.image.src}">
+            <h1>${model.header.title}</h1>
         </div>
-        <nav class="${header.nav.cls ? header.nav.cls : null}">`;
-
-    for (let i = 0; i < header.nav.pages.length; i++)
-    {
-        //  Fetching the navigation
-        const navigation = header.nav.pages;
-
-        html += /* HTML */`
-        <div class="nav-item">
-            <button class='' OnClick="${navigation[i].func}">${navigation[i].title}</button>
-        </div>`;
-
-        //  Debugging
-        console.log(navigation[i].name);
-
-    }
-
-    html += /* HTML */`</nav></div>`;
+        ${navigationMenu()}
+    </header>`;
     return html;
-
 }
 
-function main()
-{
-    //  Fetching the current page context
-    const currentPage = modal.currentPage;
-
-    switch (currentPage)
-    {
-        case "sosent-nyheter":
-            return indexPage();
-
-        case "questpack":
-            return questpackPage();
-
-        case "omoss":
-            return aboutUsPage();
-
-        case "vedtekter":
-            return vedtekterPage();
-    }
-}
 function footer()
 {
-    let html;
+    //  Footer
+    const footer = model.footer;
+    const content = footer.contact.content;
+    let html = /*HTML*/ `
+    <footer class="${footer.cls}">
+        <div class="flex-wrap-row-align-items-center-justify-space-between">
+        <p>${content.phone}</p>
+        <p>${content.email}</p>
+        <p>${content.address}</p>
+        <p>${content.postalCode}</p>
+        <p>${content.city}</p>
+        </div>
+    </footer>`;
 
-    html.innerHTML = /* HTML*/`
-        <div class="footer-container">
-            <span class="text-muted">Place sticky footer content here.</span>
-        </div>`;
     return html;
 }
-
-//  Run the main function
-index();
