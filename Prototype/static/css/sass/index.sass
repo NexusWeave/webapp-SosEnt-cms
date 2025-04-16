@@ -1,11 +1,46 @@
 //  Sass main file
-@import flexbox
+
+@import fonts, flexbox
+
+body
+    font-size: 1em
+    @extend roboto-font
+
+    h2
+        @extend work-sans-heading
+    
+    button
+        padding: 1em
+        @extend roboto-font
+
+main
+    margin-block: 1em
+    padding-block: 4em
+
+header
+    div
+        inline-size: 100%
 
 .nav-item
     margin-inline-start: .9em
 
 .logo-container
+    inline-size: 10vw
     margin-inline-end: .9em
 
     :nth-child(1)
         justify-content: flex-start
+
+article
+    display: flex
+    flex-direction: column
+    align-content: center
+    flex-wrap: wrap
+    align-items: center
+    inline-size: 50vw
+    text-align: justify
+
+
+.banner
+    padding: 1em
+    border: 1px solid black

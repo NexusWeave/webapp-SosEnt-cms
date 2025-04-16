@@ -1,3 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+@import url(https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap);
+work-sans-heading, body h2 {
+  font-weight: 700;
+  font-style: normal;
+  font-family: "Work Sans", sans-serif;
+}
+
+roboto-font, body button, body {
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Roboto", sans-serif;
+}
+
 flex-row, .flex-row {
   display: flex;
   flex-direction: row;
@@ -78,13 +92,45 @@ flex-wrap-reversed-column, .flex-wrap-reversed-column {
   justify-content: center;
 }
 
+body {
+  font-size: 1em;
+}
+body button {
+  padding: 1em;
+}
+
+main {
+  margin-block: 1em;
+  padding-block: 4em;
+}
+
+header div {
+  inline-size: 100%;
+}
+
 .nav-item {
   margin-inline-start: 0.9em;
 }
 
 .logo-container {
+  inline-size: 10vw;
   margin-inline-end: 0.9em;
 }
 .logo-container :nth-child(1) {
   justify-content: flex-start;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  inline-size: 50vw;
+  text-align: justify;
+}
+
+.banner {
+  padding: 1em;
+  border: 1px solid black;
 }/*# sourceMappingURL=index.css.map */
