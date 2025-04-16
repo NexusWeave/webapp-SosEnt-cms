@@ -25,6 +25,7 @@ function header()
         <div class="flex-wrap-row-align-items-center-justify-space-between">
             <img class="${model.header.image.cls}" alt="${model.header.image.alt}" src="${model.header.image.src}">
             <h1>${model.header.title}</h1>
+            <div></div>
         </div>
         ${navigationMenu()}
     </header>`;
@@ -38,12 +39,15 @@ function footer()
     const content = footer.contact.content;
     let html = /*HTML*/ `
     <footer class="${footer.cls}">
-        <div class="flex-wrap-row-align-items-center-justify-space-between">
-        <p>${content.phone}</p>
-        <p>${content.email}</p>
-        <p>${content.address}</p>
-        <p>${content.postalCode}</p>
-        <p>${content.city}</p>
+        <div class="logo-container flex-wrap-column-align-items-center-justify-space-between">
+            <p> ${content.text}</p>
+            <p>Telefon nr Nummer:${content.phone}</p>
+            <p>E-post : ${content.email}</p>
+            <address>
+                <p>Addresse: ${content.address}, ${content.postalCode}, ${content.city}</p>
+            </address>
+            <p>Org.nr: ${content.org}</p>
+
         </div>
     </footer>`;
 

@@ -18,8 +18,8 @@ const model =
             //  Logo for the header
             {
             cls: "logo-container flex-wrap-row-align-items-center-justify-space-between",
-            alt: "SOSENT Norge Logo.jpg",
-            src: "./static/img/logo/SOSENT_Norge_Logo.jpg",
+            alt: "sosent-logo.png",
+            src: "./static/img/logo/sosent-logo.png",
             
         },
     },
@@ -98,6 +98,10 @@ const model =
                 },
             ],
         },
+    main:
+    {
+        cls:"main-container flex-wrap-column-align-items-center",
+    },
     footer:
     {
         cls: "footer-container flex-wrap-column-align-items-center-justify-space-evenly",
@@ -106,11 +110,13 @@ const model =
             cls: "contact-container flex-wrap-row-justify-space-evenly",
             content:
             {
+                text: "Kontakt oss gjerne for en kaffe prat",
                 phone: "+47 123 45 678",
                 email: " sample@domaine.no",
                 address: "1234 Street Name",
                 postalCode: " 1234",
                 city: "Oslo",
+                org: "123456789",
             },
         },
     },

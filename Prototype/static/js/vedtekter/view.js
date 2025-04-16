@@ -12,7 +12,7 @@ function vedtekterView(arg)
             {
                 let html = `
                     ${header()}
-                    <main>`;
+                    <main class="${model.main.cls}">`;
                 html += `</main> ${footer()}`;
                 return html;
             }

@@ -26,7 +26,7 @@
         
     </head>
     <body>
-        <main id="app"></main>
+        <div id="app"></div>
         <script>
             updateView();
             function updateView() {
@@ -40,9 +40,8 @@
 
                 // Get the model from the model.js file
                 const page = model.app.currentPage;
-                console.warn(page);
 
-
+                // Ensure that the requested page is valid
                 switch (page)
                 {
                     case 'aboutUs':

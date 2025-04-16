@@ -15,10 +15,10 @@ function aboutUsView(arg)
             const content = model.nav.pages[i].content;
             let html = `
                 ${header()}
-                <main>
+                <main class = "${model.main.cls}">
                     <article>
-                        <div class 'banner'>
-                            <img class='banner-image' alt='${content.banner.alt}' src='${content.banner.src ? content.banner.src : null}' />
+                        <div class = "banner">
+                            <img class = "banner-image" alt="${content.banner.alt}" src="${content.banner.src ? content.banner.src : null}" />
                         </div>
 
                         <h2>${content.headline}</h2>`;
