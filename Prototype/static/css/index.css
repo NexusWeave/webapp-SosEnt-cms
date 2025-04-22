@@ -108,6 +108,10 @@ header div {
   inline-size: 100%;
 }
 
+button {
+  cursor: pointer;
+}
+
 .nav-item {
   margin-inline-start: 0.9em;
 }

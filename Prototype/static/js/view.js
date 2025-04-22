@@ -44,10 +44,10 @@ function footer()
             <p>Telefon nr Nummer:${content.phone}</p>
             <p>E-post : ${content.email}</p>
             <address>
-                <p>Addresse: ${content.address}, ${content.postalCode}, ${content.city}</p>
+                Send oss gjerne post
+                ${content.address}, ${content.postalCode}, ${content.city}
             </address>
-            <p>Org.nr: ${content.org}</p>
-
+            <a href="${footer.org.href}">NO ${footer.org.number}</a>
         </div>
     </footer>`;
 

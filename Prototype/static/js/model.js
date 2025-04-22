@@ -31,7 +31,7 @@ const model =
                 {
                     id: 0,
                     name: "news",
-                    title: "Nytt i SOSENT",
+                    title: "Aktuelt",
                 },
                 {
                     id: 1,
@@ -57,6 +57,8 @@ const model =
     },
     footer:
     {
+        
+
         cls: "footer-container flex-wrap-column-align-items-center-justify-space-evenly",
         contact:
         {
@@ -65,13 +67,18 @@ const model =
             {
                 text: "Kontakt oss gjerne for en kaffe prat",
                 phone: "+47 123 45 678",
-                email: " sample@domaine.no",
-                address: "1234 Street Name",
-                postalCode: " 1234",
+                email: "sample@sosent.no",
+                address: "Haakon viis gate 9",
+                postalCode: "0161",
                 city: "Oslo",
-                org: "123456789",
+                org: "935 329 930",
             },
         },
+        org:
+        {
+            number: "935 329 930",
+            href: "https://www.proff.no/selskap/sosent-norge/oslo/medlemsorganisasjoner/IFGVD6Y10PU"
+        }
     },
     
 
