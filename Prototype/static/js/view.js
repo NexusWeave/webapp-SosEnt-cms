@@ -44,7 +44,6 @@ function footer()
             <p>Telefon nr Nummer:${content.phone}</p>
             <p>E-post : ${content.email}</p>
             <address>
-                Send oss gjerne post
                 ${content.address}, ${content.postalCode}, ${content.city}
             </address>
             <a href="${footer.org.href}">NO ${footer.org.number}</a>
