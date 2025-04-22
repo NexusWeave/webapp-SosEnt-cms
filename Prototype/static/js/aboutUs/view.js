@@ -1,18 +1,19 @@
 //  About us view
 
-function aboutUsView(arg)
+function aboutUsView(arg, id)
 {
 
     //  Fetch the model
-    const pages = model.nav.pages;
+    const pages = model.data.nav.pages;
 
     //  Ensure that the page exists
-    for( let i = 0; i < pages.length; i++)
+    for (let i = 0; i < pages.length; i++)
     {
+        console.log(pages[i].name, arg, id, pages[i].id);
 
-        if (pages[i].name == arg)
+        if (pages[i].name === arg && id === pages[i].id)
         {
-            const content = model.nav.pages[i].content;
+            const content = model.data.nav.pages[i].content;
             let html = `
                 ${header()}
                 <main class = "${model.main.cls}">
