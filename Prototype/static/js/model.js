@@ -114,7 +114,7 @@ const model =
                                 {
                                     cls: "news-banner",
                                     date: "2023-10-01",
-                                    headline:"SOSENT - Norges Landsforening for sosialt entreprenørskap",
+                                    headline:"Referat for styremøte 2023",
                                     banner:
                                     {
                                         src: "./static/img/logo/sosent-logo.png",
