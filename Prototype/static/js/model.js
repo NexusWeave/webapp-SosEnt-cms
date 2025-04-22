@@ -279,6 +279,39 @@ const model =
                                         `,
                                     ],
                                 },
+                                {
+                                    headline: "Aktiviteter",
+                                    paragraphs: [
+                                        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
+                                        nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
+                                        porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
+                                        Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
+                                        erat volutpat. Nam ac massa vel nunc scelerisque bibendum.
+                                        `,
+                                    ],
+                                },
+                                {
+                                    headline: "Forvaltning",
+                                    paragraphs: [
+                                        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
+                                        nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
+                                        porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
+                                        Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
+                                        erat volutpat. Nam ac massa vel nunc scelerisque bibendum.
+                                        `,
+                                    ],
+                                },
+                                {
+                                    headline: "Oppløsning",
+                                    paragraphs: [
+                                        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
+                                        nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
+                                        porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
+                                        Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
+                                        erat volutpat. Nam ac massa vel nunc scelerisque bibendum.
+                                        `,
+                                    ],
+                                },
                                     
                             ]
                     }
