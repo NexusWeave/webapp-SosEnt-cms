@@ -6,53 +6,62 @@ function next()
 {
     //  fetch the images
     const sources = model.data.carosel;
-    let Carosel = model.app.currentCarosel;
+    const Carosel = model.app.currentCarosel;
+
+    //  Get the length of the array
+    const length = sources.length;
 
     //  Swap through the images
-    for (let i = 0; i < sources.length; i++)
+    for (let i = 0; i < length; i++)
     { 
-        //  Get the length of the array
-        const length = sources.length - 1;
-
         //  Ensure the path points to the image
-        if (sources[i].src.includes(Carosel.src))
+        if (sources[i].src === Carosel.src)
         {
              //  Update the index
-            i = (i < length) ?  i + 1: 0;
+            const n = (i < length-1) ? i + 1: 0;
 
             //  Update variables with next media
-            Carosel.alt = (i > length) ?  sources[i].alt : sources[i].alt;
-            Carosel.src = (i > length) ?  sources[i].src : sources[i].src;
-            Carosel.caption = (i > length) ? sources[i].caption : sources[i].caption;
+            Carosel.alt = (n > length) ?  sources[n].alt : sources[n].alt;
+            Carosel.src = (n > length) ?  sources[n].src : sources[n].src;
+            Carosel.caption = (n > length) ? sources[n].caption : sources[n].caption;
             
-            console.log(sources[i].src);
+            //  Update the view
+            updateView("vedtekter");
+            break;
         }
     }
-    console.log(Carosel);
 };
 
 function prev()
 {
     //  fetch the images
     const sources = model.data.carosel;
-    let Carosel = model.app.currentCarosel;
+    const Carosel = model.app.currentCarosel;
+
+    //  Get the length of the array
+    const length = sources.length;
 
     //  Swap through the images
     for (let i = 0; i < sources.length; i++)
     { 
-        //  Get the length of the array
-        const length = sources.length - 1;
+        
 
         //  Ensure the path points to the image
-        if (sources[i].src.includes(Carosel.alt))
+        if (sources[i].src === Carosel.src)
         {
             //  Update the index
-            i = (i - 1 < 0) ? length : i-1;
+            const n = (i - 1 < 0) ? length - 1 : i - 1;
 
             //  Update variables with next media
-            Carosel.alt = ( i < length) ?  sources[i].alt : sources[i].alt;
-            Carosel.src = (i < length) ? sources[i].src : sources[i].src;
-            Carosel.caption = (i < length) ? sources[i].caption : sources[i].caption;
+            Carosel.src = (n < length) ? sources[n].src : sources[n].src;
+            Carosel.alt = (n < length) ?  sources[n].alt : sources[n].alt;
+            Carosel.caption = (n < length) ? sources[n].caption : sources[n].caption;
+
+            //  Update the view
+            updateView("vedtekter");
+            break;
         }
+
     }
+    
 };

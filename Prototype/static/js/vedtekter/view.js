@@ -21,7 +21,7 @@ function vedtekterView(arg, id)
                             <section class = "${content.cls}">
                                 <h2>${content.headline}</h2>
                                 <figure class = "carosel-container is-60">    
-                                    <img class = "is-100"alt="${Carosel.alt? Carosel.alt : null}" src="${Carosel.src ? Carosel.src : null}" />
+                                    <img class = "is-100"alt="${Carosel.alt ? Carosel.alt : null}" src="${Carosel.src ? Carosel.src : null}" />
                                     <figcaption class = "carosel-caption">${Carosel.caption ? Carosel.caption : null}</figcaption>
                                     <div class = "carosel-btn relative flex-wrap-row-justify-space-between">
                                         <button class = "prev" onclick="prev()">&#10094;</button>

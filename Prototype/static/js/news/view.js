@@ -4,18 +4,16 @@ function newsView(arg, id)
         //  Fetch the model
         
         const pages = model.data.nav.pages;
-        console.log(arg, id);
-        
+
         //  Ensure that the page exists
         for( let i = 0; i < pages.length; i++)
         {
     
+            //  Ensure the page's integrity
             if (pages[i].name == arg && id == pages[i].id)
             {
                 let html;
                 const content = model.data.nav.pages[i].content;
-                
-                console.log("content", content);
 
                 html = `
                     ${header()}

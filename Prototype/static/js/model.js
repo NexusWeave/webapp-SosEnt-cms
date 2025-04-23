@@ -141,8 +141,8 @@ const model =
                                     headline:"Referat for styremøte 2023",
                                     banner:
                                     {
-                                        src: "./static/img/logo/sosent-logo.png",
-                                        alt: "News banner",
+                                        src: "./static/img/sosent/Gemini_Generated_Image_opf6gwopf6gwopf6.jpeg",
+                                        alt: "Styret i SOSENT",
                                     },
 
                                     lede: `
@@ -353,10 +353,11 @@ const model =
                         headline: "SOSENT- Norge Sammen for et bærekraftig Norge",
                         banner:
                             {
-                                src: "",
+                                src: "./static/img/sosent/Gemini_Generated_Image_opf6gwopf6gwopf6.jpeg",
                                 alt: "SOSENT-Team.jpg",
                             },
-                        paragraphs: [
+                        paragraphs: 
+                        [
                             `Vi i SOSENT jobber for at sosialt entreprenørskap skal være en sentral del av et bærekraftig samfunn og synliggjøre sosiale entreprenører
                             som viktige samfunnsaktører. Foreningen søker å bli et bindeledd på tvers av tradisjonelle skillelinjer som bidrar til at offentlig, privat,
                             frivillig og ideell sektor jobber sterkere sammen, og en kompetanseaktør på feltet i sosialt entreprenørskap i Norge.`,
@@ -366,6 +367,21 @@ const model =
                             finansiering til drift og lage partnerskap med det offentlige, svare ut aktuelle høringer som angår de sosiale entreprenørene, kunnskapsspredning,
                             samt etablere matnyttige nettverk og møteplasser for foreningens medlemmer.`,
                         ],
+                        
+                        contact:
+                        {
+                            cls: "contact-container flex-wrap-row-justify-space-evenly",
+                            content:
+                            {
+                                text: "Kontakt oss gjerne for en kaffe prat",
+                                phone: "+47 123 45 678",
+                                email: "sample@sosent.no",
+                                address: "Haakon viis gate 9",
+                                postalCode: "0161",
+                                city: "Oslo",
+                                org: "935 329 930",
+                            },
+                        },
                     },
                 },
             ],
