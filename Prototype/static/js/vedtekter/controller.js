@@ -18,12 +18,12 @@ function next()
         if (sources[i].src === Carosel.src)
         {
              //  Update the index
-            const n = (i < length-1) ? i + 1: 0;
+            const n = (i + 1) % length;
 
             //  Update variables with next media
-            Carosel.alt = (n > length) ?  sources[n].alt : sources[n].alt;
-            Carosel.src = (n > length) ?  sources[n].src : sources[n].src;
-            Carosel.caption = (n > length) ? sources[n].caption : sources[n].caption;
+            Carosel.alt = sources[n].alt;
+            Carosel.src = sources[n].src;
+            Carosel.caption = sources[n].caption;
             
             //  Update the view
             updateView("vedtekter");
