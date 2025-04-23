@@ -20,17 +20,15 @@ function vedtekterView(arg, id)
                         <main>
                             <section class = "${content.cls}">
                                 <h2>${content.headline}</h2>
-                                <div class = "carosel-container is-60 flex-wrap-column">
+                                <figure class = "carosel-container is-60">    
                                     <img class = "is-100"alt="${Carosel.alt? Carosel.alt : null}" src="${Carosel.src ? Carosel.src : null}" />
-                                    <div class = "carosel-caption">
-                                        <p>${Carosel.caption ? Carosel.caption : null}</p>
-                                    </div>
-
+                                    <figcaption class = "carosel-caption">${Carosel.caption ? Carosel.caption : null}</figcaption>
                                     <div class = "carosel-btn relative flex-wrap-row-justify-space-between">
                                         <button class = "prev" onclick="prev()">&#10094;</button>
                                         <button class = "next" onclick="next()">&#10095;</button>
-                                    </div>         
-                                </div>
+                                    </div>                                     
+                                </figure>
+
                                 <article class = "${content.cls}">
                                     <p>Rev. Årsmøte <time datetime="${content.updated}">${content.updated}</time></p>
                                 `;

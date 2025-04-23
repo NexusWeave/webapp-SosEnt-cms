@@ -1,4 +1,4 @@
-//  Modal tree
+//  Model tree
 
 const model =
 {
@@ -15,6 +15,7 @@ const model =
         },
 
 
+    //  Header, nav, main and footer
     header:
     {
         title: "Sosialentreprenørskap i Norge",
@@ -87,7 +88,6 @@ const model =
         }
     },
     
-
     //  Datasets for the webapplication
     data:
     {
@@ -189,7 +189,7 @@ const model =
                                 },
                                 {
                                     cls: "news-banner flex-wrap-row-justify-space-evenly",
-                                    date: "2023-10-01",
+                                    date: "2025-05-01",
                                     headline:"SOSENT - Norges Landsforening for sosialt entreprenørskap",
                                     banner:
                                     {
@@ -373,8 +373,9 @@ const model =
         members:
         [
             {
-                businessName: "GetAcademy",
+                businessName: "Organization Name",
                 organizationNumber: "000 000 000",
+                href: "https://www.proff.no/selskap/organization-name/kommune/medlemsorganisasjoner/IFGVD6Y10PU",
                 contactPerson: 
                 {
                     name:"Ola Nordmann",
@@ -383,7 +384,7 @@ const model =
                     website: "www.example.com",
                     address: "1234 Street Name",
                     postalCode: "1234",
-                    city: "komune",
+                    city: "kommune",
                     fylke: "fylke",
                 },
             }

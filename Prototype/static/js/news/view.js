@@ -35,7 +35,11 @@ function newsView(arg, id)
                                 <time datetime="${content.articles[j].date}">${content.articles[j].date}</time>
                                 <p>${content.articles[j].lede}</p>
                             </div>
-                            </article>`;
+                            
+                            </article>
+                            <button class = "read-more">
+                                <a href="${content.articles[j].link}">Read more</a>
+                            </button>`;
                 }
                 
                 html += `</section></main> ${footer()}`;

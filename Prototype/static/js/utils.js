@@ -1,6 +1,16 @@
 //  Helper functions 
+
 function next()
 {
+        /*
+        Set the next image in the carosel
+        @param {object} sources - The modal object
+        @param {object} Carosel - The carosel object
+        @param {string} Carosel.path - The path to the image
+        @param {string} Carosel.alt - The alt text for the image
+        @param {string} Carosel.caption - The caption for the image
+        @param {string} Carosel.src - The source of the image
+    */
     //  fetch the images
     const sources = modal.carosel;
 
@@ -29,6 +39,15 @@ function next()
 
 function prev()
 {
+    /*
+        Set the previous image in the carosel
+        @param {object} sources - The modal object
+        @param {object} Carosel - The carosel object
+        @param {string} Carosel.path - The path to the image
+        @param {string} Carosel.alt - The alt text for the image
+        @param {string} Carosel.caption - The caption for the image
+        @param {string} Carosel.src - The source of the image
+    */
     //  fetch the images
     const sources = modal.carosel;
 
