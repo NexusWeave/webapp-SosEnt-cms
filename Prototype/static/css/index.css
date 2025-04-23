@@ -137,4 +137,12 @@ article {
 .banner {
   padding: 1em;
   border: 1px solid black;
+}
+
+img.banner-image {
+  inline-size: 10vw;
+}
+
+.is-31 {
+  inline-size: 31vw;
 }/*# sourceMappingURL=index.css.map */

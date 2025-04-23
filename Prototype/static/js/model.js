@@ -119,7 +119,7 @@ const model =
                         articles:
                             [
                                 {
-                                    cls: "news-banner",
+                                    cls: "news-banner flex-wrap-row-justify-space-evenly",
                                     date: "2023-10-01",
                                     headline:"Referat for styremøte 2023",
                                     banner:
@@ -171,7 +171,7 @@ const model =
                                 pariatur?`,
                                 },
                                 {
-                                    cls: "news-banner",
+                                    cls: "news-banner flex-wrap-row-justify-space-evenly",
                                     date: "2023-10-01",
                                     headline:"SOSENT - Norges Landsforening for sosialt entreprenørskap",
                                     banner:

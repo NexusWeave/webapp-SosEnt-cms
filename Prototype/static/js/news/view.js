@@ -30,9 +30,11 @@ function newsView(arg, id)
                             <div class = "banner">
                                 <img class = "banner-image" alt="${content.articles[j].banner.alt}" src="${content.articles[j].banner.src ? content.articles[j].banner.src : null}" />
                             </div>
-                            <time datetime="${content.articles[j].date}">${content.articles[j].date}</time>
-                            <h3>${content.articles[j].headline}</h3>
-                            <p>${content.articles[j].lede}</p>
+                            <div class = "flex-wrap-coumn is-31">
+                                <h3>${content.articles[j].headline}</h3>
+                                <time datetime="${content.articles[j].date}">${content.articles[j].date}</time>
+                                <p>${content.articles[j].lede}</p>
+                            </div>
                             </article>`;
                 }
                 
