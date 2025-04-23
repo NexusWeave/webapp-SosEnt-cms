@@ -6,6 +6,12 @@ const model =
     app: 
         {
             currentPage: "aboutUs",
+            currentCarosel:
+                {
+                    src: "./static/img/images/klar00.jpg",
+                    alt: "Fra Klar kompetanse - fotograf Vestbris AS",
+                    caption: "",
+                },
         },
 
 
@@ -85,11 +91,11 @@ const model =
     //  Datasets for the webapplication
     data:
     {
-        images:
+        carosel:
         [
             {
                 src: "./static/img/images/klar00.jpg",
-                alt: "",
+                alt: "Fra Klar kompetanse - fotograf Vestbris AS",
                 caption: "",
             },
             {
@@ -113,24 +119,7 @@ const model =
                 caption: "",
             },
         ],
-        members:
-        [
-            {
-                businessName: "GetAcademy",
-                organizationNumber: "000 000 000",
-                contactPerson: 
-                {
-                    name:"Ola Nordmann",
-                    email: "sample@example.com",
-                    phoneNumber: "(+47) 123 45 678",
-                    website: "www.example.com",
-                    address: "1234 Street Name",
-                    postalCode: "1234",
-                    city: "komune",
-                    fylke: "fylke",
-                },
-            }
-        ],
+        
         nav:
         {
             pages:
@@ -365,7 +354,7 @@ const model =
                         banner:
                             {
                                 src: "",
-                                alt: "Banner for SOSENT",
+                                alt: "SOSENT-Team.jpg",
                             },
                         paragraphs: [
                             `Vi i SOSENT jobber for at sosialt entreprenørskap skal være en sentral del av et bærekraftig samfunn og synliggjøre sosiale entreprenører
@@ -380,6 +369,24 @@ const model =
                     },
                 },
             ],
-        }
+        },
+        members:
+        [
+            {
+                businessName: "GetAcademy",
+                organizationNumber: "000 000 000",
+                contactPerson: 
+                {
+                    name:"Ola Nordmann",
+                    email: "sample@example.com",
+                    phoneNumber: "(+47) 123 45 678",
+                    website: "www.example.com",
+                    address: "1234 Street Name",
+                    postalCode: "1234",
+                    city: "komune",
+                    fylke: "fylke",
+                },
+            }
+        ],
     },
 } 

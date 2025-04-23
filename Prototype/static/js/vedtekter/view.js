@@ -11,19 +11,27 @@ function vedtekterView(arg, id)
                 if (pages[i].name == arg && id == pages[i].id)
                 {
                     let html;
-                    const content = model.data.nav.pages[i].content;
-                    
-                    console.log("content", content);
+                    const data = model.data;
+                    let Carosel = model.app.currentCarosel;
+                    const content = data.nav.pages[i].content;
     
                     html = `
                         ${header()}
                         <main>
                             <section class = "${content.cls}">
                                 <h2>${content.headline}</h2>
-                                <article class = "${content.cls}">
-                                    <div class = "banner">
-                                        <img class = "banner-image" alt="${content.banner.alt}" src="${content.banner.src ? content.banner.src : null}" />
+                                <div class = "carosel-container is-60 flex-wrap-column">
+                                    <img class = "is-100"alt="${Carosel.alt? Carosel.alt : null}" src="${Carosel.src ? Carosel.src : null}" />
+                                    <div class = "carosel-caption">
+                                        <p>${Carosel.caption ? Carosel.caption : null}</p>
                                     </div>
+
+                                    <div class = "carosel-btn relative flex-wrap-row-justify-space-between">
+                                        <button class = "prev" onclick="prev()">&#10094;</button>
+                                        <button class = "next" onclick="next()">&#10095;</button>
+                                    </div>         
+                                </div>
+                                <article class = "${content.cls}">
                                     <p>Rev. Årsmøte <time datetime="${content.updated}">${content.updated}</time></p>
                                 `;
     

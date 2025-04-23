@@ -2,7 +2,7 @@
 function next()
 {
     //  fetch the images
-    const sources = modal.images;
+    const sources = modal.carosel;
 
     //  Swap through the images
     for (let i = 0; i < sources.length; i++)
@@ -30,7 +30,7 @@ function next()
 function prev()
 {
     //  fetch the images
-    const sources = modal.images;
+    const sources = modal.carosel;
 
     //  Swap through the images
     for (let i = 0; i < sources.length; i++)

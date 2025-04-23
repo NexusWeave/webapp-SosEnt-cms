@@ -145,4 +145,25 @@ img.banner-image {
 
 .is-31 {
   inline-size: 31vw;
+}
+
+.is-60 {
+  inline-size: 60vw;
+}
+
+.is-100 {
+  inline-size: 100%;
+}
+
+article.news-banner {
+  margin-block: 2em;
+}
+
+.relative {
+  position: relative;
+  bottom: 37vh;
+}
+
+.carosel-caption {
+  text-align: center;
 }/*# sourceMappingURL=index.css.map */
