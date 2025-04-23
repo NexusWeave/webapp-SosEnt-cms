@@ -85,6 +85,34 @@ const model =
     //  Datasets for the webapplication
     data:
     {
+        images:
+        [
+            {
+                src: "./static/img/images/klar00.jpg",
+                alt: "",
+                caption: "",
+            },
+            {
+                src: "./static/img/images/klar01.jpg",
+                alt: "Fra Klar kompetanse - fotograf Vestbris AS",
+                caption: "",
+            },
+            {
+                src: "./static/img/images/klar02.jpg",
+                alt: "Fra Klar kompetanse - kokk - Fotograf Karina Lange",
+                caption: "",
+            },
+            {
+                src: "./static/img/images/klar03.jpg",
+                alt: "Fra Klar kompetanse - sveiser - Fotograf Karina Lange",
+                caption: "",
+            },
+            {
+                src: "./static/img/images/klar04.jpg",
+                alt: "Teamet i KLAR kompetanse av Ellen Seljestokken, Rhonda Helen Nes Lothe, Hilde Vikse og Elina Tomren. Fotograf Benjamin Vikse",
+                caption: "",
+            },
+        ],
         members:
         [
             {
