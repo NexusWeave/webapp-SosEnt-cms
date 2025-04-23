@@ -2,37 +2,36 @@
 
 function next()
 {
-        /*
-        Set the next image in the carosel
-        @param {object} sources - The modal object
-        @param {object} Carosel - The carosel object
-        @param {string} Carosel.path - The path to the image
-        @param {string} Carosel.alt - The alt text for the image
-        @param {string} Carosel.caption - The caption for the image
-        @param {string} Carosel.src - The source of the image
+    /*
+    -   Function to swap through the images
+    -   The function is called when the next button is clicked
+    -   The function updates the src, alt text and caption
     */
+
     //  fetch the images
-    const sources = modal.carosel;
+    const sources = model.data.carosel;
+    const Carosel = model.app.currentCarosel;
+
+    //  Get the length of the array
+    const length = sources.length;
 
     //  Swap through the images
-    for (let i = 0; i < sources.length; i++)
+    for (let i = 0; i < length; i++)
     { 
-        //  Get the length of the array
-        const length = sources.length - 1;
-        
         //  Ensure the path points to the image
-        if (sources[i].src.includes(Carosel.alt))
+        if (sources[i].src === Carosel.src)
         {
              //  Update the index
-            i = (i < length) ?  i + 1: 0;
-
-            //  Initializing the path to the image
-            const path = Carosel.path;
+            const n = (i + 1) % length;
 
             //  Update variables with next media
-            Carosel.alt = (i > length) ?  sources[i].alt : sources[i].alt;
-            Carosel.caption = (i > length) ? sources[i].caption : sources[i].caption;
-            Carosel.source = (i > length) ? path + sources[i].src : path + sources[i].src;
+            Carosel.alt = sources[n].alt;
+            Carosel.src = sources[n].src;
+            Carosel.caption = sources[n].caption;
+            
+            //  Update the view
+            updateView("vedtekter");
+            break;
         }
     }
 };
@@ -40,37 +39,35 @@ function next()
 function prev()
 {
     /*
-        Set the previous image in the carosel
-        @param {object} sources - The modal object
-        @param {object} Carosel - The carosel object
-        @param {string} Carosel.path - The path to the image
-        @param {string} Carosel.alt - The alt text for the image
-        @param {string} Carosel.caption - The caption for the image
-        @param {string} Carosel.src - The source of the image
+    -   Function to swap through the images
+    -   The function is called when the prev button is clicked
+    -   The function updates the src, alt text and caption
     */
     //  fetch the images
-    const sources = modal.carosel;
+    const sources = model.data.carosel;
+    const Carosel = model.app.currentCarosel;
+
+    //  Get the length of the array
+    const length = sources.length;
 
     //  Swap through the images
     for (let i = 0; i < sources.length; i++)
     { 
-        //  Get the length of the array
-        const length = sources.length - 1;
 
         //  Ensure the path points to the image
-        if (sources[i].src.includes(Carosel.alt))
+        if (sources[i].src === Carosel.src)
         {
             //  Update the index
-            i = (i - 1 < 0) ? length : i-1;
-
-            //  Initializing the path to the image
-            const path = Carosel.path;
+            const n = (i - 1 < 0) ? length - 1 : i - 1;
 
             //  Update variables with next media
-            Carosel.alt = ( i < length) ?  sources[i].alt : sources[i].alt;
-            Carosel.caption = (i < length) ? sources[i].caption : sources[i].caption;
-            Carosel.source = (i < length) ? path + sources[i].src : path + sources[i].src;
-
+            Carosel.alt = sources[n].alt;
+            Carosel.src = sources[n].src;
+            Carosel.caption = sources[n].caption;
+            
+            //  Update the view
+            updateView("vedtekter");
+            break;
         }
-    }
+    } 
 };

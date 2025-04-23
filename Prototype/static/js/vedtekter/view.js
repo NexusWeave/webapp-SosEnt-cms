@@ -7,12 +7,12 @@ function vedtekterView(arg, id)
         //  Ensure that the page exists
         for( let i = 0; i < pages.length; i++)
             {
-        
+                //  Ensure the correct page is selected
                 if (pages[i].name == arg && id == pages[i].id)
                 {
                     let html;
                     const data = model.data;
-                    let Carosel = model.app.currentCarosel;
+                    const Carosel = model.app.currentCarosel;
                     const content = data.nav.pages[i].content;
     
                     html = `
@@ -20,6 +20,7 @@ function vedtekterView(arg, id)
                         <main>
                             <section class = "${content.cls}">
                                 <h2>${content.headline}</h2>
+                                <span>Rev. Årsmøte <time datetime="${content.updated}">${content.updated}</time></span>
                                 <figure class = "carosel-container is-60">    
                                     <img class = "is-100"alt="${Carosel.alt ? Carosel.alt : null}" src="${Carosel.src ? Carosel.src : null}" />
                                     <figcaption class = "carosel-caption">${Carosel.caption ? Carosel.caption : null}</figcaption>
@@ -30,7 +31,6 @@ function vedtekterView(arg, id)
                                 </figure>
 
                                 <article class = "${content.cls}">
-                                    <p>Rev. Årsmøte <time datetime="${content.updated}">${content.updated}</time></p>
                                 `;
     
                     for (let j = 0; j < content.vedtekter.length; j++)
@@ -46,6 +46,7 @@ function vedtekterView(arg, id)
                     }
                     
                     html += `</article></main> ${footer()}`;
+
                     return html;
                 }
             }

@@ -44,7 +44,6 @@ function prev()
     //  Swap through the images
     for (let i = 0; i < sources.length; i++)
     { 
-        
 
         //  Ensure the path points to the image
         if (sources[i].src === Carosel.src)
@@ -53,15 +52,13 @@ function prev()
             const n = (i - 1 < 0) ? length - 1 : i - 1;
 
             //  Update variables with next media
-            Carosel.src = (n < length) ? sources[n].src : sources[n].src;
-            Carosel.alt = (n < length) ?  sources[n].alt : sources[n].alt;
-            Carosel.caption = (n < length) ? sources[n].caption : sources[n].caption;
-
+            Carosel.alt = sources[n].alt;
+            Carosel.src = sources[n].src;
+            Carosel.caption = sources[n].caption;
+            
             //  Update the view
             updateView("vedtekter");
             break;
         }
-
-    }
-    
+    } 
 };
