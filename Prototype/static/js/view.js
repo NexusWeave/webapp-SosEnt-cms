@@ -36,12 +36,15 @@ function footer()
 {
     //  Footer
     const footer = model.footer;
-    const content = footer.content;
+    const navigation = footer.nav;
+
     let html = /*HTML*/ `
     <footer class="${footer.cls}">
-        <div class="footer-container flex-wrap-column-align-items-center-justify-space-between">
-            <a href="${footer.org.href}">NO ${footer.org.number}</a>
-        </div>
+        <nav class="footer-container flex-wrap-row-justify-space-evenly">
+            <a class="${navigation.org.cls}" href="${navigation.org.href}" target="_blank" rel="external">NO ${navigation.org.name}</a>
+            <a class="${navigation.questback.cls}" href="${navigation.questback.href}" target="_blank" rel="external">${navigation.questback.name}</a>
+            <a class="${navigation.personvern.cls}" href="${navigation.personvern.href}" target="_blank" rel="nofollow" rel="external">${navigation.personvern.name}</a>
+        </nav>
     </footer>`;
 
     return html;

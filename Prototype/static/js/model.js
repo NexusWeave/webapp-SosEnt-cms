@@ -70,22 +70,29 @@ const model =
         contact:
         {
             cls: "contact-container flex-wrap-row-justify-space-evenly",
-            content:
+        },
+        
+        nav:
+        {
+            questback:
             {
-                text: "Kontakt oss gjerne for en kaffe prat",
-                phone: "+47 123 45 678",
-                email: "sample@sosent.no",
-                address: "Haakon viis gate 9",
-                postalCode: "0161",
-                city: "Oslo",
-                org: "935 329 930",
+                cls: "",
+                name: "Meld Intresse her",
+                href: "https://response.questback.com/isa/qbv.dll/bylink?p=164g6KsM99iFiEoIuFBSPf4vlpq1wCY39OK0FW7sqwkdWfjDQ29a9XFSuJlAyLXr0",
+            },
+            personvern:
+            {
+                cls: "",
+                name: "Personvern",
+                href: "https://docs.google.com/document/d/1AkTTNQei6pJWvRYc_VT93Rspk3MTJn_ai_TsHqXi88U/edit?usp=sharing",
+            },
+            org:
+            {
+                cls: "",
+                name: "935 329 930",
+                href: "https://www.proff.no/selskap/sosent-norge/oslo/medlemsorganisasjoner/IFGVD6Y10PU"
             },
         },
-        org:
-        {
-            number: "935 329 930",
-            href: "https://www.proff.no/selskap/sosent-norge/oslo/medlemsorganisasjoner/IFGVD6Y10PU"
-        }
     },
     
     //  Datasets for the webapplication
@@ -131,7 +138,6 @@ const model =
                     {
                         cls: "news-container flex-wrap-column-align-items-center",
                         headline:"SOSENT - Norge Nyheter",
-                        
 
                         articles:
                             [
@@ -386,24 +392,5 @@ const model =
                 },
             ],
         },
-        members:
-        [
-            {
-                businessName: "Organization Name",
-                organizationNumber: "000 000 000",
-                href: "https://www.proff.no/selskap/organization-name/kommune/medlemsorganisasjoner/IFGVD6Y10PU",
-                contactPerson: 
-                {
-                    name:"Ola Nordmann",
-                    email: "sample@example.com",
-                    phoneNumber: "(+47) 123 45 678",
-                    website: "www.example.com",
-                    address: "1234 Street Name",
-                    postalCode: "1234",
-                    city: "kommune",
-                    fylke: "fylke",
-                },
-            }
-        ],
     },
 } 
