@@ -14,6 +14,7 @@ function vedtekterView(arg, id)
                     const data = model.data;
                     const Carosel = model.app.currentCarosel;
                     const content = data.nav.pages[i].content;
+                    
     
                     html = `
                         ${header()}
@@ -21,15 +22,43 @@ function vedtekterView(arg, id)
                             <section class = "${content.cls}">
                                 <h2>${content.headline}</h2>
                                 <span>Rev. Årsmøte <time datetime="${content.updated}">${content.updated}</time></span>
-                                <figure class = "carosel-container is-60">    
-                                    <img class = "is-100"alt="${Carosel.alt ? Carosel.alt : null}" src="${Carosel.src ? Carosel.src : null}" />
-                                    <figcaption class = "carosel-caption">${Carosel.caption ? Carosel.caption : null}</figcaption>
-                                    <div class = "carosel-btn relative flex-wrap-row-justify-space-between">
-                                        <button class = "prev" onclick="prev()">&#10094;</button>
-                                        <button class = "next" onclick="next()">&#10095;</button>
-                                    </div>                                     
-                                </figure>
+                               <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                                    </ol>
 
+                                    <!-- Wrapper for slides -->
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                            <img alt="${Carosel.alt ? Carosel.alt : null}" src="${Carosel.src ? Carosel.src : null}">
+                                        </div>`;
+
+                                    //  Insert the carousel images
+                                    const images = data.carousel;
+                                    
+                                    for (let j = 0; j < images.length; j++)
+                                    {
+                                        const image = images[j];
+
+                                        html += `
+                                        <div class="item">
+                                            <img alt="${image.alt ? image.alt : null}" src="${image.src ? image.src : null}">
+                                        </div>`;
+                                    }
+
+                                    html +=`
+                                    </div>
+                                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
                                 <article class = "${content.cls}">
                                 `;
     

@@ -103,13 +103,9 @@ const model =
     //  Datasets for the webapplication
     data:
     {
-        carosel:
+        carousel:
         [
-            {
-                src: "./static/img/images/klar00.jpg",
-                alt: "Fra Klar kompetanse - fotograf Vestbris AS",
-                caption: "",
-            },
+
             {
                 src: "./static/img/images/klar01.jpg",
                 alt: "Fra Klar kompetanse - fotograf Vestbris AS",
