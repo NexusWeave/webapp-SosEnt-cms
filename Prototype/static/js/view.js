@@ -45,6 +45,8 @@ function footer()
             <a class="${navigation.questback.cls}" href="${navigation.questback.href}" target="_blank" rel="external">${navigation.questback.name}</a>
             <a class="${navigation.personvern.cls}" href="${navigation.personvern.href}" target="_blank" rel="nofollow" rel="external">${navigation.personvern.name}</a>
         </nav>
+
+        
     </footer>`;
 
     return html;

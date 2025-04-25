@@ -356,7 +356,9 @@ const model =
                     name: "aboutUs",
                     content:
                     {
+                        cls: "about-container flex-wrap-column-align-items-center",
                         headline: "SOSENT- Norge Sammen for et bærekraftig Norge",
+                        text: "Kontakt oss gjerne for en kaffe prat",
                         banner:
                             {
                                 src: "./static/img/sosent/Gemini_Generated_Image_opf6gwopf6gwopf6.jpeg",
@@ -380,44 +382,34 @@ const model =
                             content:
                             [
                                 {
-                                    name: "Rune V. Kvam",
-                                    title: "Generalsekretær",
-                                    phone: "+47 123 45 678",
-                                    email: "srune@sosent.no",
-                                    alt: "Rune V. Kvam",
-                                    src: "./static/img/team/52700234381_5e75074f92_q.jpg",
-                                    
-                                    text: "Kontakt oss gjerne for en kaffe prat",
-                                    
-                                    address: "Haakon viis gate 9",
-                                    postalCode: "0161",
-                                    city: "Oslo",
-                                    org: "935 329 930",
-                                },
-                                {
                                     name: "Helle V. Rødahl",
                                     title: "Styreleder",
                                     phone: "+47 123 45 678",
                                     email: "helle@sosent.no",
-                                    alt: "Helle V. Rødahl",
-                                    src: "./static/img/team/52700234381_5e75074f92_q.jpg",
+                                    image:
+                                    {
+                                        cls: "",
+                                        alt: "Helle V. Rødahl",
+                                        src: "./static/img/team/profil-helle-privat.jpg",
 
-                                    text: "Kontakt oss gjerne for en kaffe prat",
-                                    
-                                    address: "Haakon viis gate 9",
-                                    postalCode: "0161",
-                                    city: "Oslo",
-                                    org: "935 329 930",
+                                    },
                                 },
                                 {
-                                    text: "Kontakt oss gjerne for en kaffe prat",
+                                    cls: "contact-container ",
+                                    name: "Rune V. Kvam",
+                                    title: "Generalsekretær",
                                     phone: "+47 123 45 678",
-                                    email: "sample@sosent.no",
-                                    address: "Haakon viis gate 9",
-                                    postalCode: "0161",
-                                    city: "Oslo",
-                                    org: "935 329 930",
-                                }
+                                    email: "rune@sosent.no",
+                                    image:
+                                    {
+                                        cls: "",
+                                        alt: "Rune V. Kvam",
+                                        src: "./static/img/team/52700234381_5e75074f92_q.jpg",
+                                    
+                                    },
+
+                                },
+                                
                             ],
                         },
                     },
