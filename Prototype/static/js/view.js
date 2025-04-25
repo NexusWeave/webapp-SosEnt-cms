@@ -9,7 +9,14 @@ function navigationMenu()
 
     for (let i = 0; i < nav.pages.length; i++)
     {
-        html += /*HTML*/ `<button class='nav-item' onclick="navigateView('${nav.pages[i].name}')">${nav.pages[i].title}</button>`;
+        if (nav.pages[i].type === "button")
+        {
+            html += /*HTML*/ `<button class='nav-item' onclick="navigateView('${nav.pages[i].name}')">${nav.pages[i].title}</button>`;
+        }
+        else if (nav.pages[i].type === "link")
+        {
+            html += /*HTML*/ `<a class='nav-item' href="${nav.pages[i].href}" target="_blank" rel="external">${nav.pages[i].title}</a>`;
+        }
     }
 
     html += /*HTML*/ `</nav>`;
@@ -25,7 +32,6 @@ function header()
         <div class="flex-wrap-row-align-items-center-justify-space-between">
             <img class="${model.header.image.cls}" alt="${model.header.image.alt}" src="${model.header.image.src}">
             <h1>${model.header.title}</h1>
-            <div></div>
         </div>
         ${navigationMenu()}
     </header>`;

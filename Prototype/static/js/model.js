@@ -38,18 +38,28 @@ const model =
                 {
                     id: 0,
                     name: "news",
+                    type: "button",
                     title: "Aktuelt",
                 },
                 {
                     id: 1,
+                    type: "button",
                     name: "vedtekter",
                     title: "SOSENT Vedtekter",
                 },
                 {
                     id: 2,
+                    type: "button",
                     name: "aboutUs",
                     title: "Om SOSENT",
 
+                },
+                {
+                    id: 3,
+                    type: "link",
+                    name: "questback",
+                    title: "Meld Intresse her",
+                    href: "https://response.questback.com/isa/qbv.dll/bylink?p=164g6KsM99iFiEoIuFBSPf4vlpq1wCY39OK0FW7sqwkdWfjDQ29a9XFSuJlAyLXr0",
                 },
             ],
         },
