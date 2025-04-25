@@ -378,15 +378,47 @@ const model =
                         {
                             cls: "contact-container flex-wrap-row-justify-space-evenly",
                             content:
-                            {
-                                text: "Kontakt oss gjerne for en kaffe prat",
-                                phone: "+47 123 45 678",
-                                email: "sample@sosent.no",
-                                address: "Haakon viis gate 9",
-                                postalCode: "0161",
-                                city: "Oslo",
-                                org: "935 329 930",
-                            },
+                            [
+                                {
+                                    name: "Rune V. Kvam",
+                                    title: "Generalsekretær",
+                                    phone: "+47 123 45 678",
+                                    email: "srune@sosent.no",
+                                    alt: "Rune V. Kvam",
+                                    src: "./static/img/team/52700234381_5e75074f92_q.jpg",
+                                    
+                                    text: "Kontakt oss gjerne for en kaffe prat",
+                                    
+                                    address: "Haakon viis gate 9",
+                                    postalCode: "0161",
+                                    city: "Oslo",
+                                    org: "935 329 930",
+                                },
+                                {
+                                    name: "Helle V. Rødahl",
+                                    title: "Styreleder",
+                                    phone: "+47 123 45 678",
+                                    email: "helle@sosent.no",
+                                    alt: "Helle V. Rødahl",
+                                    src: "./static/img/team/52700234381_5e75074f92_q.jpg",
+
+                                    text: "Kontakt oss gjerne for en kaffe prat",
+                                    
+                                    address: "Haakon viis gate 9",
+                                    postalCode: "0161",
+                                    city: "Oslo",
+                                    org: "935 329 930",
+                                },
+                                {
+                                    text: "Kontakt oss gjerne for en kaffe prat",
+                                    phone: "+47 123 45 678",
+                                    email: "sample@sosent.no",
+                                    address: "Haakon viis gate 9",
+                                    postalCode: "0161",
+                                    city: "Oslo",
+                                    org: "935 329 930",
+                                }
+                            ],
                         },
                     },
                 },
