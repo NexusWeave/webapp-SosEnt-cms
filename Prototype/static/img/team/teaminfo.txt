@@ -14,3 +14,12 @@ helle@sosent.no
 
 ----
 Rullerende news
+
+
+--
+Tekst, link, button:hover og linker
+#FF5F19
+
+Background-button - elements
+#37282D
+- color - fefefe
