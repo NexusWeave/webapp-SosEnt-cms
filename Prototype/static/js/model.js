@@ -5,7 +5,7 @@ const model =
     // Application state
     app: 
         {
-            currentPage: "aboutUs",
+            currentPage: "",
             currentCarosel:
                 {
                     src: "./static/img/images/klar00.jpg",
@@ -47,11 +47,6 @@ const model =
                 },
                 {
                     id: 2,
-                    name: "questpack",
-                    title: "Questpack",
-                },
-                {
-                    id: 3,
                     name: "aboutUs",
                     title: "Om SOSENT",
 
@@ -346,13 +341,9 @@ const model =
                             ]
                     }
                 },
+
                 {
                     id: 2,
-                    name: "questpack",
-                    title: "Questpack",
-                },
-                {
-                    id: 3,
                     name: "aboutUs",
                     content:
                     {

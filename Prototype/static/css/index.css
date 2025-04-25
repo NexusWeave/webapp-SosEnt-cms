@@ -93,6 +93,11 @@ flex-wrap-reversed-column, .flex-wrap-reversed-column {
   justify-content: center;
 }
 
+* {
+  box-sizing: border-box;
+  writing-mode: horizontal-tb;
+}
+
 body {
   font-size: 1em;
 }

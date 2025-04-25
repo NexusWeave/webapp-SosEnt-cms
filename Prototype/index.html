@@ -44,24 +44,22 @@
                 // Ensure that the requested page is valid
                 switch (page)
                 {
-                    case 'aboutUs':
-                        html = aboutUsView('aboutUs', 3);
-                        break;
-
-                    case 'questpack':
-                        html = questpackView('questpack', 2);
-                        break;
+                    case 'news':
+                        html = newsView('news', 0);
+                        break;  
 
                     case 'vedtekter':
                         html = vedtekterView('vedtekter', 1);
                         break;
-                    
-                    case 'news':
-                        html = newsView('news', 0);
+
+                    case 'aboutUs':
+                        html = aboutUsView('aboutUs', 2);
                         break;
+                    
+                    
 
                     default:
-                        html = aboutUsView('aboutUs', 3);
+                        html = aboutUsView('aboutUs', 2);
                         break;
                 }
 
