@@ -271,7 +271,7 @@ const model =
                 caption: "",
             },
         ],
-        
+
         articles:
             [
                 {
