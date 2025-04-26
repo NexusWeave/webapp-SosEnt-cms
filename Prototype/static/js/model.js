@@ -145,8 +145,8 @@ const model =
                                 {
                                     cls: "news-banner flex-wrap-row-justify-space-evenly",
                                     date: "2023-10-01",
-                                    headline:"Referat for styremøte 2023",
-                                    banner:
+                                    headline:"Referat Fra Styremøte 2023",
+                                    image:
                                     {
                                         src: "./static/img/sosent/Gemini_Generated_Image_opf6gwopf6gwopf6.jpeg",
                                         alt: "Styret i SOSENT",
@@ -197,8 +197,8 @@ const model =
                                 {
                                     cls: "news-banner flex-wrap-row-justify-space-evenly",
                                     date: "2025-05-01",
-                                    headline:"SOSENT - Norges Landsforening for sosialt entreprenørskap",
-                                    banner:
+                                    headline:"SOSENT - Norges Landsforening For Sosialt Entreprenørskap",
+                                    image:
                                     {
                                         src: "./static/img/logo/sosent-logo.png",
                                         alt: "News banner",
@@ -245,9 +245,61 @@ const model =
                                 nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate
                                 velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla
                                 pariatur?`,
-                                }
-                            ]
                                 },
+                                {
+                                    cls: "news-banner flex-wrap-row-justify-space-evenly",
+                                    date: "2025-05-01",
+                                    headline:"SOSENT - Norges Landsforening for sosialt entreprenørskap",
+                                    image:
+                                    {
+                                        src: "./static/img/logo/sosent-logo.png",
+                                        alt: "News banner",
+                                    },
+
+                                    lede: `
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                        pariatur.`,
+
+                                    main: [
+                                        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
+                                        nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
+                                        porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
+                                        Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
+                                        erat volutpat. Nam ac massa vel nunc scelerisque bibendum.
+                                        `,
+                                        
+                                        `Curabitur vehicula tortor tortor, ut lacinia felis vestibulum pellentesque.
+                                        Proin malesuada iaculis eros pulvinar efficitur. Nam eget pulvinar erat. Ut imperdiet
+                                        a tellus sit amet pulvinar. Nam accumsan dignissim gravida. Nam lacinia sodales faucibus.
+                                        Fusce sit amet sollicitudin sapien. Vestibulum sollicitudin orci leo. Nulla efficitur
+                                        vehicula augue a commodo. Vivamus vehicula ultricies nibh, id elementum nulla lacinia in.
+                                        Curabitur arcu lacus, tincidunt ut laoreet id, dapibus sed libero.`,
+
+                                        `At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+                                        voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
+                                        occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt
+                                        mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est
+                                        et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
+                                        cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas
+                                        assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis
+                                        debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et
+                                        molestiae non recusandae.`
+
+                                    ],
+
+                                ending: `Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+                                velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                                voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
+                                nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate
+                                velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla
+                                pariatur?`,
+                                },
+                            ]
+                    },
                 },
                 {
                     id: 1,

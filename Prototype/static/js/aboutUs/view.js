@@ -15,31 +15,32 @@ function aboutUsView(arg, id)
 
             const content = pages[i].content;
             const article = pages[0].content.articles;
+            const n = 3;
 
             let html = `
                 ${header()}
                 <main class = "${model.main.cls}">
                     <h2>${content.headline}</h2>
-                    <article class = "news-banner flex-wrap-row">`;
+                    <div class = "grid-news-container">`;
             
             //  News Banner
             for (let j = 0; j < article.length; j++)
             {
+                if (j % 3 === 0 && j !== 0)
+                {
+                    break;
+                }
                 html += `
-                    <div class = "banner">
-                        <img class = "banner-image" alt="${article[j].banner.alt}" src="${article[j].banner.src ? article[j].banner.src : null}" />
-                    </div>
-                    <div class = "flex-wrap-coumn is-31">
+                    <article class = "flex-wrap-coumn col">
+                        <img class = "article-image" alt="${article[j].image.alt ? article[j].image.alt : null}" src="${article[j].image.src ? article[j].image.src : null}" />
                         <h3>${article[j].headline}</h3>
                         <time datetime="${article[j].date}">${article[j].date}</time>
                         <p>${article[j].lede}</p>
-                    </div>
-                    <button class = "read-more">
                         <a href="${article[j].link}">Read more</a>
-                    </button>`;
+                    </article>`;
             }
             
-            html += `</article>
+            html += `</div>
                     <section class = "${content.cls}">`;
             
             //  News Content

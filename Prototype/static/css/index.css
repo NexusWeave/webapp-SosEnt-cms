@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 @import url(https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap);
 @import url(https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css);
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css);
 work-sans-heading, body h2 {
   font-weight: 700;
   font-style: normal;
@@ -93,6 +94,22 @@ flex-wrap-reversed-column, .flex-wrap-reversed-column {
   justify-content: center;
 }
 
+.grid-news-container {
+  gap: 1em;
+  display: grid;
+  margin-block: 2em;
+  inline-size: 100%;
+}
+
+.grid-news-container {
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+}
+
+.col {
+  inline-size: 25em;
+}
+
 * {
   box-sizing: border-box;
   writing-mode: horizontal-tb;
@@ -148,6 +165,10 @@ article {
 img.banner-image {
   inline-size: 10vw;
 }
+img.article-image {
+  block-size: 22vh;
+  inline-size: 24vw;
+}
 
 .is-31 {
   inline-size: 31vw;
@@ -170,15 +191,6 @@ article.news-banner {
   bottom: 21em;
 }
 
-figure figcaption {
-  position: relative;
-  bottom: 3.3em;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 1em;
-}
-figure .carosel-caption {
-  text-align: center;
+.carousel-inner {
+  inline-size: 45em;
 }/*# sourceMappingURL=index.css.map */

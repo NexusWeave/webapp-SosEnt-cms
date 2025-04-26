@@ -1,8 +1,8 @@
 //  Sass main file
 
-@import fonts, flexbox
+@import fonts, flexbox, grid-container
 @import url(https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css)
-@import url (https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css)
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css)
 *
     box-sizing: border-box
     writing-mode: horizontal-tb
@@ -53,8 +53,14 @@ article
     padding: 1em
     border: 1px solid black
 
-img.banner-image
-    inline-size: 10vw
+img
+    .banner-image
+        inline-size: 10vw
+    
+    .article-image
+        block-size: 22vh
+        inline-size: 24vw
+        
 
 .is-31
     inline-size: 31vw

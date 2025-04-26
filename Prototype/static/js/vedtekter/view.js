@@ -20,48 +20,48 @@ function vedtekterView(arg, id)
                         ${header()}
                         <main>
                             <section class = "${content.cls}">
-                                <h2>${content.headline}</h2>
-                                <span>Rev. Årsmøte <time datetime="${content.updated}">${content.updated}</time></span>
                                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                                    <ol class="carousel-indicators">
-                                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                                    </ol>
+                                    <ol class="carousel-indicators">`;
 
-                                    <!-- Wrapper for slides -->
-                                    <div class="carousel-inner">
-                                        <div class="item active">
-                                            <img alt="${Carosel.alt ? Carosel.alt : null}" src="${Carosel.src ? Carosel.src : null}">
-                                        </div>`;
-
-                                    //  Insert the carousel images
-                                    const images = data.carousel;
+                    //  Insert the carousel images
+                    const images = data.carousel;
                                     
-                                    for (let j = 0; j < images.length; j++)
-                                    {
-                                        const image = images[j];
+                    //  Indicators
+                    for (let j = 0; j <= images.length; j++){html+= `<li data-target="#myCarousel" data-slide-to="${j}"></li>`;}
 
-                                        html += `
-                                        <div class="item">
-                                            <img alt="${image.alt ? image.alt : null}" src="${image.src ? image.src : null}">
-                                        </div>`;
-                                    }
+                    html += `</ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img alt="${Carosel.alt ? Carosel.alt : null}" src="${Carosel.src ? Carosel.src : null}">
+                        </div>`;
 
-                                    html +=`
-                                    </div>
-                                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                                        <span class="glyphicon glyphicon-chevron-left"></span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                                        <span class="glyphicon glyphicon-chevron-right"></span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </div>
-                                <article class = "${content.cls}">
-                                `;
+                    //  Carousel images
+                    for (let j = 0; j < images.length; j++)
+                    {
+                        const image = images[j];
+
+                        html += `
+                            <div class="item">
+                                <img alt="${image.alt ? image.alt : null}" src="${image.src ? image.src : null}">
+                            </div>`;
+                    }
+
+                    html +=`
+                        </div>
+                            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <h2>${content.headline}</h2>
+                        <span>Rev. Årsmøte <time datetime="${content.updated}">${content.updated}</time></span>
+                        <article class = "${content.cls}">`;
     
+                    //  Vedtekter content
                     for (let j = 0; j < content.vedtekter.length; j++)
                     {
                         const article = content.vedtekter[j];
