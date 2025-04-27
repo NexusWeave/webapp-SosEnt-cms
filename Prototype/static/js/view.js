@@ -6,7 +6,6 @@ function navigationMenu()
     const nav = model.nav;
 
     html = /*HTML*/`<nav class = "${nav.cls}">`;
-
     for (let i = 0; i < nav.pages.length; i++)
     {
         if (nav.pages[i].type === "button")

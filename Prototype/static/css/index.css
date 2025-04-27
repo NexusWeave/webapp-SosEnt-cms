@@ -19,7 +19,7 @@ flex-row, .flex-row {
   flex-direction: row;
 }
 
-flex-wrap-row, .flex-wrap-row, .flex-wrap-row-align-items-center-justify-space-between, .flex-wrap-row-align-items-end, .flex-wrap-row-justify-center, .flex-wrap-row-justify-space-around, .flex-wrap-row-justify-space-between, .flex-wrap-row-justify-space-evenly {
+flex-wrap-row, .flex-wrap-row, .flex-wrap-row-align-items-center-justify-space-evenly, .flex-wrap-row-align-items-center-justify-space-between, .flex-wrap-row-align-items-end, .flex-wrap-row-justify-center, .flex-wrap-row-justify-space-around, .flex-wrap-row-justify-space-between, .flex-wrap-row-justify-space-evenly {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -54,6 +54,11 @@ flex-wrap-reversed-row, .flex-wrap-reversed-row {
 .flex-wrap-row-align-items-center-justify-space-between {
   align-items: center;
   justify-content: space-between;
+}
+
+.flex-wrap-row-align-items-center-justify-space-evenly {
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 flex-column, .flex-column {
@@ -156,18 +161,21 @@ article {
   inline-size: 50vw;
   text-align: justify;
 }
+article img.banner-image {
+  inline-size: 10vw;
+}
+article img.article-image {
+  block-size: 22vh;
+  inline-size: 24vw;
+}
+
+section {
+  inline-size: 100%;
+}
 
 .banner {
   padding: 1em;
   border: 1px solid black;
-}
-
-img.banner-image {
-  inline-size: 10vw;
-}
-img.article-image {
-  block-size: 22vh;
-  inline-size: 24vw;
 }
 
 .is-31 {

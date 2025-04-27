@@ -4,7 +4,8 @@ function aboutUsView(arg, id)
 {
 
     //  Fetch the model
-    const pages = model.data.nav.pages;
+    const data = model.data;
+    const pages = model.nav.pages;
 
     //  Ensure that the page exists
     for (let i = 0; i < pages.length; i++)
@@ -12,10 +13,8 @@ function aboutUsView(arg, id)
 
         if (pages[i].name === arg && id === pages[i].id)
         {
-
             const content = pages[i].content;
-            const article = pages[0].content.articles;
-            const n = 3;
+            const article = data.articles;
 
             let html = `
                 ${header()}
@@ -49,7 +48,7 @@ function aboutUsView(arg, id)
                 html +=`<p>${content.paragraphs[j]} </p>`
             }
 
-            html += `</article><section class = "${content.cls ? content.cls : null} flex-wrap-column">`;
+            html += `</article><section class = "flex-wrap-row-justify-space-evenly">`;
 
             //  Contact information
             const contact = content.contact;
@@ -59,14 +58,19 @@ function aboutUsView(arg, id)
             const person = contact.content[j];
             
             html += `
-                <div class = "${person.cls}">
-                <h4>${content.text}</h4>
-                <img class = "${person.image.cls}" alt="${person.image.alt}" src="${person.image.src ? person.image.src : null}" />
-                <h3>${person.name}</h3>
-                <h4>${person.title}</h4>    
-                        Telefon : <a href = "tel:${person.phone}">${person.phone}</a><br>
-                        E-post : <a href = "mailto:${person.email}">${person.email}</a>
-                    </p></div>`;
+                <div class="contact-container flex-wrap-column">
+                    <h3>${person.name}</h3>
+                    <div class="card" style="width: 18rem;">
+                        <img src="${person.image.src ? person.image.src : null}" class="card-img-top" alt="${person.image.alt ? person.image.alt : null}">
+                        <div class="card-body">
+                            <h4 class="card-text">${person.title}</h4>
+                            <p class="card-text">   
+                                Telefon : <a href = "tel:${person.phone}">${person.phone}</a><br>
+                                E-post : <a href = "mailto:${person.email}">Send En E-post</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>`;
             }
 
             html += `
