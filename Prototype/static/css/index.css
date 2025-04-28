@@ -165,8 +165,8 @@ article img.banner-image {
   inline-size: 10vw;
 }
 article img.article-image {
-  block-size: 22vh;
-  inline-size: 24vw;
+  block-size: 21em;
+  inline-size: 25em;
 }
 
 section {
@@ -176,6 +176,10 @@ section {
 .banner {
   padding: 1em;
   border: 1px solid black;
+}
+
+.card {
+  inline-size: 18em;
 }
 
 .is-31 {

@@ -10,7 +10,7 @@ function aboutUsView(arg, id)
     //  Ensure that the page exists
     for (let i = 0; i < pages.length; i++)
     {
-
+        // Ensure that the page exists
         if (pages[i].name === arg && id === pages[i].id)
         {
             const content = pages[i].content;
@@ -22,7 +22,7 @@ function aboutUsView(arg, id)
                     <h2>${content.headline}</h2>
                     <div class = "grid-news-container">`;
             
-            //  News Banner
+            //  News articles
             for (let j = 0; j < article.length; j++)
             {
                 if (j % 3 === 0 && j !== 0)
@@ -40,15 +40,15 @@ function aboutUsView(arg, id)
             }
             
             html += `</div>
-                    <section class = "${content.cls}">`;
+                    <section class = "${content.cls}"> <section class = "flex-wrap-column-align-content-center-justify-space-evenly">`;
             
-            //  News Content
+            //  About us content
             for(let j = 0; j < content.paragraphs.length; j++)
             {
                 html +=`<p>${content.paragraphs[j]} </p>`
             }
 
-            html += `</article><section class = "flex-wrap-row-justify-space-evenly">`;
+            html += `</section><section class = "flex-wrap-row-justify-space-evenly">`;
 
             //  Contact information
             const contact = content.contact;
@@ -60,7 +60,7 @@ function aboutUsView(arg, id)
             html += `
                 <div class="contact-container flex-wrap-column">
                     <h3>${person.name}</h3>
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img src="${person.image.src ? person.image.src : null}" class="card-img-top" alt="${person.image.alt ? person.image.alt : null}">
                         <div class="card-body">
                             <h4 class="card-text">${person.title}</h4>
