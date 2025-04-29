@@ -40,23 +40,50 @@ button
         justify-content: flex-start
 
 article
-    display: flex
-    flex-direction: column
-    align-content: center
-    flex-wrap: wrap
+    inline-size: 100%
     align-items: center
-    inline-size: 50vw
     text-align: justify
+    align-content: center
+
+    .news-article
+        h3
+            font-size: 0.885em
+            font-weight: bold
+        
+        p
+            font-size: 0.8em
 
     img.banner-image
-        inline-size: 10vw
+        inline-size: 12em
+        block-size: 10em
+
         
+            
     img.article-image
         block-size: 21em
         inline-size: 25em
 
+article.news-banner
+        margin-block: 1em
+        inline-size: 38.1em
+
 section
     inline-size: 100%
+    margin-block: 1em
+
+    .article-container
+        inline-size: 26em
+
+
+    .news-container
+        inline-size: 37em
+
+    .about-us
+        inline-size: 50%
+    .contact
+        inline-size: 18em
+        margin-inline-start: 2em
+
 
 .banner
     padding: 1em
@@ -72,9 +99,6 @@ section
     inline-size: 37em
 .is-100
     inline-size: 100%
-
-article.news-banner
-        margin-block: 2em
 
 .relative
     position: relative

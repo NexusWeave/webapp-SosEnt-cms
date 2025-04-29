@@ -20,7 +20,8 @@ function aboutUsView(arg, id)
                 ${header()}
                 <main class = "${model.main.cls}">
                     <h2>${content.headline}</h2>
-                    <div class = "grid-news-container">`;
+                    <section class="flex-wrap-row-justify-space-around">
+                    `;
             
             //  News articles
             for (let j = 0; j < article.length; j++)
@@ -30,17 +31,20 @@ function aboutUsView(arg, id)
                     break;
                 }
                 html += `
-                    <article class = "flex-wrap-coumn col">
-                        <img class = "article-image" alt="${article[j].image.alt ? article[j].image.alt : null}" src="${article[j].image.src ? article[j].image.src : null}" />
-                        <h3>${article[j].headline}</h3>
-                        <time datetime="${article[j].date}">${article[j].date}</time>
-                        <p>${article[j].lede}</p>
-                        <a href="${article[j].link}">Read more</a>
-                    </article>`;
+                        <section class="news-container">
+                            <article class = "flex-wrap-coumn news-article">
+                                <img class = "article-image" alt="${article[j].image.alt ? article[j].image.alt : null}" src="${article[j].image.src ? article[j].image.src : null}" />
+                                <h3 class = "news-">${article[j].headline}</h3>
+                                <time datetime="${article[j].date}">${article[j].date}</time>
+                                <p>${article[j].lede}</p>
+                                <a href="${article[j].link}">Read more</a>
+                            </article>
+                        </section>`;
             }
             
-            html += `</div>
-                    <section class = "${content.cls}"> <section class = "flex-wrap-column-align-content-center-justify-space-evenly">`;
+            html += `</section>
+                    <section class = "${content.cls}">
+                        <section class = "flex-wrap-column-align-content-center-justify-space-evenly about-us">`;
             
             //  About us content
             for(let j = 0; j < content.paragraphs.length; j++)
@@ -58,19 +62,19 @@ function aboutUsView(arg, id)
             const person = contact.content[j];
             
             html += `
-                <div class="contact-container flex-wrap-column">
+                <section class="contact flex-wrap-column">
                     <h3>${person.name}</h3>
-                    <div class="card">
+                    <section class="card">
                         <img src="${person.image.src ? person.image.src : null}" class="card-img-top" alt="${person.image.alt ? person.image.alt : null}">
-                        <div class="card-body">
+                        <section class="card-body">
                             <h4 class="card-text">${person.title}</h4>
                             <p class="card-text">   
                                 Telefon : <a href = "tel:${person.phone}">${person.phone}</a><br>
                                 E-post : <a href = "mailto:${person.email}">Send En E-post</a>
                             </p>
-                        </div>
-                    </div>
-                </div>`;
+                        </section>
+                    </section>
+                </section>`;
             }
 
             html += `

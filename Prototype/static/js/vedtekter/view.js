@@ -59,22 +59,25 @@ function vedtekterView(arg, id)
                         </div>
                         <h2>${content.headline}</h2>
                         <span>Rev. Årsmøte <time datetime="${content.updated}">${content.updated}</time></span>
-                        <article class = "${content.cls}">`;
+                        <section class = "flex-wrap-column-align-items-center">`;
     
                     //  Vedtekter content
                     for (let j = 0; j < content.vedtekter.length; j++)
                     {
                         const article = content.vedtekter[j];
                         
-                        html += `<h3>${article.headline}</h3>`;
+                        html += `<section class = "article-container">
+                        <article>
+                            <h3>${article.headline}</h3>`;
 
                         for (let k = 0; k < article.paragraphs.length; k++)
                         {
                             html += `<p>${article.paragraphs[k]}</p>`;
                         }
+                        html += `</article></section>`;
                     }
                     
-                    html += `</article></main> ${footer()}`;
+                    html += `</section></main> ${footer()}`;
 
                     return html;
                 }

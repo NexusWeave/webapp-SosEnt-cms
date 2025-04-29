@@ -55,7 +55,7 @@ const model =
                 content:
                 {
                     updated: "2023",
-                    cls: "vedtekter-container flex-wrap-column-align-items-center",
+                    cls: " flex-wrap-column-align-items-center",
                     headline:"Vedtekter for SOSENT",
                     banner:
                     {
@@ -453,13 +453,13 @@ const model =
                     name: "news",
                     content:
                     {
-                        cls: "news-container flex-wrap-column-align-items-center",
+                        cls: "news-container flex-wrap-row-justify-space-evenly",
                         headline:"SOSENT - Norge Nyheter",
 
                         articles:
                             [
                                 {
-                                    cls: "news-banner flex-wrap-row-justify-space-evenly",
+                                    cls: "news-banner flex-wrap-row",
                                     date: "2023-10-01",
                                     headline:"Referat Fra Styremøte 2023",
                                     image:
@@ -511,7 +511,7 @@ const model =
                                 pariatur?`,
                                 },
                                 {
-                                    cls: "news-banner flex-wrap-row-justify-space-evenly",
+                                    cls: "news-banner flex-wrap-row",
                                     date: "2025-05-01",
                                     headline:"SOSENT - Norges Landsforening For Sosialt Entreprenørskap",
                                     image:
@@ -563,7 +563,7 @@ const model =
                                 pariatur?`,
                                 },
                                 {
-                                    cls: "news-banner flex-wrap-row-justify-space-evenly",
+                                    cls: "news-banner flex-wrap-row",
                                     date: "2025-05-01",
                                     headline:"SOSENT - Norges Landsforening for sosialt entreprenørskap",
                                     image:
@@ -625,7 +625,7 @@ const model =
                     content:
                     {
                         updated: "2023",
-                        cls: "vedtekter-container flex-wrap-column-align-items-center",
+                        cls: "vedtekter-article",
                         headline:"Vedtekter for SOSENT",
                         banner:
                         {

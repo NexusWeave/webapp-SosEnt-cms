@@ -14,7 +14,7 @@ roboto-font, body button, body {
   font-family: "Roboto", sans-serif;
 }
 
-flex-row, .flex-row {
+flex-row, .flex-wrap-row-justify-content-flex-end, .flex-row {
   display: flex;
   flex-direction: row;
 }
@@ -99,6 +99,10 @@ flex-wrap-reversed-column, .flex-wrap-reversed-column {
   justify-content: center;
 }
 
+.flex-wrap-row-justify-content-flex-end {
+  justify-content: flex-end;
+}
+
 .grid-news-container {
   gap: 1em;
   display: grid;
@@ -153,24 +157,48 @@ button {
 }
 
 article {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  flex-wrap: wrap;
+  inline-size: 100%;
   align-items: center;
-  inline-size: 50vw;
   text-align: justify;
+  align-content: center;
+}
+article.news-article h3 {
+  font-size: 0.885em;
+  font-weight: bold;
+}
+article.news-article p {
+  font-size: 0.8em;
 }
 article img.banner-image {
-  inline-size: 10vw;
+  inline-size: 12em;
+  block-size: 10em;
 }
 article img.article-image {
   block-size: 21em;
   inline-size: 25em;
 }
 
+article.news-banner {
+  margin-block: 1em;
+  inline-size: 38.1em;
+}
+
 section {
   inline-size: 100%;
+  margin-block: 1em;
+}
+section .article-container {
+  inline-size: 26em;
+}
+section .news-container {
+  inline-size: 37em;
+}
+section .about-us {
+  inline-size: 50%;
+}
+section .contact {
+  inline-size: 18em;
+  margin-inline-start: 2em;
 }
 
 .banner {
@@ -192,10 +220,6 @@ section {
 
 .is-100 {
   inline-size: 100%;
-}
-
-article.news-banner {
-  margin-block: 2em;
 }
 
 .relative {
