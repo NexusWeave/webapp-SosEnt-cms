@@ -13,13 +13,14 @@ function aboutUsView(arg, id)
         // Ensure that the page exists
         if (pages[i].name === arg && id === pages[i].id)
         {
-            const content = pages[i].content;
+            const data = model.data;
+            
             const article = data.articles;
+            const content = data.nav.pages[i].content;
 
             let html = `
                 ${header()}
                 <main class = "${model.main.cls}">
-                    <h2>${content.headline}</h2>
                     <section class="flex-wrap-row-justify-space-around">
                     `;
             
@@ -43,16 +44,26 @@ function aboutUsView(arg, id)
             }
             
             html += `</section>
+                    <h2>${content.headline}</h2>
                     <section class = "${content.cls}">
-                        <section class = "flex-wrap-column-align-content-center-justify-space-evenly about-us">`;
+                        <section class = "flex-wrap-row-align-items-center-justify-space-around">`;
             
             //  About us content
             for(let j = 0; j < content.paragraphs.length; j++)
             {
-                html +=`<p>${content.paragraphs[j]} </p>`
+               let aboutUs = content.paragraphs[j];
+
+                html +=`<div class = "about-us">
+                <h3 class="h5">${aboutUs.heading} </h5>`;
+
+                for (let k = 0; k < aboutUs.paragraph.length; k++)
+                {
+                    html += `<p>${aboutUs.paragraph[k]}</p></div>`;
+                }
             }
 
-            html += `</section><section class = "flex-wrap-row-justify-space-evenly">`;
+            html += `</div></section>
+            <section class = "flex-wrap-row-justify-space-evenly">`;
 
             //  Contact information
             const contact = content.contact;
@@ -67,7 +78,7 @@ function aboutUsView(arg, id)
                     <section class="card">
                         <img src="${person.image.src ? person.image.src : null}" class="card-img-top" alt="${person.image.alt ? person.image.alt : null}">
                         <section class="card-body">
-                            <h4 class="card-text">${person.title}</h4>
+                            <h5 class="card-text h5">${person.title}</h5>
                             <p class="card-text">   
                                 Telefon : <a href = "tel:${person.phone}">${person.phone}</a><br>
                                 E-post : <a href = "mailto:${person.email}">Send En E-post</a>

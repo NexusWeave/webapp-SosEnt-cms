@@ -8,7 +8,7 @@ work-sans-heading, body h2 {
   font-family: "Work Sans", sans-serif;
 }
 
-roboto-font, body button, body {
+roboto-font, section .about-us, body button, body {
   font-weight: 400;
   font-style: normal;
   font-family: "Roboto", sans-serif;
@@ -19,7 +19,7 @@ flex-row, .flex-wrap-row-justify-content-flex-end, .flex-row {
   flex-direction: row;
 }
 
-flex-wrap-row, .flex-wrap-row, .flex-wrap-row-align-items-center-justify-space-evenly, .flex-wrap-row-align-items-center-justify-space-between, .flex-wrap-row-align-items-end, .flex-wrap-row-justify-center, .flex-wrap-row-justify-space-around, .flex-wrap-row-justify-space-between, .flex-wrap-row-justify-space-evenly {
+flex-wrap-row, .flex-wrap-row, .flex-wrap-row-align-items-center-justify-space-around, .flex-wrap-row-align-items-center-justify-space-evenly, .flex-wrap-row-align-items-center-justify-space-between, .flex-wrap-row-align-items-center, .flex-wrap-row-align-items-end, .flex-wrap-row-justify-center, .flex-wrap-row-justify-space-around, .flex-wrap-row-justify-space-between, .flex-wrap-row-justify-space-evenly {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -51,6 +51,10 @@ flex-wrap-reversed-row, .flex-wrap-reversed-row {
   align-items: flex-end;
 }
 
+.flex-wrap-row-align-items-center {
+  align-items: center;
+}
+
 .flex-wrap-row-align-items-center-justify-space-between {
   align-items: center;
   justify-content: space-between;
@@ -59,6 +63,11 @@ flex-wrap-reversed-row, .flex-wrap-reversed-row {
 .flex-wrap-row-align-items-center-justify-space-evenly {
   align-items: center;
   justify-content: space-evenly;
+}
+
+.flex-wrap-row-align-items-center-justify-space-around {
+  align-items: center;
+  justify-content: space-around;
 }
 
 flex-column, .flex-column {
@@ -144,16 +153,8 @@ button {
   cursor: pointer;
 }
 
-.nav-item {
-  margin-inline-start: 0.9em;
-}
-
-.logo-container {
-  inline-size: 10vw;
-  margin-inline-end: 0.9em;
-}
-.logo-container :nth-child(1) {
-  justify-content: flex-start;
+.h5 {
+  font-weight: bold !important;
 }
 
 article {
@@ -162,11 +163,11 @@ article {
   text-align: justify;
   align-content: center;
 }
-article.news-article h3 {
+article .news-article h3 {
   font-size: 0.885em;
   font-weight: bold;
 }
-article.news-article p {
+article .news-article p {
   font-size: 0.8em;
 }
 article img.banner-image {
@@ -180,7 +181,7 @@ article img.article-image {
 
 article.news-banner {
   margin-block: 1em;
-  inline-size: 38.1em;
+  inline-size: 26em;
 }
 
 section {
@@ -191,14 +192,28 @@ section .article-container {
   inline-size: 26em;
 }
 section .news-container {
-  inline-size: 37em;
+  inline-size: 26em;
 }
 section .about-us {
-  inline-size: 50%;
+  font-size: 1.1em;
+  inline-size: 32em;
+  text-align: justify;
 }
 section .contact {
   inline-size: 18em;
   margin-inline-start: 2em;
+}
+
+.nav-item {
+  margin-inline-start: 0.9em;
+}
+
+.logo-container {
+  inline-size: 10vw;
+  margin-inline-end: 0.9em;
+}
+.logo-container :nth-child(1) {
+  justify-content: flex-start;
 }
 
 .banner {

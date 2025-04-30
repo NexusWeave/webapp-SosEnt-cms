@@ -29,16 +29,8 @@ header
 button
     cursor: pointer
 
-.nav-item
-    margin-inline-start: .9em
-
-.logo-container
-    inline-size: 10vw
-    margin-inline-end: .9em
-
-    :nth-child(1)
-        justify-content: flex-start
-
+.h5
+    font-weight: bold !important
 article
     inline-size: 100%
     align-items: center
@@ -65,7 +57,7 @@ article
 
 article.news-banner
         margin-block: 1em
-        inline-size: 38.1em
+        inline-size: 26em
 
 section
     inline-size: 100%
@@ -76,14 +68,28 @@ section
 
 
     .news-container
-        inline-size: 37em
+        inline-size: 26em
 
     .about-us
-        inline-size: 50%
+        font-size: 1.1em
+        inline-size: 32em
+        @extend roboto-font
+        text-align: justify
+
     .contact
         inline-size: 18em
         margin-inline-start: 2em
 
+
+.nav-item
+    margin-inline-start: .9em
+
+.logo-container
+    inline-size: 10vw
+    margin-inline-end: .9em
+
+    :nth-child(1)
+        justify-content: flex-start
 
 .banner
     padding: 1em

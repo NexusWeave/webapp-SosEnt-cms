@@ -26,7 +26,7 @@ function newsView(arg, id)
                 {
                     html += `
                         <article class = "${articles[j].cls}">
-                                <img class = "banner-image" alt="${articles[j].image.alt}" src="${articles[j].image.src ? articles[j].image.src : null}" />
+                                <img class = "${articles[j].image.cls}" alt="${articles[j].image.alt}" src="${articles[j].image.src ? articles[j].image.src : null}" />
                                 <div class = "flex-wrap-column is-31">
                                     <h3>${articles[j].headline}</h3>
                                     <time datetime="${articles[j].date}">${articles[j].date}</time>

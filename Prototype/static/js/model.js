@@ -464,6 +464,7 @@ const model =
                                     headline:"Referat Fra Styremøte 2023",
                                     image:
                                     {
+                                        cls: "article-image",
                                         src: "./static/img/sosent/Gemini_Generated_Image_opf6gwopf6gwopf6.jpeg",
                                         alt: "Styret i SOSENT",
                                     },
@@ -514,11 +515,13 @@ const model =
                                     cls: "news-banner flex-wrap-row",
                                     date: "2025-05-01",
                                     headline:"SOSENT - Norges Landsforening For Sosialt Entreprenørskap",
-                                    image:
+                                   image:
                                     {
+                                        cls: "article-image",
                                         src: "./static/img/logo/sosent-logo.png",
                                         alt: "News banner",
-                                    },
+                                    }, 
+     
 
                                     lede: `
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -568,9 +571,10 @@ const model =
                                     headline:"SOSENT - Norges Landsforening for sosialt entreprenørskap",
                                     image:
                                     {
+                                        cls: "article-image",
                                         src: "./static/img/logo/sosent-logo.png",
                                         alt: "News banner",
-                                    },
+                                    }, 
 
                                     lede: `
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -731,14 +735,25 @@ const model =
                             },
                         paragraphs: 
                         [
-                            `Vi i SOSENT jobber for at sosialt entreprenørskap skal være en sentral del av et bærekraftig samfunn og synliggjøre sosiale entreprenører
-                            som viktige samfunnsaktører. Foreningen søker å bli et bindeledd på tvers av tradisjonelle skillelinjer som bidrar til at offentlig, privat,
-                            frivillig og ideell sektor jobber sterkere sammen, og en kompetanseaktør på feltet i sosialt entreprenørskap i Norge.`,
-                
-                            `Formålet med foreningen er å definere sosialt entreprenørskap i norsk kontekst, spre kunnskap om denne fjerde sektoren og interessepolitisk
+                            {
+                                heading:"Om oss",
+                                paragraph: 
+                                [
+                                    `Vi i SOSENT jobber for at sosialt entreprenørskap skal være en sentral del av et bærekraftig samfunn og synliggjøre sosiale entreprenører
+                                    som viktige samfunnsaktører. Foreningen søker å bli et bindeledd på tvers av tradisjonelle skillelinjer som bidrar til at offentlig, privat,
+                                    frivillig og ideell sektor jobber sterkere sammen, og en kompetanseaktør på feltet i sosialt entreprenørskap i Norge.`,
+                                ] 
+                            },
+                            {
+                                heading:"Formålet med SoSEnT",
+                                paragraph: 
+                                [
+                                    `Formålet med foreningen er å definere sosialt entreprenørskap i norsk kontekst, spre kunnskap om denne fjerde sektoren og interessepolitisk
                             påvirkningsarbeid for å bedre levekårene til sosiale entreprenører i Norge, herunder organisasjonsformer. Videre å gjøre det lettere å finne
                             finansiering til drift og lage partnerskap med det offentlige, svare ut aktuelle høringer som angår de sosiale entreprenørene, kunnskapsspredning,
                             samt etablere matnyttige nettverk og møteplasser for foreningens medlemmer.`,
+                                ] 
+                            },
                         ],
                         
                         contact:
