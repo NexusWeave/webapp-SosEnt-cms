@@ -189,6 +189,7 @@ section {
   margin-block: 1em;
 }
 section .article-container {
+  margin: 1em;
   inline-size: 26em;
 }
 section .news-container {
@@ -202,6 +203,11 @@ section .about-us {
 section .contact {
   inline-size: 18em;
   margin-inline-start: 2em;
+}
+
+a {
+  text-decoration: underline !important;
+  color: rgb(255, 95, 25) !important;
 }
 
 .nav-item {

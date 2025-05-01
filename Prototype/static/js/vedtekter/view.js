@@ -59,7 +59,7 @@ function vedtekterView(arg, id)
                         </div>
                         <h2>${content.headline}</h2>
                         <span>Rev. Årsmøte <time datetime="${content.updated}">${content.updated}</time></span>
-                        <section class = "flex-wrap-column-align-items-center">`;
+                        <section class = "flex-wrap-row-align-items-center">`;
     
                     //  Vedtekter content
                     for (let j = 0; j < content.vedtekter.length; j++)
