@@ -213,7 +213,7 @@ const model =
             },
             {
                 id: 3,
-                cls: "",
+                cls: "link nav-item",
                 type: "link",
                 name: "questback",
                 title: "Meld Interesse her",
@@ -236,26 +236,19 @@ const model =
         },
         
         nav:
-        {
-            questback:
+        [
             {
-                cls: "",
-                name: "Meld Intresse her",
-                href: "https://response.questback.com/isa/qbv.dll/bylink?p=164g6KsM99iFiEoIuFBSPf4vlpq1wCY39OK0FW7sqwkdWfjDQ29a9XFSuJlAyLXr0",
-            },
-            personvern:
-            {
-                cls: "",
-                name: "Personvern",
+                name : "Personvern",
+                cls: "link nav-item",
                 href: "https://docs.google.com/document/d/1AkTTNQei6pJWvRYc_VT93Rspk3MTJn_ai_TsHqXi88U/edit?usp=sharing",
+                
             },
-            org:
             {
-                cls: "",
-                name: "935 329 930",
+                cls: "link nav-item",
+                name: "NO 935 329 930",
                 href: "https://www.proff.no/selskap/sosent-norge/oslo/medlemsorganisasjoner/IFGVD6Y10PU"
             },
-        },
+        ]
     },
     
     //  Datasets for the webapplication

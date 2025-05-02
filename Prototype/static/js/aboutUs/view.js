@@ -4,7 +4,6 @@ function aboutUsView(arg, id)
 {
 
     //  Fetch the model
-    const data = model.data;
     const pages = model.nav.pages;
 
     //  Ensure that the page exists
@@ -35,10 +34,9 @@ function aboutUsView(arg, id)
                         <section class="news-container">
                             <article class = "flex-wrap-coumn news-article">
                                 <img class = "article-image" alt="${article[j].image.alt ? article[j].image.alt : null}" src="${article[j].image.src ? article[j].image.src : null}" />
-                                <h3 class = "news-">${article[j].headline}</h3>
+                                <h5 class = "h5">${article[j].headline}</h5>
                                 <time datetime="${article[j].date}">${article[j].date}</time>
-                                <p>${article[j].lede}</p>
-                                <a href="${article[j].link}">Read more</a>
+                                <a class="link" href="${article[j].link}">Read more</a>
                             </article>
                         </section>`;
             }
@@ -46,7 +44,7 @@ function aboutUsView(arg, id)
             html += `</section>
                     <h2>${content.headline}</h2>
                     <section class = "${content.cls}">
-                        <section class = "flex-wrap-row-align-items-center-justify-space-around">`;
+                        <section class = "flex-wrap-row-align-items-center-justify-space-around bg-brown">`;
             
             //  About us content
             for(let j = 0; j < content.paragraphs.length; j++)
@@ -54,7 +52,7 @@ function aboutUsView(arg, id)
                let aboutUs = content.paragraphs[j];
 
                 html +=`<div class = "about-us">
-                <h3 class="h5">${aboutUs.heading} </h5>`;
+                <h4 class="h4">${aboutUs.heading} </h4>`;
 
                 for (let k = 0; k < aboutUs.paragraph.length; k++)
                 {
@@ -77,11 +75,11 @@ function aboutUsView(arg, id)
                     <h3>${person.name}</h3>
                     <section class="card">
                         <img src="${person.image.src ? person.image.src : null}" class="card-img-top" alt="${person.image.alt ? person.image.alt : null}">
-                        <section class="card-body">
+                        <section class="card-body bg-brown">
                             <h5 class="card-text h5">${person.title}</h5>
                             <p class="card-text">   
-                                Telefon : <a href = "tel:${person.phone}">${person.phone}</a><br>
-                                E-post : <a href = "mailto:${person.email}">Send En E-post</a>
+                                Telefon : <a class="link" href = "tel:${person.phone}">${person.phone}</a><br>
+                                E-post : <a class="link" href = "mailto:${person.email}">Send En E-post</a>
                             </p>
                         </section>
                     </section>

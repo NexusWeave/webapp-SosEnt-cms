@@ -8,6 +8,7 @@
     writing-mode: horizontal-tb
     
 body
+    color: rgb(55, 40, 45) !important
     font-size: 1em
     @extend roboto-font
 
@@ -29,8 +30,11 @@ header
 button
     cursor: pointer
 
-.h5
+h5.h5
+    text-align: left
+    font-size: 12px
     font-weight: bold !important
+
 article
     inline-size: 100%
     align-items: center
@@ -48,12 +52,10 @@ article
     img.banner-image
         inline-size: 12em
         block-size: 10em
-
-        
-            
+     
     img.article-image
-        block-size: 21em
-        inline-size: 25em
+        block-size: 11em
+        inline-size: 13em
 
 article.news-banner
         margin-block: 1em
@@ -70,7 +72,8 @@ section
 
 
     .news-container
-        inline-size: 26em
+        inline-size: 14em
+        color: rgb(55, 40, 45)
 
     .about-us
         font-size: 1.1em
@@ -82,7 +85,7 @@ section
         inline-size: 18em
         margin-inline-start: 2em
 
-a 
+a.link
     text-decoration: underline !important
     color: rgba(255, 95, 25, 1) !important
 
@@ -117,3 +120,7 @@ a
 
 .carousel-inner
     inline-size: 45em
+
+.bg-brown
+    background: rgb(55, 40, 45)
+    color: whitesmoke

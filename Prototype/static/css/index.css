@@ -19,7 +19,7 @@ flex-row, .flex-wrap-row-justify-content-flex-end, .flex-row {
   flex-direction: row;
 }
 
-flex-wrap-row, .flex-wrap-row, .flex-wrap-row-align-items-center-justify-space-around, .flex-wrap-row-align-items-center-justify-space-evenly, .flex-wrap-row-align-items-center-justify-space-between, .flex-wrap-row-align-items-center, .flex-wrap-row-align-items-end, .flex-wrap-row-justify-center, .flex-wrap-row-justify-space-around, .flex-wrap-row-justify-space-between, .flex-wrap-row-justify-space-evenly {
+flex-wrap-row, .flex-wrap-row, .flex-wrap-row-align-items-center-justify-space-around, .flex-wrap-row-align-items-center-justify-space-evenly, .flex-wrap-row-align-items-center-justify-space-between, .flex-wrap-row-align-items-center, .flex-wrap-row-align-items-end, .flex-wrap-row-justify-center, .flex-wrap-row-justify-space-around, .flex-wrap-row-justify-space-between, .flex-wrap-row-justify-space-evenly, .flex-wrap-row-justify-flex-end, .flex-wrap-row-justify-flex-start {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -29,6 +29,14 @@ flex-wrap-reversed-row, .flex-wrap-reversed-row {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row-reverse;
+}
+
+.flex-wrap-row-justify-flex-start {
+  justify-content: flex-start;
+}
+
+.flex-wrap-row-justify-flex-end {
+  justify-content: flex-end;
 }
 
 .flex-wrap-row-justify-space-evenly {
@@ -134,6 +142,7 @@ flex-wrap-reversed-column, .flex-wrap-reversed-column {
 }
 
 body {
+  color: rgb(55, 40, 45) !important;
   font-size: 1em;
 }
 body button {
@@ -153,7 +162,9 @@ button {
   cursor: pointer;
 }
 
-.h5 {
+h5.h5 {
+  text-align: left;
+  font-size: 12px;
   font-weight: bold !important;
 }
 
@@ -175,8 +186,8 @@ article img.banner-image {
   block-size: 10em;
 }
 article img.article-image {
-  block-size: 21em;
-  inline-size: 25em;
+  block-size: 11em;
+  inline-size: 13em;
 }
 
 article.news-banner {
@@ -193,7 +204,8 @@ section .article-container {
   inline-size: 26em;
 }
 section .news-container {
-  inline-size: 26em;
+  inline-size: 14em;
+  color: rgb(55, 40, 45);
 }
 section .about-us {
   font-size: 1.1em;
@@ -205,7 +217,7 @@ section .contact {
   margin-inline-start: 2em;
 }
 
-a {
+a.link {
   text-decoration: underline !important;
   color: rgb(255, 95, 25) !important;
 }
@@ -250,4 +262,9 @@ a {
 
 .carousel-inner {
   inline-size: 45em;
+}
+
+.bg-brown {
+  background: rgb(55, 40, 45);
+  color: whitesmoke;
 }/*# sourceMappingURL=index.css.map */

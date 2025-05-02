@@ -9,13 +9,14 @@ function navigationMenu()
 
     for (let i = 0; i < nav.pages.length; i++)
     {
-        if (nav.pages[i].type === "button")
+        const page = nav.pages[i];
+        if (page.type === "button")
         {
-            html += /*HTML*/ `<button class='nav-item' onclick="navigateView('${nav.pages[i].name}')">${nav.pages[i].title}</button>`;
+            html += /*HTML*/ `<button class='nav-item bg-brown' onclick="navigateView('${nav.pages[i].name}')">${nav.pages[i].title}</button>`;
         }
-        else if (nav.pages[i].type === "link")
+        else if (page.type === "link")
         {
-            html += /*HTML*/ `<a class='nav-item' href="${nav.pages[i].href}" target="_blank" rel="external">${nav.pages[i].title}</a>`;
+            html += /*HTML*/ `<a class='${page.cls}' href="${nav.pages[i].href}" target="_blank" rel="external">${nav.pages[i].title}</a>`;
         }
     }
 
@@ -46,14 +47,15 @@ function footer()
 
     let html = /*HTML*/ `
     <footer class="${footer.cls}">
-        <nav class="footer-container flex-wrap-row-justify-space-evenly">
-            <a class="${navigation.org.cls}" href="${navigation.org.href}" target="_blank" rel="external">NO ${navigation.org.name}</a>
-            <a class="${navigation.questback.cls}" href="${navigation.questback.href}" target="_blank" rel="external">${navigation.questback.name}</a>
-            <a class="${navigation.personvern.cls}" href="${navigation.personvern.href}" target="_blank" rel="nofollow" rel="external">${navigation.personvern.name}</a>
-        </nav>
+    <nav class="footer-container flex-wrap-row-justify-flex-end">`;
 
-        
-    </footer>`;
+    for (let i = 0; i < footer.nav.length; i++)
+    {
+        const link = footer.nav[i];
+        html += /*HTML*/ `
+            <a class="${link.cls}" href="${link.href}" target="_blank" rel="external">${link.name}</a>`;
+    }
+    html += /*HTML*/ `</nav></footer>`;
 
     return html;
 }

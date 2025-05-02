@@ -15,6 +15,7 @@ no tests
 ## color
 
 links : #FF5F19
+background : #37282D
 
 ###   License
 The project's licensing information can be found in the separate [LICENSE](./license) file.

@@ -14,6 +14,15 @@ flex-wrap-reversed-row
 
 
 //  Justify content
+.flex-wrap-row-justify-flex-start
+    @extend flex-wrap-row
+    justify-content: flex-start
+
+.flex-wrap-row-justify-flex-end
+    @extend flex-wrap-row
+    justify-content: flex-end
+
+
 .flex-wrap-row-justify-space-evenly
     @extend flex-wrap-row
     justify-content: space-evenly
@@ -38,7 +47,8 @@ flex-wrap-reversed-row
 .flex-wrap-row-align-items-center
     align-items: center
     @extend flex-wrap-row
-    
+  
+
 //  Align and Justify-content mix
 .flex-wrap-row-align-items-center-justify-space-between
     align-items: center
