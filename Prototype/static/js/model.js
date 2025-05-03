@@ -20,7 +20,7 @@ const model =
     {
         title: "Sosialentreprenørskap i Norge",
         description: "- Sosialentreprenørskap i Norge",
-        cls: "header-container flex-wrap-column-align-content-center-justify-space-evenly",
+        cls: "header-container flex-wrap-row-justify-center",
         image:
             //  Logo for the header
             {
@@ -32,7 +32,7 @@ const model =
     },
     nav:
     {
-        cls : "nav-container flex-wrap-row-align-items-center-justify-space-evenly",
+        cls : "navbar bg-brown flex-wrap-row-align-items-center",
         pages:
         [
             {
@@ -229,7 +229,7 @@ const model =
     {
         
 
-        cls: "footer-container flex-wrap-column-align-items-center-justify-space-evenly",
+        cls: "bg-brown footer-container flex-wrap-column-align-items-center-justify-space-evenly",
         contact:
         {
             cls: "contact-container flex-wrap-row-justify-space-evenly",
@@ -452,7 +452,7 @@ const model =
                         articles:
                             [
                                 {
-                                    cls: "news-banner flex-wrap-row",
+                                    cls: "news-banner flex-wrap-row link",
                                     date: "2023-10-01",
                                     headline:"Referat Fra Styremøte 2023",
                                     image:

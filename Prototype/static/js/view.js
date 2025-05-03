@@ -16,7 +16,7 @@ function navigationMenu()
         }
         else if (page.type === "link")
         {
-            html += /*HTML*/ `<a class='${page.cls}' href="${nav.pages[i].href}" target="_blank" rel="external">${nav.pages[i].title}</a>`;
+            html += /*HTML*/ `<a href="${nav.pages[i].href}" target="_blank" rel="external"><div class="${page.cls}">${nav.pages[i].title}</div></a>`;
         }
     }
 
@@ -30,9 +30,9 @@ function header()
     //  Header
     let html = /*HTML*/ `
     <header class="${model.header.cls}">
-        <div class="flex-wrap-row-align-items-center-justify-space-between">
+        <div class="flex-wrap-row-justify-flex-start">
             <img class="${model.header.image.cls}" alt="${model.header.image.alt}" src="${model.header.image.src}">
-            <h1>${model.header.title}</h1>
+            <h1 class="h1">${model.header.title}</h1>
         </div>
         ${navigationMenu()}
     </header>`;
@@ -43,7 +43,6 @@ function footer()
 {
     //  Footer
     const footer = model.footer;
-    const navigation = footer.nav;
 
     let html = /*HTML*/ `
     <footer class="${footer.cls}">
@@ -53,7 +52,10 @@ function footer()
     {
         const link = footer.nav[i];
         html += /*HTML*/ `
-            <a class="${link.cls}" href="${link.href}" target="_blank" rel="external">${link.name}</a>`;
+        
+            <a href="${link.href}" target="_blank" rel="external">
+                <div class="${link.cls}">${link.name}</div>
+            </a>`;
     }
     html += /*HTML*/ `</nav></footer>`;
 

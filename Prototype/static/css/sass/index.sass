@@ -1,6 +1,8 @@
 //  Sass main file
 
 @import fonts, flexbox, grid-container
+
+//  Importing Bootstrap CSS
 @import url(https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css)
 @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css)
 *
@@ -26,6 +28,19 @@ main
 header
     div
         inline-size: 100%
+
+nav
+    button
+        border: none
+        background: inherit
+        @extend nunito-font-regular
+    
+        &:hover
+            background: inherit
+            color: rgba(255, 95, 25, 1) !important
+        
+nav.navbar
+    inline-size: 100%
 
 button
     cursor: pointer
@@ -68,9 +83,6 @@ section
     .article-container
         margin: 1em
         inline-size: 26em
-        
-
-
     .news-container
         inline-size: 14em
         color: rgb(55, 40, 45)
@@ -85,10 +97,26 @@ section
         inline-size: 18em
         margin-inline-start: 2em
 
-a.link
-    text-decoration: underline !important
-    color: rgba(255, 95, 25, 1) !important
+    .card-body
+        margin-block: 0em
+        font-size: 0.8em
+        text-align: justify
+        
 
+div.link
+    padding: 1em
+    @extend nunito-font-regular
+    color: rgba(255, 95, 25, 1) !important
+    
+
+    &:hover
+        text-decoration: underline !important
+        color: rgba(255, 95, 25, 1) !important
+
+.h1
+    font-size: 2.5em
+    font-weight: 700
+    @extend roboto-font
 .nav-item
     margin-inline-start: .9em
 
@@ -122,5 +150,6 @@ a.link
     inline-size: 45em
 
 .bg-brown
+    padding-block: 1em
     background: rgb(55, 40, 45)
-    color: whitesmoke
+    color: rgba(245, 245, 245, 1)

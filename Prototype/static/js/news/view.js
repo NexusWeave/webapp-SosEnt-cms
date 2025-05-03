@@ -32,9 +32,7 @@ function newsView(arg, id)
                                     <time datetime="${articles[j].date}">${articles[j].date}</time>
                                     <p>${articles[j].lede}</p>
                                     <div class = "flex-wrap-row-justify-content-flex-end">
-                                        <button class = "read-more">
-                                            <a href="${articles[j].link}">Read more</a>
-                                        </button>
+                                        <a class = "link" href="${articles[j].link}">Les mer</a>
                                     </div>
                                 </div>
                             

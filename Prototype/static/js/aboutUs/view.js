@@ -77,9 +77,16 @@ function aboutUsView(arg, id)
                         <img src="${person.image.src ? person.image.src : null}" class="card-img-top" alt="${person.image.alt ? person.image.alt : null}">
                         <section class="card-body bg-brown">
                             <h5 class="card-text h5">${person.title}</h5>
-                            <p class="card-text">   
-                                Telefon : <a class="link" href = "tel:${person.phone}">${person.phone}</a><br>
-                                E-post : <a class="link" href = "mailto:${person.email}">Send En E-post</a>
+                            <p class="card-text">
+
+                                Telefon :
+                                <a href="tel:${person.phone}">
+                                    <div class="link">${person.phone}</div>
+                                </a>
+                                E-post :  
+                                <a href="mailto:${person.email}">
+                                    <div class="link">Send en E-post</div>
+                                </a>
                             </p>
                         </section>
                     </section>

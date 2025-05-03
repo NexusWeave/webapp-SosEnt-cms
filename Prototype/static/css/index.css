@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 @import url(https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap);
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wdth,wght,YTLC@0,6..12,75..125,200..1000,440..540;1,6..12,75..125,200..1000,440..540&display=swap");
 @import url(https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css);
 @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css);
 work-sans-heading, body h2 {
@@ -8,10 +9,17 @@ work-sans-heading, body h2 {
   font-family: "Work Sans", sans-serif;
 }
 
-roboto-font, section .about-us, body button, body {
+roboto-font, .h1, section .about-us, body button, body {
   font-weight: 400;
   font-style: normal;
   font-family: "Roboto", sans-serif;
+}
+
+nunito-font-regular, div.link, nav button {
+  font: caption;
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Nunito Sans", sans-serif;
 }
 
 flex-row, .flex-wrap-row-justify-content-flex-end, .flex-row {
@@ -19,7 +27,7 @@ flex-row, .flex-wrap-row-justify-content-flex-end, .flex-row {
   flex-direction: row;
 }
 
-flex-wrap-row, .flex-wrap-row, .flex-wrap-row-align-items-center-justify-space-around, .flex-wrap-row-align-items-center-justify-space-evenly, .flex-wrap-row-align-items-center-justify-space-between, .flex-wrap-row-align-items-center, .flex-wrap-row-align-items-end, .flex-wrap-row-justify-center, .flex-wrap-row-justify-space-around, .flex-wrap-row-justify-space-between, .flex-wrap-row-justify-space-evenly, .flex-wrap-row-justify-flex-end, .flex-wrap-row-justify-flex-start {
+flex-wrap-row, .flex-wrap-row, .flex-wrap-row-align-items-center-justify-space-around, .flex-wrap-row-align-items-center-justify-space-evenly, .flex-wrap-row-align-items-center-justify-space-between, .flex-wrap-row-align-items-center-justify-center, .flex-wrap-row-align-items-center, .flex-wrap-row-align-items-end, .flex-wrap-row-justify-center, .flex-wrap-row-justify-space-around, .flex-wrap-row-justify-space-between, .flex-wrap-row-justify-space-evenly, .flex-wrap-row-justify-flex-end, .flex-wrap-row-justify-flex-start {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -61,6 +69,11 @@ flex-wrap-reversed-row, .flex-wrap-reversed-row {
 
 .flex-wrap-row-align-items-center {
   align-items: center;
+}
+
+.flex-wrap-row-align-items-center-justify-center {
+  align-items: center;
+  justify-content: center;
 }
 
 .flex-wrap-row-align-items-center-justify-space-between {
@@ -158,6 +171,19 @@ header div {
   inline-size: 100%;
 }
 
+nav button {
+  border: none;
+  background: inherit;
+}
+nav button:hover {
+  background: inherit;
+  color: rgb(255, 95, 25) !important;
+}
+
+nav.navbar {
+  inline-size: 100%;
+}
+
 button {
   cursor: pointer;
 }
@@ -216,10 +242,24 @@ section .contact {
   inline-size: 18em;
   margin-inline-start: 2em;
 }
+section .card-body {
+  margin-block: 0em;
+  font-size: 0.8em;
+  text-align: justify;
+}
 
-a.link {
+div.link {
+  padding: 1em;
+  color: rgb(255, 95, 25) !important;
+}
+div.link:hover {
   text-decoration: underline !important;
   color: rgb(255, 95, 25) !important;
+}
+
+.h1 {
+  font-size: 2.5em;
+  font-weight: 700;
 }
 
 .nav-item {
@@ -265,6 +305,7 @@ a.link {
 }
 
 .bg-brown {
+  padding-block: 1em;
   background: rgb(55, 40, 45);
-  color: whitesmoke;
+  color: rgb(245, 245, 245);
 }/*# sourceMappingURL=index.css.map */
