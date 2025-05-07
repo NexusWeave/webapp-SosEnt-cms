@@ -72,10 +72,10 @@ function aboutUsView(arg, id)
             
             html += `
                 <section class="contact flex-wrap-column">
-                    <h3>${person.name}</h3>
-                    <section class="card flex-row">
+                    <section class="card bg-brown flex-row">
                         <img src="${person.image.src ? person.image.src : null}" class="card-img-top" alt="${person.image.alt ? person.image.alt : null}">
-                        <section class="card-body bg-brown">
+                        <section class="card-body">
+                            <h3>${person.name}</h3>
                             <h5 class="card-text h5">${person.title}</h5>
                             <p class="card-text">
                                 Telefon: 
