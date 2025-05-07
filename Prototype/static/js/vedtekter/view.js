@@ -79,7 +79,7 @@ function carouselView(images, carousel, content)
 
 function vedtekterContent(article)
 {
-    let html;
+    let html = '';
 
     //  Vedtekter content
     for (let j = 0; j < article.length; j++)

@@ -18,25 +18,27 @@ function newsView(arg, id)
                 html = `
                     ${header()}
                     <main>
-                    <h2>${content.headline}</h2>
-                        <section class = "${content.cls}">`;
-
-                //  Insert the News articles
-                html += newsContent(model.data.nav.pages[i].content.articles) + `</section></main> ${footer()}`;
+                        <h2>${content.headline}</h2>
+                        <section class="${content.cls}">
+                            ${newsContent(content.articles)} 
+                        </section>
+                    </main>
+                    ${footer()}} `;
                 return html;
             }
         }    
 }
+
 function newsContent(articles)
 {
-    let html;
+    let html = '';
 
     for (let j = 0; j < articles.length; j++)
     {
         html += `
-            <article class = "${articles[j].cls}">
-                <img class = "${articles[j].image.cls}" alt="${articles[j].image.alt}" src="${articles[j].image.src ? articles[j].image.src : null}" />
-                <div class = "flex-wrap-column is-31">r
+            <article class="${articles[j].cls}">
+                <img class="${articles[j].image.cls}" alt="${articles[j].image.alt}" src="${articles[j].image.src ? articles[j].image.src : null}" />
+                <div class="flex-wrap-column is-31">
                     <h3>${articles[j].headline}</h3>
                     <time datetime="${articles[j].date}">${articles[j].date}</time>
                     <p>${articles[j].lede}</p>
