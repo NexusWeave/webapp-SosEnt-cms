@@ -71,7 +71,7 @@ function aboutUsView(arg, id)
             const person = contact.content[j];
             
             html += `
-                <section class="contact flex-wrap-column">
+                <section class="contact">
                     <section class="card bg-brown flex-row">
                         <img src="${person.image.src ? person.image.src : null}" class="card-img-top" alt="${person.image.alt ? person.image.alt : null}">
                         <section class="card-body">
