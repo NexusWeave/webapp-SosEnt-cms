@@ -132,8 +132,19 @@ div.link
     border: 1px solid black
 
 .card
-    inline-size: 18em
+    block-size: 15em
+    inline-size: 31em
+    @extend nunito-font-regular
 
+    a
+        @extend nunito-font-regular
+        color: rgb(255, 95, 25) !important
+        
+    &:hover
+        text-decoration: underline !important
+.card-img-top
+
+    inline-size: 18em
 .is-31
     inline-size: 31vw
 

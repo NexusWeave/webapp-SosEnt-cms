@@ -15,7 +15,7 @@ roboto-font, .h1, section .about-us, body button, body {
   font-family: "Roboto", sans-serif;
 }
 
-nunito-font-regular, div.link, nav button {
+nunito-font-regular, .card a, .card, div.link, nav button {
   font: caption;
   font-weight: 400;
   font-style: normal;
@@ -280,6 +280,17 @@ div.link:hover {
 }
 
 .card {
+  block-size: 15em;
+  inline-size: 31em;
+}
+.card a {
+  color: rgb(255, 95, 25) !important;
+}
+.card:hover {
+  text-decoration: underline !important;
+}
+
+.card-img-top {
   inline-size: 18em;
 }
 
