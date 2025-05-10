@@ -28,7 +28,7 @@ function navigationMenu()
 function header()
 {
     //  Header
-    let html = /*HTML*/ `
+    let html = /*HTML*/`
     <header class="${model.header.cls}">
         <div class="flex-wrap-row-justify-flex-start">
             <img class="${model.header.image.cls}" alt="${model.header.image.alt}" src="${model.header.image.src}">
@@ -36,6 +36,7 @@ function header()
         </div>
         ${navigationMenu()}
     </header>`;
+    
     return html;
 }
 

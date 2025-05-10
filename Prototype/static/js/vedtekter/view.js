@@ -4,7 +4,7 @@ function vedtekterView(arg, id)
         //  Fetch the model
         const pages = model.data.nav.pages;
 
-        for( let i = 0; i < pages.length; i++)
+        for (let i = 0; i < pages.length; i++)
             {
                 //  Ensure the correct page is selected
                 if (pages[i].name == arg && id == pages[i].id)
@@ -14,12 +14,13 @@ function vedtekterView(arg, id)
                     const content = data.nav.pages[i].content;
                     const nav = data.nav.pages[i];
                     
-                    html = `${header()}<main>`;
-
-                    //  Insert the carousel images
-
-                    html += carouselView(data.carousel, model.app.currentCarosel, nav.content);
-                    html += vedtekterContent(content.vedtekter) +`</main> ${footer()}`;
+                    html = /*HTML*/`
+                    ${header()}
+                    <main>
+                        ${carouselView(data.carousel, model.app.currentCarosel, nav.content)}
+                        ${vedtekterContent(content.vedtekter)}
+                    </main> 
+                    ${footer()}`;
 
                     return html;
                 }
@@ -29,26 +30,26 @@ function vedtekterView(arg, id)
 function carouselView(images, carousel, content)
 {
 
-    let html = `<section class = "${content.cls} flex-wrap-row-justify-center">
+    let html = /*HTML*/`<section class = "${content.cls} flex-wrap-row-justify-center">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
          <ol class="carousel-indicators">`;
 
     //  Indicators
-    for (let j = 0; j <= images.length; j++)
+    for (let i = 0; i <= images.length; i++)
     {
-        html+= `<li data-target="#myCarousel" data-slide-to="${j}"></li>`;
+        html += /*HTML*/`<li data-target="#myCarousel" data-slide-to="${i}"></li>`;
     }
 
-    html += `</ol>
+    html += /*HTML*/`</ol>
     <div class="carousel-inner">
         <div class="item active">
             <img alt="${carousel.alt ? carousel.alt : null}" src="${carousel.src ? carousel.src : null}">
         </div>`;
 
     //  Carousel images
-    for (let j = 0; j < images.length; j++)
+    for (let i = 0; i < images.length; i++)
     {
-        const image = images[j];
+        const image = images[i];
 
         html += `
             <div class="item">
@@ -56,7 +57,7 @@ function carouselView(images, carousel, content)
             </div>`;
     }
 
-    html +=`
+    html += /*HTML*/`
         </div>
             <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left"></span>
@@ -71,7 +72,7 @@ function carouselView(images, carousel, content)
             <h2>${content.headline}</h2>
             <span>Rev. Årsmøte <time datetime="${content.updated}">${content.updated}</time></span>
             </section>
-        <section class = " bg-brown flex-wrap-row-align-items-center">`;
+        `;
 
     return html;
 
@@ -79,23 +80,27 @@ function carouselView(images, carousel, content)
 
 function vedtekterContent(article)
 {
-    let html = '';
+    let html = /*HTML*/`
+    <section class = " bg-brown flex-wrap-row-align-items-center">`;
 
     //  Vedtekter content
-    for (let j = 0; j < article.length; j++)
+    for (let i = 0; i < article.length; i++)
         {
             
-            html += `<section class = "article-container">
+            html += /*HTML*/`
+            <section class = "article-container">
             <article>
-                <h3>${article[j].headline}</h3>`;
+                <h3>${article[i].headline}</h3>`;
 
-            for (let k = 0; k < article[j].paragraphs.length; k++)
+            for (let j = 0; j < article[i].paragraphs.length; j++)
             {
-                html += `<p>${article[j].paragraphs[k]}</p>`;
+                html += /*HTML*/`
+                <p>${article[i].paragraphs[j]}</p>`;
             }
-            html += `</article></section>`;
+
+            html += /*HTML*/`</article></section>`;
         }
         
-        html += `</section>`;
+        html += /*HTML*/`</section>`;
     return html;
 }
