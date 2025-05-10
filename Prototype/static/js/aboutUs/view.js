@@ -1,8 +1,6 @@
 //  About us view
-
 function aboutUsView(arg, id)
 {
-
     //  Fetch the model
     const pages = model.nav.pages;
 
