@@ -762,14 +762,14 @@ const model =
                                     image:
                                     {
                                         cls: "",
-                                        alt: "Helle V. Rødahl",
+                                        alt: "Helle Vujic Rødahl",
                                         src: "./static/img/team/profil-helle-privat.jpg",
 
                                     },
                                 },
                                 {
                                     cls: "contact-container ",
-                                    name: "Rune V. Kvam",
+                                    name: "Rune J. Kvarme",
                                     title: "Generalsekretær",
                                     phone: "+47 123 45 678",
                                     email: "rune@sosent.no",
