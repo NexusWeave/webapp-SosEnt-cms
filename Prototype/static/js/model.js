@@ -762,7 +762,7 @@ const model =
                                     image:
                                     {
                                         cls: "",
-                                        alt: "Helle Vujic Rødahl",
+                                        alt: "Helle V. Rødahl",
                                         src: "./static/img/team/profil-helle-privat.jpg",
 
                                     },
@@ -776,7 +776,7 @@ const model =
                                     image:
                                     {
                                         cls: "",
-                                        alt: "Rune V. Kvam",
+                                        alt: "Rune J. Kvarme",
                                         src: "./static/img/team/52700234381_5e75074f92_q.jpg",
                                     
                                     },
