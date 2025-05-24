@@ -71,8 +71,7 @@ function carouselView(images, carousel, content)
         <section class = "flex-wrap-column-align-items-center">
             <h2>${content.headline}</h2>
             <span>Rev. Årsmøte <time datetime="${content.updated}">${content.updated}</time></span>
-            </section>
-        `;
+            </section> `;
 
     return html;
 
@@ -85,18 +84,18 @@ function vedtekterContent(article)
 
     //  Vedtekter content
     for (let i = 0; i < article.length; i++)
-        {
-            
-            html += /*HTML*/`
-            <section class = "article-container">
+    {
+        html += /*HTML*/`
+        <section class = "article-container">
             <article>
+                
                 <h3>${article[i].headline}</h3>`;
-
-            for (let j = 0; j < article[i].paragraphs.length; j++)
-            {
-                html += /*HTML*/`
-                <p>${article[i].paragraphs[j]}</p>`;
-            }
+                
+                for (let j = 0; j < article[i].paragraphs.length; j++)
+                {
+                    html += /*HTML*/`
+                    <p>${article[i].paragraphs[j]}</p>`;
+                }
 
             html += /*HTML*/`</article></section>`;
         }
