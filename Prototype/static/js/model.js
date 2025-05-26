@@ -20,7 +20,7 @@ const model =
     {
         title: "Sosialentreprenørskap i Norge",
         description: "- Sosialentreprenørskap i Norge",
-        cls: "header-container flex-wrap-row-justify-center",
+        cls: "header-container flex-wrap-row-justify-center bg-brown",
         image:
             //  Logo for the header
             {
