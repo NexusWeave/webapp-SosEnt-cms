@@ -511,7 +511,7 @@ const model =
                                    image:
                                     {
                                         cls: "article-image",
-                                        src: "./static/img/logo/sosent-logo.png",
+                                        src: "./static/img/logo/SosEnt-favicon-background.png",
                                         alt: "News banner",
                                     }, 
      
@@ -565,7 +565,7 @@ const model =
                                     image:
                                     {
                                         cls: "article-image",
-                                        src: "./static/img/logo/sosent-logo.png",
+                                        src: "./static/img/logo/SosEnt-favicon-background.png",
                                         alt: "News banner",
                                     }, 
 
