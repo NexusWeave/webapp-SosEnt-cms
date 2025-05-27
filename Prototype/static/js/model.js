@@ -216,7 +216,7 @@ const model =
                 cls: "link nav-item",
                 type: "link",
                 name: "questback",
-                title: "Meld Interesse her",
+                title: "Meld inn",
                 href: "https://response.questback.com/isa/qbv.dll/bylink?p=164g6KsM99iFiEoIuFBSPf4vlpq1wCY39OK0FW7sqwkdWfjDQ29a9XFSuJlAyLXr0",
             },
         ],
