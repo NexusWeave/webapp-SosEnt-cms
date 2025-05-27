@@ -30,11 +30,17 @@ function header()
     //  Header
     let html = /*HTML*/`
     <header class="${model.header.cls}">
-        <div class="flex-wrap-row-justify-flex-start ">
-            <img class="${model.header.image.cls}" alt="${model.header.image.alt}" src="${model.header.image.src}">
+        <div class="flex-row-align-items-center">
+            <div class="flex-wrap-row-justify-flex-start ">
+                <img class="${model.header.image.cls}" alt="${model.header.image.alt}" src="${model.header.image.src}">
+            </div>
+            <div class="flex-column-align-items-center">
+                <h1 class="h1">${model.header.title}</h1>
+                <h4>${model.header.description}</h4>
+            </div>
+            <div></div>
         </div>
-        <h1 class="${model.header.cls}">${model.header.title}</h1>
-        <h3>${model.header.description}</h3>
+        
         ${navigationMenu()}
     </header>`;
     
