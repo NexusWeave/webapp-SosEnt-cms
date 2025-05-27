@@ -18,15 +18,15 @@ const model =
     //  Header, nav, main and footer
     header:
     {
-        title: "Sosialentreprenørskap i Norge",
-        description: "- Sosialentreprenørskap i Norge",
+        title: "SoSEnt - Norge",
+        description: "Landsforeningen for Sosiale Entrepenører i Norge",
         cls: "header-container flex-wrap-row-justify-center bg-brown",
         image:
             //  Logo for the header
             {
             cls: "logo-container flex-wrap-row-align-items-center-justify-space-between",
             alt: "sosent-logo.png",
-            src: "./static/img/logo/sosent-logo.png",
+            src: "./static/img/logo/SosEnt-favicon.png",
             
         },
     },
@@ -338,7 +338,7 @@ const model =
                     headline:"SOSENT - Norges Landsforening For Sosialt Entreprenørskap",
                     image:
                         {
-                            src: "./static/img/logo/sosent-logo.png",
+                            src: "./static/img/logo/SosEnt-favicon.png",
                             alt: "News banner",
                         },
 
@@ -441,6 +441,80 @@ const model =
         {
             pages:
             [
+                {
+                    id: 2,
+                    name: "aboutUs",
+                    content:
+                    {
+                        cls: "about-container flex-wrap-column-align-items-center",
+                        headline: "SOSENT- Norge Sammen for et bærekraftig Norge",
+                        text: "Kontakt oss gjerne for en kaffe prat",
+                        banner:
+                            {
+                                src: "./static/img/sosent/Gemini_Generated_Image_opf6gwopf6gwopf6.jpeg",
+                                alt: "SOSENT-Team.jpg",
+                            },
+                        paragraphs: 
+                        [
+                            {
+                                heading:"Om oss",
+                                paragraph: 
+                                [
+                                    `Vi i SOSENT jobber for at sosialt entreprenørskap skal være en sentral del av et bærekraftig samfunn og synliggjøre sosiale entreprenører
+                                    som viktige samfunnsaktører. Foreningen søker å bli et bindeledd på tvers av tradisjonelle skillelinjer som bidrar til at offentlig, privat,
+                                    frivillig og ideell sektor jobber sterkere sammen, og en kompetanseaktør på feltet i sosialt entreprenørskap i Norge.`,
+                                ] 
+                            },
+                            {
+                                heading:"Formålet med SoSEnT",
+                                paragraph: 
+                                [
+                                    `Formålet med foreningen er å definere sosialt entreprenørskap i norsk kontekst, spre kunnskap om denne fjerde sektoren og interessepolitisk
+                            påvirkningsarbeid for å bedre levekårene til sosiale entreprenører i Norge, herunder organisasjonsformer. Videre å gjøre det lettere å finne
+                            finansiering til drift og lage partnerskap med det offentlige, svare ut aktuelle høringer som angår de sosiale entreprenørene, kunnskapsspredning,
+                            samt etablere matnyttige nettverk og møteplasser for foreningens medlemmer.`,
+                                ] 
+                            },
+                        ],
+                        
+                        contact:
+                        {
+                            cls: "contact-container flex-wrap-row-justify-space-evenly",
+                            content:
+                            [
+                                {
+                                    name: "Helle V. Rødahl",
+                                    title: "Styreleder",
+                                    phone: "+47 123 45 678",
+                                    email: "helle@sosent.no",
+                                    image:
+                                    {
+                                        cls: "",
+                                        alt: "Helle V. Rødahl",
+                                        src: "./static/img/team/profil-helle-privat.jpg",
+
+                                    },
+                                },
+                                {
+                                    cls: "contact-container ",
+                                    name: "Rune J. Kvarme",
+                                    title: "Generalsekretær",
+                                    phone: "+47 123 45 678",
+                                    email: "rune@sosent.no",
+                                    image:
+                                    {
+                                        cls: "",
+                                        alt: "Rune J. Kvarme",
+                                        src: "./static/img/team/52700234381_5e75074f92_q.jpg",
+                                    
+                                    },
+
+                                },
+                                
+                            ],
+                        },
+                    },
+                },
                 {
                     id: 0,
                     name: "news",
@@ -616,14 +690,14 @@ const model =
                 },
                 {
                     id: 1,
-                    name: "vedtekter",
-                    title: "SOSENT Vedtekter",
+                    name: "arkiv",
+                    title: "Arkiv",
                     
                     content:
                     {
                         updated: "2023",
                         cls: "vedtekter-article",
-                        headline:"Vedtekter for SOSENT",
+                        headline:"Sosent Arkiv",
                         banner:
                         {
                             src: "./static/img/logo/sosent-logo.png",
@@ -711,81 +785,6 @@ const model =
                                     
                             ]
                     }
-                },
-
-                {
-                    id: 2,
-                    name: "aboutUs",
-                    content:
-                    {
-                        cls: "about-container flex-wrap-column-align-items-center",
-                        headline: "SOSENT- Norge Sammen for et bærekraftig Norge",
-                        text: "Kontakt oss gjerne for en kaffe prat",
-                        banner:
-                            {
-                                src: "./static/img/sosent/Gemini_Generated_Image_opf6gwopf6gwopf6.jpeg",
-                                alt: "SOSENT-Team.jpg",
-                            },
-                        paragraphs: 
-                        [
-                            {
-                                heading:"Om oss",
-                                paragraph: 
-                                [
-                                    `Vi i SOSENT jobber for at sosialt entreprenørskap skal være en sentral del av et bærekraftig samfunn og synliggjøre sosiale entreprenører
-                                    som viktige samfunnsaktører. Foreningen søker å bli et bindeledd på tvers av tradisjonelle skillelinjer som bidrar til at offentlig, privat,
-                                    frivillig og ideell sektor jobber sterkere sammen, og en kompetanseaktør på feltet i sosialt entreprenørskap i Norge.`,
-                                ] 
-                            },
-                            {
-                                heading:"Formålet med SoSEnT",
-                                paragraph: 
-                                [
-                                    `Formålet med foreningen er å definere sosialt entreprenørskap i norsk kontekst, spre kunnskap om denne fjerde sektoren og interessepolitisk
-                            påvirkningsarbeid for å bedre levekårene til sosiale entreprenører i Norge, herunder organisasjonsformer. Videre å gjøre det lettere å finne
-                            finansiering til drift og lage partnerskap med det offentlige, svare ut aktuelle høringer som angår de sosiale entreprenørene, kunnskapsspredning,
-                            samt etablere matnyttige nettverk og møteplasser for foreningens medlemmer.`,
-                                ] 
-                            },
-                        ],
-                        
-                        contact:
-                        {
-                            cls: "contact-container flex-wrap-row-justify-space-evenly",
-                            content:
-                            [
-                                {
-                                    name: "Helle V. Rødahl",
-                                    title: "Styreleder",
-                                    phone: "+47 123 45 678",
-                                    email: "helle@sosent.no",
-                                    image:
-                                    {
-                                        cls: "",
-                                        alt: "Helle V. Rødahl",
-                                        src: "./static/img/team/profil-helle-privat.jpg",
-
-                                    },
-                                },
-                                {
-                                    cls: "contact-container ",
-                                    name: "Rune J. Kvarme",
-                                    title: "Generalsekretær",
-                                    phone: "+47 123 45 678",
-                                    email: "rune@sosent.no",
-                                    image:
-                                    {
-                                        cls: "",
-                                        alt: "Rune J. Kvarme",
-                                        src: "./static/img/team/52700234381_5e75074f92_q.jpg",
-                                    
-                                    },
-
-                                },
-                                
-                            ],
-                        },
-                    },
                 },
             ],
         },
