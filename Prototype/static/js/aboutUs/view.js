@@ -1,5 +1,5 @@
 //  About us view
-function aboutUsView(arg, id)
+function aboutUsView(id)
 {
     //  Fetch the model
     const pages = model.nav.pages;
@@ -8,7 +8,7 @@ function aboutUsView(arg, id)
     for (let i = 0; i < pages.length; i++)
     {
         // Ensure that the page exists
-        if (pages[i].name === arg && id === pages[i].id)
+        if (id === pages[i].id)
         {
             const data = model.data;
             const content = data.nav.pages[i].content;
@@ -17,7 +17,7 @@ function aboutUsView(arg, id)
                 ${header()}
                 <main class = "${model.main.cls}">
                     <section class="flex-wrap-row-justify-space-around">
-                        ${newsSection(data.articles)}
+                        ${newsSection(data.articlesBanner)}
                         ${aboutUsSection(content)}
                         ${contactSection(content.contact)}
                     </section>

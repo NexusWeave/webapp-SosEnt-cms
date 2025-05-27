@@ -26,7 +26,7 @@ function next()
             Carosel.caption = sources[n].caption;
             
             //  Update the view
-            updateView("vedtekter");
+            updateView("arkiv");
             break;
         }
     }
@@ -57,7 +57,7 @@ function prev()
             Carosel.caption = sources[n].caption;
             
             //  Update the view
-            updateView("vedtekter");
+            updateView("arkiv");
             break;
         }
     } 

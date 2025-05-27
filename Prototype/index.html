@@ -13,12 +13,12 @@
         <script src="static/js/view.js"></script>
         <script src="static/js/news/view.js"></script>
         <script src="static/js/aboutUs/view.js"></script>
-        <script src="static/js/vedtekter/view.js"></script>
+        <script src="static/js/arkiv/view.js"></script>
 
         <script src="static/js/controller.js"></script>
         <script src="static/js/news/controller.js"></script>
         <script src="static/js/aboutUs/controller.js"></script>
-        <script src="static/js/vedtekter/controller.js"></script>
+        <script src="static/js/arkiv/controller.js"></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -28,7 +28,8 @@
         <div id="app"></div>
         <script>
             updateView();
-            function updateView() {
+            function updateView() 
+            {
 
                 /*
                     Ensures that the correct view is displayed.
@@ -36,27 +37,22 @@
                     property of the model.
                 */
                 let html;
-
-                // Get the model from the model.js file
                 const page = model.app.currentPage;
 
                 // Ensure that the requested page is valid
                 switch (page)
                 {
                     case 'news':
-                        html = newsView('news', 0);
+                        html = newsView(1);
                         break;  
 
-                    case 'vedtekter':
-                        html = vedtekterView('vedtekter', 1);
+                    case 'arkiv':
+                        html = arkivView(2);
                         break;
 
-                    case 'aboutUs':
-                        html = aboutUsView('aboutUs', 2);
-                        break;
 
                     default:
-                        html = aboutUsView('aboutUs', 2);
+                        html = aboutUsView(0);
                         break;
                 }
 

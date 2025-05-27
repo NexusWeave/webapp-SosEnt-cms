@@ -1,30 +1,31 @@
 //  Vedtekter view
-function vedtekterView(arg, id)
+function arkivView(id)
 {
-        //  Fetch the model
-        const pages = model.data.nav.pages;
+    //  Fetch the model
+    const pages = model.data.nav.pages;
 
-        for (let i = 0; i < pages.length; i++)
-            {
-                //  Ensure the correct page is selected
-                if (pages[i].name == arg && id == pages[i].id)
-                {
-                    let html;
-                    const data = model.data;
-                    const content = data.nav.pages[i].content;
-                    const nav = data.nav.pages[i];
-                    
-                    html = /*HTML*/`
-                    ${header()}
-                    <main>
-                        ${carouselView(data.carousel, model.app.currentCarosel, nav.content)}
-                        ${vedtekterContent(content.vedtekter)}
-                    </main> 
-                    ${footer()}`;
+    for (let i = 0; i < pages.length; i++)
+    {
+        //  Ensure the correct page is selected
+        if (id == pages[i].id)
+        {
+            let html;
+            const data = model.data;
+            const content = data.nav.pages[i].content;
+            const nav = data.nav.pages[i];
 
-                    return html;
-                }
-            }
+            html = /*HTML*/`
+                ${header()}
+                <main>
+                    ${carouselView(data.carousel, model.app.currentCarosel, nav.content)}
+                    ${arkivContent(content.vedtekter)}
+                </main> 
+                ${footer()}`;
+            
+            return html;
+        }
+        
+    }
 }
 
 function carouselView(images, carousel, content)
@@ -77,7 +78,7 @@ function carouselView(images, carousel, content)
 
 }
 
-function vedtekterContent(article)
+function arkivContent(article)
 {
     let html = /*HTML*/`
     <section class = " bg-brown flex-wrap-row-align-items-center">`;

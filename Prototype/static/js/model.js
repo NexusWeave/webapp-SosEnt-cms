@@ -23,11 +23,10 @@ const model =
         cls: "header-container flex-wrap-row-justify-center bg-brown",
         image:
             //  Logo for the header
-            {
+        {
             cls: "logo-container flex-wrap-row-align-items-center-justify-space-between",
             alt: "sosent-logo.png",
-            src: "./static/img/logo/SosEnt-favicon.png",
-            
+            src: "./static/img/logo/SosEnt-logo.png",
         },
     },
     nav:
@@ -37,179 +36,21 @@ const model =
         [
             {
                 id: 0,
-                name: "news",
                 type: "button",
-                title: "Aktuelt",
-                content:
-                {
-                    cls: "news-container flex-wrap-column-align-items-center",
-                    headline:"SOSENT - Norge Nyheter",
-                },
+                name: "aboutUs",
+                title: "Om oss",
             },
             {
                 id: 1,
+                name: "news",
                 type: "button",
-                name: "vedtekter",
-                title: "SOSENT Vedtekter",
-                
-                content:
-                {
-                    updated: "2023",
-                    cls: " flex-wrap-column-align-items-center",
-                    headline:"Vedtekter for SOSENT",
-                    banner:
-                    {
-                        src: "./static/img/logo/sosent-logo.png",
-                        alt: "SOSENT Logo",
-                    },
-                    vedtekter:
-                        [
-                            {
-                                headline: "Virkeområde / Formål",
-                                paragraphs: [
-                                    `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
-                                    nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
-                                    porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
-                                    Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
-                                    erat volutpat. Nam ac massa vel nunc scelerisque bibendum.
-                                    `,
-                                ],
-                            },
-                            {
-                                headline: "Medlemskap",
-                                paragraphs: [
-                                    `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
-                                    nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
-                                    porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
-                                    Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
-                                    erat volutpat. Nam ac massa vel nunc scelerisque bibendum.
-                                    `,
-                                ],
-                            },
-                            {
-                                headline: "Organisasjonens styre",
-                                paragraphs: [
-                                    `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
-                                    nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
-                                    porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
-                                    Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
-                                    erat volutpat. Nam ac massa vel nunc scelerisque bibendum.
-                                    `,
-                                ],
-                            },
-                            {
-                                headline: "årsmøte",
-                                paragraphs: [
-                                    `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
-                                    nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
-                                    porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
-                                    Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
-                                    erat volutpat. Nam ac massa vel nunc scelerisque bibendum.
-                                    `,
-                                ],
-                            },
-                            {
-                                headline: "Aktiviteter",
-                                paragraphs: [
-                                    `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
-                                    nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
-                                    porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
-                                    Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
-                                    erat volutpat. Nam ac massa vel nunc scelerisque bibendum.
-                                    `,
-                                ],
-                            },
-                            {
-                                headline: "Forvaltning",
-                                paragraphs: [
-                                    `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
-                                    nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
-                                    porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
-                                    Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
-                                    erat volutpat. Nam ac massa vel nunc scelerisque bibendum.
-                                    `,
-                                ],
-                            },
-                            {
-                                headline: "Oppløsning",
-                                paragraphs: [
-                                    `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
-                                    nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
-                                    porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
-                                    Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
-                                    erat volutpat. Nam ac massa vel nunc scelerisque bibendum.
-                                    `,
-                                ],
-                            },
-                                
-                        ]
-                }
+                title: "Aktuelt",
             },
             {
                 id: 2,
                 type: "button",
-                name: "aboutUs",
-                title: "Om oss",
-                
-                content:
-                {
-                    cls: "about-container flex-wrap-column-align-items-center",
-                    headline: "SOSENT- Norge Sammen for et bærekraftig Norge",
-                    text: "Kontakt oss gjerne for en kaffe prat",
-                    banner:
-                        {
-                            src: "./static/img/sosent/Gemini_Generated_Image_opf6gwopf6gwopf6.jpeg",
-                            alt: "SOSENT-Team.jpg",
-                        },
-                    paragraphs: 
-                    [
-                        `Vi i SOSENT jobber for at sosialt entreprenørskap skal være en sentral del av et bærekraftig samfunn og synliggjøre sosiale entreprenører
-                        som viktige samfunnsaktører. Foreningen søker å bli et bindeledd på tvers av tradisjonelle skillelinjer som bidrar til at offentlig, privat,
-                        frivillig og ideell sektor jobber sterkere sammen, og en kompetanseaktør på feltet i sosialt entreprenørskap i Norge.`,
-            
-                        `Formålet med foreningen er å definere sosialt entreprenørskap i norsk kontekst, spre kunnskap om denne fjerde sektoren og interessepolitisk
-                        påvirkningsarbeid for å bedre levekårene til sosiale entreprenører i Norge, herunder organisasjonsformer. Videre å gjøre det lettere å finne
-                        finansiering til drift og lage partnerskap med det offentlige, svare ut aktuelle høringer som angår de sosiale entreprenørene, kunnskapsspredning,
-                        samt etablere matnyttige nettverk og møteplasser for foreningens medlemmer.`,
-                    ],
-                    
-                    contact:
-                    {
-                        cls: "contact-container flex-wrap-row-justify-space-evenly",
-                        content:
-                        [
-                            {
-                                name: "Helle V. Rødahl",
-                                title: "Styreleder",
-                                phone: "+47 123 45 678",
-                                email: "helle@sosent.no",
-                                image:
-                                {
-                                    cls: "",
-                                    alt: "Helle V. Rødahl",
-                                    src: "./static/img/team/profil-helle-privat.jpg",
-
-                                },
-                            },
-                            {
-                                cls: "contact-container ",
-                                name: "Rune V. Kvam",
-                                title: "Generalsekretær",
-                                phone: "+47 123 45 678",
-                                email: "rune@sosent.no",
-                                image:
-                                {
-                                    cls: "",
-                                    alt: "Rune V. Kvam",
-                                    src: "./static/img/team/52700234381_5e75074f92_q.jpg",
-                                
-                                },
-
-                            },
-                            
-                        ],
-                    },
-                },
+                name: "arkiv",
+                title: "Arkiv",
             },
             {
                 id: 3,
@@ -279,7 +120,7 @@ const model =
             },
         ],
 
-        articles:
+        articlesBanner:
             [
                 {
                     cls: "news-banner flex-wrap-row-justify-space-evenly",
@@ -389,7 +230,7 @@ const model =
                         headline:"SOSENT - Norges Landsforening for sosialt entreprenørskap",
                         image:
                         {
-                            src: "./static/img/logo/sosent-logo.png",
+                            src: "./static/img/logo/SosEnt-favicon.png",
                             alt: "News banner",
                         },
                         
@@ -442,7 +283,7 @@ const model =
             pages:
             [
                 {
-                    id: 2,
+                    id: 0,
                     name: "aboutUs",
                     content:
                     {
@@ -516,7 +357,7 @@ const model =
                     },
                 },
                 {
-                    id: 0,
+                    id: 1,
                     name: "news",
                     content:
                     {
@@ -585,7 +426,7 @@ const model =
                                    image:
                                     {
                                         cls: "article-image",
-                                        src: "./static/img/logo/SosEnt-favicon-background.png",
+                                        src: "./static/img/logo/SosEnt-favicon.png",
                                         alt: "News banner",
                                     }, 
      
@@ -639,7 +480,7 @@ const model =
                                     image:
                                     {
                                         cls: "article-image",
-                                        src: "./static/img/logo/SosEnt-favicon-background.png",
+                                        src: "./static/img/logo/SosEnt-favicon.png",
                                         alt: "News banner",
                                     }, 
 
@@ -689,7 +530,7 @@ const model =
                     },
                 },
                 {
-                    id: 1,
+                    id: 2,
                     name: "arkiv",
                     title: "Arkiv",
                     
