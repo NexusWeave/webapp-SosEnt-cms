@@ -33,8 +33,8 @@ function header()
         <div class="flex-wrap-row-justify-flex-start ">
             <img class="${model.header.image.cls}" alt="${model.header.image.alt}" src="${model.header.image.src}">
         </div>
-        <h1 class="${model.header.h1.cls}">${model.header.title}</h1>
-        <h3 class="${model.header.h3.cls}">${model.header.description}</h3>
+        <h1 class="${model.header.cls}">${model.header.title}</h1>
+        <h3>${model.header.description}</h3>
         ${navigationMenu()}
     </header>`;
     
