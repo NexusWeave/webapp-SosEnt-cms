@@ -21,7 +21,7 @@ function newsView(id)
                         ${newsContent(content.articles)} 
                     </section>
                 </main>
-                ${footer()} `;
+                ${footerView()} `;
                 return html;
         }
     }    
