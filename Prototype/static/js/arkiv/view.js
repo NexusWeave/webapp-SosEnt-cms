@@ -1,5 +1,5 @@
 //  Vedtekter view
-function arkivView(id)
+function archiveView(id)
 {
     //  Fetch the model
     const pages = model.data.nav.pages;
@@ -11,14 +11,16 @@ function arkivView(id)
         {
             let html;
             const data = model.data;
-            const content = data.nav.pages[i].content;
+
             const nav = data.nav.pages[i];
+            const content = nav.content;
+            const archive = nav.archive;
 
             html = /*HTML*/`
                 ${header()}
                 <main>
-                    ${carouselView(data.carousel, model.app.currentCarosel, nav.content)}
-                    ${arkivContent(content.vedtekter)}
+                    ${carouselView(data.carousel, model.app.currentCarosel, content)}
+                    ${archiveContent(archive)}
                 </main> 
                 ${footer()}`;
             
@@ -78,29 +80,36 @@ function carouselView(images, carousel, content)
 
 }
 
-function arkivContent(article)
+function archiveContent(archive)
 {
     let html = /*HTML*/`
     <section class = " bg-brown flex-wrap-row-align-items-center">`;
 
     //  Vedtekter content
-    for (let i = 0; i < article.length; i++)
+    if (archive.length > 0)
+    {
+        for (let i = 0; i < archive.length; i++)
+        {
+            const f = archive[i];
+            html += /*HTML*/`
+            
+                <article class = "archive-item flex-wrap-column">
+                    <h3>${f.name}</h3>
+                    <p>${f.description}</p>
+                    <a href="${f.link}" download rel="external">${f.name}</a>
+                    <p>${f.date}</p>
+                </article>`;
+        }
+    }
+    else
     {
         html += /*HTML*/`
-        <section class = "article-container">
             <article>
-                
-                <h3>${article[i].headline}</h3>`;
-                
-                for (let j = 0; j < article[i].paragraphs.length; j++)
-                {
-                    html += /*HTML*/`
-                    <p>${article[i].paragraphs[j]}</p>`;
-                }
+                <p>Ingen arkivfiler tilgjengelig.</p>
+            </article>`;
 
-            html += /*HTML*/`</article></section>`;
-        }
-        
+    }
+            
         html += /*HTML*/`</section>`;
     return html;
 }

@@ -49,12 +49,11 @@ const model =
             {
                 id: 2,
                 type: "button",
-                name: "arkiv",
+                name: "archive",
                 title: "Arkiv",
             },
             {
                 id: 3,
-                cls: "link nav-item",
                 type: "button",
                 name: "questback",
                 title: "Medlemskap",
@@ -591,20 +590,23 @@ const model =
                 },
                 {
                     id: 2,
-                    name: "arkiv",
+                    name: "archive",
                     title: "Arkiv",
-                    
                     content:
                     {
                         updated: "2023",
                         cls: "vedtekter-article",
-                        headline:"Sosent Arkiv",
+                        headline:"SosEnT Arkiv",
+                        description: "Her finner du organisasjonens arkiv.",
                         banner:
                         {
                             src: "./static/img/logo/sosent-logo.png",
                             alt: "SOSENT Logo",
                         },
-                    }
+                    },
+                    archive:
+                    [
+                    ],
                 },
                 {
                     id: 3,
