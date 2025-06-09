@@ -55,10 +55,9 @@ const model =
             {
                 id: 3,
                 cls: "link nav-item",
-                type: "link",
+                type: "button",
                 name: "questback",
-                title: "Meld inn",
-                href: "https://response.questback.com/isa/qbv.dll/bylink?p=164g6KsM99iFiEoIuFBSPf4vlpq1wCY39OK0FW7sqwkdWfjDQ29a9XFSuJlAyLXr0",
+                title: "Medlemskap",
             },
         ],
     },
@@ -295,65 +294,126 @@ const model =
                                 src: "./static/img/sosent/Gemini_Generated_Image_opf6gwopf6gwopf6.jpeg",
                                 alt: "SOSENT-Team.jpg",
                             },
+                        
+                        documentation:
+                        {
+                            headline: "Grunnlagsdokumentasjon",
+                            description: "Her finner du organisasjonens grunnlagsdokumenter.",
+                            files:
+                            [
+                                {
+                                    name: "Vedtekter",
+                                    description: "PDF av organisasjonens vedtekter",
+                                    src: "./docs/vedtekter.pdf",
+                                },
+                                {
+                                    name: "Styre medlemmer",
+                                    description: "PDF av organisasjonens styremedlemmer",
+                                    src: "./docs/vedtekter.pdf",
+                                },
+                            ],
+                        },
+                        
                         paragraphs: 
                         [
                             {
                                 heading:"Om oss",
                                 paragraph: 
                                 [
-                                    `Vi i SOSENT jobber for at sosialt entreprenørskap skal være en sentral del av et bærekraftig samfunn og synliggjøre sosiale entreprenører
-                                    som viktige samfunnsaktører. Foreningen søker å bli et bindeledd på tvers av tradisjonelle skillelinjer som bidrar til at offentlig, privat,
-                                    frivillig og ideell sektor jobber sterkere sammen, og en kompetanseaktør på feltet i sosialt entreprenørskap i Norge.`,
-                                ] 
-                            },
-                            {
-                                heading:"Formålet med SoSEnT",
-                                paragraph: 
-                                [
-                                    `Formålet med foreningen er å definere sosialt entreprenørskap i norsk kontekst, spre kunnskap om denne fjerde sektoren og interessepolitisk
-                            påvirkningsarbeid for å bedre levekårene til sosiale entreprenører i Norge, herunder organisasjonsformer. Videre å gjøre det lettere å finne
-                            finansiering til drift og lage partnerskap med det offentlige, svare ut aktuelle høringer som angår de sosiale entreprenørene, kunnskapsspredning,
-                            samt etablere matnyttige nettverk og møteplasser for foreningens medlemmer.`,
+                                    `SosEnt Norge – Landsforeningen for sosiale entreprenører – er en interessepolitisk forening
+                                    som søker å styrke og påvirke rammebetingelser og regelverk til beste for sosiale entreprenører i Norge.`,
+
+                                    `Vi arbeider for å få etablert forståelsen og aksepten for denne 4. sektoren hos myndigheter,
+                                    beslutningstakerne og de andre sektorene; offentlig, privat og frivillig.`,
+
+                                    `Foreningen ønsker å være en kunnskapsbank for sosiale entreprenører, og
+                                    en høringsinstans for saker som angår sosialt entreprenørskap. Vi vil rådgi
+                                    våre medlemmer, gjøre tilgjengelig informasjon om støtte- og
+                                    tilskuddsordninger og bidra med aktuelle tolkninger av forskrifter og
+                                    regelverk. Vi vil også arrangere møteplasser og nettverk for sosiale
+                                    entreprenører og andre som er interessert i sosialt entreprenørskap.`,
+
+                                    `Foreningen etablerer fordelsprogram med aktuelle leverandører av varer,
+                                    programvare og forsikringsordninger. Et medlemskap i SosEnt Norge lønner seg!`,
+
+                                    `Foreningen ble stiftet i april 2025. Samfunnsbedriftene ivaretar foreningens
+                                    sekretariat/sekretariatsfunksjoner, og generalsekretæren har sin ansettelse der`,
+
                                 ] 
                             },
                         ],
-                        
-                        contact:
-                        {
-                            cls: "contact-container flex-wrap-row-justify-space-evenly",
-                            content:
-                            [
-                                {
-                                    name: "Helle V. Rødahl",
-                                    title: "Styreleder",
-                                    phone: "+47 123 45 678",
-                                    email: "helle@sosent.no",
-                                    image:
-                                    {
-                                        cls: "",
-                                        alt: "Helle V. Rødahl",
-                                        src: "./static/img/team/profil-helle-privat.jpg",
-
-                                    },
-                                },
-                                {
-                                    cls: "contact-container ",
-                                    name: "Rune J. Kvarme",
-                                    title: "Generalsekretær",
-                                    phone: "+47 123 45 678",
-                                    email: "rune@sosent.no",
-                                    image:
-                                    {
-                                        cls: "",
-                                        alt: "Rune J. Kvarme",
-                                        src: "./static/img/team/52700234381_5e75074f92_q.jpg",
-                                    
-                                    },
-
-                                },
-                                
-                            ],
-                        },
+                        constitution: [
+                            {
+                                headline: "Virkeområde / Formål",
+                                paragraphs: [
+                                    `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
+                                    nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
+                                    porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
+                                    Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
+                                    erat volutpat. Nam ac massa vel nunc scelerisque bibendum.`,
+                                ],
+                            },
+                            {
+                                headline: "Medlemskap",
+                                paragraphs: [
+                                    `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
+                                    nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
+                                    porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
+                                    Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
+                                    erat volutpat. Nam ac massa vel nunc scelerisque bibendum.`,
+                                ],
+                            },
+                            {
+                                headline: "Organisasjonens styre",
+                                paragraphs: [
+                                    `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
+                                    nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
+                                    porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
+                                    Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
+                                    erat volutpat. Nam ac massa vel nunc scelerisque bibendum.`,
+                                ],
+                            },
+                            {
+                                headline: "årsmøte",
+                                paragraphs: [
+                                    `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
+                                    nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
+                                    porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
+                                    Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
+                                    erat volutpat. Nam ac massa vel nunc scelerisque bibendum.`,
+                                ],
+                            },
+                            {
+                                headline: "Aktiviteter",
+                                paragraphs: [
+                                    `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
+                                    nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
+                                    porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
+                                    Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
+                                    erat volutpat. Nam ac massa vel nunc scelerisque bibendum.`,
+                                ],
+                            },
+                            {
+                                headline: "Forvaltning",
+                                paragraphs: [
+                                    `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
+                                    nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
+                                    porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
+                                    Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
+                                    erat volutpat. Nam ac massa vel nunc scelerisque bibendum.`,
+                                ],
+                            },
+                            {
+                                headline: "Oppløsning",
+                                paragraphs: [
+                                    `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
+                                    nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
+                                    porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
+                                    Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
+                                    erat volutpat. Nam ac massa vel nunc scelerisque bibendum.`,
+                                ],
+                            }, 
+                        ],
                     },
                 },
                 {
@@ -544,90 +604,84 @@ const model =
                             src: "./static/img/logo/sosent-logo.png",
                             alt: "SOSENT Logo",
                         },
-                        vedtekter:
-                            [
-                                {
-                                    headline: "Virkeområde / Formål",
-                                    paragraphs: [
-                                        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
-                                        nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
-                                        porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
-                                        Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
-                                        erat volutpat. Nam ac massa vel nunc scelerisque bibendum.
-                                        `,
-                                    ],
-                                },
-                                {
-                                    headline: "Medlemskap",
-                                    paragraphs: [
-                                        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
-                                        nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
-                                        porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
-                                        Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
-                                        erat volutpat. Nam ac massa vel nunc scelerisque bibendum.
-                                        `,
-                                    ],
-                                },
-                                {
-                                    headline: "Organisasjonens styre",
-                                    paragraphs: [
-                                        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
-                                        nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
-                                        porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
-                                        Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
-                                        erat volutpat. Nam ac massa vel nunc scelerisque bibendum.
-                                        `,
-                                    ],
-                                },
-                                {
-                                    headline: "årsmøte",
-                                    paragraphs: [
-                                        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
-                                        nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
-                                        porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
-                                        Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
-                                        erat volutpat. Nam ac massa vel nunc scelerisque bibendum.
-                                        `,
-                                    ],
-                                },
-                                {
-                                    headline: "Aktiviteter",
-                                    paragraphs: [
-                                        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
-                                        nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
-                                        porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
-                                        Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
-                                        erat volutpat. Nam ac massa vel nunc scelerisque bibendum.
-                                        `,
-                                    ],
-                                },
-                                {
-                                    headline: "Forvaltning",
-                                    paragraphs: [
-                                        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
-                                        nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
-                                        porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
-                                        Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
-                                        erat volutpat. Nam ac massa vel nunc scelerisque bibendum.
-                                        `,
-                                    ],
-                                },
-                                {
-                                    headline: "Oppløsning",
-                                    paragraphs: [
-                                        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
-                                        nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
-                                        porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
-                                        Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
-                                        erat volutpat. Nam ac massa vel nunc scelerisque bibendum.
-                                        `,
-                                    ],
-                                },
-                                    
-                            ]
                     }
+                },
+                {
+                    id: 3,
+                    name: "member",
+                    title: "Info om medlemskap",
+                    content:
+                    {
+                        cls: "member-container flex-wrap-row-justify-space-evenly",
+                        headline: "Bli Medlem i SOSENT",
+                        href: "https://response.questback.com/isa/qbv.dll/bylink?p=164g6KsM99iFiEoIuFBSPf4vlpq1wCY39OK0FW7sqwkdWfjDQ29a9XFSuJlAyLXr0",
+                        paragraphs: [
+                            `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
+                            nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
+                            porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
+                            Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
+                            erat volutpat. Nam ac massa vel nunc scelerisque bibendum.`,
+                            
+                            `Curabitur vehicula tortor tortor, ut lacinia felis vestibulum pellentesque.
+                            Proin malesuada iaculis eros pulvinar efficitur. Nam eget pulvinar erat. Ut imperdiet
+                            a tellus sit amet pulvinar. Nam accumsan dignissim gravida. Nam lacinia sodales faucibus. `,
+                        ]
+                    }
+                }
+            ],
+        },
+        contact:
+        {
+            cls: "contact-container flex-wrap-row-justify-space-evenly",
+            content:
+            [
+                {
+                    name: "Helle V. Rødahl",
+                    title: "Styreleder",
+                    phone: "+47 12 34 56 78",
+                    email: "helle@sosent.no",
+                    image:
+                        {
+                            cls: "",
+                            alt: "Helle V. Rødahl",
+                            src: "./static/img/team/profil-helle-privat.jpg",
+                        },
+                },
+                {
+                    cls: "contact-container ",
+                    name: "Rune J. Kvarme",
+                    title: "Generalsekretær",
+                    phone: "+47 12 34 56 78",
+                    email: "rune@sosent.no",
+                    image:
+                        {
+                            cls: "",
+                            alt: "Rune J. Kvarme",
+                            src: "./static/img/team/52700234381_5e75074f92_q.jpg",
+                        },
                 },
             ],
         },
+        partners:
+        [
+            {
+                name: "GET Academy",
+                href: "https://www.getacademy.no/",
+                logo:
+                {
+                    src: "./static/img/partners/GET_RGB_logo.png",
+                    alt: "GET Acedemy Logo",
+                },
+            },
+            {
+                name: "Sosialt Entreprenørskap Norge",
+                href: "https://sosent.no/",
+                logo:
+                {
+                    src: "./static/img/logo/SosEnt-favicon.png",
+                    alt: "SOSENT Logo",
+                },
+            },
+        ],
     },
 } 
