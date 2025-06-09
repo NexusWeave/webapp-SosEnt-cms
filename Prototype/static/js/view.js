@@ -47,25 +47,63 @@ function header()
     return html;
 }
 
-function footer()
+function footerView()
 {
     //  Footer
+    
     const footer = model.footer;
+    const partners = model.data.partners;
+
+    const nav = footer.nav;
 
     let html = /*HTML*/ `
     <footer class="${footer.cls}">
-    <nav class="footer-container flex-wrap-row-justify-flex-end">`;
+        ${footerPartners(partners)}
+        <nav class="footer-container flex-wrap-row-justify-flex-end">
+            ${footerNav(nav)}
+        </nav>
+    
+    </footer>`;
 
-    for (let i = 0; i < footer.nav.length; i++)
+    return html;
+}
+function footerNav(links)
+{
+    let html = '';
+    for (let i = 0; i < links.length; i++)
     {
-        const link = footer.nav[i];
+        const link = links[i];
         html += /*HTML*/ `
         
             <a href="${link.href}" target="_blank" rel="external">
                 <div class="${link.cls}">${link.name}</div>
             </a>`;
     }
-    html += /*HTML*/ `</nav></footer>`;
-
     return html;
+}
+function footerPartners(partners)
+{
+    if (partners && partners.length > 0)
+    {
+        let html = /*html*/`
+            Våre samarbeidspartnere
+            <section class="flex-wrap-row">`;
+
+        for (let i = 0; i < partners.length; i++)
+        {
+            const partner = partners[i];
+            console.log(partner);
+            html += /*HTML*/ `
+                <div class="partner">
+                    <a href="${partner.href}" target="_blank" rel="external">
+                        <img alt="${partner.logo.alt}" src="${partner.logo.src}">
+                    </a>
+                </div>`;
+        }
+        html += `</section>`;
+        console.log(html)
+        return html;
+    }
+    
+    
 }
