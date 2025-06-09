@@ -333,4 +333,8 @@ div.link:hover {
   padding-block: 1em;
   background: rgb(55, 40, 45);
   color: rgb(245, 245, 245);
+}
+
+.partner img {
+  inline-size: 10em;
 }/*# sourceMappingURL=index.css.map */
