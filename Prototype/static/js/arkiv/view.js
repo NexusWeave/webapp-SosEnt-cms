@@ -22,7 +22,7 @@ function archiveView(id)
                     ${carouselView(data.carousel, model.app.currentCarosel, content)}
                     ${archiveContent(archive)}
                 </main> 
-                ${footer()}`;
+                ${footerView()}`;
             
             return html;
         }

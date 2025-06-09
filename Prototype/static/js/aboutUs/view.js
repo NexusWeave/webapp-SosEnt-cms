@@ -31,7 +31,7 @@ function aboutUsView(id)
                         ${partnersSection(partners)}
                     </section>
                 </main>
-                ${footer()}`;
+                ${footerView()}`;
 
             return html;
         }
