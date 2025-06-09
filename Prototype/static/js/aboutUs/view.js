@@ -11,7 +11,13 @@ function aboutUsView(id)
         if (id === pages[i].id)
         {
             const data = model.data;
-            const content = data.nav.pages[i].content;
+            const contact = data.contact;
+            const partners = data.partners;
+            
+            const nav = data.nav.pages[i];
+            const content = nav.content;
+            const documents = content.documentation;
+            const constitution = content.constitution;
 
             let html = `
                 ${header()}
@@ -19,7 +25,10 @@ function aboutUsView(id)
                     <section class="flex-wrap-row-justify-space-around">
                         ${newsSection(data.articlesBanner)}
                         ${aboutUsSection(content)}
-                        ${contactSection(content.contact)}
+                        ${constitutionContent(constitution)}
+                        ${basicDocuments(documents)}
+                        ${contactSection(contact)}
+                        ${partnersSection(partners)}
                     </section>
                 </main>
                 ${footer()}`;
@@ -70,7 +79,7 @@ function aboutUsSection(content)
                 <h4 class="h4">${aboutUs.heading} </h4>`;
                 for (let j = 0; j < aboutUs.paragraph.length; j++)
                 {
-                    html += `<p>${aboutUs.paragraph[j]}</p></div>`;
+                    html += `<div><p>${aboutUs.paragraph[j]}</p></div>`;
                 }
     }
 
@@ -78,6 +87,54 @@ function aboutUsSection(content)
     return html;
 }
 
+function constitutionContent(article)
+{
+    let html = /*HTML*/`
+    <section class = " bg-brown flex-wrap-row-align-items-center">`;
+
+    //  Vedtekter content
+    for (let i = 0; i < article.length; i++)
+    {
+        html += /*HTML*/`
+        <section class = "article-container">
+            <article>
+                
+                <h3>${article[i].headline}</h3>`;
+                
+                for (let j = 0; j < article[i].paragraphs.length; j++)
+                {
+                    html += /*HTML*/`
+                    <p>${article[i].paragraphs[j]}</p>`;
+                }
+
+            html += /*HTML*/`</article></section>`;
+        }
+        
+        html += /*HTML*/`</section>`;
+    return html;
+}
+
+function basicDocuments(documents)
+{
+    let html = '';
+
+    html += documents.headline ? `<h3>${documents.headline}</h3>`: '';
+    html += documents.description ? `<p>${documents.description}</p>` : '';
+    html += `<section class="flex-wrap-row-justify-space-around">`;
+    
+    for (let i = 0; i < documents.files.length; i++)
+    {
+        const f = documents.files[i];
+        html += `<section class="flex-column">
+                    <h3>${f.name}</h3>
+                    <p>${f.description}</p>
+                    <a href="${f.link}" download  rel="external">${f.name}</a>
+                    </section>`;
+    }
+
+    html += `</section>`;
+    return html;
+}
 function contactSection(contact)
 {
     let html = '<section class = "flex-wrap-row-justify-space-evenly">';
@@ -85,7 +142,7 @@ function contactSection(contact)
     {
         const person = contact.content[i];
          
-        html += `
+        html += /*HTML*/`
             <section class="contact">
                 <section class="card bg-brown flex-row">
                     <img src="${person.image.src ? person.image.src : null}" class="card-img-top" alt="${person.image.alt ? person.image.alt : null}">
@@ -94,13 +151,13 @@ function contactSection(contact)
                         <h5 class="card-text h5">${person.title}</h5>
                         <p class="card-text">
                             Telefon: 
-                            <a class = "link"href="tel:${person.phone}">
+                            <a class = "link" href="tel:" + ${person.phone}>
                                 ${person.phone}
                             </a>
                         </p>
                         <p class="card-text">
                             E-post :
-                            <a href="mailto:${person.email}">
+                            <a href="mailto:" + ${person.email}>
                                 Send en E-post
                             </a>
                         </p>
@@ -109,7 +166,37 @@ function contactSection(contact)
             </section>`;
     }
 
-    html += `</section>`;
-
     return html;
 }
+
+function partnersSection(partners)
+{
+    let html = '<section class="flex-column">';
+    html += '<h3>Våre samarbeids partnere</h3>';
+
+    if (partners && partners.length > 0)
+    {
+        html += '<section class="flex-wrap-row-justify-space-around partners-section">';
+        for (let i = 0; i < partners.length; i++)
+        {
+            const partner = partners[i];
+            html += /*HTML*/`
+                <div class="partner">
+                    <a href= ${partner.href}>
+                        <img src="${partner.logo.src}" alt="${partner.logo.alt}">
+                    </a>
+                </div>`;
+        }
+        html += '</section>';
+    }
+    else
+    {
+        html += '<p>No partners available.</p>';
+    }
+    return html;
+}
+function boardMembers(board)
+{
+    // Mermaid hierarchy chart?
+}
+
