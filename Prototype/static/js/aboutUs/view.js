@@ -120,13 +120,14 @@ function basicDocuments(documents)
 
     html += documents.headline ? `<h3>${documents.headline}</h3>`: '';
     html += documents.description ? `<p>${documents.description}</p>` : '';
-    html += `<section class="flex-wrap-row-justify-space-around">`;
+    html += `<section class="flex-wrap-row-justify-space-evenly">`;
     
     for (let i = 0; i < documents.files.length; i++)
     {
         const f = documents.files[i];
-        html += `<section class="flex-column">
+        html += `<section class="${f.cls ? f.cls : "missing-class"}">
                     <h3>${f.name}</h3>
+                    <p>Dato: ${f.date}</p>
                     <p>${f.description}</p>
                     <a href="${f.link}" download  rel="external">${f.name}</a>
                     </section>`;
@@ -135,6 +136,7 @@ function basicDocuments(documents)
     html += `</section>`;
     return html;
 }
+
 function contactSection(contact)
 {
     let html = '<section class = "flex-wrap-row-justify-space-evenly">';

@@ -301,12 +301,16 @@ const model =
                             files:
                             [
                                 {
+                                    cls: "flex-column documents",
                                     name: "Vedtekter",
+                                    date: "01.05.2025",
                                     description: "PDF av organisasjonens vedtekter",
                                     src: "./docs/vedtekter.pdf",
                                 },
                                 {
+                                    cls: "flex-column documents",
                                     name: "Styre medlemmer",
+                                    date: "01.05.2025",
                                     description: "PDF av organisasjonens styremedlemmer",
                                     src: "./docs/vedtekter.pdf",
                                 },
