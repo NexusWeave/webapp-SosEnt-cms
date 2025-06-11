@@ -17,6 +17,7 @@ function aboutUsView(id)
             const nav = data.nav.pages[i];
             const content = nav.content;
             const documents = content.documentation;
+            const members = content.members;
             const constitution = content.constitution;
 
             let html = `
@@ -25,9 +26,9 @@ function aboutUsView(id)
                     <section class="flex-wrap-row-justify-space-around">
                         ${newsSection(data.articlesBanner)}
                         ${aboutUsSection(content)}
-                        ${constitutionContent(constitution)}
                         ${basicDocuments(documents)}
                         ${contactSection(contact)}
+                        ${MemberContent(members)}
                         ${partnersSection(partners)}
                     </section>
                 </main>
@@ -86,7 +87,42 @@ function aboutUsSection(content)
     html += `</div></section>`;
     return html;
 }
+function MemberContent(content)
+{
+        let html = /*HTML*/`
+    <section class = " flex-wrap-column">`;
 
+    if (content && content.length > 0)
+    {
+        for (let i = 0; i < content.length; i++)
+        {
+            html += /*HTML*/`
+            <section class = "article-container">
+                <article>
+                    
+                    <h3>${content[i].headline}</h3>`;
+                    for (let j = 0; j < content[i].paragraphs.length; j++)
+                    {
+                        html += /*HTML*/`
+                        <p>${content[i].paragraphs[j]}</p>`;
+                    }
+
+                html += /*HTML*/`</article></section>`;
+            }
+        
+            
+        html += /*HTML*/`</section>`;
+    }
+    else
+    {
+        html += /*HTML*/`
+            <section class="no-content">
+            <h3>${content.headline}</h3>
+                <p>No content available.</p>
+            </section>`;
+    }
+    return html;
+}
 function constitutionContent(article)
 {
     let html = /*HTML*/`

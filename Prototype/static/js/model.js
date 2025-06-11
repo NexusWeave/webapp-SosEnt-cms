@@ -345,6 +345,11 @@ const model =
                                 ] 
                             },
                         ],
+                        members:
+                        {
+                            headline: "SosEnT Medlemmer",
+                            membersships: [],
+                        },
                         constitution: [
                             {
                                 headline: "Virkeområde / Formål",

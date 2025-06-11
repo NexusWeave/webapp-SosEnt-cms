@@ -58,7 +58,6 @@ function footerView()
 
     let html = /*HTML*/ `
     <footer class="${footer.cls}">
-        ${footerPartners(partners)}
         <nav class="footer-container flex-wrap-row-justify-flex-end">
             ${footerNav(nav)}
         </nav>
