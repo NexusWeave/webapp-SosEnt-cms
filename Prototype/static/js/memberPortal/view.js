@@ -1,5 +1,5 @@
 //  Vedtekter view
-function archiveView(id)
+function memberPortalView(id)
 {
     //  Fetch the model
     const pages = model.data.nav.pages;
@@ -20,7 +20,7 @@ function archiveView(id)
                 ${header()}
                 <main>
                     ${carouselView(data.carousel, model.app.currentCarosel, content)}
-                    ${archiveContent(archive)}
+                    ${memberPortalContent(archive)}
                 </main> 
                 ${footerView()}`;
             
@@ -80,7 +80,7 @@ function carouselView(images, carousel, content)
 
 }
 
-function archiveContent(archive)
+function memberPortalContent(archive)
 {
     let html = /*HTML*/`
     <section class = " bg-brown flex-wrap-row-align-items-center">`;

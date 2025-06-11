@@ -14,12 +14,12 @@
         <script src="static/js/view.js"></script>
         <script src="static/js/news/view.js"></script>
         <script src="static/js/aboutUs/view.js"></script>
-        <script src="static/js/arkiv/view.js"></script>
+        <script src="static/js/memberPortal/view.js"></script>
 
         <script src="static/js/controller.js"></script>
         <script src="static/js/news/controller.js"></script>
         <script src="static/js/aboutUs/controller.js"></script>
-        <script src="static/js/arkiv/controller.js"></script>
+        <script src="static/js/memberPortal/controller.js"></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -47,13 +47,13 @@
                         html = newsView(1);
                         break;  
 
-                    case 'archive':
-                        html = archiveView(2);
+                    case 'membersPortal':
+                        html = memberPortalView(2);
                         break;
                     
-                    /*case 'membership':
+                    case 'membership':
                         html = membershipView(3);
-                        break;*/
+                        break;
 
 
                     default:

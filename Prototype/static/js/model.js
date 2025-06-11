@@ -49,14 +49,14 @@ const model =
             {
                 id: 2,
                 type: "button",
-                name: "archive",
-                title: "Arkiv",
+                name: "membersPortal",
+                title: "For Medlemmene",
             },
             {
                 id: 3,
                 type: "button",
-                name: "questback",
-                title: "Medlemskap",
+                name: "membership",
+                title: "medlemskap",
             },
         ],
     },
@@ -594,20 +594,37 @@ const model =
                 },
                 {
                     id: 2,
-                    name: "archive",
-                    title: "Arkiv",
+                    name: "membersPortal",
+                    title: "For Medlemmene",
                     content:
                     {
                         updated: "2023",
                         cls: "vedtekter-article",
-                        headline:"SosEnT Arkiv",
-                        description: "Her finner du organisasjonens arkiv.",
+                        
+                        headline:"Velkommen til SOSENT's Medlemsportal",
+                        description: "Her finner du informasjon og ressurser for våre medlemmer.",
                         banner:
                         {
                             src: "./static/img/logo/sosent-logo.png",
                             alt: "SOSENT Logo",
                         },
                     },
+
+                    input :
+                    [
+                        {
+                            text:"Skriv inn passord",
+                            type:"password",
+                            placeholder:"Passord",
+                            btn : {
+                                href: "#",
+                                name: "Logg inn",
+                                cls: "btn btn-primary",
+                                
+                            }
+                            
+                        },
+                    ],
                     archive:
                     [
                     ],
