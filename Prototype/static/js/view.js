@@ -52,7 +52,6 @@ function footerView()
     //  Footer
     
     const footer = model.footer;
-    const partners = model.data.partners;
 
     const nav = footer.nav;
 
@@ -80,6 +79,8 @@ function footerNav(links)
     }
     return html;
 }
+
+// Function to generate the footer partners section
 function footerPartners(partners)
 {
     if (partners && partners.length > 0)
