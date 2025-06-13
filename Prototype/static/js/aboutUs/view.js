@@ -2,42 +2,32 @@
 function aboutUsView(id)
 {
     //  Fetch the model
-    const pages = model.nav.pages;
+    const data = model.data;
+    const contact = data.contact;
+    const partners = data.partners;
+    const nav = data.nav.pages[id];
 
-    //  Ensure that the page exists
-    for (let i = 0; i < pages.length; i++)
-    {
-        // Ensure that the page exists
-        if (id === pages[i].id)
-        {
-            const data = model.data;
-            const contact = data.contact;
-            const partners = data.partners;
-            
-            const nav = data.nav.pages[i];
-            const content = nav.content;
-            const documents = content.documentation;
-            const members = content.members;
-            const constitution = content.constitution;
+    const content = nav.content;
+    const members = content.members;
+    const documents = content.documentation;
 
-            let html = `
-                ${header()}
-                <main class = "${model.main.cls}">
-                    <section class="flex-wrap-row-justify-space-around">
-                        ${newsSection(data.articlesBanner)}
-                        ${aboutUsSection(content)}
-                        ${basicDocuments(documents)}
-                        ${contactSection(contact)}
-                        ${MemberContent(members)}
-                        ${partnersSection(partners)}
-                    </section>
-                </main>
-                ${footerView()}`;
+    let html = /*HTML*/ `
+        ${header()}
+        <main class = "${model.main.cls}">
+            <section class="flex-wrap-row-justify-space-around">
+                ${newsSection(data.articlesBanner)}
+                ${aboutUsSection(content)}
+                ${basicDocuments(documents)}
+                ${contactSection(contact)}
+                ${MemberContent(members)}
+                ${partnersSection(partners)}
+            </section>
+        </main>
+        ${footerView()}`;
 
-            return html;
-        }
-    }
+        return html;
 }
+
 function newsSection(article)
 {
     let html = '';
