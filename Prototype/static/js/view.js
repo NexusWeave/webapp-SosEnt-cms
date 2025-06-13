@@ -1,8 +1,6 @@
 //  Prototype | View.js
 function navigationMenu()
 {
-    // Iterating over the pages and return the navigation
-
     const nav = model.nav;
 
     html = /*HTML*/`<nav class = "${nav.cls}">`;
@@ -19,7 +17,6 @@ function navigationMenu()
             html += /*HTML*/ `<a href="${nav.pages[i].href}" target="_blank" rel="external"><div class="${page.cls}">${nav.pages[i].title}</div></a>`;
         }
     }
-
     html += /*HTML*/ `</nav>`;
 
     return html;
@@ -27,7 +24,6 @@ function navigationMenu()
 
 function header()
 {
-    //  Header
     let html = /*HTML*/`
     <header class="${model.header.cls}">
         <div class="flex-row-align-items-center">
@@ -43,16 +39,13 @@ function header()
         
         ${navigationMenu()}
     </header>`;
-    
+
     return html;
 }
 
 function footerView()
 {
-    //  Footer
-    
     const footer = model.footer;
-
     const nav = footer.nav;
 
     let html = /*HTML*/ `
@@ -68,6 +61,7 @@ function footerView()
 function footerNav(links)
 {
     let html = '';
+
     for (let i = 0; i < links.length; i++)
     {
         const link = links[i];
