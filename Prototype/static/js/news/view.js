@@ -1,30 +1,19 @@
 //  News view
 function newsView(id)
 {
-    //  Fetch the model    
-    const pages = model.data.nav.pages;
-    
-    //  Ensure that the page exists
-    for( let i = 0; i < pages.length; i++)
-    {
-        //  Ensure the page's integrity
-        if (id == pages[i].id)
-        {
-            let html;
-            const content = model.data.nav.pages[i].content;
+    let html;
+    const content = model.data.nav.pages[id].content;
 
-            html = /*HTML*/`
-                ${header()}
-                <main>
-                    <h2>${content.headline}</h2>
-                    <section class="${content.cls}">
-                        ${newsContent(content.articles)} 
-                    </section>
-                </main>
-                ${footerView()} `;
-                return html;
-        }
-    }    
+    html = /*HTML*/`
+        ${header()}
+        <main>
+            <h2>${content.headline}</h2>
+            <section class="${content.cls}">
+                ${newsContent(content.articles)} 
+            </section>
+        </main>
+        ${footerView()} `;
+    return html;
 }
 
 function newsContent(articles)
