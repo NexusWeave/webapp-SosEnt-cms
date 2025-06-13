@@ -51,6 +51,21 @@ const model =
                 type: "button",
                 name: "membersPortal",
                 title: "For Medlemmene",
+                input :
+                    [
+                        {
+                            text:"Skriv inn passord",
+                            type:"password",
+                            placeholder:"Passord",
+                            btn : {
+                                href: "#",
+                                name: "Logg inn",
+                                cls: "btn btn-primary",
+                                
+                            }
+                            
+                        },
+                    ],
             },
             {
                 id: 3,
@@ -615,21 +630,11 @@ const model =
                         },
                     },
 
-                    input :
-                    [
-                        {
-                            text:"Skriv inn passord",
-                            type:"password",
-                            placeholder:"Passord",
-                            btn : {
-                                href: "#",
-                                name: "Logg inn",
-                                cls: "btn btn-primary",
-                                
-                            }
-                            
-                        },
-                    ],
+                    credentials:
+                    {
+                        password: "d283af101bac76d6136b0a6b340e16b8",
+                    },
+                    loggedIn: false,
                     archive:
                     [
                     ],
