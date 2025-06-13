@@ -1,32 +1,47 @@
-//  Vedtekter view
+
 function memberPortalView(id)
 {
     //  Fetch the model
-    const pages = model.data.nav.pages;
-
-    for (let i = 0; i < pages.length; i++)
-    {
-        //  Ensure the correct page is selected
-        if (id == pages[i].id)
-        {
-            let html;
-            const data = model.data;
-
-            const nav = data.nav.pages[i];
-            const content = nav.content;
-            const archive = nav.archive;
-
-            html = /*HTML*/`
-                ${header()}
-                <main>
-                    ${carouselView(data.carousel, model.app.currentCarosel, content)}
-                    ${memberPortalContent(archive)}
-                </main> 
-                ${footerView()}`;
-            
-            return html;
-        }
+    
+    const pages = model.data.nav.pages[id];
+    const loggedIn = model.data.loggedIn;
+    console.log("Member Portal View", pages, loggedIn);
         
+    const input = model.nav.pages[id].input;
+        
+    if (loggedIn)
+    {
+        let html;
+        const data = model.data;
+        const nav = data.nav.pages[id];
+        const content = nav.content;
+        const archive = nav.archive;
+
+        html = /*HTML*/`
+            ${header()}
+            <main>
+                ${carouselView(data.carousel, model.app.currentCarosel, content)}
+                ${memberPortalContent(archive)}
+            </main> 
+            ${footerView()}`;
+                
+        return html;
+    }
+    else
+    {
+        //  User is not logged in
+        html = /*HTML*/`
+            ${header()}
+            <main>
+                <h1>Logg deg på for å se Medlemsportal</h1>
+                <form onsubmit="handleLogin(event)">
+                    <input type="${input.type}" placeholder="${input.text}" />
+                    <button type="submit">Logg inn</button>
+                </form>
+            </main>
+            ${footerView()}`;
+
+        return html;
     }
 }
 
