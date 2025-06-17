@@ -71,7 +71,41 @@ const model =
                 id: 3,
                 type: "button",
                 name: "membership",
-                title: "medlemskap",
+                title: "Medlemskap i SoSEnt Norge",
+                form:
+                {
+                    
+                    action: "#",
+                    method: "post",
+                    cls:"membership-form flex-wrap-column-align-items-center",
+                    btn:
+                    {
+                        type: "submit",
+                        name: "Send",
+                        cls: "btn"
+                    },
+                    inputs:
+                    [
+                        {
+                            id: 0,
+                            name:"Name",
+                            required: true,
+                            placeholder: "Fullt navn (eks. Ola Norman)",
+                        },
+                        {
+                            id: 1,
+                            required: true,
+                            name:"Telefon Nummer",
+                            placeholder: "Telefon nr (eks. 123 45 678)",
+                        },
+                        {
+                            id:2,
+                            required: true,
+                            name: "E-Post",
+                            placeholder: "Epost (eks. eksempel@domene.no"
+                        },
+                    ],
+                },
             },
         ],
     },
