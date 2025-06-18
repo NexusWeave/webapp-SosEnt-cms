@@ -345,4 +345,10 @@ div.link:hover {
 
 .documents {
   inline-size: 25em;
+}
+
+.member-logo {
+  inline-size: 10em;
+  block-size: 10em;
+  margin-inline-end: 1em;
 }/*# sourceMappingURL=index.css.map */
