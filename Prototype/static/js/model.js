@@ -405,11 +405,6 @@ const model =
                                 ] 
                             },
                     ],
-                    members:
-                    {
-                        headline: "SosEnT Medlemmer",
-                        membersships: [],
-                    },
                     constitution:
                     [
                         {
@@ -799,5 +794,22 @@ const model =
                 },
             },
         ],
+        members:
+        {
+            headline: "SosEnT Medlemmer",
+            memberships:
+            [
+                {
+                    name: "Dummy Sosial Entreprenør",
+                    href: "https://klarkompetanse.no",
+                    logo:
+                    {
+                        cls: "member-logo",
+                        src: "./static/img/logo/SosEnt-favicon.png",
+                        alt: "SOSENT Logo",
+                    },
+                }
+            ],
+        },
     },
 } 
