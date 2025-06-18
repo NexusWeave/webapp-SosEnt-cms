@@ -26,7 +26,7 @@ function next()
             Carosel.caption = sources[n].caption;
             
             //  Update the view
-            updateView("arkiv");
+            updateView(`${model.app.currentPage}`);
             break;
         }
     }
@@ -57,7 +57,7 @@ function prev()
             Carosel.caption = sources[n].caption;
             
             //  Update the view
-            updateView("arkiv");
+            updateView(`${model.app.currentPage}`);
             break;
         }
     } 
@@ -69,7 +69,7 @@ function verifyCredentials(e)
 
     const data = model.data;
     
-    const passKey = data.nav.pages[2].credentials.password;
+    const passKey = data.pages[2].credentials.password;
 
     if (passKey !== e.target[0].value)
     {
