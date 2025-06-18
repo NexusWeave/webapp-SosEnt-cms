@@ -2,7 +2,7 @@
 function newsView(id)
 {
     let html;
-    const content = model.data.nav.pages[id].content;
+    const content = model.data.pages[id].content;
 
     html = /*HTML*/`
         ${header()}
