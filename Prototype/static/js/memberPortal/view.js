@@ -2,26 +2,20 @@
 function memberPortalView(id)
 {
     //  Fetch the model
-    
-    const pages = model.data.nav.pages[id];
-    const loggedIn = model.data.loggedIn;
-    console.log("Member Portal View", pages, loggedIn);
-        
-    const input = model.nav.pages[id].input;
+    const data = model.data;
+    const loggedIn = data.loggedIn;
         
     if (loggedIn)
     {
         let html;
-        const data = model.data;
-        const nav = data.nav.pages[id];
-        const content = nav.content;
-        const archive = nav.archive;
+        const page = data.pages[id];
+        const content = page.content;
 
         html = /*HTML*/`
             ${header()}
             <main>
                 ${carouselView(data.carousel, model.app.currentCarosel, content)}
-                ${memberPortalContent(archive)}
+                ${memberPortalContent(page)}
             </main> 
             ${footerView()}`;
                 
@@ -33,11 +27,8 @@ function memberPortalView(id)
         html = /*HTML*/`
             ${header()}
             <main>
-                <h1>Logg deg på for å se Medlemsportal</h1>
-                <form onsubmit="handleLogin(event)">
-                    <input type="${input.type}" placeholder="${input.text}" />
-                    <button type="submit">Logg inn</button>
-                </form>
+                <h2>Logg deg på for å se Medlemsportal</h2>
+                ${generateForm(id)}
             </main>
             ${footerView()}`;
 
@@ -85,22 +76,40 @@ function carouselView(images, carousel, content)
                 <span class="glyphicon glyphicon-chevron-right"></span>
                 <span class="sr-only">Next</span>
             </a>
-        </div>
-        <section class = "flex-wrap-column-align-items-center">
-            <h2>${content.headline}</h2>
-            <span>Rev. Årsmøte <time datetime="${content.updated}">${content.updated}</time></span>
-            </section> `;
+        </div>`;
 
     return html;
 
 }
 
-function memberPortalContent(archive)
+function memberPortalContent(data)
 {
-    let html = /*HTML*/`
-    <section class = " bg-brown flex-wrap-row-align-items-center">`;
+    const archive = data.archive;
+    const content = data.content;
 
-    //  Vedtekter content
+    let html = /*HTML*/`
+    <section class = "content-container flex-wrap-column-align-items-center">
+    `;
+
+    if (content.paragraphs.length > 0)
+    {
+        html += /*HTML*/`
+            <section class = "content-header flex-wrap-column-align-items-center">
+            <h2>${content.headline}</h2>
+            <span>Sist oppdatert : <time datetime="${content.updated}">${content.updated}</time></span>
+            <section class = "content-subtitle">`;
+        //  Content
+        for (let i = 0; i < content.paragraphs.length; i++)
+        {
+            const p = content.paragraphs[i];
+            html += /*HTML*/`
+                <p>${p}</p>
+            `;
+        }
+        html += /*HTML*/`</section>`;
+    }
+
+    //  Archive Content
     if (archive.length > 0)
     {
         for (let i = 0; i < archive.length; i++)
