@@ -8,7 +8,7 @@ function aboutUsView(id)
     const nav = data.pages[id];
 
     const content = nav.content;
-    const members = content.members;
+    const members = data.members;
     const documents = content.documentation;
 
     let html = /*HTML*/ `
@@ -77,40 +77,55 @@ function aboutUsSection(content)
     html += `</div></section>`;
     return html;
 }
-function MemberContent(content)
+function MemberContent(data)
 {
+    const memberships = data.memberships;
+
         let html = /*HTML*/`
-    <section class = " flex-wrap-column">`;
+    <section class = " flex-column">
+    <section class = "flex-wrap-column-justify-center">
+        <h3>${data.headline}</h3>`;
 
-    if (content && content.length > 0)
+    if (data && memberships.length> 0)
     {
-        for (let i = 0; i < content.length; i++)
-        {
-            html += /*HTML*/`
-            <section class = "article-container">
-                <article>
-                    
-                    <h3>${content[i].headline}</h3>`;
-                    for (let j = 0; j < content[i].paragraphs.length; j++)
-                    {
-                        html += /*HTML*/`
-                        <p>${content[i].paragraphs[j]}</p>`;
-                    }
+        html += /*HTML*/ `
+        <table class = "member-table">
+            <thead>
+                <tr>
+                    <th>Bedrifts Logo</th>
+                    <th>Bedrifts Navn</th>
+                </tr>
+            </thead>`;
 
-                html += /*HTML*/`</article></section>`;
-            }
+        for (let i = 0; i < memberships.length; i++)
+        {
+            const member = memberships[i];
+
+            html += /*HTML*/`
+            <tr>
+                <td class="member-logo">
+                    <a href="${member.href}">
+                        <img class ="${member.logo.cls}" src="${member.logo.src}" alt="${member.logo.alt}">
+                    </a>
+                </td>
+                <td class="member-name">
+                    <a href="${member.href}">
+                        <h6>${member.name}</h6>
+                    </a>
+                </td>
+            </tr>`;
+        }
+        html += /*HTML*/`</table>`;
         
-            
-        html += /*HTML*/`</section>`;
     }
     else
     {
         html += /*HTML*/`
             <section class="no-content">
-            <h3>${content.headline}</h3>
-                <p>No content available.</p>
-            </section>`;
+            <h3>${data.headline}</h3>
+                <p>No content available.</p>`;
     }
+    html += /*HTML*/`</section></section>`;
     return html;
 }
 function constitutionContent(article)
