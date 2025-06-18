@@ -270,6 +270,10 @@ section .card-body {
   text-align: justify;
 }
 
+.membership-container {
+  inline-size: 30em;
+}
+
 div.link {
   padding: 1em;
   color: rgb(255, 95, 25) !important;
