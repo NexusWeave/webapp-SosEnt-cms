@@ -5,7 +5,7 @@ function aboutUsView(id)
     const data = model.data;
     const contact = data.contact;
     const partners = data.partners;
-    const nav = data.nav.pages[id];
+    const nav = data.pages[id];
 
     const content = nav.content;
     const members = content.members;
