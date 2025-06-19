@@ -109,7 +109,18 @@ function memberPortalContent(data)
         html += /*HTML*/`</section>`;
     }
 
-    //  Archive Content
+    html += archiveContent(archive);
+    return html;
+}
+
+function archiveContent(archive)
+{
+    let html = /*HTML*/`
+        <section class = "archive-container flex-wrap-column-align-items-center">
+            <h2>Dokument Arkiv</h2>
+            <p>Her finner du arkivfiler som er tilgjengelige for nedlasting.</p>
+            <section class = "archive-content flex-wrap-row-justify-space-between">`;
+    
     if (archive.length > 0)
     {
         for (let i = 0; i < archive.length; i++)
@@ -133,7 +144,5 @@ function memberPortalContent(data)
             </article>`;
 
     }
-            
-        html += /*HTML*/`</section>`;
     return html;
 }
