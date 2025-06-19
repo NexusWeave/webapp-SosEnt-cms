@@ -11,6 +11,11 @@ function newsView(id)
             <section class="${content.cls}">
                 ${newsContent(content.articles)} 
             </section>
+            <section class="news-archive">
+                <h3>Nyhetsarkiv</h3>
+                ${ArchiveNews(content.articles)}
+            </section>
+
         </main>
         ${footerView()} `;
     return html;
@@ -19,21 +24,55 @@ function newsView(id)
 function newsContent(articles)
 {
     let html = '';
+    // Sort articles by date
 
+    const n = 3;
     for (let j = 0; j < articles.length; j++)
     {
-        html += /*HTML*/`
-            <article class="${articles[j].cls}">
-                <img class="${articles[j].image.cls}" alt="${articles[j].image.alt}" src="${articles[j].image.src ? articles[j].image.src : null}" />
-                <div class="flex-wrap-column is-31">
-                    <h3>${articles[j].headline}</h3>
-                    <time datetime="${articles[j].date}">${articles[j].date}</time>
-                    <p>${articles[j].lede}</p>
-                    <div class = "flex-wrap-row-justify-content-flex-end">
-                        <a class = "link" href="${articles[j].link}">Les mer</a>
+        if (j <= n )
+        {
+            html += /*HTML*/`
+                <article class="${articles[j].cls}">
+                    <img class="${articles[j].image.cls}" alt="${articles[j].image.alt}" src="${articles[j].image.src ? articles[j].image.src : null}" />
+                    <div class="flex-wrap-column is-31">
+                        <h3>${articles[j].headline}</h3>
+                        <time datetime="${articles[j].date}">${articles[j].date}</time>
+                        <p>${articles[j].lede}</p>
+                        <div class = "flex-wrap-row-justify-content-flex-end">
+                            <a class = "link" href="${articles[j].link}">Les mer</a>
+                        </div>
                     </div>
-                </div>
-            </article>`;
+                </article>`;
+        }
     }
+    return html;
+}
+
+function ArchiveNews(article)
+{
+    const n = 3;
+    let html = '';
+
+    if (article.length > n)
+    {
+         html += /*HTML*/`
+            <table class="archive-table">`;
+
+        for (let i = n; i < article.length; i++)
+        {
+            html += /*HTML*/`
+                <tr>
+                    <td>
+                        <a href="${article[i].link}">${article[i].headline}</a>
+                    </td>
+                    <td>
+                        Skrevet : <time datetime="${article[i].date}">${article[i].date}</time>
+                    </td>
+                </tr>`;
+        }
+        html += /*HTML*/`
+            </table>`;
+    }
+
     return html;
 }
