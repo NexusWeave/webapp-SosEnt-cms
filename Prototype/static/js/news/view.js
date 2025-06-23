@@ -29,7 +29,7 @@ function newsContent(articles)
     const n = 3;
     for (let j = 0; j < articles.length; j++)
     {
-        if (j <= n )
+        if (j < n )
         {
             html += /*HTML*/`
                 <article class="${articles[j].cls}">
