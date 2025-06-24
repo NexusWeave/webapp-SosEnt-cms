@@ -12,11 +12,11 @@ function newsView(id)
         <main>
             <h2>${content.headline}</h2>
             <section class="${content.cls}">
-                ${newsContent(content.articles, images.news)} 
+                ${newsContent(data.articles, images.news)} 
             </section>
             <section class="news-archive">
                 <h3>Nyhetsarkiv</h3>
-                ${ArchiveNews(content.articles)}
+                ${ArchiveNews(data.articles)}
             </section>
 
         </main>
@@ -26,12 +26,11 @@ function newsView(id)
 
 function newsContent(articles, images)
 {
-    let html = '';
-
     const n = 3;
+    let html = '';
     for (let i = 0; i < articles.length; i++)
     {
-        const image = findImage(articles[i].category, images);
+        const image = findCategoryImage(articles[i].category, images);
 
         if (i < n )
         {
