@@ -2,14 +2,17 @@
 function newsView(id)
 {
     let html;
-    const content = model.data.pages[id].content;
+    const data = model.data;
+    const content = data.pages[id].content;
+    const images = data.media.images;
+
 
     html = /*HTML*/`
         ${header()}
         <main>
             <h2>${content.headline}</h2>
             <section class="${content.cls}">
-                ${newsContent(content.articles)} 
+                ${newsContent(content.articles, images.news)} 
             </section>
             <section class="news-archive">
                 <h3>Nyhetsarkiv</h3>
@@ -21,25 +24,26 @@ function newsView(id)
     return html;
 }
 
-function newsContent(articles)
+function newsContent(articles, images)
 {
     let html = '';
-    // Sort articles by date
 
     const n = 3;
-    for (let j = 0; j < articles.length; j++)
+    for (let i = 0; i < articles.length; i++)
     {
-        if (j < n )
+        const image = findImage(articles[i].category, images);
+
+        if (i < n )
         {
             html += /*HTML*/`
-                <article class="${articles[j].cls}">
-                    <img class="${articles[j].image.cls}" alt="${articles[j].image.alt}" src="${articles[j].image.src ? articles[j].image.src : null}" />
+                <article class="${articles[i].cls}">
+                    <img class="${image.cls}" alt="${image.alt}" src="${image.src ? image.src : null}" />
                     <div class="flex-wrap-column is-31">
-                        <h3>${articles[j].headline}</h3>
-                        <time datetime="${articles[j].date}">${articles[j].date}</time>
-                        <p>${articles[j].lede}</p>
+                        <h3>${articles[i].headline}</h3>
+                        <time datetime="${articles[i].date}">${articles[i].date}</time>
+                        <p>${articles[i].lede}</p>
                         <div class = "flex-wrap-row-justify-content-flex-end">
-                            <a class = "link" href="${articles[j].link}">Les mer</a>
+                            <a class = "link" href="${articles[i].link}">Les mer</a>
                         </div>
                     </div>
                 </article>`;
