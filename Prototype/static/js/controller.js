@@ -10,7 +10,7 @@ function navigateView(view)
 function generateForm(id)
 {
     console.log("Generating form for id:", id);
-    const form = model.forms[id];
+    const form = model.data.forms[id];
     const inputs = form.inputs;
 
     let html = /*HTML*/ `
