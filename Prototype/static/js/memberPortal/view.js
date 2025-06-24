@@ -14,7 +14,6 @@ function memberPortalView(id)
         html = /*HTML*/`
             ${header()}
             <main>
-                ${carouselView(data.carousel, model.app.currentCarosel, content)}
                 ${memberPortalContent(page)}
             </main> 
             ${footerView()}`;
@@ -27,7 +26,7 @@ function memberPortalView(id)
         html = /*HTML*/`
             ${header()}
             <main>
-                <h2>Logg deg på for å se Medlemsportal</h2>
+                <h2>Logg deg på for å se fordelsprogramet</h2>
                 ${generateForm(id)}
             </main>
             ${footerView()}`;
