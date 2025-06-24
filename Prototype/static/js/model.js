@@ -57,7 +57,7 @@ const model =
                 cls: "nav-item bg-brown",
                 type: "button",
                 name: "membership",
-                title: "Medlemskap i SoSEnt Norge",
+                title: "Medlemskap",
             },
         ],
     },
@@ -90,67 +90,6 @@ const model =
             },
         ]
     },
-    forms:
-    [
-        {},
-        {},
-        {
-            id: 3,
-            action: "#",
-            method: "post",
-            cls:"membership-form flex-wrap-column-align-items-center",
-            inputs :
-            [
-                {
-                    id: 0,
-                    name:"Passord",
-                    required: true,
-                    type: "password",
-                    placeholder: "Skriv inn passord",
-                    
-                },
-            ],
-            btn :
-            {
-                cls: "btn-",
-                type: "submit",
-                name: "Logg inn",
-            }
-        },
-        {
-            id: 4,
-            action: "#",
-            method: "post",
-            cls:"membership-form flex-wrap-column-align-items-center",
-            btn:
-            {
-                cls: "btn-",
-                name: "Send",
-                type: "submit",
-            },
-            inputs:
-            [
-                {
-                    id: 0,
-                    name:"Name",
-                    required: true,
-                    placeholder: "Fullt navn (eks. Ola Norman)",
-                },
-                {
-                    id: 1,
-                    required: true,
-                    name:"Telefon Nummer",
-                    placeholder: "Telefon nr (eks. 123 45 678)",
-                },
-                {
-                    id:2,
-                    required: true,
-                    name: "E-Post",
-                    placeholder: "Epost (eks. eksempel@domene.no"
-                },
-            ],
-        }
-    ],
 
     //  Datasets for the webapplication
     data:
@@ -707,7 +646,7 @@ const model =
                 {
                     updated: "2023",
                     cls: "vedtekter-article",
-                    headline:"Velkommen til SOSENT's Medlemsportal",
+                    headline:"Vår fordelsprogram",
                     description: "Her finner du informasjon og ressurser for våre medlemmer.",
                     banner:
                     {
@@ -776,7 +715,6 @@ const model =
                 {
                     cls: "member-container flex-wrap-row-justify-space-evenly",
                     headline: "Bli Medlem i SOSENT",
-                    href: "https://response.questback.com/isa/qbv.dll/bylink?p=164g6KsM99iFiEoIuFBSPf4vlpq1wCY39OK0FW7sqwkdWfjDQ29a9XFSuJlAyLXr0",
                     paragraphs:
                     [
                         `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
@@ -862,5 +800,66 @@ const model =
                 }
             ],
         },
+        forms:
+    [
+        {},
+        {},
+        {
+            id: 3,
+            action: "#",
+            method: "post",
+            cls:"membership-form flex-wrap-column-align-items-center",
+            inputs :
+            [
+                {
+                    id: 0,
+                    name:"Passord",
+                    required: true,
+                    type: "password",
+                    placeholder: "Skriv inn passord",
+                    
+                },
+            ],
+            btn :
+            {
+                cls: "btn-",
+                type: "submit",
+                name: "Logg inn",
+            }
+        },
+        {
+            id: 4,
+            action: "#",
+            method: "post",
+            cls:"membership-form flex-wrap-column-align-items-center",
+            btn:
+            {
+                cls: "btn-",
+                name: "Send",
+                type: "submit",
+            },
+            inputs:
+            [
+                {
+                    id: 0,
+                    name:"Name",
+                    required: true,
+                    placeholder: "Fullt navn (eks. Ola Norman)",
+                },
+                {
+                    id: 1,
+                    required: true,
+                    name:"Telefon Nummer",
+                    placeholder: "Telefon nr (eks. 123 45 678)",
+                },
+                {
+                    id:2,
+                    required: true,
+                    name: "E-Post",
+                    placeholder: "Epost (eks. eksempel@domene.no"
+                },
+            ],
+        }
+    ],
     },
 } 
