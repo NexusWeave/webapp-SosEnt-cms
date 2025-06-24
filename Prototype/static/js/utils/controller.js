@@ -1,5 +1,4 @@
 //  Helper functions 
-
 function next()
 {
     /*
