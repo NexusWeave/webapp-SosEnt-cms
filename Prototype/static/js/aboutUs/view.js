@@ -41,7 +41,7 @@ function newsSection(article, images)
             {
                 break;
             }
-            const image = findImage(article[i].category, images.news);
+            const image = findCategoryImage(article[i].category, images.news);
             html += /*HTML*/`
                     <section class="news-container">
                         <article class = "flex-wrap-coumn news-article">
