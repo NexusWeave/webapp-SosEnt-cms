@@ -77,6 +77,7 @@ function aboutUsSection(content)
     html += `</div></section>`;
     return html;
 }
+
 function MemberContent(data)
 {
     const memberships = data.memberships;
@@ -92,7 +93,6 @@ function MemberContent(data)
         <table class = "member-table">
             <thead>
                 <tr>
-                    <th>Bedrifts Logo</th>
                     <th>Bedrifts Navn</th>
                 </tr>
             </thead>`;
@@ -103,11 +103,6 @@ function MemberContent(data)
 
             html += /*HTML*/`
             <tr>
-                <td class="member-logo">
-                    <a href="${member.href}">
-                        <img class ="${member.logo.cls}" src="${member.logo.src}" alt="${member.logo.alt}">
-                    </a>
-                </td>
                 <td class="member-name">
                     <a href="${member.href}">
                         <h6>${member.name}</h6>
@@ -158,9 +153,6 @@ function constitutionContent(article)
 function basicDocuments(documents)
 {
     let html = '';
-
-    html += documents.headline ? `<h3>${documents.headline}</h3>`: '';
-    html += documents.description ? `<p>${documents.description}</p>` : '';
     html += `<section class="flex-wrap-row-justify-space-evenly">`;
     
     for (let i = 0; i < documents.files.length; i++)
