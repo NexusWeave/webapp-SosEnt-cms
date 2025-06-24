@@ -5,15 +5,13 @@ function aboutUsView(id)
     const data = model.data;
     const media = data.media;
     const nav = data.pages[id];
+    const members = data.members;
     const contact = data.contact;
     
-    const images = media.images;
-    const partners = images.partners;
-
-    const documents = media.files;
-
     const content = nav.content;
-    const members = data.members;
+    const images = media.images;
+    const documents = media.files;
+    const partners = images.partners;
 
     let html = /*HTML*/ `
         ${header()}
