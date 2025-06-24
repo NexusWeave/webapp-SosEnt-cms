@@ -21,13 +21,7 @@ const model =
         title: "SoSEnt - Norge",
         description: "Landsforeningen for Sosiale Entrepenører i Norge",
         cls: "header-container flex-wrap-row-justify-center bg-brown",
-        image:
-            //  Logo for the header
-        {
-            cls: "logo-container flex-wrap-row-align-items-center-justify-space-between",
-            alt: "sosent-logo.png",
-            src: "./static/img/logo/SosEnt-logo.png",
-        },
+
     },
     nav:
     {
@@ -91,6 +85,7 @@ const model =
         ]
     },
 
+    
     //  Datasets for the webapplication
     data:
     {
@@ -119,68 +114,65 @@ const model =
             },
         ],
 
-        articlesBanner:
+        articles:
             [
                 {
-                    cls: "news-banner flex-wrap-row-justify-space-evenly",
                     date: "2023-10-01",
                     headline:"Referat Fra Styremøte 2023",
-                    image:
-                        {
-                            src: "./static/img/sosent/Gemini_Generated_Image_opf6gwopf6gwopf6.jpeg",
-                            alt: "Styret i SOSENT",
-                        },
-
-                        lede: `
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                            pariatur.`,
-
-                        main: 
-                        [
-                            `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
-                            nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
-                            porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
-                            Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
-                            erat volutpat. Nam ac massa vel nunc scelerisque bibendum.`,
-                                        
-                            `Curabitur vehicula tortor tortor, ut lacinia felis vestibulum pellentesque.
-                            Proin malesuada iaculis eros pulvinar efficitur. Nam eget pulvinar erat. Ut imperdiet
-                            a tellus sit amet pulvinar. Nam accumsan dignissim gravida. Nam lacinia sodales faucibus.
-                            Fusce sit amet sollicitudin sapien. Vestibulum sollicitudin orci leo. Nulla efficitur
-                            vehicula augue a commodo. Vivamus vehicula ultricies nibh, id elementum nulla lacinia in.
-                            Curabitur arcu lacus, tincidunt ut laoreet id, dapibus sed libero.`,
-
-                            `At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-                            voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
-                            occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt
-                            mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est
-                            et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
-                            cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas
-                            assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis
-                            debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et
-                            molestiae non recusandae.`
-                        ],
-
-                        ending: `Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-                                velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                                voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
-                                nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate
-                                velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla
-                                pariatur?`,
-                },
-                {
                     cls: "news-banner flex-wrap-row-justify-space-evenly",
+
+                    category: ["styremøte", "referat"],
+
+                    lede: `
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur.`,
+
+                    main:
+                    [
+                        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eros vel
+                        nunc scelerisque bibendum. Mauris et maximus diam, vitae convallis sem. In quis
+                        porttitor purus. Proin eget erat sed libero vestibulum venenatis quis a dui.
+                        Vestibulum fermentum diam vitae lorem maximus, ac elementum nulla rutrum. Aliquam
+                        erat volutpat. Nam ac massa vel nunc scelerisque bibendum.`,
+
+                        `Curabitur vehicula tortor tortor, ut lacinia felis vestibulum pellentesque.
+                        Proin malesuada iaculis eros pulvinar efficitur. Nam eget pulvinar erat. Ut imperdiet
+                        a tellus sit amet pulvinar. Nam accumsan dignissim gravida. Nam lacinia sodales faucibus.
+                        Fusce sit amet sollicitudin sapien. Vestibulum sollicitudin orci leo. Nulla efficitur
+                        vehicula augue a commodo. Vivamus vehicula ultricies nibh, id elementum nulla lacinia in.
+                        Curabitur arcu lacus, tincidunt ut laoreet id, dapibus sed libero.`,
+
+                        `At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+                        voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
+                        occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt
+                        mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est
+                        et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
+                        cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas
+                        assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis
+                        debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et
+                        molestiae non recusandae.`
+                    ],
+
+                    ending: `Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+                            velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                            voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
+                            nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate
+                            velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla
+                            pariatur?`,
+                },
+                {
                     date: "2025-05-01",
+                    cls: "news-banner flex-wrap-row-justify-space-evenly",
                     headline:"SOSENT - Norges Landsforening For Sosialt Entreprenørskap",
-                    image:
-                        {
-                            src: "./static/img/logo/SosEnt-favicon.png",
-                            alt: "News banner",
-                        },
+
+                    category: 
+                    [
+                        "sosent",
+                    ],
 
                         lede: `
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -224,15 +216,15 @@ const model =
                                 pariatur?`,
                 },
                 {
-                        cls: "news-banner flex-wrap-row-justify-space-evenly",
-                        date: "2025-05-01",
-                        headline:"SOSENT - Norges Landsforening for sosialt entreprenørskap",
-                        image:
-                        {
-                            src: "./static/img/logo/SosEnt-favicon.png",
-                            alt: "News banner",
-                        },
-                        
+                    date: "2025-05-01",    
+                    cls: "news-banner flex-wrap-row-justify-space-evenly",
+
+                    headline:"SOSENT - Norges Landsforening for sosialt entreprenørskap",
+                    category: [
+                        "sosent",
+
+                    ],
+
                         lede: `
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -276,7 +268,6 @@ const model =
                                 pariatur?`,
                 },
         ],
- 
         pages:
         [
             {
@@ -291,29 +282,6 @@ const model =
                     {
                         src: "./static/img/sosent/Gemini_Generated_Image_opf6gwopf6gwopf6.jpeg",
                         alt: "SOSENT-Team.jpg",
-                    },
-
-                    documentation:
-                    {
-                        headline: "Grunnlagsdokumentasjon",
-                        description: "Her finner du organisasjonens grunnlagsdokumenter.",
-                        files:
-                        [
-                            {
-                                cls: "flex-column documents",
-                                name: "Vedtekter",
-                                date: "01.05.2025",
-                                description: "PDF av organisasjonens vedtekter",
-                                src: "./docs/vedtekter.pdf",
-                            },
-                            {
-                                cls: "flex-column documents",
-                                name: "Styre medlemmer",
-                                date: "01.05.2025",
-                                description: "PDF av organisasjonens styremedlemmer",
-                                src: "./docs/vedtekter.pdf",
-                            },
-                        ],
                     },
 
                     paragraphs: 
@@ -433,12 +401,7 @@ const model =
                             cls: "news-banner flex-wrap-row link",
                             date: "2023-10-01",
                             headline:"Referat Fra Styremøte 2023",
-                            image:
-                            {
-                                cls: "article-image",
-                                src: "./static/img/sosent/Gemini_Generated_Image_opf6gwopf6gwopf6.jpeg",
-                                alt: "Styret i SOSENT",
-                            },
+                            category: ["styremøte", "referat"],
 
                             lede: `
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -473,6 +436,7 @@ const model =
                                 debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et
                                 molestiae non recusandae.`
                             ],
+
                             ending: `Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
                             velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
                             voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
@@ -484,12 +448,10 @@ const model =
                             cls: "news-banner flex-wrap-row",
                             date: "2025-05-01",
                             headline:"SOSENT - Norges Landsforening For Sosialt Entreprenørskap",
-                            image:
-                            {
-                                cls: "article-image",
-                                src: "./static/img/logo/SosEnt-favicon.png",
-                                alt: "News banner",
-                            }, 
+                            category:
+                            [
+                                "sosent",
+                            ], 
 
                             lede: `
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -537,12 +499,10 @@ const model =
                             cls: "news-banner flex-wrap-row",
                             date: "2025-05-01",
                             headline:"SOSENT - Norges Landsforening for sosialt entreprenørskap",
-                            image:
-                            {
-                                cls: "article-image",
-                                src: "./static/img/logo/SosEnt-favicon.png",
-                                alt: "News banner",
-                            }, 
+                            category:
+                            [
+                                "sosent",
+                            ],
 
                             lede: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -588,12 +548,10 @@ const model =
                             cls: "news-banner flex-wrap-row",
                             date: "2025-05-01",
                             headline:"SOSENT - Norges Landsforening for sosialt entreprenørskap",
-                            image:
-                            {
-                                cls: "article-image",
-                                src: "./static/img/logo/SosEnt-favicon.png",
-                                alt: "News banner",
-                            }, 
+                            category:
+                            [
+                                "sosent",
+                            ],
 
                             lede: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -801,65 +759,225 @@ const model =
             ],
         },
         forms:
-    [
-        {},
-        {},
-        {
-            id: 3,
-            action: "#",
-            method: "post",
-            cls:"membership-form flex-wrap-column-align-items-center",
-            inputs :
-            [
+        [
+            {},
+            {},
+            {
+                id: 3,
+                action: "#",
+                method: "post",
+                cls:"membership-form flex-wrap-column-align-items-center",
+                inputs :
+                [
+                    {
+                        id: 0,
+                        name:"Passord",
+                        required: true,
+                        type: "password",
+                        placeholder: "Skriv inn passord",
+                        
+                    },
+                ],
+                btn :
                 {
-                    id: 0,
-                    name:"Passord",
-                    required: true,
-                    type: "password",
-                    placeholder: "Skriv inn passord",
-                    
-                },
-            ],
-            btn :
-            {
-                cls: "btn-",
-                type: "submit",
-                name: "Logg inn",
-            }
-        },
-        {
-            id: 4,
-            action: "#",
-            method: "post",
-            cls:"membership-form flex-wrap-column-align-items-center",
-            btn:
-            {
-                cls: "btn-",
-                name: "Send",
-                type: "submit",
+                    cls: "btn-",
+                    type: "submit",
+                    name: "Logg inn",
+                }
             },
-            inputs:
+            {
+                id: 4,
+                action: "#",
+                method: "post",
+                cls:"membership-form flex-wrap-column-align-items-center",
+                btn:
+                {
+                    cls: "btn-",
+                    name: "Send",
+                    type: "submit",
+                },
+                inputs:
+                [
+                    {
+                        id: 0,
+                        name:"Name",
+                        required: true,
+                        placeholder: "Fullt navn (eks. Ola Norman)",
+                    },
+                    {
+                        id: 1,
+                        required: true,
+                        name:"Telefon Nummer",
+                        placeholder: "Telefon nr (eks. 123 45 678)",
+                    },
+                    {
+                        id:2,
+                        required: true,
+                        name: "E-Post",
+                        placeholder: "Epost (eks. eksempel@domene.no"
+                    },
+                ],
+            }
+        ],
+        media:
+        {
+            images:
+            {
+                contact:
+                [
+                    {
+                        id: 0,
+                        alt: "contact",
+                        cls:"card-img-top",
+                        src: "./static/media/team/profil-helle-privat.jpg",
+                    },
+                    {
+                        id: 1,
+                        alt: "contact",
+                        cls:"card-img-top",
+                        src: "./static/media/team/52700234381_5e75074f92_q.jpg",
+                    },
+                ],
+
+                logo:
+                [
+                    {
+                        id: 0,
+                        alt: "SosEnT-logo.png",
+                        src: "./static/media/logo/SosEnT-logo.png",
+                        cls: "logo-container flex-wrap-row-align-items-center-justify-space-between",
+                    },
+                    {
+                        id: 1,
+                        alt: "SosEnT-favicon.png",
+                        cls: "article-image",
+                        src: "./static/media/logo/SosEnT-favicon.png",
+                    },   
+                ],
+
+                partners:
+                [
+                    {
+                        id: 0,
+                        alt: "SosEnT Logo.png",
+                        href: "https://sosent.no/",
+                        src: "./static/media/partners/SosEnT-favicon.png",
+                    },
+                    {
+                        id: 1,
+                        alt: "SosEnT Logo.png",
+                        href: "https://sosent.no/",
+                        src: "./static/media/partners/SosEnT-favicon.png",
+                    },
+                ],
+
+                news:
+                [
+                    {
+                        id: 0,
+                        cls: "article-image",
+                        alt: "Styremøte-referat.jpeg",
+                        category: ["styremøte", "referat"],
+                        src: "./static/media/images/news/Gemini_Generated_Image_opf6gwopf6gwopf6.jpeg",
+                    },
+                    {
+                        id: 1,
+                        cls: "article-image",
+                        category: ["default"],
+                        alt: "SosEnT-favicon.png",
+                        src: "./static/media/images/news/SosEnT-favicon.png",
+                    },
+
+                ],
+
+
+            },
+
+            files:
             [
                 {
                     id: 0,
-                    name:"Name",
-                    required: true,
-                    placeholder: "Fullt navn (eks. Ola Norman)",
+                    name: "Vedtekter",
+                    date: "01.05.2025",
+                    cls: "flex-column documents",
+                    description: "PDF av organisasjonens vedtekter",
+                    src: "./static/media/pdf/vedtekter.pdf",
                 },
                 {
                     id: 1,
-                    required: true,
-                    name:"Telefon Nummer",
-                    placeholder: "Telefon nr (eks. 123 45 678)",
-                },
-                {
-                    id:2,
-                    required: true,
-                    name: "E-Post",
-                    placeholder: "Epost (eks. eksempel@domene.no"
+                    name: "Organisasjons Kart",
+                    date: "01.05.2025",
+                    cls: "flex-column documents",
+                    src: "./static/media/pdf/hierarki.pdf",
+                    description: "PDF av organisasjonens Hieraki",
                 },
             ],
-        }
-    ],
+        /*/media:
+        {
+            images:
+            [
+                {
+                    id: 0,
+                    alt: "sosent-logo.png",
+                    name: "sosent-logo.png",
+                    src: "./static/media/logo/SosEnt-logo.png",
+                    cls: "logo-container flex-wrap-row-align-items-center-justify-space-between",
+                },
+                
+                
+
+                {
+                    id: 2,
+                    name: "carousel",
+                    src: "./static/media/carosuel/",
+                },
+                {
+                    id: 3,
+                    name: "partners",
+                    src: "./static/media/partners/",
+                },
+
+            ],
+            logo:
+            {
+
+            },
+            contact:
+            [
+                {
+                    id: 0,
+                    
+                    name: "contact",
+                    cls:"card-img-top",
+                    src: "./static/media/team/",
+                },
+                {
+                    id: 1,
+                    name: "contact",
+                    
+                    src: "./static/media/team/",
+                },
+            ],
+
+            files:
+            [
+                {
+                    id: 0,
+                    name: "Vedtekter",
+                    date: "01.05.2025",
+                    cls: "flex-column documents",
+                    description: "PDF av organisasjonens vedtekter",
+                    src: "./static/media/pdf/vedtekter.pdf",
+                },
+                {
+                    id: 1,
+                    name: "Organisasjons Kart",
+                    date: "01.05.2025",
+                    cls: "flex-column documents",
+                    src: "./static/media/pdf/hierarki.pdf",
+                    description: "PDF av organisasjonens Hieraki",
+                },
+            ],*/
+        },
     },
 } 
