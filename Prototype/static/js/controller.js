@@ -30,9 +30,11 @@ function generateForm(id)
     </form>`;
     return html;
 }
-function findImage(category, images)
+
+function findCategoryImage(category, images)
 {
     let image = null;
+
     for (let j = 0; j < category.length; j++)
     {
         image = images.find(img => img.category[j] === category[j]) ? images.find(img => img.category[j] === category[j]) : images.find(img => img.category[0] === 'default');
