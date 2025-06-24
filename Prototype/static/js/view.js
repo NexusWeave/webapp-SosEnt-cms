@@ -73,31 +73,3 @@ function footerNav(links)
     }
     return html;
 }
-
-// Function to generate the footer partners section
-function footerPartners(partners)
-{
-    if (partners && partners.length > 0)
-    {
-        let html = /*html*/`
-            Våre samarbeidspartnere
-            <section class="flex-wrap-row">`;
-
-        for (let i = 0; i < partners.length; i++)
-        {
-            const partner = partners[i];
-            console.log(partner);
-            html += /*HTML*/ `
-                <div class="partner">
-                    <a href="${partner.href}" target="_blank" rel="external">
-                        <img alt="${partner.logo.alt}" src="${partner.logo.src}">
-                    </a>
-                </div>`;
-        }
-        html += `</section>`;
-        console.log(html)
-        return html;
-    }
-    
-    
-}
