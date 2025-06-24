@@ -743,7 +743,20 @@ const model =
 
                 ],
 
-
+                carousel:
+                [
+                    {
+                        id: 0,
+                        cls: "carousel-image",
+                        alt: "SOSENT Banner",
+                        src: "./static/media/images/carousel/klar00.jpg",
+                    },
+                    {
+                        id: 1,
+                        alt: "SOSENT Banner",
+                        src: "./static/media/images/carousel/klar01.jpg",
+                    },
+                ]
             },
 
             files:
@@ -765,72 +778,6 @@ const model =
                     description: "PDF av organisasjonens Hieraki",
                 },
             ],
-        /*/media:
-        {
-            images:
-            [
-                {
-                    id: 0,
-                    alt: "sosent-logo.png",
-                    name: "sosent-logo.png",
-                    src: "./static/media/logo/SosEnt-logo.png",
-                    cls: "logo-container flex-wrap-row-align-items-center-justify-space-between",
-                },
-                
-                
-
-                {
-                    id: 2,
-                    name: "carousel",
-                    src: "./static/media/carosuel/",
-                },
-                {
-                    id: 3,
-                    name: "partners",
-                    src: "./static/media/partners/",
-                },
-
-            ],
-            logo:
-            {
-
-            },
-            contact:
-            [
-                {
-                    id: 0,
-                    
-                    name: "contact",
-                    cls:"card-img-top",
-                    src: "./static/media/team/",
-                },
-                {
-                    id: 1,
-                    name: "contact",
-                    
-                    src: "./static/media/team/",
-                },
-            ],
-
-            files:
-            [
-                {
-                    id: 0,
-                    name: "Vedtekter",
-                    date: "01.05.2025",
-                    cls: "flex-column documents",
-                    description: "PDF av organisasjonens vedtekter",
-                    src: "./static/media/pdf/vedtekter.pdf",
-                },
-                {
-                    id: 1,
-                    name: "Organisasjons Kart",
-                    date: "01.05.2025",
-                    cls: "flex-column documents",
-                    src: "./static/media/pdf/hierarki.pdf",
-                    description: "PDF av organisasjonens Hieraki",
-                },
-            ],*/
         },
     },
 } 
