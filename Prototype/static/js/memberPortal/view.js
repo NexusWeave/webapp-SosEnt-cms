@@ -43,29 +43,37 @@ function memberPortalContent(data)
     let html = /*HTML*/`
     <section class = "content-container flex-wrap-column-align-items-center">
     `;
-
+    // To faner Memdlems fordelsprogram og Arkiv
     if (content.paragraphs.length > 0)
     {
-        html += /*HTML*/`
-            <section class = "content-header flex-wrap-column-align-items-center">
-            <h2>${content.headline}</h2>
-            <span>Sist oppdatert : <time datetime="${content.updated}">${content.updated}</time></span>
-            <section class = "content-subtitle">`;
-        //  Content
-        for (let i = 0; i < content.paragraphs.length; i++)
-        {
-            const p = content.paragraphs[i];
-            html += /*HTML*/`
-                <p>${p}</p>
-            `;
-        }
-        html += /*HTML*/`</section>`;
+       html += benefitProgram(content);
     }
 
     html += archiveContent(archive);
     return html;
 }
 
+function benefitProgram(content)
+{
+    const paragraphs = content.paragraphs;
+    const n = paragraphs.length;
+
+    html += /*HTML*/`
+            <section class = "content-header flex-wrap-column-align-items-center">
+                <h2>${content.headline}</h2>
+                <span>Sist oppdatert : <time datetime="${content.updated}">${content.updated}</time></span>
+                <section class = "content-subtitle">`;
+        //  Content
+        for (let i = 0; i < n; i++)
+        {
+            const p = paragraphs[i];
+            html += /*HTML*/`
+                <p>${p}</p>
+            `;
+        }
+        html += /*HTML*/`</section>`;
+        return html;
+}
 function archiveContent(archive)
 {
     let html = /*HTML*/`
