@@ -39,24 +39,6 @@ function memberPortalView(id)
     }
 }
 
-function memberPortalContent(data)
-{
-    //const archive = data.archive;
-    const content = data.content;
-
-    let html = /*HTML*/`
-    <section class = "content-container flex-wrap-column-align-items-center">
-    `;
-    // To faner Memdlems fordelsprogram og Arkiv
-    if (content.paragraphs.length > 0)
-    {
-       html += benefitProgram(content);
-    }
-
-    html += archiveContent(archive);
-    //return html;
-}
-
 function benefitProgramView()
 {
 
