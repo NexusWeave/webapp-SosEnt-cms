@@ -4,20 +4,24 @@ function memberPortalView(id)
     //  Fetch the model
     const data = model.data;
     const loggedIn = data.loggedIn;
-        
+    let html;
+
     if (loggedIn)
     {
-        let html;
-        const page = data.pages[id];
-        const content = page.content;
+        
 
         html = /*HTML*/`
             ${header()}
             <main>
-                ${memberPortalContent(page)}
+            <nav class ="member-portal-nav flex-wrap-row-justify-center">
+                <button onclick="benefitProgramView()">Fordels Program</button>
+                <span class="nav-separator"></span>
+                <button onclick="archiveContent()">Dokumenter</button>
+            </nav>
+            <div class='content-container'></div>
             </main> 
             ${footerView()}`;
-                
+
         return html;
     }
     else
@@ -37,7 +41,7 @@ function memberPortalView(id)
 
 function memberPortalContent(data)
 {
-    const archive = data.archive;
+    //const archive = data.archive;
     const content = data.content;
 
     let html = /*HTML*/`
@@ -50,15 +54,19 @@ function memberPortalContent(data)
     }
 
     html += archiveContent(archive);
-    return html;
+    //return html;
 }
 
-function benefitProgram(content)
+function benefitProgramView()
 {
+
+    const data = model.data;
+    const pages = data.pages[2];
+    const content = pages.content;
     const paragraphs = content.paragraphs;
     const n = paragraphs.length;
 
-    html += /*HTML*/`
+    let html = /*HTML*/`
             <section class = "content-header flex-wrap-column-align-items-center">
                 <h2>${content.headline}</h2>
                 <span>Sist oppdatert : <time datetime="${content.updated}">${content.updated}</time></span>
@@ -72,10 +80,18 @@ function benefitProgram(content)
             `;
         }
         html += /*HTML*/`</section>`;
-        return html;
+
+        console.log(html);
+
+        document.querySelector('.content-container').innerHTML = html;
 }
-function archiveContent(archive)
+
+function archiveContent()
 {
+    const data = model.data;
+    const media = data.media;
+    const archive = media.files;
+
     let html = /*HTML*/`
         <section class = "archive-container flex-wrap-column-align-items-center">
             <h2>Dokument Arkiv</h2>
@@ -105,5 +121,5 @@ function archiveContent(archive)
             </article>`;
 
     }
-    return html;
+    document.querySelector('.content-container').innerHTML = html;
 }
