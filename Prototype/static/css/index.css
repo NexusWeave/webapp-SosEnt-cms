@@ -351,4 +351,8 @@ div.link:hover {
   inline-size: 10em;
   block-size: 10em;
   margin-inline-end: 1em;
+}
+
+.nav-separator {
+  border-left: 1px solid rgb(255, 95, 25);
 }/*# sourceMappingURL=index.css.map */
