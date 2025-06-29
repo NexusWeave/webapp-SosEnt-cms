@@ -1,5 +1,44 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
+
+function header()
+{
+    const logo = model.data.media.images.logo[0];
+
+    let html = /*HTML*/`
+        <header class="${model.header.cls}">
+            <div class="flex-row-align-items-center">
+                <div class="flex-wrap-row-justify-flex-start ">
+                    <img class="${logo.cls}" alt="${logo.alt}" src="${logo.src}" />
+                </div>
+                <div class="flex-column-align-items-center">
+                    <h1 class="h1">${model.header.title}</h1>
+                    <h4>${model.header.description}</h4>
+                </div>
+                <div></div>
+            </div>
+        
+        ${navigationMenu()}
+    </header>`;
+
+    return html;
+}
+
+function footerView()
+{
+    const footer = model.footer;
+    const nav = footer.nav;
+
+    let html = /*HTML*/ `
+    <footer class="${footer.cls}">
+        <nav class="footer-container flex-wrap-row-justify-flex-end">
+            ${footerNav(nav)}
+        </nav>
+    
+    </footer>`;
+
+    return html;
+}
 </script>
 
 <template>
