@@ -1,69 +1,109 @@
+
+
+<template>
+  
+  <header>
+    <Header :data = 'headerData' />
+  </header>
+  <main>
+
+  </main>
+  <footer>
+    <Footer :data = 'footerData' />
+  </footer>
+</template>
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
 
-function header()
-{
-    const logo = model.data.media.images.logo[0];
+import { RouterLink, RouterView } from 'vue-router'
 
-    let html = /*HTML*/`
-        <header class="${model.header.cls}">
-            <div class="flex-row-align-items-center">
-                <div class="flex-wrap-row-justify-flex-start ">
-                    <img class="${logo.cls}" alt="${logo.alt}" src="${logo.src}" />
-                </div>
-                <div class="flex-column-align-items-center">
-                    <h1 class="h1">${model.header.title}</h1>
-                    <h4>${model.header.description}</h4>
-                </div>
-                <div></div>
-            </div>
+import Header from './views/utils/HeaderView.vue';
+import Footer from './views/utils/FooterView.vue';
+
+const headerData = {
+  cls: 'flex-row-align-items-center',
+  
+  content:
+  {
+    cls: 'flex-column-align-items-center',
+    title: 'Sosial Entreprenørskap i Norge',
+  },
+  nav :
+  {
+    cls: '',
+    type: 'router',
+    id: 'main-nav',
+    menu: 
+    [
+      {
+        id: 1,
+        to: '/',
+        title: 'Om oss',
+        type: 'router',
+        cls: 'nav-link',
+      },
+      {
+        id: 2,
+        to: '/aktuelt',
         
-        ${navigationMenu()}
-    </header>`;
+        title: 'Aktuelt',
+        cls: 'nav-link',
+      },
+      {
+        id: 3,
+        type: 'router',
+        cls: 'nav-link',
+        to: '/fordeler',
+        title: 'Medlems fordeler',
+        
+      },
+      {
+        id: 4,
+        type: 'router',
+        cls: 'nav-link',
+        to: '/medlemskap',
+        title: 'Medlemskap',
+        
+      }
+    ],
+  },
+  media: {
 
-    return html;
+    cls: 'flex-wrap-row-justify-flex-start',
+    images:
+    [
+      {
+        cls: 'logo-container ',
+        alt: 'SosEnT Logo',
+        src: '/SosEnT-favicon.png',
+      }
+    ],
+  },
 }
 
-function footerView()
-{
-    const footer = model.footer;
-    const nav = footer.nav;
-
-    let html = /*HTML*/ `
-    <footer class="${footer.cls}">
-        <nav class="footer-container flex-wrap-row-justify-flex-end">
-            ${footerNav(nav)}
-        </nav>
-    
-    </footer>`;
-
-    return html;
+const footerData = {
+  nav :
+  {
+    cls: '',
+    type: 'external',
+    id: 'footer-nav',
+    menu: 
+    [
+      {
+        type: 'link',
+        name : "Personvern",
+        cls: "link nav-item",
+        href: "https://docs.google.com/document/d/1AkTTNQei6pJWvRYc_VT93Rspk3MTJn_ai_TsHqXi88U/edit?usp=sharing",
+      },
+      {
+        
+        cls: "nav-item",
+        type: 'external',
+        title: "NO 935 329 930",
+        href: "https://www.proff.no/selskap/sosent-norge/oslo/medlemsorganisasjoner/IFGVD6Y10PU"
+      },
+    ],
+  },
 }
 </script>
 
-<template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
-</template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
