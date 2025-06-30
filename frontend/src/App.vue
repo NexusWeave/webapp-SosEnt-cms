@@ -6,7 +6,7 @@
     <Header :data = 'headerData' />
   </header>
   <main>
-
+    <router-view></router-view>
   </main>
   <footer>
     <Footer :data = 'footerData' />
@@ -83,14 +83,13 @@ const headerData = {
 const footerData = {
   nav :
   {
+    type: 'link',
     cls: '',
-    type: 'external',
     id: 'footer-nav',
     menu: 
     [
       {
-        type: 'link',
-        name : "Personvern",
+        title : "Personvern",
         cls: "link nav-item",
         href: "https://docs.google.com/document/d/1AkTTNQei6pJWvRYc_VT93Rspk3MTJn_ai_TsHqXi88U/edit?usp=sharing",
       },
