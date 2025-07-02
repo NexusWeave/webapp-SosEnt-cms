@@ -1,17 +1,17 @@
 <template>
 
     <nav :cls="data.cls">
-        <RouterLink v-if ="data.type=== 'router'" v-for="(item, i) in nav"
+        <RouterLink v-if ="data.type=== 'router'" v-for="(link, i) in nav"
             :key="i"
-            :to="item.to"
-            :class="item.cls" >{{ item.title }}</RouterLink>
+            :to="link.href"
+            :class="link.cls" >{{ link.name }}</RouterLink>
 
-        <Link v-if="data.type === 'link'" :data="item" v-for="item in data.menu"/>
+        <Link v-if="data.type === 'link'" :data="link" v-for="link in data.menu"/>
     </nav>
 </template>
 
 <script setup>
-import Link from './Link.vue';
+import Link from './Anchor.vue';
 import Button from './Button.vue';
 
 import { RouterLink } from 'vue-router';
