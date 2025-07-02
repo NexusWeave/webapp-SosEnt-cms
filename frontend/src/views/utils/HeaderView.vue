@@ -22,7 +22,6 @@
         required: true
     }
     });
-    
 
     const data = reactive(props.data);
     const content = reactive(data.content);
