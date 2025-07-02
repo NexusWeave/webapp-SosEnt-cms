@@ -1,28 +1,18 @@
 <template>
-    <a v-if="img && media.images.find(type => type === img.type)"
-        :href="data.href"
-        :target="isExternal ? '_blank': '_self'"
-        :rel="isExternal  && 'noopener noreferrer'">
-
-        <img :src="img.src" :alt="img.alt" :class="img.cls">
-    </a>
-    
-    <a v-if ="media.files.find(type => type === data.type)" 
-        :href="data.href" :class="data.cls" download>
-        {{ data.name }}
-    </a>
-    
-    <a v-if ="media.contactData.find(type => type === data.type)" 
-        :href="data.href" :class="data.cls">
-        {{ data.name }}
-    </a>
-
-    <a v-else
+    <a
         :href="data.href"
         :class="data.cls"
         :target="isExternal ? '_blank': '_self'"
-        :rel="isExternal  && 'noopener noreferrer'">
-        {{ data.title }}</a>
+        :rel="isExternal  && 'noopener noreferrer'"
+        :download="media.contactData.find(type => type === data.type) ? '' : false"
+        >
+         <template v-if="img && media.images.find(type => type === img.type)">
+            <img :src="img.src" :alt="img.alt" :class="img.cls">
+        </template>
+        <template v-else>
+            {{ data.name }}
+        </template>
+        </a>
 
 </template>
 
@@ -46,6 +36,6 @@ const data = props.data;
 const img = data.img? data.img : null;
 const isExternal = data.type === 'external' || false;
 
-//console.log("Link component loaded with data: ", data, isExternal);
+console.log("Link component loaded with data: ", data, isExternal);
 
 </script>
