@@ -14,18 +14,21 @@
         <p v-for="(paragraph, i) in aboutData.paragraphs" :key="i">{{ paragraph }}</p>
     </section>
 
-    <section v-if="membersData.members.length > 0">Våre medlemmer
+    <section v-if="membersData.members.length > 0">
         <table>
-            <tr>
-                <th>Medlemsliste med navn</th>
-            </tr>
-            <tr v-for="member in membersData.members" :key="member.id">
-                <td>
-                    <Link :data="member" v-if ="member.href"/>
-                    <h3 v-if="!member.href">{{ member.name }}</h3>
-                    <p>{{ member.description }}</p>
-                </td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>{{ membersData.title }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="member in membersData.members" :key="member.id">
+                    <td>
+                        <Link :data="member" v-if ="member.href"/>
+                        <h3 v-if="!member.href">{{ member.name }}</h3>
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </section>
 
@@ -161,8 +164,9 @@ const aboutData = reactive(
 const membersData = reactive(
     {
         cls: 'flex-column-align-items-center',
-        title: 'Medlemmer',
-        members: [
+        title: 'Våre medlemmer',
+        members: 
+        [
             {
                 id: 0,
                 type: 'external',
