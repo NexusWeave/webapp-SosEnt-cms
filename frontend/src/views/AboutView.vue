@@ -22,7 +22,7 @@
             <tr v-for="member in membersData.members" :key="member.id">
                 <td>
                     <Link :data="member" v-if ="member.href"/>
-                    <h3 v-if="!member.href">{{ member.title }}</h3>
+                    <h3 v-if="!member.href">{{ member.name }}</h3>
                     <p>{{ member.description }}</p>
                 </td>
             </tr>
@@ -59,7 +59,7 @@
 </template>
 
 <script setup>
-import Link from '@/components/navigation/Link.vue';
+import Link from '@/components/navigation/Anchor.vue';
 
 import { reactive } from 'vue';
 
@@ -166,14 +166,14 @@ const membersData = reactive(
             {
                 id: 0,
                 type: 'external',
-                title: 'Medlem 1',
+                name: 'Medlem 1',
                 href: 'https://www.example.com',
                 description: 'Beskrivelse av medlem 1.',
             },
             {
                 id: 1,
                 type: 'external',
-                title: 'Medlem 2',
+                name: 'Medlem 2',
                 href: 'https://www.example.com',
                 description: 'Beskrivelse av medlem 2.',
                 
@@ -181,7 +181,7 @@ const membersData = reactive(
             {
                 id: 2,
                 type: 'external',
-                title: 'Medlem 3',
+                name: 'Medlem 3',
                 description: 'Beskrivelse av medlem 3.',
             },
         ],
