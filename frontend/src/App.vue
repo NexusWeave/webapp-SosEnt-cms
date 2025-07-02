@@ -36,32 +36,32 @@ const headerData = {
     [
       {
         id: 1,
-        to: '/',
-        title: 'Om oss',
+        href: '/',
+        name: 'Om oss',
         type: 'router',
         cls: 'nav-link',
       },
       {
         id: 2,
-        to: '/aktuelt',
+        href: '/aktuelt',
         
-        title: 'Aktuelt',
+        name: 'Aktuelt',
         cls: 'nav-link',
       },
       {
         id: 3,
         type: 'router',
         cls: 'nav-link',
-        to: '/fordeler',
-        title: 'Medlems fordeler',
+        href: '/fordeler',
+        name: 'Medlems fordeler',
         
       },
       {
         id: 4,
         type: 'router',
         cls: 'nav-link',
-        to: '/medlemskap',
-        title: 'Medlemskap',
+        href: '/medlemskap',
+        name: 'Medlemskap',
         
       }
     ],
@@ -74,7 +74,7 @@ const headerData = {
       {
         cls: 'logo-container ',
         alt: 'SosEnT Logo',
-        src: '/SosEnT-favicon.png',
+        src: '/media/images/logo/SosEnT-favicon.png',
       }
     ],
   },
@@ -89,7 +89,7 @@ const footerData = {
     menu: 
     [
       {
-        title : "Personvern",
+        name : "Personvern",
         cls: "link nav-item",
         href: "https://docs.google.com/document/d/1AkTTNQei6pJWvRYc_VT93Rspk3MTJn_ai_TsHqXi88U/edit?usp=sharing",
       },
@@ -97,7 +97,7 @@ const footerData = {
         
         cls: "nav-item",
         type: 'external',
-        title: "NO 935 329 930",
+        name: "NO 935 329 930",
         href: "https://www.proff.no/selskap/sosent-norge/oslo/medlemsorganisasjoner/IFGVD6Y10PU"
       },
     ],
