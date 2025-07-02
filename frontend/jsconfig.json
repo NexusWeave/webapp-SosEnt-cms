@@ -1,7 +1,15 @@
 {
+  "target": "esnext",     // Anbefalt for moderne Vue-prosjekter (inkluderer async/await, Promise)
+  "module": "esnext",      // Bruk ES-moduler for import/export syntax
+  "lib": ["esnext", "dom"],// Inkluderer de nyeste ECMAScript-funksjonene (Promise!) og DOM-APIer
+  "jsx": "preserve",       // Viktig for Vue/JSX-integrasjon (hvis du bruker det)
+  "allowJs": true,         // Tillat JavaScript-filer i prosjektet
+  "checkJs": true,         // Aktiver typekontroll for JavaScript-filer (anbefalt)
+  "baseUrl": ".",          // Base-URL for løsning av moduler
   "compilerOptions": {
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "$/*": ["./media/*"],
     }
   },
   "exclude": ["node_modules", "dist"]
