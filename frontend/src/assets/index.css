@@ -1,3 +1,43 @@
+header {
+  line-height: 1.5;
+  max-height: 100vh;
+}
+header .logo-container {
+  inline-size: 15em;
+}
+header nav {
+  font-size: 1em;
+  inline-size: 100%;
+  text-align: center;
+}
+header nav a {
+  padding: 3px;
+  color: rgb(0, 180, 126);
+  transition: 0.4s;
+  text-decoration: none;
+}
+@media (hover: hover) {
+  header nav a:hover {
+    background-color: rgba(0, 180, 126, 0.2);
+  }
+}
+header nav a {
+  font-size: 2em;
+}
+header nav a .nav-link {
+  transition: 0.4s;
+}
+header nav ::first-of-type {
+  border-left: none;
+}
+header nav .router-link-exact-active {
+  font-weight: 600;
+  color: var(--color-text);
+}
+header nav .router-link-exact-active:hover {
+  background: transparent;
+}
+
 flex-row, .flex-wrap-row-justify-content-flex-end, .flex-row, .flex-row-align-items-center {
   display: flex;
   flex-direction: row;
@@ -130,29 +170,9 @@ flex-wrap-reversed-column, .flex-wrap-reversed-column {
   font-weight: normal;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsl(160, 100%, 37%);
-  transition: 0.4s;
-  padding: 3px;
-}
-
 @media (hover: hover) {
   a:hover {
     background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-  #app {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 0 2rem;
   }
 }
 *, *::before,
@@ -164,7 +184,7 @@ a,
 }
 
 body {
-  font-size: 15px;
+  font-size: 1em;
   line-height: 1.6;
   min-height: 100vh;
   -moz-osx-font-smoothing: grayscale;
