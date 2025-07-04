@@ -8,7 +8,21 @@
         <p v-for="(paragraph, i) in aboutData.paragraphs" :key="i">{{ paragraph }}</p>
     </section>
 
-    <section :class="mediaData.cls">
+    <section :class="contactData.cls">
+        <section v-for="person in contactData.contactCards">
+            <div :key="person.id" :class="person.cls">
+                <img :src="person.img.src" :alt="person.img.alt" :class="person.img.cls">
+                <h2>{{ person.name }}</h2>
+                <h3>{{ person.title }}</h3>
+                
+                <p v-for="contact in person.contactData" :key="contact.id" :class="contact.cls">
+                    {{ contact.type + ' :'}} <Link :data="contact" />
+                </p>
+            </div>
+        </section>
+    </section>
+
+        <section :class="mediaData.cls">
         <section v-if="membersData.members.length > 0" :class="membersData.cls">
             <table>
                 <thead>
@@ -29,24 +43,11 @@
         <section :class="mediaData.cls">
             <div v-for="media in mediaData.files" :class="media.cls" :key="media.id">
                 <Link :data="media" />
+                <p>Dato :<time :datetime="media.date"> {{ media.date }}</time></p>
                 <p>{{ media.description }}</p>
             </div>
         </section>
         
-    </section>
-
-    <section :class="contactData.cls">
-        <section v-for="person in contactData.contactCards">
-            <div :key="person.id" :class="person.cls">
-                <img :src="person.img.src" :alt="person.img.alt" :class="person.img.cls">
-                <h2>{{ person.name }}</h2>
-                <h3>{{ person.title }}</h3>
-                
-                <p v-for="contact in person.contactData" :key="contact.id" :class="contact.cls">
-                    {{ contact.type + ' :'}} <Link :data="contact" />
-                </p>
-            </div>
-        </section>
     </section>
 
     <section :class="partnerData.cls[0]" v-if ="partnerData.partners.length > 0">
@@ -202,17 +203,21 @@
                 {
                     id: 0,
                     type: 'pdf',
+                    icon: 'bi bi-file-earmark-pdf',
                     name: 'Vedtekter',
+                    date: '2025-04-01',
                     cls: 'media-container',
-                    description: 'Nedlastbart PDF fil med vedtekter for SosEnt Norge.',
+                    description: 'Vedtekter for medlemmene i SosEnt Norge.',
                     href: '@/assets/media/files/organization/SosEnt-Norge-vedtekter.pdf',
                 },
                 {
                     id: 1,
                     type: 'pdf',
+                    date: '2025-04-01',
                     cls: 'media-container',
                     name: 'Organisasjonskart',
-                    description: 'Nedlastbar PDF fil med Organisasjonskart for SosEnt Norge.',
+                    icon: 'bi bi-file-earmark-pdf',
+                    description: 'Organisasjonskart over styret og ansatte i SosEnt Norge.',
                     href: '@/assets/media/files/organization/SosEnt-Norge-organisajonskart.pdf',
                 },
             ],
