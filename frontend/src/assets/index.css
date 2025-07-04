@@ -1,3 +1,38 @@
+main article.news-article {
+  inline-size: 20em;
+}
+main article.news-article .article-img {
+  inline-size: 100%;
+}
+
+main section {
+  display: block;
+  margin-block: 5em;
+}
+main section div.media-container {
+  inline-size: 20em;
+  text-align: center;
+  margin-inline: 1em;
+}
+main section .contact-cards {
+  inline-size: 26em;
+}
+main section .contact-cards img {
+  inline-size: 100%;
+}
+main section .partner-logo {
+  inline-size: 20em;
+}
+main section .partner-logo img {
+  inline-size: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* Color Theme Swatches in Hex */
+/* Color Theme Swatches in Hex */
+/* Color Theme Swatches in Hex */
+/* Color Theme Swatches in Hex */
 header {
   line-height: 1.5;
   max-height: 100vh;
@@ -9,33 +44,47 @@ header nav {
   font-size: 1em;
   inline-size: 100%;
   text-align: center;
+  padding-block: 5em;
 }
 header nav a {
-  padding: 3px;
-  color: rgb(0, 180, 126);
-  transition: 0.4s;
-  text-decoration: none;
+  color: rgb(229, 119, 30);
+  font-size: 1.5em;
 }
 @media (hover: hover) {
   header nav a:hover {
-    background-color: rgba(0, 180, 126, 0.2);
+    background-color: rgba(229, 119, 30, 0.2);
   }
 }
-header nav a {
-  font-size: 2em;
-}
-header nav a .nav-link {
+header nav .nav-link {
   transition: 0.4s;
+  text-decoration: none;
+  border-left: 1px solid var(rgba(60, 60, 60, 0.12));
 }
 header nav ::first-of-type {
   border-left: none;
 }
 header nav .router-link-exact-active {
   font-weight: 600;
-  color: var(--color-text);
+  color: rgb(90, 61, 43);
 }
 header nav .router-link-exact-active:hover {
   background: transparent;
+}
+
+footer nav {
+  font-size: 1em;
+  inline-size: 100%;
+  text-align: center;
+  padding-block: 5em;
+}
+footer nav a {
+  color: rgb(229, 119, 30);
+  font-size: 1.5em;
+}
+@media (hover: hover) {
+  footer nav a:hover {
+    background-color: rgba(229, 119, 30, 0.2);
+  }
 }
 
 flex-row, .flex-wrap-row-justify-content-flex-end, .flex-row, .flex-row-align-items-center {
@@ -157,12 +206,6 @@ flex-wrap-reversed-column, .flex-wrap-reversed-column {
   justify-content: flex-end;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    color: rgba(235, 235, 235, 0.64);
-    background: rgb(24, 24, 24);
-  }
-}
 #app {
   padding: 2rem;
   margin: 0 auto;
@@ -170,11 +213,6 @@ flex-wrap-reversed-column, .flex-wrap-reversed-column {
   font-weight: normal;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
 *, *::before,
 *::after {
   margin: 0;
