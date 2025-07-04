@@ -1,32 +1,32 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import NewsView from '../views/NewsView.vue';
-import HomeView from '../views/AboutView.vue';
-import programView from '../views/ProgramView.vue';
-import MembershipView from '../views/MembershipView.vue';
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
       name: 'home',
-      component: HomeView,
+      component: () => import('../views/AboutView.vue'),
     },
     {
       path: '/aktuelt',
       name: 'news',
-      component: NewsView,
+      component: () => import('../views/NewsView.vue'),
     },
     {
       path: '/fordeler',
       name: 'program',
-      component: programView,
+      component: () => import('../views/ProgramView.vue'),
     },
     {
       path: '/medlemskap',
       name: 'membership',
-      component: MembershipView,
+      component: () => import('../views/MembershipView.vue'),
+    },
+    {
+      path: '/Privacy-Policy',
+      name: 'privacy-policy',
+      component: () => import('../views/PrivacyPolicyView.vue'),
     },
   ],
 })
