@@ -84,6 +84,10 @@ header nav .router-link-exact-active {
 header nav .router-link-exact-active:hover {
   background: transparent;
 }
+header .bg-color {
+  background-color: rgb(90, 61, 43);
+  color: rgb(230, 193, 92);
+}
 
 footer nav {
   font-size: 1em;

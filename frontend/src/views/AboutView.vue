@@ -13,7 +13,7 @@
                 <img :src="person.img.src" :alt="person.img.alt" :class="person.img.cls">
                 <h2>{{ person.name }}</h2>
                 <h3>{{ person.title }}</h3>
-                
+
                 <p v-for="contact in person.contactData" :key="contact.id" :class="contact.cls">
                     {{ contact.type + ' :'}} <Link :data="contact" />
                 </p>

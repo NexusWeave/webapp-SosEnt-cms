@@ -22,7 +22,7 @@ import Footer from './views/utils/FooterView.vue';
 const navData = reactive({
   header:
     {
-      cls: 'flex-wrap-row-justify-space-between',
+      cls: 'flex-wrap-row-justify-space-between bg-color',
   
       content:
       {
