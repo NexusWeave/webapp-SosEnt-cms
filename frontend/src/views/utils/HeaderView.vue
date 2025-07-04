@@ -1,9 +1,9 @@
 <template>
-    <div class="data.cls">
-        <div class="data.media.cls">
+    <div :class="data.cls">
+        <div :class="data.media.cls">
             <img :class="logo.cls" :alt="logo.alt" :src="logo.src" />
         </div>
-        <div class="data.content.cls">
+        <div :class="data.content.cls">
             <h1>{{ content.title }}</h1>
         </div>
         <div></div>
