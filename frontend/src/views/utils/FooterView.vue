@@ -15,7 +15,7 @@ const props = defineProps({
     }
 });
 
-const data = reactive(props.data.nav);
+const data = reactive(props.data);
 
 console.log("FooterView loaded with data: ", data);
 </script>
