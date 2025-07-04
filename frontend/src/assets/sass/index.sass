@@ -2,9 +2,9 @@
 //  Importing Sass files for the main styles
 @import '../sass/colors.sass'
 @import '../sass/mixins.sass'
+@import '../sass/header.sass'
 @import '../sass/flexbox.sass'
 @import '../sass/media-queries/mediaIndex.sass'
-
 
 #app
     padding: 2rem
@@ -12,27 +12,9 @@
     max-width: 1280px
     font-weight: normal
 
-a,
-.green
-    text-decoration: none
-    color: hsla(160, 100%, 37%, 1)
-    transition: 0.4s
-    padding: 3px
-
 @media (hover: hover)
   a:hover
     background-color: hsla(160, 100%, 37%, 0.2)
-
-@media (min-width: 1024px)
-  body
-    display: flex
-    place-items: center
-
-  #app
-    display: flex
-    flex-direction: column
-    justify-content: space-between
-    padding: 0 2rem
 
 *, *::before,
 *::after
@@ -44,7 +26,7 @@ a,
 $section-gap: 160px
 
 body
-    font-size: 15px
+    font-size: 1em
     line-height: 1.6
     min-height: 100vh
     -moz-osx-font-smoothing: grayscale
