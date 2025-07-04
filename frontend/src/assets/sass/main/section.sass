@@ -1,3 +1,5 @@
+@import '../mixins.sass'
+
 main
     section
         display: block
@@ -9,11 +11,7 @@ main
             text-align: center
             margin-inline: 1em
 
-        .contact-cards
-            inline-size: 26em
         
-        .contact-cards img
-            inline-size: 100%
 
         .partner-logo
             inline-size: 20em
@@ -21,3 +19,15 @@ main
         .partner-logo img
             inline-size: 100%
             object-fit: cover
+
+        .contact-card
+            padding: 1em
+            inline-size: 26em
+            color: $white-soft
+            background-color: $Groovy-brown
+            @include link-color($Groovy-yellow)
+            
+            
+        
+        img
+            inline-size: 100%
