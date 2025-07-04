@@ -3,95 +3,96 @@
 <template>
   
   <header>
-    <Header :data = 'headerData' />
+    <Header :data = 'navData.header' />
   </header>
   <main>
     <router-view></router-view>
   </main>
   <footer>
-    <Footer :data = 'footerData' />
+    <Footer :data = 'navData.footer' />
   </footer>
 </template>
 <script setup>
-
-import { RouterView } from 'vue-router'
+import { reactive} from 'vue';
+import { RouterView } from 'vue-router';
 
 import Header from './views/utils/HeaderView.vue';
 import Footer from './views/utils/FooterView.vue';
 
-const headerData = {
-  cls: 'flex-wrap-row-justify-space-between',
+const navData = reactive({
+  header:
+    {
+      cls: 'flex-wrap-row-justify-space-between',
   
-  content:
-  {
-    cls: 'flex-column-align-items-center',
-    title: 'Sosial Entreprenørskap i Norge',
-  },
-  nav :
-  {
-    cls: 'nav-bar flex-wrap-row-justify-space-evenly',
-    type: 'router',
-    id: 'main-nav',
-    menu: 
-    [
+      content:
       {
-        id: 1,
-        href: '/',
-        name: 'Om oss',
-        type: 'router',
-        cls: 'nav-link',
+        cls: 'flex-column-align-items-center',
+        title: 'Sosial Entreprenørskap i Norge',
       },
+      nav:
       {
-        id: 2,
-        href: '/aktuelt',
-        
-        name: 'Aktuelt',
-        cls: 'nav-link',
-      },
-      {
-        id: 3,
+        cls: 'nav-bar flex-wrap-row-justify-space-evenly',
         type: 'router',
-        cls: 'nav-link',
-        href: '/fordeler',
-        name: 'Medlems fordeler',
-        
+        id: 'main-nav',
+        menu: 
+        [
+          {
+            id: 1,
+            href: '/',
+            name: 'Om oss',
+            type: 'router',
+            cls: 'nav-link',
+          },
+          {
+            id: 2,
+            href: '/aktuelt',
+            
+            name: 'Aktuelt',
+            cls: 'nav-link',
+          },
+          {
+            id: 3,
+            type: 'router',
+            cls: 'nav-link',
+            href: '/fordeler',
+            name: 'Medlems fordeler',
+            
+          },
+          {
+            id: 4,
+            type: 'router',
+            cls: 'nav-link',
+            href: '/medlemskap',
+            name: 'Medlemskap',
+            
+          }
+        ],
       },
+      media: 
       {
-        id: 4,
-        type: 'router',
-        cls: 'nav-link',
-        href: '/medlemskap',
-        name: 'Medlemskap',
-        
-      }
-    ],
-  },
-  media: {
 
-    cls: 'flex-wrap-row-justify-flex-start',
-    images:
-    [
-      {
-        cls: 'logo-container ',
-        alt: 'SosEnT Logo',
-        src: '/media/images/logo/SosEnT-logo.png',
-      }
-    ],
+      cls: 'flex-wrap-row-justify-flex-start',
+      images:
+      [
+        {
+          cls: 'logo-container ',
+          alt: 'SosEnT Logo',
+          src: '/media/images/logo/SosEnT-logo.png',
+        }
+      ],
+    },
   },
-}
-
-const footerData = {
-  nav :
+  footer:
   {
     type: 'link',
-    cls: '',
+    cls: '.nav-bar flex-wrap-row-justify-flex-end',
     id: 'footer-nav',
     menu: 
     [
       {
         name : "Personvern",
         cls: "link nav-item",
-        href: "https://docs.google.com/document/d/1AkTTNQei6pJWvRYc_VT93Rspk3MTJn_ai_TsHqXi88U/edit?usp=sharing",
+        href: "/personvern",
       },
       {
         
@@ -102,5 +103,5 @@ const footerData = {
       },
     ],
   },
-}
+});
 </script>
