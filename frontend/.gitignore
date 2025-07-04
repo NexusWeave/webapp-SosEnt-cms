@@ -1,26 +1,25 @@
 # Logs
-
 *.log
-
-
+*.local
 .DS_Store
 
-*.local
-
 # Editor directories and files
-!.vscode/extensions.json
 *.suo
-*.ntvs*
-*.njsproj
 *.sln
 *.sw?
-
+*.css*
+*.ntvs*
+*.njsproj
 *.tsbuildinfo
+*.css.map
+!assets/index.css
+!.vscode/extensions.json
 
 # Folders
 logs
 dist
 .idea
+
 dist-ssr
 coverage
 .vscode/*
