@@ -14,13 +14,13 @@
 </template>
 <script setup>
 
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 
 import Header from './views/utils/HeaderView.vue';
 import Footer from './views/utils/FooterView.vue';
 
 const headerData = {
-  cls: 'flex-row-align-items-center',
+  cls: 'flex-wrap-row-justify-space-between',
   
   content:
   {
@@ -29,7 +29,7 @@ const headerData = {
   },
   nav :
   {
-    cls: '',
+    cls: 'nav-bar flex-wrap-row-justify-space-evenly',
     type: 'router',
     id: 'main-nav',
     menu: 
@@ -74,7 +74,7 @@ const headerData = {
       {
         cls: 'logo-container ',
         alt: 'SosEnT Logo',
-        src: '/media/images/logo/SosEnT-favicon.png',
+        src: '/media/images/logo/SosEnT-logo.png',
       }
     ],
   },
@@ -104,5 +104,3 @@ const footerData = {
   },
 }
 </script>
-
-
