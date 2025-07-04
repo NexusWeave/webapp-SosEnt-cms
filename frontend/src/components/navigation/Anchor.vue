@@ -36,6 +36,6 @@ const data = props.data;
 const img = data.img? data.img : null;
 const isExternal = data.type === 'external' || false;
 
-console.log("Link component loaded with data: ", data, isExternal);
+//console.log("Link component loaded with data: ", data, isExternal);
 
 </script>
