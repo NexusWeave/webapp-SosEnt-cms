@@ -11,20 +11,20 @@
 </template>
 
 <script setup>
-import Link from './Anchor.vue';
+    import Link from './Anchor.vue';
 
-import { RouterLink } from 'vue-router';
-import { defineProps, reactive } from 'vue';
+    import { RouterLink } from 'vue-router';
+    import { defineProps, reactive } from 'vue';
 
-const props = defineProps({
-  data: {
-    type: Object,
-    required: true
-  }
-});
+    const props = defineProps({
+        data: {
+        type: Object,
+        required: true
+        }
+    });
 
-const data = reactive(props.data);
-const nav = data.menu;
+    const data = reactive(props.data);
+    const nav = data.menu;
 
-console.log("NavigationMenu loaded with data: ", data.menu);
+    console.log("NavigationMenu loaded with data: ", data.menu);
 </script>
