@@ -8,9 +8,8 @@
         <p v-for="(paragraph, i) in aboutData.paragraphs" :key="i">{{ paragraph }}</p>
     </section>
 
-    <section :class="contactData.cls">
-        <section v-for="person in contactData.contactCards">
-            <div :key="person.id" :class="person.cls">
+    <section :class="teamData.cls">
+        <section v-for="person in teamData.contactCards" :class="person.cls" :key="person.id">
                 <img :src="person.img.src" :alt="person.img.alt" :class="person.img.cls">
                 <h2>{{ person.name }}</h2>
                 <h3>{{ person.title }}</h3>
@@ -18,7 +17,6 @@
                 <p v-for="contact in person.contactData" :key="contact.id" :class="contact.cls">
                     {{ contact.type + ' :'}} <Link :data="contact" />
                 </p>
-            </div>
         </section>
     </section>
 
@@ -262,7 +260,7 @@
         }
     );
 
-    const contactData = reactive(
+    const teamData = reactive(
         {
             cls: 'flex-wrap-row-justify-space-evenly',
             title: 'Kontakt oss',
