@@ -9,6 +9,12 @@
          <template v-if="img && media.images.find(type => type === img.type)">
             <img :src="img.src" :alt="img.alt" :class="img.cls">
         </template>
+        <template v-if="media.files.find(type => type === data.type)">
+            <h2>
+                <i :class="data.icon" :aria-label="data.name"></i> 
+                {{ data.name }}
+            </h2>
+        </template>
         <template v-else>
             {{ data.name }}
         </template>
