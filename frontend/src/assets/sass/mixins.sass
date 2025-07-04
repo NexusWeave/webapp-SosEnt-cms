@@ -12,3 +12,17 @@
     body
         color: $color-text
         background: $color-background
+
+@mixin link-color($color)
+    $color-darken: rgba($color, 0.2)
+
+    a
+        padding: 3px
+        color: $color
+        transition: 0.4s
+        text-decoration: none
+
+    @media (hover: hover)
+
+        a:hover
+            background-color: $color-darken
