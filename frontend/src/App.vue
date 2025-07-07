@@ -26,13 +26,13 @@ const navData = reactive({
   
       content:
       {
-        cls: 'flex-column-align-items-center',
+        cls: 'flex-column-justify-center',
         title: 'Sosial Entreprenørskap i Norge',
       },
       nav:
       {
-        cls: 'nav-bar flex-wrap-row-justify-space-evenly',
-        type: 'router',
+        cls: 'nav-bar bg-color flex-wrap-row-justify-space-evenly',
+        type: 'router-link',
         id: 'main-nav',
         menu: 
         [
