@@ -31,16 +31,26 @@ main section .contact-card {
 }
 main section .contact-card p {
   padding-inline: 1.5em;
+  padding-block-start: 0.7em;
 }
 main section .contact-card img {
   padding-inline: 1.5em;
+  padding-block-start: 0.7em;
 }
 main section .contact-card h1, main section .contact-card h2, main section .contact-card h3, main section .contact-card h4, main section .contact-card h5, main section .contact-card h6 {
   padding-inline: 1.5em;
+  padding-block-start: 0.7em;
 }
 main section .contact-card a {
   color: #e6c15c;
   font-size: 1.3em;
+}
+main section .contact-card a:active {
+  color: #b5d751;
+}
+main section .contact-card a:visited {
+  text-decoration: underline;
+  background-color: rgba(181, 215, 81, 0.3);
 }
 @media (hover: hover) {
   main section .contact-card a:hover {
@@ -48,59 +58,52 @@ main section .contact-card a {
     background-color: rgba(229, 119, 30, 0.3);
   }
 }
-@media (active: active) {
-  main section .contact-card a:active {
-    background-color: rgba(181, 215, 81, 0.5);
-  }
-}
-@media (visited: visited) {
-  main section .contact-card a:visited {
-    text-decoration: underline;
-    background-color: rgba(181, 215, 81, 0.3);
-  }
-}
 main section img {
   inline-size: 100%;
+}
+main section:nth-child(even):not(:last-child) {
+  color: rgb(245, 245, 245);
+  background-color: #593d2b;
+}
+main section:nth-child(even):not(:last-child) p {
+  padding-inline: 1.5em;
+  padding-block-start: 0.7em;
+}
+main section:nth-child(even):not(:last-child) img {
+  padding-inline: 1.5em;
+  padding-block-start: 0.7em;
+}
+main section:nth-child(even):not(:last-child) h1, main section:nth-child(even):not(:last-child) h2, main section:nth-child(even):not(:last-child) h3, main section:nth-child(even):not(:last-child) h4, main section:nth-child(even):not(:last-child) h5, main section:nth-child(even):not(:last-child) h6 {
+  padding-inline: 1.5em;
+  padding-block-start: 0.7em;
+}
+main section:nth-child(even):not(:last-child) a {
+  color: #e6c15c;
+  font-size: 1.3em;
+}
+main section:nth-child(even):not(:last-child) a:active {
+  color: #b5d751;
+}
+main section:nth-child(even):not(:last-child) a:visited {
+  text-decoration: underline;
+  background-color: rgba(181, 215, 81, 0.3);
+}
+@media (hover: hover) {
+  main section:nth-child(even):not(:last-child) a:hover {
+    border-radius: 0.5em;
+    background-color: rgba(229, 119, 30, 0.3);
+  }
+}
+main section:nth-last-child(1) {
+  background-color: transparrent;
 }
 
 header {
   line-height: 1.5;
   max-height: 100vh;
-  color: rgb(245, 245, 245);
-  background-color: #593d2b;
-}
-header p {
-  padding-inline: 1.5em;
-}
-header img {
-  padding-inline: 1.5em;
-}
-header h1, header h2, header h3, header h4, header h5, header h6 {
-  padding-inline: 1.5em;
-}
-header a {
-  color: #e6c15c;
-  font-size: 1.3em;
-}
-@media (hover: hover) {
-  header a:hover {
-    border-radius: 0.5em;
-    background-color: rgba(229, 119, 30, 0.3);
-  }
-}
-@media (active: active) {
-  header a:active {
-    background-color: rgba(181, 215, 81, 0.5);
-  }
-}
-@media (visited: visited) {
-  header a:visited {
-    text-decoration: underline;
-    background-color: rgba(181, 215, 81, 0.3);
-  }
 }
 header .img-container {
-  inline-size: 13em;
+  inline-size: 15em;
 }
 header nav {
   font-size: 1em;
@@ -119,7 +122,7 @@ header nav .nav-link {
 }
 header nav .router-link-exact-active {
   font-weight: 600;
-  color: rgb(181, 215, 81);
+  color: rgb(181, 215, 81) !important;
 }
 header nav .router-link-exact-active:hover {
   background: transparent;
@@ -135,21 +138,17 @@ footer nav a {
   color: #e5771e;
   font-size: 1.3em;
 }
+footer nav a:active {
+  color: rgba(229, 119, 30, 0.6);
+}
+footer nav a:visited {
+  text-decoration: underline;
+  background-color: rgba(229, 119, 30, 0.5);
+}
 @media (hover: hover) {
   footer nav a:hover {
     border-radius: 0.5em;
     background-color: rgba(229, 119, 30, 0.8);
-  }
-}
-@media (active: active) {
-  footer nav a:active {
-    background-color: rgba(229, 119, 30, 0.6);
-  }
-}
-@media (visited: visited) {
-  footer nav a:visited {
-    text-decoration: underline;
-    background-color: rgba(229, 119, 30, 0.5);
   }
 }
 
@@ -270,6 +269,40 @@ flex-wrap-reversed-column, .flex-wrap-reversed-column {
 
 .flex-wrap-row-justify-content-flex-end {
   justify-content: flex-end;
+}
+
+.component-theme {
+  color: rgb(245, 245, 245);
+  background-color: #593d2b;
+}
+.component-theme p {
+  padding-inline: 1.5em;
+  padding-block-start: 0.7em;
+}
+.component-theme img {
+  padding-inline: 1.5em;
+  padding-block-start: 0.7em;
+}
+.component-theme h1, .component-theme h2, .component-theme h3, .component-theme h4, .component-theme h5, .component-theme h6 {
+  padding-inline: 1.5em;
+  padding-block-start: 0.7em;
+}
+.component-theme a {
+  color: #e6c15c;
+  font-size: 1.3em;
+}
+.component-theme a:active {
+  color: #b5d751;
+}
+.component-theme a:visited {
+  text-decoration: underline;
+  background-color: rgba(181, 215, 81, 0.3);
+}
+@media (hover: hover) {
+  .component-theme a:hover {
+    border-radius: 0.5em;
+    background-color: rgba(229, 119, 30, 0.3);
+  }
 }
 
 #app {
