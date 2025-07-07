@@ -1,12 +1,19 @@
 <template>
-
     <nav :class="data.cls">
-        <RouterLink v-if ="data.type=== 'router'" v-for="(link, i) in nav"
+
+    <template v-if ="data.type === 'router-link'">
+
+        <RouterLink v-if ="data.type=== 'router-link'" v-for="(link, i) in nav"
             :key="i"
             :to="link.href"
-            :class="link.cls" >{{ link.name }}</RouterLink>
-
+            :class="link.cls" >
+            {{ link.name }}
+        </RouterLink>
+        
+    </template>
+    <template v-else-if="data.type === 'link'">
         <Link v-if="data.type === 'link'" :data="link" v-for="link in data.menu"/>
+    </template>
     </nav>
 </template>
 
