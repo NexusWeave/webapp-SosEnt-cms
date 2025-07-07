@@ -1,14 +1,15 @@
 <template>
-    <div :class="data.cls">
-        <div :class="data.media.cls">
-            <img :class="logo.cls" :alt="logo.alt" :src="logo.src" />
+    <div :class="data.cls[0] + ' ' + data.cls[1]">
+        <div :class="data.cls[2]">
+            <div :class="data.media.cls">
+                <img :class="logo.cls" :alt="logo.alt" :src="logo.src" />
+            </div>
+            <div :class="data.content.cls">
+                <h1>{{ content.title }}</h1>
+            </div>
         </div>
-        <div :class="data.content.cls">
-            <h1>{{ content.title }}</h1>
-        </div>
-        <div></div>
+        <Menu :data='data.nav' />
     </div>
-    <Menu :data='data.nav' />
 </template>
 
 <script setup>
