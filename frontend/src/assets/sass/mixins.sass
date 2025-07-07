@@ -1,44 +1,77 @@
 @import './colors.sass'
 
-@mixin apply-theme-colors( $background, $background-soft, $background-mute, $border, $border-hover, $heading-color, $text-color)
+@mixin apply-theme-colors( $background, $border, $border-hover, $heading-color, $text-color)
     $color-border: $border
     $color-text: $text-color
     $color-heading: $heading-color
     $color-background: $background
     $color-border-hover: $border-hover
-    $color-background-soft: $background-soft
-    $color-background-mute: $background-mute
 
     body
         color: $color-text
         background: $color-background
 
-@mixin link-color($color)
+@mixin light-component-theme($color, $padding-inline: null, $padding-start: null)
 
-    $color-hover: rgba($color, 0.8)
-    $color-active: rgba($color, 0.6)
-    $color-visited: rgba($color, 0.5)
+    $color-text: $white
+    $color-link: rgba($color, 0.6)
+    $color-border: rgba($color, 0.2)
+    $color-background: rgba($color, 0.1)
+
+    @if $padding-inline == null
+        $padding-inline: 1.5em
+    
+    @if $padding-start == null
+        $padding-start: .7em
+    
+    @if $color == $Groovy-brown
+
+        $color-link: $Groovy-yellow
+        $color-background: rgba($color, 1)
+        //$color-text: rgba($white-soft, 0.8)
+        $color-border: rgba($Groovy-orange, 0.2)
+
+    p
+        padding-inline: $padding-inline
+        padding-block-start: $padding-start
+
+    img
+        padding-inline: $padding-inline
+        padding-block-start: $padding-start
+    
+    h1, h2, h3, h4, h5, h6
+        padding-inline: $padding-inline
+        padding-block-start: $padding-start
+    
+    color: $color-text
+    @include link-color($color-link)
+    background-color: $color-background
+    
+@mixin link-color($color, $color-hover: null, $color-active: null, $color-visited: null)
+
+    @if $color-hover == null
+        $color-hover: rgba($color, 0.8)
+        $color-active: rgba($color, 0.6)
+        $color-visited: rgba($color, 0.5)
 
     @if $color == $Groovy-yellow
         $color-hover: rgba($Groovy-orange, 0.3)
-        $color-active: rgba($Groovy-green, 0.3)
-        //$color-visited: rgba($Groovy-green, 0.3)
+        $color-active: rgba($Groovy-green, 1)
+        $color-visited: rgba($Groovy-green, 0.3)
 
     a
         color: rgba($color, 1)
-        font-size: 1.5em
+        font-size: 1.3em
 
-    @media (hover: hover)
+        &:active
+            color: $color-active
 
-        a:hover
-            background-color: $color-hover
-        
-    @media (active: active)
-
-        a:active
-            background-color: $color-active
-
-    @media( visited: visited)
-
-        a:visited
+        &:visited
+            text-decoration: underline
             background-color: $color-visited
+
+        @media (hover: hover)
+
+            &:hover
+                border-radius: 0.5em
+                background-color: $color-hover            
