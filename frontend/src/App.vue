@@ -22,16 +22,17 @@ import Footer from './views/utils/FooterView.vue';
 const navData = reactive({
   header:
     {
-      cls: 'flex-wrap-row-justify-space-between bg-color',
+      cls: ['flex-wrap-column-justify-space-between','component-theme', 'flex-wrap-row'],
   
       content:
       {
         cls: 'flex-column-justify-center',
         title: 'Sosial Entreprenørskap i Norge',
       },
+      
       nav:
       {
-        cls: 'nav-bar bg-color flex-wrap-row-justify-space-evenly',
+        cls: ['nav-bar', 'flex-wrap-row-justify-space-evenly'],
         type: 'router-link',
         id: 'main-nav',
         menu: 
@@ -75,7 +76,7 @@ const navData = reactive({
       images:
       [
         {
-          cls: 'logo-container ',
+          cls: 'img-container ',
           alt: 'SosEnT Logo',
           src: '/media/images/logo/SosEnT-logo.png',
         }
@@ -85,7 +86,7 @@ const navData = reactive({
   footer:
   {
     type: 'link',
-    cls: '.nav-bar flex-wrap-row-justify-flex-end',
+    cls: 'nav-bar flex-wrap-row-justify-flex-end',
     id: 'footer-nav',
     menu: 
     [
