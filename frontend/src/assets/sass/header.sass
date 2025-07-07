@@ -12,23 +12,29 @@ header
         font-size: 1em
         inline-size: 100%
         text-align: center
-        padding-block: 5em
-        @include link-color($Groovy-orange)
+        padding-block: 3em 3em
+        @include link-color($Groovy-yellow)
+        
+        
 
+
+        .border-left
+            min-height: 50px
+            position: relative
+
+           
         .nav-link
             transition: 0.4s
+            padding: 0.5em 1.5em
             text-decoration: none
-            border-left: 1px solid var($divider-light-2)
-        ::first-of-type
-            border-left: none
 
         .router-link-exact-active
             font-weight: 600
-            color: $Groovy-brown
+            color: $Groovy-green
 
         .router-link-exact-active:hover
             background: transparent
 
     .bg-color
+        color: $white-soft
         background-color: $Groovy-brown
-        color: $Groovy-yellow
