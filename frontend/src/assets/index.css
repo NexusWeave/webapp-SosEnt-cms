@@ -6,7 +6,6 @@ main article.news-article .article-img {
   inline-size: 100%;
 }
 
-/* Color Theme Swatches in Hex */
 main section {
   display: block;
   margin-block: 5em;
@@ -28,25 +27,31 @@ main section .contact-card {
   padding: 1em;
   inline-size: 26em;
   color: rgb(248, 248, 248);
-  background-color: rgb(90, 61, 43);
+  background-color: rgb(89, 61, 43);
 }
 main section .contact-card a {
-  color: rgb(230, 193, 92);
+  color: #e6c15c;
   font-size: 1.5em;
 }
 @media (hover: hover) {
   main section .contact-card a:hover {
-    background-color: rgba(230, 193, 92, 0.2);
+    background-color: rgba(229, 119, 30, 0.3);
+  }
+}
+@media (active: active) {
+  main section .contact-card a:active {
+    background-color: rgba(181, 215, 81, 0.3);
+  }
+}
+@media (visited: visited) {
+  main section .contact-card a:visited {
+    background-color: rgba(230, 193, 92, 0.5);
   }
 }
 main section img {
   inline-size: 100%;
 }
 
-/* Color Theme Swatches in Hex */
-/* Color Theme Swatches in Hex */
-/* Color Theme Swatches in Hex */
-/* Color Theme Swatches in Hex */
 header {
   line-height: 1.5;
   max-height: 100vh;
@@ -58,35 +63,46 @@ header nav {
   font-size: 1em;
   inline-size: 100%;
   text-align: center;
-  padding-block: 5em;
+  padding-block: 3em 3em;
 }
 header nav a {
-  color: rgb(229, 119, 30);
+  color: #e6c15c;
   font-size: 1.5em;
 }
 @media (hover: hover) {
   header nav a:hover {
-    background-color: rgba(229, 119, 30, 0.2);
+    background-color: rgba(229, 119, 30, 0.3);
   }
+}
+@media (active: active) {
+  header nav a:active {
+    background-color: rgba(181, 215, 81, 0.3);
+  }
+}
+@media (visited: visited) {
+  header nav a:visited {
+    background-color: rgba(230, 193, 92, 0.5);
+  }
+}
+header nav .border-left {
+  min-height: 50px;
+  position: relative;
 }
 header nav .nav-link {
   transition: 0.4s;
+  padding: 0.5em 1.5em;
   text-decoration: none;
-  border-left: 1px solid var(rgba(60, 60, 60, 0.12));
-}
-header nav ::first-of-type {
-  border-left: none;
 }
 header nav .router-link-exact-active {
   font-weight: 600;
-  color: rgb(90, 61, 43);
+  color: rgb(181, 215, 81);
 }
 header nav .router-link-exact-active:hover {
   background: transparent;
 }
 header .bg-color {
-  background-color: rgb(90, 61, 43);
-  color: rgb(230, 193, 92);
+  color: rgb(248, 248, 248);
+  background-color: rgb(89, 61, 43);
 }
 
 footer nav {
@@ -96,12 +112,22 @@ footer nav {
   padding-block: 5em;
 }
 footer nav a {
-  color: rgb(229, 119, 30);
+  color: #e5771e;
   font-size: 1.5em;
 }
 @media (hover: hover) {
   footer nav a:hover {
-    background-color: rgba(229, 119, 30, 0.2);
+    background-color: rgba(229, 119, 30, 0.8);
+  }
+}
+@media (active: active) {
+  footer nav a:active {
+    background-color: rgba(229, 119, 30, 0.6);
+  }
+}
+@media (visited: visited) {
+  footer nav a:visited {
+    background-color: rgba(229, 119, 30, 0.5);
   }
 }
 
@@ -178,12 +204,12 @@ flex-wrap-reversed-row, .flex-wrap-reversed-row {
   justify-content: space-around;
 }
 
-flex-column, .flex-column, .flex-column-align-items-center {
+flex-column, .flex-column, .flex-column-justify-center, .flex-column-align-center {
   display: flex;
   flex-direction: column;
 }
 
-flex-wrap-column, .flex-wrap-column, .flex-wrap-column-align-content-center-justify-space-evenly, .flex-wrap-column-align-items-center, .flex-wrap-column-align-content-center {
+flex-wrap-column, .flex-wrap-column, .flex-wrap-column-align-center-justify-space-evenly, .flex-wrap-column-align-content-center {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -199,17 +225,17 @@ flex-wrap-reversed-column, .flex-wrap-reversed-column {
   align-content: center;
 }
 
-.flex-wrap-column-align-items-center {
-  align-items: center;
-}
-
-.flex-wrap-column-align-content-center-justify-space-evenly {
+.flex-wrap-column-align-center-justify-space-evenly {
   align-content: center;
   justify-content: space-evenly;
 }
 
-.flex-column-align-items-center {
+.flex-column-align-center {
   align-items: center;
+}
+
+.flex-column-justify-center {
+  justify-content: center;
 }
 
 .flex-justify-center {
@@ -247,7 +273,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   transition: color 0.5s, background-color 0.5s;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: "Nunito", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 body body {
   color: rgb(60, 60, 60);

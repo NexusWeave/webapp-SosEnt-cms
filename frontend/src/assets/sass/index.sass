@@ -1,14 +1,9 @@
 
 //  Importing Sass files for the main styles
-@import './main.sass'
-@import './colors.sass'
-@import './mixins.sass'
-@import './header.sass'
-@import './footer.sass'
-@import './flexbox.sass'
+@import './main.sass', './colors.sass', './mixins.sass'
+@import './header.sass', './footer.sass', './flexbox.sass'
 @import './media-queries/mediaIndex.sass'
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css")
-
 
 #app
     padding: 2rem
@@ -33,6 +28,6 @@ body
     text-rendering: optimizeLegibility
     -webkit-font-smoothing: antialiased
     transition: color 0.5s, background-color 0.5s
-    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
+    font-family: 'Nunito', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
     @include apply-theme-colors( $white, $white-soft, $white-mute, $divider-light-2, $divider-light-1,$text-light-1, $text-light-1)
 
