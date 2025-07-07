@@ -11,17 +11,17 @@
 *.ntvs*
 *.njsproj
 *.tsbuildinfo
-*.css.map
 !.vscode/extensions.json
 
 # Folders
 logs
 dist
 .idea
-
 dist-ssr
 coverage
-.vscode/*
 node_modules
+
+frontend/.vscode/*
+
 /cypress/videos/
 /cypress/screenshots/
