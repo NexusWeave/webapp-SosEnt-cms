@@ -12,7 +12,6 @@
 *.njsproj
 *.tsbuildinfo
 *.css.map
-!assets/index.css
 !.vscode/extensions.json
 
 # Folders
