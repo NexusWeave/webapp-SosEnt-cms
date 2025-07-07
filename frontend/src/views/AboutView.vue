@@ -45,9 +45,8 @@
                 <p>{{ media.description }}</p>
             </div>
         </section>
-        
     </section>
-
+    {{ partnerData.title }}
     <section :class="partnerData.cls[0]" v-if ="partnerData.partners.length > 0">
         <h1>{{ partnerData.title }}</h1>
         <section :class="partnerData.cls[1]">
@@ -68,7 +67,7 @@
 
     const newsData = reactive(
         {
-            cls: 'flex-wrap-row-justify-space-between',
+            cls: ['flex-wrap-row-justify-space-between'],
             articles:
             [
                 {
@@ -133,7 +132,7 @@
 
     const aboutData = reactive(
         {
-            cls: 'flex-column-align-items-center',
+            cls: ['flex-column-align-items-center', 'component-theme'],
             title: 'Om oss',
             paragraphs:
             [
@@ -195,7 +194,7 @@
 
     const mediaData = reactive(
         {
-            cls: 'flex-wrap-row-justify-space-evenly',
+            cls: ['flex-wrap-row-justify-space-evenly'],
             files:
             [
                 {
@@ -204,7 +203,7 @@
                     icon: 'bi bi-file-earmark-pdf',
                     name: 'Vedtekter',
                     date: '2025-04-01',
-                    cls: 'media-container',
+                    cls: ['media-container'],
                     description: 'Vedtekter for medlemmene i SosEnt Norge.',
                     href: '@/assets/media/files/organization/SosEnt-Norge-vedtekter.pdf',
                 },
@@ -212,7 +211,7 @@
                     id: 1,
                     type: 'pdf',
                     date: '2025-04-01',
-                    cls: 'media-container',
+                    cls: ['media-container'],
                     name: 'Organisasjonskart',
                     icon: 'bi bi-file-earmark-pdf',
                     description: 'Organisasjonskart over styret og ansatte i SosEnt Norge.',
@@ -262,8 +261,8 @@
 
     const teamData = reactive(
         {
-            cls: 'flex-wrap-row-justify-space-evenly',
             title: 'Kontakt oss',
+            cls: ['flex-wrap-row-justify-space-evenly'],
 
             contactCards:
             [
@@ -277,18 +276,19 @@
                     [
                         {
                             id: 0,
+                            type: 'email',
+                            cls: 'contact-data',
+                            name: 'Send en Epost',
+                            href: 'mailto:' + 'demo' +'@' + 'example.com',
+                        },
+                        {
+                            id: 1,
                             name: '+47 12 34 56 78',
                             type: 'telephone',
                             cls: 'contact-data',
                             href : 'tel:' + '+47' + '12' + '34' + '56' + '78',
                         },
-                        {
-                            id: 1,
-                            type: 'email',
-                            cls: 'contact-data',
-                            name: 'Send en Epost',
-                            href: 'mailto:' + 'demo@example.com',
-                        },
+                        
                     ],
                     
                     img:
@@ -310,17 +310,17 @@
                     [
                         {
                             id: 0,
+                            type: 'email',
+                            cls: 'contact-data',
+                            name: 'Send en Epost',
+                            href: 'mailto:' + 'demo' + '@' + 'example.com',
+                        },
+                        {
+                            id: 1,
                             name: '+47 12 34 56 78',
                             type: 'telephone',
                             cls: 'contact-data',
                             href : 'tel:' + '+47' + '12' + '34' + '56' + '78',
-                        },
-                        {
-                            id: 1,
-                            type: 'email',
-                            cls: 'contact-data',
-                            name: 'Send en Epost',
-                            href: 'mailto:' + 'demo@example.com',
                         },
                     ],
 
