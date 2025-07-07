@@ -14,13 +14,31 @@
         background: $color-background
 
 @mixin link-color($color)
-    $color-darken: rgba($color, 0.2)
+
+    $color-hover: rgba($color, 0.8)
+    $color-active: rgba($color, 0.6)
+    $color-visited: rgba($color, 0.5)
+
+    @if $color == $Groovy-yellow
+        $color-hover: rgba($Groovy-orange, 0.3)
+        $color-active: rgba($Groovy-green, 0.3)
+        //$color-visited: rgba($Groovy-green, 0.3)
 
     a
-        color: $color
+        color: rgba($color, 1)
         font-size: 1.5em
 
     @media (hover: hover)
 
         a:hover
-            background-color: $color-darken
+            background-color: $color-hover
+        
+    @media (active: active)
+
+        a:active
+            background-color: $color-active
+
+    @media( visited: visited)
+
+        a:visited
+            background-color: $color-visited
