@@ -4,8 +4,9 @@
 header
     line-height: 1.5
     max-height: 100vh
+    //@include light-component-theme($Groovy-brown)
 
-    .logo-container
+    .img-container
         inline-size: 15em
 
     nav
@@ -13,16 +14,11 @@ header
         inline-size: 100%
         text-align: center
         padding-block: 3em 3em
-        @include link-color($Groovy-yellow)
-        
-        
-
 
         .border-left
             min-height: 50px
             position: relative
 
-           
         .nav-link
             transition: 0.4s
             padding: 0.5em 1.5em
@@ -30,11 +26,7 @@ header
 
         .router-link-exact-active
             font-weight: 600
-            color: $Groovy-green
+            color: $Groovy-green !important
 
         .router-link-exact-active:hover
             background: transparent
-
-    .bg-color
-        color: $white-soft
-        background-color: $Groovy-brown
