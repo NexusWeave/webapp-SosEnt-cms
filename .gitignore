@@ -21,7 +21,7 @@ dist-ssr
 coverage
 node_modules
 
-frontend/.vscode/*
+.vscode/*
 
 /cypress/videos/
 /cypress/screenshots/
