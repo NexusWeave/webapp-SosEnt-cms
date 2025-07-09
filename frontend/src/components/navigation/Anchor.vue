@@ -1,32 +1,33 @@
 <template>
     <a
         :href="data.href"
-        :class="data.cls"
+        class=""
         :target="isExternal ? '_blank': '_self'"
-        :rel="isExternal  && 'noopener noreferrer'"
-        :download="media.contactData.find(type => type === data.type) ? '' : false"
+        :rel="isExternal ? 'noopener noreferrer' : null" 
+        :download="media.files.find(type => type === data.type) ? 'SosEnT_'+ data.name.replace(/\s+/g, '_').toLowerCase() + '.' + data.type : null"
         >
 
          <template v-if="img && media.images.find(type => type === img.type)">
-            <img :src="img.src" :alt="img.alt" :class="img.cls">
+            <Img :data="img"/>
         </template>
 
         <template v-if="media.files.find(type => type === data.type)">
-            <h2>
-                <i :class="data.icon" :aria-label="data.name"></i> 
+            <h3 :class="data.type">
+                <span class="icon" :aria-label="data.name"></span> 
                 {{ data.name }}
-            </h2>
+            </h3>
         </template>
 
         <template v-else>
             {{ data.name }}
         </template>
-        </a>
+    </a>
 
 </template>
 
 <script setup>
 
+import Img from '@/components/icons/Image.vue';
 import { defineProps } from 'vue';
 const props = defineProps({
     data: {
