@@ -4,12 +4,16 @@
             <div :class="data.media.cls">
                 <img :class="logo.cls" :alt="logo.alt" :src="logo.src" />
             </div>
-            <div :class="data.content.cls">
-                <h1>{{ content.title }}</h1>
-            </div>
+            <Menu :data='data.nav' />
         </div>
-        <Menu :data='data.nav' />
     </div>
+    <section :class="data.content.cls">
+        <h1>{{ content.title }}</h1>
+        <p>{{ content.text }}</p>
+        <nav>
+            <button class="btn btn-primary" @click="$router.push('/medlemskap')">Bli medlem</button>
+        </nav>
+    </section>
 </template>
 
 <script setup>
