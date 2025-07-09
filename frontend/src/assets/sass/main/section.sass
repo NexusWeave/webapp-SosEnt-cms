@@ -1,14 +1,29 @@
-@import '../mixins.sass'
+@import '../mixins'
 
 main
     section
         display: block
-        margin-block: 5em
+        margin-block: 2em
 
-        div.media-container
-            inline-size: 20em
-            text-align: center
-            margin-inline: 1em
+        div
+            margin-block: 1em
+
+        .media-container
+            .media-text
+                display: block
+                font-size: 0.999em
+
+            .media-content
+                inline-size: 26em
+                text-align: center
+                padding-block: 2em
+
+            h2, h3
+                padding-inline: 0
+                padding-block: 0.5em
+
+        .partner-container
+            gap: 5em
 
         .partner-logo
             inline-size: 20em
@@ -17,16 +32,16 @@ main
             inline-size: 100%
             object-fit: cover
 
-        .contact-card
+        div.card-container
             padding: 1em
             inline-size: 26em
-            @include light-component-theme($Groovy-brown)
+            text-align: center
 
-        img
-            inline-size: 100%
-        
-    section:nth-child(even):not(:last-child)
-        @include light-component-theme($Groovy-brown)
-    
-    section:nth-last-child(1)
-        background-color: transparrent
+            img
+                inline-size: 100%
+
+            .card-data
+                text-align: center
+                padding-inline: .5em
+                
+            
