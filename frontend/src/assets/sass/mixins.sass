@@ -2,21 +2,19 @@
 
 @mixin apply-theme-colors( $background, $border, $border-hover, $heading-color, $text-color)
     $color-border: $border
-    $color-text: $text-color
     $color-heading: $heading-color
-    $color-background: $background
     $color-border-hover: $border-hover
 
-    body
-        color: $color-text
-        background: $color-background
+    
+    color: $text-color
+    background-color: $background
 
 @mixin light-component-theme($color, $padding-inline: null, $padding-start: null)
 
-    $color-text: $white
+    $color-text: $soft-white
     $color-link: rgba($color, 0.6)
     $color-border: rgba($color, 0.2)
-    $color-background: rgba($color, 0.1)
+    $bg-color: rgba($color, 0.1)
 
     @if $padding-inline == null
         $padding-inline: 1.5em
@@ -26,9 +24,10 @@
     
     @if $color == $Groovy-brown
 
+        
+        $bg-color: rgba($color, 1)
         $color-link: $Groovy-yellow
-        $color-background: rgba($color, 1)
-        //$color-text: rgba($white-soft, 0.8)
+        $color-text: rgba($soft-white, 0.8)
         $color-border: rgba($Groovy-orange, 0.2)
 
     p
@@ -40,12 +39,16 @@
         padding-block-start: $padding-start
     
     h1, h2, h3, h4, h5, h6
+        color: rgba($color-text, 1)
         padding-inline: $padding-inline
         padding-block-start: $padding-start
     
-    color: $color-text
+    padding: 1em
+    border-radius: 0.5em
+    color: rgba($color-text, 1)
     @include link-color($color-link)
-    background-color: $color-background
+    background-color: $bg-color
+    
     
 @mixin link-color($color, $color-hover: null, $color-active: null, $color-visited: null)
 
@@ -60,8 +63,11 @@
         $color-visited: rgba($Groovy-green, 0.3)
 
     a
-        color: rgba($color, 1)
         font-size: 1.3em
+        color: rgba($color, 1)
+
+        h1, h2, h3, h4, h5, h6
+            color: rgba($color, 1)
 
         &:active
             color: $color-active
