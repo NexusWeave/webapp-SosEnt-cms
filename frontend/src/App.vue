@@ -11,7 +11,9 @@
   <footer>
     <Footer :data = 'navData.footer' />
   </footer>
+
 </template>
+
 <script setup>
 import { reactive} from 'vue';
 import { RouterView } from 'vue-router';
@@ -26,8 +28,9 @@ const navData = reactive({
   
       content:
       {
-        cls: 'flex-column-justify-center',
+        cls: 'flex-column-align-center',
         title: 'Sosial Entreprenørskap i Norge',
+        text: 'Landsforeningen for Sosiale Etreprenører, sammen for et sterkere og inkluderende fjerde sektor',
       },
       
       nav:
@@ -86,7 +89,7 @@ const navData = reactive({
   footer:
   {
     type: 'link',
-    cls: 'nav-bar flex-wrap-row-justify-flex-end',
+    cls: ['nav-bar', 'flex-wrap-row-justify-flex-end', 'component-theme'],
     id: 'footer-nav',
     menu: 
     [
