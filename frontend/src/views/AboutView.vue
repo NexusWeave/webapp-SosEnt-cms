@@ -1,65 +1,70 @@
 <template>
-    <section :class="newsData.cls">
-        <Articles v-if="newsData.articles.length > 0" :data="newsData.articles" />
-    </section>
 
     <section :class="aboutData.cls">
         <h1>{{ aboutData.title }}</h1>
         <p v-for="(paragraph, i) in aboutData.paragraphs" :key="i">{{ paragraph }}</p>
     </section>
+    
+    <section :class="newsData.cls">
+        <Articles v-if="newsData.articles.length > 0" :data="newsData.articles" />
+    </section>
 
-    <section :class="teamData.cls">
-        <section v-for="person in teamData.contactCards" :class="person.cls" :key="person.id">
-                <img :src="person.img.src" :alt="person.img.alt" :class="person.img.cls">
+    <section :class="organization.cls">
+        <h2> {{ organization.team.title }}</h2>
+        <section :class="organization.team.cls">
+            <div v-for="person in team.contactCards" :class="person.cls" :key="person.id">
+                <Img :data="person.img" />
                 <h2>{{ person.name }}</h2>
                 <h3>{{ person.title }}</h3>
-
-                <p v-for="contact in person.contactData" :key="contact.id" :class="contact.cls">
-                    {{ contact.type + ' :'}} <Link :data="contact" />
-                </p>
-        </section>
-    </section>
-
-        <section :class="mediaData.cls">
-        <section v-if="membersData.members.length > 0" :class="membersData.cls">
-            <table>
-                <thead>
-                    <tr>
-                        <th>{{ membersData.title }}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="member in membersData.members" :key="member.id">
-                        <td>
-                            <Link :data="member" v-if ="member.href"/>
-                            <h3 v-if="!member.href">{{ member.name }}</h3>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-        <section :class="mediaData.cls">
-            <div v-for="media in mediaData.files" :class="media.cls" :key="media.id">
-                <Link :data="media" />
-                <p>Dato :<time :datetime="media.date"> {{ media.date }}</time></p>
-                <p>{{ media.description }}</p>
+                <span v-for="contact in person.contactData" :key="contact.id" :class="contact.cls">
+                 <Link :data="contact" />
+                </span>
             </div>
         </section>
-    </section>
-    {{ partnerData.title }}
-    <section :class="partnerData.cls[0]" v-if ="partnerData.partners.length > 0">
-        <h1>{{ partnerData.title }}</h1>
-        <section :class="partnerData.cls[1]">
-            <div v-for="partner in partnerData.partners" :key="partner.id" :class="partner.cls">
-            <Link :data="partner" />
-            </div>
+
+        <h2> {{ organization.media.title }}</h2>
+        <section :class="organization.media.cls[0] + ' ' + organization.media.cls[1]">
+            <div v-for="media in media.files" :class="media.cls" :key="media.id" :data-filetype="media.type">    
+            <Link :data="media" />
+            <span :class="organization.media.cls[2]">Dato :
+                <time :datetime="media.date"> {{ media.date }}</time>
+            </span>
+            <span :class="organization.media.cls[2]">{{ media.description }}</span>
+        </div>
         </section>
-        
     </section>
+    
+    <section :class="networkData.cls[0] + ' ' + networkData.cls[2   ]">
+        <h2>{{ networkData.title }}</h2>
+        <div :class="networkData.cls[1]">
+            <section :class="members.cls" v-if ="members.members.length > 0">
+                <table>
+                    <tbody>
+                        <tr v-for="member in members.members" :key="member.id">
+                            <td v-if="member.id < 5">
+                                <Link :data="member" />
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot v-if="members.members.length > 5">
+                        <Link :data="members.media.file" />
+                    </tfoot>
+                </table>
+            </section>
+            
+            <section :class="partners.cls" v-if ="partners.data.length > 0">
+                <div v-for="partner in partners.data" :key="partner.id" :class="partner.cls">
+                    <Link :data="partner" />
+                </div>
+            </section>
+        </div>
+    </section>
+
 </template>
 
 <script setup>
 
+    import Img from '@/components/icons/Image.vue';    
     import Articles from '@/components/Article.vue';
     import Link from '@/components/navigation/Anchor.vue';
 
@@ -67,7 +72,7 @@
 
     const newsData = reactive(
         {
-            cls: ['flex-wrap-row-justify-space-between'],
+            cls: ['flex-wrap-row-justify-space-evenly'],
             articles:
             [
                 {
@@ -75,8 +80,7 @@
                     date: "2024-10-01",
                     title: 'Sosent Nyheter',
                     href: '/aktuelt/artikkel/',
-                    cls: 'flex-column-align-items-center news-article',
-                    description: 'Siste nytt om Sosent og sosialt entreprenørskap i Norge.',
+                    cls: 'flex-column-align-items-center news-card',
                     img:
                     {
                         alt: 'SoSent Logo',
@@ -89,8 +93,7 @@
                     date: "2022-10-01", 
                     title: 'Sosent Nyheter',
                     href: '/aktuelt/artikkel/',
-                    cls: 'flex-column-align-items-center news-article',
-                    description: 'Siste nytt om Sosent og sosialt entreprenørskap i Norge.',
+                    cls: 'flex-column-align-items-center news-card',
                     img:
                     {
                         alt: 'SoSent Logo',
@@ -103,8 +106,7 @@
                     date: "2023-10-01", 
                     title: 'Sosent Nyheter',
                     href: '/aktuelt/artikkel/',
-                    cls: 'flex-column-align-items-center news-article',
-                    description: 'Siste nytt om Sosent og sosialt entreprenørskap i Norge.',
+                    cls: 'flex-column-align-items-center news-card',
                     img:
                     {
                         alt: 'SoSent Logo',
@@ -117,8 +119,7 @@
                     date: "2026-10-01",
                     title: 'Sosent Nyheter',
                     href: '/aktuelt/artikkel/',
-                    cls: 'flex-column-align-items-center news-article',
-                    description: 'Siste nytt om Sosent og sosialt entreprenørskap i Norge.',
+                    cls: 'flex-column-align-items-center news-card',
                     img:
                     {
                         alt: 'SoSent Logo',
@@ -132,8 +133,8 @@
 
     const aboutData = reactive(
         {
-            cls: ['flex-column-align-items-center', 'component-theme'],
-            title: 'Om oss',
+            cls: ['flex-column-align-items-center'],
+            title: 'Om SosEnt Norge',
             paragraphs:
             [
                 `SosEnt Norge – Landsforeningen for sosiale entreprenører –
@@ -161,179 +162,230 @@
         }
     );
 
-    const membersData = reactive(
+    const organization = reactive(
         {
-            cls: 'flex-column-align-items-center',
-            title: 'Våre medlemmer',
-            members: 
-            [
-                {
-                    id: 0,
-                    type: 'external',
-                    name: 'Medlem 1',
-                    href: 'https://www.example.com',
-                    description: 'Beskrivelse av medlem 1.',
-                },
-                {
-                    id: 1,
-                    type: 'external',
-                    name: 'Medlem 2',
-                    href: 'https://www.example.com',
-                    description: 'Beskrivelse av medlem 2.',
-                    
-                },
-                {
-                    id: 2,
-                    type: 'external',
-                    name: 'Medlem 3',
-                    description: 'Beskrivelse av medlem 3.',
-                },
-            ],
-        }
-    );
+            cls: ['flex-column'],
+            team:
+            {
+                title: 'Kontakt oss',
+                cls: ['flex-wrap-row-justify-space-evenly'],
 
-    const mediaData = reactive(
-        {
-            cls: ['flex-wrap-row-justify-space-evenly'],
-            files:
-            [
-                {
-                    id: 0,
-                    type: 'pdf',
-                    icon: 'bi bi-file-earmark-pdf',
-                    name: 'Vedtekter',
-                    date: '2025-04-01',
-                    cls: ['media-container'],
-                    description: 'Vedtekter for medlemmene i SosEnt Norge.',
-                    href: '@/assets/media/files/organization/SosEnt-Norge-vedtekter.pdf',
-                },
-                {
-                    id: 1,
-                    type: 'pdf',
-                    date: '2025-04-01',
-                    cls: ['media-container'],
-                    name: 'Organisasjonskart',
-                    icon: 'bi bi-file-earmark-pdf',
-                    description: 'Organisasjonskart over styret og ansatte i SosEnt Norge.',
-                    href: '@/assets/media/files/organization/SosEnt-Norge-organisajonskart.pdf',
-                },
-            ],
-        }
-    );
-
-    const partnerData = reactive(
-        {
-            cls: ['partner-container', 'flex-wrap-row-justify-space-evenly'],
-            title: 'Våre samarbeidspartnere',
-            partners: [
-                {
-                    id: 0,
-                    type: 'external',
-                    href: 'https://www.example.com',
-                    cls: 'flex-wrap-row-justify-space-evenly',
-
-                    img:
+                contactCards:
+                [
                     {
-                        type: 'png',
-                        alt: 'SoSent Logo',
-                        cls: 'partner-logo',
-                        src: '/media/images/partners/SosEnT-favicon.png',
-                    },
-                    
-                },
-                {
-                    id: 1,
-                    type: 'external',
-                    href: 'https://www.example.com',
-                    cls: 'flex-wrap-row-justify-space-evenly',
+                        id: 0,
+                        cls: ['card-container', 'component-theme'],
+                        title: 'Styreleder',
+                        name: 'Helle V. Rødahl',
+                        // Make the email and phone numbers bot protected
+                        contactData:
+                        [
+                            {
+                                id: 0,
+                                type: 'email',
+                                cls: 'card-data',
+                                name: 'Send en Epost',
+                                href: 'mailto:' + 'demo' +'@' + 'example.com',
+                            },
+                            {
+                                id: 1,
+                                name: 'Telefonnummer',
+                                type: 'telephone',
+                                cls: 'card-data',
+                                href : 'tel:' + '+47' + '12' + '34' + '56' + '78',
+                            },
+                        ],
 
-                    img:
-                    {
-                        type: 'png',
-                        alt: 'SoSent Logo',
-                        cls: 'partner-logo',
-                        src: '/media/images/partners/SosEnT-favicon.png',
-                    },
-                },
-            ],
-        }
-    );
-
-    const teamData = reactive(
-        {
-            title: 'Kontakt oss',
-            cls: ['flex-wrap-row-justify-space-evenly'],
-
-            contactCards:
-            [
-                {
-                    id: 0,
-                    cls: 'contact-card',
-                    title: 'Styreleder',
-                    name: 'Helle V. Rødahl',
-                    // Make the email and phone numbers bot protected
-                    contactData:
-                    [
+                        img:
                         {
-                            id: 0,
-                            type: 'email',
-                            cls: 'contact-data',
-                            name: 'Send en Epost',
-                            href: 'mailto:' + 'demo' +'@' + 'example.com',
+                            type: 'jpg',
+                            cls: 'contact-logo',
+                            src: '/media/images/team/profil-helle-privat.jpg',
+                            alt: "JPG bilde av Helle V. Rødahl",
                         },
+                    },
+                    {
+                        id: 1,
+                        title: 'Generalsekretær',
+                        cls: ['card-container', 'component-theme'],
+                        name: 'Rune Kvarme',
+
+                        // Make the email and phone numbers bot protected
+                        contactData:
+                        [
+                            {
+                                id: 0,
+                                type: 'email',
+                                cls: 'card-data',
+                                name: 'Send en Epost',
+                                href: 'mailto:' + 'demo' + '@' + 'example.com',
+                            },
+                            {
+                                id: 1,
+                                name: 'Telefonnummer',
+                                type: 'telephone',
+                                cls: 'card-data',
+                                href : 'tel:' + '+47' + '12' + '34' + '56' + '78',
+                            },
+                        ],
+
+                        img:
                         {
-                            id: 1,
-                            name: '+47 12 34 56 78',
-                            type: 'telephone',
-                            cls: 'contact-data',
-                            href : 'tel:' + '+47' + '12' + '34' + '56' + '78',
+                            type: 'png',
+                            cls: 'card-img',
+                            alt: "Rune J. Kvarme ",
+                            src: '/media/images/team/52700234381_5e75074f92_q.jpg',
+                        },
+                    },
+                ],
+            },
+            media:
+            {
+                title : 'Dokumenter',
+                cls: ['flex-wrap-row-justify-space-evenly', 'media-container', 'media-text'],
+                files:
+                [
+                    {
+                        id: 0,
+                        type: 'pdf',
+                        name: 'Vedtekter',
+                        date: '2025-04-01',
+                        cls: ['media-content', 'component-theme'],
+                        description: 'Vedtekter for medlemmene i SosEnt Norge.',
+                        href: '@/assets/media/files/organization/SosEnt-Norge-vedtekter.pdf',
+                    },
+                    {
+                        id: 1,
+                        type: 'pdf',
+                        date: '2025-04-01',
+                        name: 'Organisasjonskart',
+                        cls: ['media-content', 'component-theme'],
+                        description: 'Organisasjonskart over styret og ansatte i SosEnt Norge.',
+                        href: '@/assets/media/files/organization/SosEnt-Norge-organisajonskart.pdf',
+                    },
+                ],
+            },
+
+    });
+
+    const networkData = reactive(
+        {
+            title: 'Medlemmer og samarbeids-partnere',
+            cls: ['flex-column-align-content-center', 'flex-wrap-row-justify-space-evenly', 'component-theme'],
+
+            partnerData:
+            {
+                cls: ['partner-container', 'flex-wrap-row-justify-space-evenly'],
+
+                data: 
+                [
+                    {
+                        id: 0,
+                        type: 'external',
+                        href: 'https://www.example.com',
+                        cls: 'flex-wrap-row-justify-space-evenly',
+
+                        img:
+                        {
+                            type: 'png',
+                            alt: 'SoSent Logo',
+                            cls: 'partner-logo',
+                            src: '/media/images/partners/SosEnT-favicon.png',
                         },
                         
-                    ],
-                    
-                    img:
-                    {
-                        type: 'jpg',
-                        cls: 'contact-logo',
-                        src: '/media/images/team/profil-helle-privat.jpg',
-                        alt: "JPG bilde av Helle V. Rødahl",
                     },
-                },
-                {
-                    id: 1,
-                    title: 'Generalsekretær',
-                    cls: 'contact-card',
-                    name: 'Rune Kvarme',
-                    
-                    // Make the email and phone numbers bot protected
-                    contactData:
-                    [
-                        {
-                            id: 0,
-                            type: 'email',
-                            cls: 'contact-data',
-                            name: 'Send en Epost',
-                            href: 'mailto:' + 'demo' + '@' + 'example.com',
-                        },
-                        {
-                            id: 1,
-                            name: '+47 12 34 56 78',
-                            type: 'telephone',
-                            cls: 'contact-data',
-                            href : 'tel:' + '+47' + '12' + '34' + '56' + '78',
-                        },
-                    ],
+                    {
+                        id: 1,
+                        type: 'external',
+                        href: 'https://www.example.com',
+                        cls: 'flex-wrap-row-justify-space-evenly',
 
-                    img:
+                        img:
+                        {
+                            type: 'png',
+                            alt: 'SoSent Logo',
+                            cls: 'partner-logo',
+                            src: '/media/images/partners/SosEnT-favicon.png',
+                        },
+                    },
+                ],
+            },
+            membersData:
+            {
+                cls: ['flex-column-align-items-center'],
+
+                columns: 
+                [
                     {
-                        type: 'png',
-                        cls: 'contact-logo',
-                        alt: "Rune J. Kvarme ",
-                        src: '/media/images/team/52700234381_5e75074f92_q.jpg',
+                        id: 0,
+                        title: 'Navn',
+                    },
+                ],
+                members: 
+                [
+                    {
+                        id: 0,
+                        type: 'external',
+                        name: 'Medlem 1',
+                        href: 'https://www.example.com',
+                        description: 'Beskrivelse av medlem 1.',
+                    },
+                    {
+                        id: 1,
+                        type: 'external',
+                        name: 'Medlem 2',
+                        href: 'https://www.example.com',
+                        description: 'Beskrivelse av medlem 2.',
+                        
+                    },
+                    {
+                        id: 2,
+                        type: 'external',
+                        name: 'Medlem 3',
+                        description: 'Beskrivelse av medlem 3.',
+                    },
+                    {
+                        id: 3,
+                        type: 'external',
+                        name: 'Medlem 4',
+                        href: 'https://www.example.com',
+                        description: 'Beskrivelse av medlem 1.',
+                    },
+                    {
+                        id: 4,
+                        type: 'external',
+                        name: 'Medlem 5',
+                        href: 'https://www.example.com',
+                        description: 'Beskrivelse av medlem 1.',
+                    },
+                    {
+                        id: 5,
+                        type: 'external',
+                        name: 'Medlem 6',
+                        href: 'https://www.example.com',
+                        description: 'Beskrivelse av medlem 1.',
+                    },
+                ],
+                media:
+                {
+                    file:
+                    {
+                        id: 0,
+                        type: 'pdf',
+                        cls: ['media-content', 'component-theme'],
+                        href: '@/assets/media/files/organization/SosEnt-Norge-medlemmer.pdf',
+                        name: 'Medlemsoversikt',
                     },
                 },
-            ],
+            },
+
         }
     );
+
+    const team = organization.team;
+    const media = organization.media;
+
+    const members = networkData.membersData;
+    const partners = networkData.partnerData;
 
 </script>
