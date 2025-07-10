@@ -1,47 +1,41 @@
 @import '../mixins'
 
-main
-    section
+.media-container
+    .media-text
         display: block
-        margin-block: 2em
+        font-size: 0.999em
 
-        div
-            margin-block: 1em
+    .media-content
+        inline-size: 26em
+        text-align: center
+        padding-block: 2em
 
-        .media-container
-            .media-text
-                display: block
-                font-size: 0.999em
+    h2, h3
+        padding-inline: 0
+        padding-block: 0.5em
 
-            .media-content
-                inline-size: 26em
-                text-align: center
-                padding-block: 2em
+.partner-container
+    inline-size: 39em
 
-            h2, h3
-                padding-inline: 0
-                padding-block: 0.5em
+    .partner-img
+        inline-size: 10em
 
-        .partner-container
-            gap: 5em
-
-        .partner-logo
-            inline-size: 20em
-
-        .partner-logo img
+        img
             inline-size: 100%
             object-fit: cover
 
-        div.card-container
-            padding: 1em
-            inline-size: 26em
-            text-align: center
+div.card-container
+    padding: 1em
+    inline-size: 26em
+    text-align: center
+        
+    img
+        inline-size: 100%
+    
+    .card-data
+        text-align: center
+        padding-inline: .5em
 
-            img
-                inline-size: 100%
-
-            .card-data
-                text-align: center
-                padding-inline: .5em
-                
+.member-container
+    @include background-color($soft-white, $Groovy-brown, $Groovy-orange)
             
