@@ -1,17 +1,7 @@
 
-// Use rules
-@use 'sass:map'
-@use './mapping'
-@use './functions'
-
 //  Importing Sass files for the main styles
-@import './main.sass', './colors.sass', './mixins.sass'
-@import './header.sass', './footer.sass', './flexbox.sass'
-@import './misc.sass'
-@import './media-queries/mediaIndex.sass'
+@import './colors.sass', './flexbox.sass', './misc.sass', './media-queries/mediaIndex.sass'
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css")
-
-$section-gap: 160px
 
 *, *::before,
 *::after    
@@ -19,9 +9,6 @@ $section-gap: 160px
     font-weight: normal
     box-sizing: border-box
     writing-mode: horizontal-tb
-
-main
-    margin-block: 5em
 
 body
     font-size: 1em
@@ -31,35 +18,46 @@ body
     text-rendering: optimizeLegibility
     -webkit-font-smoothing: antialiased
     transition: color 0.5s, background-color 0.5s
-    @include apply-theme-colors( $antique-white, $divider-light-2, $divider-light-1,$text-light-1, $Groovy-brown)
     font-family: 'Nunito', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
+    
+    @include apply-theme-colors( $antique-white, $Groovy-orange, $Groovy-brown)
+
+header
+    nav
+        inline-size: 55em
+        text-align: center
+        padding-block: 3em 3em
+
+    @import './header.sass'
+
+
+main
+    margin-block: 5em
+
+    @import './main/article.sass'
+
+    section
+        display: block
+        margin-block: 2em
+
+        div
+            margin-block: 1em
+
+        @import './main/section.sass'
+
+footer
+    @import './footer.sass'
+
+footer, header
+    .component-theme
+        border-radius: 0
+        padding: 2em
 
 table
     td, th
         padding: 0.5em 2em
         text-align: center
         vertical-align: middle
-#app
-    padding: 2rem
-    margin: 0 auto
-    font-weight: normal
 
-.icon
+nav
     font-size: 1em
-    display: inline-block
-    font-family: "Bootstrap-icons"
-
-@each $file-type, $props in mapping.$file-types
-
-    $file-style: functions.file-icons($file-type)
-
-    .#{$file-type}
-        .icon
-            color: map.get($file-style, txt-color) !important
-            content: map.get($file-style, icon)
-
-            &::before
-                content: map.get($file-style, icon)
-
-            &:hover
-                color: map.get($file-style, hover-color) !important

@@ -1,119 +1,10 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
-main article.news-card {
-  inline-size: 11em;
-  text-align: center;
-}
-main article.news-card .article-img {
-  inline-size: 100%;
-}
-
-main section {
-  display: block;
-  margin-block: 2em;
-}
-main section div {
-  margin-block: 1em;
-}
-main section .media-container .media-text {
-  display: block;
-  font-size: 0.999em;
-}
-main section .media-container .media-content {
-  inline-size: 26em;
-  text-align: center;
-  padding-block: 2em;
-}
-main section .media-container h2, main section .media-container h3 {
-  padding-inline: 0;
-  padding-block: 0.5em;
-}
-main section .partner-container {
-  gap: 5em;
-}
-main section .partner-logo {
-  inline-size: 20em;
-}
-main section .partner-logo img {
-  inline-size: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-main section div.card-container {
-  padding: 1em;
-  inline-size: 26em;
-  text-align: center;
-}
-main section div.card-container img {
-  inline-size: 100%;
-}
-main section div.card-container .card-data {
-  text-align: center;
-  padding-inline: 0.5em;
-}
-
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-header .img-container {
-  inline-size: 15em;
-}
-header nav {
-  font-size: 1em;
-  inline-size: 55em;
-  text-align: center;
-  padding-block: 3em 3em;
-}
-header nav .border-left {
-  min-height: 50px;
-  position: relative;
-}
-header nav .nav-link {
-  transition: 0.4s;
-  padding: 0.5em 1.5em;
-  text-decoration: none;
-}
-header nav .router-link-exact-active {
-  font-weight: 600;
-  color: rgb(181, 215, 81) !important;
-}
-header nav .router-link-exact-active:hover {
-  background: transparent;
-}
-
-footer nav {
-  font-size: 1em;
-  inline-size: 100%;
-  text-align: center;
-  padding-block: 5em;
-}
-footer nav a {
-  font-size: 1.3em;
-  color: #e5771e;
-}
-footer nav a h1, footer nav a h2, footer nav a h3, footer nav a h4, footer nav a h5, footer nav a h6 {
-  color: #e5771e;
-}
-footer nav a:active {
-  color: rgba(229, 119, 30, 0.6);
-}
-footer nav a:visited {
-  text-decoration: underline;
-  background-color: rgba(229, 119, 30, 0.5);
-}
-@media (hover: hover) {
-  footer nav a:hover {
-    border-radius: 0.5em;
-    background-color: rgba(229, 119, 30, 0.8);
-  }
-}
-
 flex-row, .flex-wrap-row-justify-content-flex-end, .flex-row, .flex-row-align-items-center {
   display: flex;
   flex-direction: row;
 }
 
-flex-wrap-row, .flex-wrap-row, .flex-wrap-row-align-items-center-justify-space-around, .flex-wrap-row-align-items-center-justify-space-evenly, .flex-wrap-row-align-items-center-justify-space-between, .flex-wrap-row-align-items-center-justify-center, .flex-wrap-row-align-items-center, .flex-wrap-row-align-items-end, .flex-wrap-row-justify-center, .flex-wrap-row-justify-space-around, .flex-wrap-row-justify-space-between, .flex-wrap-row-justify-space-evenly, .flex-wrap-row-justify-flex-end, .flex-wrap-row-justify-flex-start {
+flex-wrap-row, .flex-wrap-row, .flex-wrap-row-align-items-center-justify-space-between, .flex-wrap-row-align-items-center-justify-space-around, .flex-wrap-row-align-items-center-justify-space-evenly, .flex-wrap-row-align-items-center-justify-center, .flex-wrap-row-align-items-center, .flex-wrap-row-align-items-end, .flex-wrap-row-justify-space-around, .flex-wrap-row-justify-space-between, .flex-wrap-row-justify-space-evenly, .flex-wrap-row-justify-flex-start, .flex-wrap-row-justify-flex-end, .flex-wrap-row-justify-center {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -129,12 +20,16 @@ flex-wrap-reversed-row, .flex-wrap-reversed-row {
   align-items: center;
 }
 
-.flex-wrap-row-justify-flex-start {
-  justify-content: flex-start;
+.flex-wrap-row-justify-center {
+  justify-content: center;
 }
 
 .flex-wrap-row-justify-flex-end {
   justify-content: flex-end;
+}
+
+.flex-wrap-row-justify-flex-start {
+  justify-content: flex-start;
 }
 
 .flex-wrap-row-justify-space-evenly {
@@ -147,10 +42,6 @@ flex-wrap-reversed-row, .flex-wrap-reversed-row {
 
 .flex-wrap-row-justify-space-around {
   justify-content: space-around;
-}
-
-.flex-wrap-row-justify-center {
-  justify-content: center;
 }
 
 .flex-wrap-row-align-items-end {
@@ -166,11 +57,6 @@ flex-wrap-reversed-row, .flex-wrap-reversed-row {
   justify-content: center;
 }
 
-.flex-wrap-row-align-items-center-justify-space-between {
-  align-items: center;
-  justify-content: space-between;
-}
-
 .flex-wrap-row-align-items-center-justify-space-evenly {
   align-items: center;
   justify-content: space-evenly;
@@ -179,6 +65,11 @@ flex-wrap-reversed-row, .flex-wrap-reversed-row {
 .flex-wrap-row-align-items-center-justify-space-around {
   align-items: center;
   justify-content: space-around;
+}
+
+.flex-wrap-row-align-items-center-justify-space-between {
+  align-items: center;
+  justify-content: space-between;
 }
 
 flex-column, .flex-column, .flex-column-justify-center, .flex-column-align-center {
@@ -267,35 +158,29 @@ flex-wrap-reversed-column, .flex-wrap-reversed-column {
   }
 }
 
-*, *::before,
-*::after {
-  margin: 0;
-  font-weight: normal;
-  box-sizing: border-box;
-  writing-mode: horizontal-tb;
+.section-theme {
+  color: #593d2b;
+  background-color: #fcf5eb;
 }
-
-main {
-  margin-block: 5em;
+.section-theme a {
+  font-size: 1.3em;
+  color: #e5771e;
 }
-
-body {
-  font-size: 1em;
-  line-height: 1.6;
-  min-height: 100vh;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  transition: color 0.5s, background-color 0.5s;
-  color: rgb(89, 61, 43);
-  background-color: rgb(250, 235, 215);
-  font-family: "Nunito", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+.section-theme a h1, .section-theme a h2, .section-theme a h3, .section-theme a h4, .section-theme a h5, .section-theme a h6 {
+  color: #e5771e;
 }
-
-table td, table th {
-  padding: 0.5em 2em;
-  text-align: center;
-  vertical-align: middle;
+.section-theme a:active {
+  color: rgba(229, 119, 30, 0.6);
+}
+.section-theme a:visited {
+  text-decoration: underline;
+  background-color: rgba(229, 119, 30, 0.5);
+}
+@media (hover: hover) {
+  .section-theme a:hover {
+    border-radius: 0.5em;
+    background-color: rgba(229, 119, 30, 0.8);
+  }
 }
 
 #app {
@@ -330,4 +215,181 @@ table td, table th {
 }
 .default .icon:hover {
   color: #6c757d !important;
+}
+
+*, *::before,
+*::after {
+  margin: 0;
+  font-weight: normal;
+  box-sizing: border-box;
+  writing-mode: horizontal-tb;
+}
+
+body {
+  font-size: 1em;
+  line-height: 1.6;
+  min-height: 100vh;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  transition: color 0.5s, background-color 0.5s;
+  font-family: "Nunito", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  border: rgb(229, 119, 30);
+  color: rgb(89, 61, 43);
+  border-radius: 0.5em;
+  background-color: rgb(252, 245, 235);
+}
+body h1 {
+  font-size: 4em;
+  font-weight: 600;
+}
+
+header nav {
+  inline-size: 55em;
+  text-align: center;
+  padding-block: 3em 3em;
+}
+header .img-container {
+  inline-size: 15em;
+}
+header .border-left {
+  min-height: 50px;
+  position: relative;
+}
+header .nav-link {
+  transition: 0.4s;
+  padding: 0.5em 1.5em;
+  text-decoration: none;
+}
+header .router-link-exact-active {
+  font-weight: 600;
+  color: rgb(181, 215, 81) !important;
+}
+header .router-link-exact-active:hover {
+  background: transparent;
+}
+header .component-theme {
+  border-radius: 0;
+}
+
+main {
+  margin-block: 5em;
+}
+main article.news-card {
+  padding: 1.5em;
+  inline-size: 15em;
+  text-align: center;
+  border-radius: 0.5em;
+  color: #593d2b;
+  background-color: #fff8f1;
+}
+main article.news-card a {
+  font-size: 1.3em;
+  color: #e5771e;
+}
+main article.news-card a h1, main article.news-card a h2, main article.news-card a h3, main article.news-card a h4, main article.news-card a h5, main article.news-card a h6 {
+  color: #e5771e;
+}
+main article.news-card a:active {
+  color: rgba(229, 119, 30, 0.6);
+}
+main article.news-card a:visited {
+  text-decoration: underline;
+  background-color: rgba(229, 119, 30, 0.5);
+}
+@media (hover: hover) {
+  main article.news-card a:hover {
+    border-radius: 0.5em;
+    background-color: rgba(229, 119, 30, 0.8);
+  }
+}
+main article.news-card .article-img {
+  inline-size: 100%;
+}
+main section {
+  display: block;
+  margin-block: 2em;
+}
+main section div {
+  margin-block: 1em;
+}
+main section .media-container .media-text {
+  display: block;
+  font-size: 0.999em;
+}
+main section .media-container .media-content {
+  inline-size: 26em;
+  text-align: center;
+  padding-block: 2em;
+}
+main section .media-container h2, main section .media-container h3 {
+  padding-inline: 0;
+  padding-block: 0.5em;
+}
+main section .partner-container {
+  inline-size: 39em;
+}
+main section .partner-container .partner-img {
+  inline-size: 10em;
+}
+main section .partner-container .partner-img img {
+  inline-size: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main section div.card-container {
+  padding: 1em;
+  inline-size: 26em;
+  text-align: center;
+}
+main section div.card-container img {
+  inline-size: 100%;
+}
+main section div.card-container .card-data {
+  text-align: center;
+  padding-inline: 0.5em;
+}
+main section .member-container {
+  color: #593d2b;
+  background-color: #fff8f1;
+}
+main section .member-container a {
+  font-size: 1.3em;
+  color: #e5771e;
+}
+main section .member-container a h1, main section .member-container a h2, main section .member-container a h3, main section .member-container a h4, main section .member-container a h5, main section .member-container a h6 {
+  color: #e5771e;
+}
+main section .member-container a:active {
+  color: rgba(229, 119, 30, 0.6);
+}
+main section .member-container a:visited {
+  text-decoration: underline;
+  background-color: rgba(229, 119, 30, 0.5);
+}
+@media (hover: hover) {
+  main section .member-container a:hover {
+    border-radius: 0.5em;
+    background-color: rgba(229, 119, 30, 0.8);
+  }
+}
+
+footer .footer-container {
+  display: inline-flex;
+  inline-size: 100%;
+}
+
+footer .component-theme, header .component-theme {
+  border-radius: 0;
+  padding: 2em;
+}
+
+table td, table th {
+  padding: 0.5em 2em;
+  text-align: center;
+  vertical-align: middle;
+}
+
+nav {
+  font-size: 1em;
 }/*# sourceMappingURL=index.css.map */
