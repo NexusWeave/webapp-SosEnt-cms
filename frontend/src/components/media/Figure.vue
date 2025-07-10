@@ -1,5 +1,8 @@
 <template>
-    <img :src="data.src" :alt="data.alt" :class="data.cls">
+    <figure :class="data.cls">
+        <img :src="data.src" :alt="data.alt" :class="data.cls">
+        <figcaption v-if="data.caption">{{ data.caption }}</figcaption>
+    </figure>
 </template>
 
 <script setup>
