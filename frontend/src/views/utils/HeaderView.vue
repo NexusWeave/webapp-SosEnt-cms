@@ -10,14 +10,13 @@
     <section :class="data.content.cls">
         <h1>{{ content.title }}</h1>
         <p>{{ content.text }}</p>
-
     </section>
 </template>
 
 <script setup>
     import { reactive, defineProps } from 'vue';
 
-    import Img from '@/components/media/Img.vue';
+    import Img from '@/components/media/Figure.vue';
     import Menu from '@/components/navigation/NavMenu.vue';
     
     const props = defineProps({
