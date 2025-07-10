@@ -18,14 +18,17 @@ flex-wrap-reversed-row
 
 //  Flexbox row with wrap
 //  Justify content
-.flex-wrap-row-justify-flex-start
+.flex-wrap-row-justify-center
     @extend flex-wrap-row
-    justify-content: flex-start
+    justify-content: center
 
 .flex-wrap-row-justify-flex-end
     @extend flex-wrap-row
     justify-content: flex-end
 
+.flex-wrap-row-justify-flex-start
+    @extend flex-wrap-row
+    justify-content: flex-start
 
 .flex-wrap-row-justify-space-evenly
     @extend flex-wrap-row
@@ -38,10 +41,6 @@ flex-wrap-reversed-row
 .flex-wrap-row-justify-space-around
     @extend flex-wrap-row
     justify-content: space-around
-
-.flex-wrap-row-justify-center
-    @extend flex-wrap-row
-    justify-content: center
 
 //  Align items
 .flex-wrap-row-align-items-end
@@ -59,11 +58,6 @@ flex-wrap-reversed-row
     @extend flex-wrap-row
     justify-content: center
 
-.flex-wrap-row-align-items-center-justify-space-between
-    align-items: center
-    @extend flex-wrap-row
-    justify-content: space-between
-
 .flex-wrap-row-align-items-center-justify-space-evenly
     align-items: center
     @extend flex-wrap-row
@@ -73,3 +67,8 @@ flex-wrap-reversed-row
     align-items: center
     @extend flex-wrap-row
     justify-content: space-around
+
+.flex-wrap-row-align-items-center-justify-space-between
+    align-items: center
+    @extend flex-wrap-row
+    justify-content: space-between
