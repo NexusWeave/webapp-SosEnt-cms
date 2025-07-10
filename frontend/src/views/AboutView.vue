@@ -3,11 +3,9 @@
         <Articles v-if="newsData.articles.length > 0" :data="newsData.articles" />
     </section>
 
-    <section :class="aboutData.cls">
-        <h2>{{ aboutData.title }}</h2>
-        <p v-for="(paragraph, i) in aboutData.paragraphs" :key="i">{{ paragraph }}</p>
-    </section>
-
+    <S :data="aboutData" />
+    <S :data="organization" />
+    
     <section :class="organization.cls">
         <h2> {{ organization.team.title }}</h2>
         <section :class="organization.team.cls">
@@ -62,8 +60,8 @@
 </template>
 
 <script setup>
-
-    import Img from '@/components/media/Image.vue';    
+    import S from '@/components/utils/Section.vue';
+    import Img from '@/components/media/Figure.vue';    
     import Articles from '@/components/Article.vue';
     import Link from '@/components/navigation/Anchor.vue';
 
@@ -86,6 +84,10 @@
                         cls: 'article-img',
                         src: '/media/images/news/SosEnT-favicon.png',
                     },
+
+                    footer: null,
+                    section: null,
+                    ingress: null,
                 },
                 {
                     id: 1,
