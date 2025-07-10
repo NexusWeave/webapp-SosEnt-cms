@@ -1,32 +1,23 @@
-@import'./mixins.sass'
-@import './colors.sass'
+@import'./mixins.sass', './colors.sass'
 
-header
-    line-height: 1.5
-    max-height: 100vh
-    //@include light-component-theme($Groovy-brown)
+.img-container
+    inline-size: 15em
 
-    .img-container
-        inline-size: 15em
+.border-left
+    min-height: 50px
+    position: relative
 
-    nav
-        font-size: 1em
-        inline-size: 55em
-        text-align: center
-        padding-block: 3em 3em
+.nav-link
+    transition: 0.4s
+    padding: 0.5em 1.5em
+    text-decoration: none
 
-        .border-left
-            min-height: 50px
-            position: relative
+.router-link-exact-active
+    font-weight: 600
+    color: $Groovy-green !important
 
-        .nav-link
-            transition: 0.4s
-            padding: 0.5em 1.5em
-            text-decoration: none
+.router-link-exact-active:hover
+    background: transparent
 
-        .router-link-exact-active
-            font-weight: 600
-            color: $Groovy-green !important
-
-        .router-link-exact-active:hover
-            background: transparent
+.component-theme
+    border-radius: 0
