@@ -27,25 +27,27 @@
 
 <script setup>
 
-import Img from '@/components/icons/Image.vue';
-import { defineProps } from 'vue';
-const props = defineProps({
-    data: {
-        type: Object,
-        required: true
+    import Img from '@/components/media/Figure.vue';
+    import { defineProps } from 'vue';
+
+    const props = defineProps({
+        data: {
+            type: Object,
+            required: true
+        }
+    });
+
+    const media = 
+    {
+        contactData: ['email', 'telephone'],
+        images: ['jpg', 'jpeg', 'png', 'svg'],
+        files: ['pdf', 'docx', 'xlsx', 'csv'],
     }
-});
 
-const media = 
-{
-    contactData: ['email', 'telephone'],
-    images: ['jpg', 'jpeg', 'png', 'svg'],
-    files: ['pdf', 'docx', 'xlsx', 'csv'],
-}
-const data = props.data;
-const img = data.img? data.img : null;
-const isExternal = data.type === 'external' || false;
+    const data = props.data;
+    const img = data.img? data.img : null;
+    const isExternal = data.type === 'external' || false;
 
-//console.log("Link component loaded with data: ", data, isExternal);
+    //console.log("Link component loaded with data: ", data, isExternal);
 
 </script>
