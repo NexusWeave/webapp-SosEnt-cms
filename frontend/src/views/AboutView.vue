@@ -1,12 +1,11 @@
 <template>
-
-    <section :class="aboutData.cls">
-        <h1>{{ aboutData.title }}</h1>
-        <p v-for="(paragraph, i) in aboutData.paragraphs" :key="i">{{ paragraph }}</p>
-    </section>
-    
     <section :class="newsData.cls">
         <Articles v-if="newsData.articles.length > 0" :data="newsData.articles" />
+    </section>
+
+    <section :class="aboutData.cls">
+        <h2>{{ aboutData.title }}</h2>
+        <p v-for="(paragraph, i) in aboutData.paragraphs" :key="i">{{ paragraph }}</p>
     </section>
 
     <section :class="organization.cls">
@@ -25,23 +24,23 @@
         <h2> {{ organization.media.title }}</h2>
         <section :class="organization.media.cls[0] + ' ' + organization.media.cls[1]">
             <div v-for="media in media.files" :class="media.cls" :key="media.id" :data-filetype="media.type">    
-            <Link :data="media" />
-            <span :class="organization.media.cls[2]">Dato :
-                <time :datetime="media.date"> {{ media.date }}</time>
-            </span>
-            <span :class="organization.media.cls[2]">{{ media.description }}</span>
-        </div>
+                <Link :data="media" />
+                <span :class="media.cls[2]">Dato :
+                    <b><time :datetime="media.date"> {{ media.date }}</time></b>
+                </span>
+                <span :class="media.cls[2]">{{ media.description }}</span>
+            </div>
         </section>
     </section>
     
-    <section :class="networkData.cls[0] + ' ' + networkData.cls[2   ]">
+    <section :class="networkData.cls[0] + ' ' + networkData.cls[2]">
         <h2>{{ networkData.title }}</h2>
         <div :class="networkData.cls[1]">
             <section :class="members.cls" v-if ="members.members.length > 0">
                 <table>
                     <tbody>
-                        <tr v-for="member in members.members" :key="member.id">
-                            <td v-if="member.id < 5">
+                        <tr v-for="member in members.members.filter(member => member.id < 5)" :key="member.id">
+                            <td >
                                 <Link :data="member" />
                             </td>
                         </tr>
@@ -52,7 +51,7 @@
                 </table>
             </section>
             
-            <section :class="partners.cls" v-if ="partners.data.length > 0">
+            <section :class="partners.cls" v-if ="partners.data.length > 0" >
                 <div v-for="partner in partners.data" :key="partner.id" :class="partner.cls">
                     <Link :data="partner" />
                 </div>
@@ -64,7 +63,7 @@
 
 <script setup>
 
-    import Img from '@/components/icons/Image.vue';    
+    import Img from '@/components/media/Image.vue';    
     import Articles from '@/components/Article.vue';
     import Link from '@/components/navigation/Anchor.vue';
 
@@ -260,7 +259,7 @@
                         date: '2025-04-01',
                         name: 'Organisasjonskart',
                         cls: ['media-content', 'component-theme'],
-                        description: 'Organisasjonskart over styret og ansatte i SosEnt Norge.',
+                        description: 'Organisasjonskart over styret i SosEnt Norge.',
                         href: '@/assets/media/files/organization/SosEnt-Norge-organisajonskart.pdf',
                     },
                 ],
@@ -271,7 +270,7 @@
     const networkData = reactive(
         {
             title: 'Medlemmer og samarbeids-partnere',
-            cls: ['flex-column-align-content-center', 'flex-wrap-row-justify-space-evenly', 'component-theme'],
+            cls: ['flex-column-align-content-center', 'flex-wrap-row-justify-space-evenly'],
 
             partnerData:
             {
@@ -279,7 +278,7 @@
 
                 data: 
                 [
-                    {
+                                        {
                         id: 0,
                         type: 'external',
                         href: 'https://www.example.com',
@@ -289,10 +288,9 @@
                         {
                             type: 'png',
                             alt: 'SoSent Logo',
-                            cls: 'partner-logo',
+                            cls: 'partner-img',
                             src: '/media/images/partners/SosEnT-favicon.png',
                         },
-                        
                     },
                     {
                         id: 1,
@@ -304,7 +302,63 @@
                         {
                             type: 'png',
                             alt: 'SoSent Logo',
-                            cls: 'partner-logo',
+                            cls: 'partner-img',
+                            src: '/media/images/partners/SosEnT-favicon.png',
+                        },
+                    },
+                    {
+                        id: 2,
+                        type: 'external',
+                        href: 'https://www.example.com',
+                        cls: 'flex-wrap-row-justify-space-evenly',
+
+                        img:
+                        {
+                            type: 'png',
+                            alt: 'SoSent Logo',
+                            cls: 'partner-img',
+                            src: '/media/images/partners/SosEnT-favicon.png',
+                        },
+                    },
+                    {
+                        id: 3,
+                        type: 'external',
+                        href: 'https://www.example.com',
+                        cls: 'flex-wrap-row-justify-space-evenly',
+
+                        img:
+                        {
+                            type: 'png',
+                            alt: 'SoSent Logo',
+                            cls: 'partner-img',
+                            src: '/media/images/partners/SosEnT-favicon.png',
+                        },
+                    },
+                    {
+                        id: 4,
+                        type: 'external',
+                        href: 'https://www.example.com',
+                        cls: 'flex-wrap-row-justify-space-evenly',
+
+                        img:
+                        {
+                            type: 'png',
+                            alt: 'SoSent Logo',
+                            cls: 'partner-img',
+                            src: '/media/images/partners/SosEnT-favicon.png',
+                        },
+                    },
+                    {
+                        id: 5,
+                        type: 'external',
+                        href: 'https://www.example.com',
+                        cls: 'flex-wrap-row-justify-space-evenly',
+
+                        img:
+                        {
+                            type: 'png',
+                            alt: 'SoSent Logo',
+                            cls: 'partner-img',
                             src: '/media/images/partners/SosEnT-favicon.png',
                         },
                     },
@@ -312,7 +366,7 @@
             },
             membersData:
             {
-                cls: ['flex-column-align-items-center'],
+                cls: ['flex-column-align-items-center', 'member-container'],
 
                 columns: 
                 [
@@ -378,7 +432,6 @@
                     },
                 },
             },
-
         }
     );
 

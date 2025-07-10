@@ -2,7 +2,7 @@
     <div :class="data.cls[0] + ' ' + data.cls[1]">
         <div :class="data.cls[2]">
             <div :class="data.media.cls">
-                <img :class="logo.cls" :alt="logo.alt" :src="logo.src" />
+                <Img :data="logo" />
             </div>
             <Menu :data='data.nav' />
         </div>
@@ -10,17 +10,16 @@
     <section :class="data.content.cls">
         <h1>{{ content.title }}</h1>
         <p>{{ content.text }}</p>
-        <nav>
-            <button class="btn btn-primary" @click="$router.push('/medlemskap')">Bli medlem</button>
-        </nav>
+
     </section>
 </template>
 
 <script setup>
     import { reactive, defineProps } from 'vue';
 
+    import Img from '@/components/media/Img.vue';
     import Menu from '@/components/navigation/NavMenu.vue';
-
+    
     const props = defineProps({
     data: {
         type: Object,
