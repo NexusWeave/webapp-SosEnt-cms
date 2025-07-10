@@ -1,7 +1,4 @@
-
-
-<template>
-  
+<template>  
   <header>
     <Header :data = 'navData.header' />
   </header>
@@ -89,8 +86,13 @@ const navData = reactive({
   footer:
   {
     type: 'link',
-    cls: ['nav-bar', 'flex-wrap-row-justify-flex-end', 'component-theme'],
+    cls: ['nav-bar', 'flex-wrap-row-justify-flex-end',],
     id: 'footer-nav',
+    section:
+    {
+      cls: ['flex-wrap-row-align-center', 'component-theme', 'flex-wrap-row-justify-space-between'],
+      text: ' © alle rettigheter reservert av SosEnT Norge',
+    },
     menu: 
     [
       {
