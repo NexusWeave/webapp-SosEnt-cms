@@ -1,13 +1,16 @@
 @import './colors.sass'
 
-@mixin apply-theme-colors( $background, $border, $border-hover, $heading-color, $text-color)
+@mixin apply-theme-colors( $bg-color, $border, $text-color)
     $color-border: $border
-    $color-heading: $heading-color
-    $color-border-hover: $border-hover
 
-    
+    border: $border
     color: $text-color
-    background-color: $background
+    border-radius: 0.5em
+    background-color: $bg-color
+
+    h1 
+        font-size: 4em
+        font-weight: 600
 
 @mixin light-component-theme($color, $padding-inline: null, $padding-start: null)
 
@@ -45,11 +48,10 @@
     
     padding: 1em
     border-radius: 0.5em
-    color: rgba($color-text, 1)
-    @include link-color($color-link)
-    background-color: $bg-color
+
+    @include background-color($bg-color, $color-text, $color-link)
     
-    
+
 @mixin link-color($color, $color-hover: null, $color-active: null, $color-visited: null)
 
     @if $color-hover == null
@@ -81,3 +83,10 @@
             &:hover
                 border-radius: 0.5em
                 background-color: $color-hover            
+
+@mixin background-color($bg-color, $text-color, $link-color)
+
+    color: rgba($text-color, 1)
+    background-color: rgba($bg-color, 1)
+
+    @include link-color($link-color)
