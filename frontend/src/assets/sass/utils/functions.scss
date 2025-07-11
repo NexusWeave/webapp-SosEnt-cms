@@ -8,10 +8,9 @@
 
     @if not $icon
     { 
-        @warn ' Icon for "#{type}" was not found ! Using the standard';
+        @error ' Icon for "#{type}" was not found ! Using the standard';
         $icon: map.get($icon-types, "default");
     }
-
     @return map.merge($icon, (
         color: map.get($icon-types, txt-color)
     ));
