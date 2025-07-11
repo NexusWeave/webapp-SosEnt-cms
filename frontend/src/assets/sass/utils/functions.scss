@@ -1,0 +1,18 @@
+@use 'sass:map';
+@use 'sass:color';
+@use './mapping.scss' as *;
+
+@function icon-types($type)
+{
+    $icon: map.get($icon-types, $type);
+
+    @if not $icon
+    { 
+        @warn ' Icon for "#{type}" was not found ! Using the standard';
+        $icon: map.get($icon-types, "default");
+    }
+
+    @return map.merge($icon, (
+        color: map.get($icon-types, txt-color)
+    ));
+}

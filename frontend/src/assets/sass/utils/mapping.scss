@@ -1,0 +1,8 @@
+@import 'colors';
+$icon-types: (
+  "pdf": ( icon: "\F63D", hover-color:rgba($pdf, 1), txt-color: rgba($pdf, .6), ),
+  "email": ( icon: "\F84B", hover-color:rgba($Groovy-green, 1), txt-color: $Groovy-green, ),
+  "default": ( icon: "\F2B9", hover-color:rgba($Groovy-green, 1), txt-color: $Groovy-green, ),  
+  "telephone": ( icon: "\F5C1", hover-color:rgba($Groovy-green, 1), txt-color: $Groovy-green, ),
+  "external-link": ( icon: "\F35D", hover-color:rgba($Groovy-green, 1), txt-color: $Groovy-green, ),
+);

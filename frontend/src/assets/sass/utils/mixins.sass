@@ -11,6 +11,13 @@
     h1 
         font-size: 4em
         font-weight: 600
+    
+    h2 
+        font-weight: 600
+
+    a > h3 
+        font-size: 1.5em
+        font-weight: bold
 
 @mixin light-component-theme($color, $padding-inline: null, $padding-start: null)
 
@@ -28,13 +35,14 @@
     @if $color == $Groovy-brown
 
         
+        
         $bg-color: rgba($color, 1)
         $color-link: $Groovy-yellow
         $color-text: rgba($soft-white, 0.8)
         $color-border: rgba($Groovy-orange, 0.2)
+        
 
     p
-        padding-inline: $padding-inline
         padding-block-start: $padding-start
 
     img
@@ -45,8 +53,7 @@
         color: rgba($color-text, 1)
         padding-inline: $padding-inline
         padding-block-start: $padding-start
-    
-    padding: 1em
+
     border-radius: 0.5em
 
     @include background-color($bg-color, $color-text, $color-link)
@@ -54,35 +61,41 @@
 
 @mixin link-color($color, $color-hover: null, $color-active: null, $color-visited: null)
 
+    $color: rgba($color, 1)
+
     @if $color-hover == null
         $color-hover: rgba($color, 0.8)
+    
+    @if $color-active == null
         $color-active: rgba($color, 0.6)
+    
+    @if $color-visited == null
         $color-visited: rgba($color, 0.5)
 
     @if $color == $Groovy-yellow
-        $color-hover: rgba($Groovy-orange, 0.3)
-        $color-active: rgba($Groovy-green, 1)
-        $color-visited: rgba($Groovy-green, 0.3)
+        $color-active: rgba($Groovy-green, 1) !important
+        $color-hover: rgba($Groovy-green, 0.8) !important
+        $color-visited: rgba($Groovy-orange, 0.3) !important
 
     a
         font-size: 1.3em
-        color: rgba($color, 1)
-
-        h1, h2, h3, h4, h5, h6
-            color: rgba($color, 1)
+        color: $color
 
         &:active
             color: $color-active
-
-        &:visited
+        
+        &.external-link
             text-decoration: underline
-            background-color: $color-visited
 
         @media (hover: hover)
 
             &:hover
+                color: $color-hover
                 border-radius: 0.5em
-                background-color: $color-hover            
+
+        h1, h2, h3, h4, h5, h6
+            color: $color !important
+                
 
 @mixin background-color($bg-color, $text-color, $link-color)
 
