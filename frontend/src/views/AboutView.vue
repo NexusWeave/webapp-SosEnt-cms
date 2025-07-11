@@ -5,7 +5,7 @@
 
     <S :data="aboutData" />
     <S :data="organization" />
-    
+
     <section :class="organization.cls">
         <h2> {{ organization.team.title }}</h2>
         <section :class="organization.team.cls">
@@ -21,7 +21,7 @@
 
         <h2> {{ organization.media.title }}</h2>
         <section :class="organization.media.cls">
-            <div v-for="media in media.files" :class="media.cls" :key="media.id" :data-filetype="media.type">    
+            <div v-for="media in media.files" :class="media.cls[0] + ' ' + media.cls[1]" :key="media.id" :data-filetype="media.type">    
                     <Link :data="media" />
                 <span :class="media.cls[2]">Dato :
                     <b><time :datetime="media.date"> {{ media.date }}</time></b>
@@ -41,7 +41,6 @@
                             <td v-if="member.href">
                                 <Link :data="member"/>
                             </td>
-
                             <td v-else>
                                 {{ member.name }}
                             </td>
@@ -138,7 +137,7 @@
 
     const aboutData = reactive(
         {
-            cls: ['flex-column-align-items-center'],
+            cls: ['flex-column-align-items-center', 'content'],
             title: 'Om SosEnt Norge',
             paragraphs:
             [
@@ -252,9 +251,9 @@
                 [
                     {
                         id: 0,
-                        type: ['pdf', 'external'],
                         name: 'Vedtekter',
                         date: '2025-04-01',
+                        type: ['pdf', 'external'],
                         cls: ['media-content', 'component-theme', 'media-text'],
                         description: 'Vedtekter for medlemmene i SosEnt Norge.',
                         href: '/media/files/organization/SosEnt-Norge-vedtekter.pdf',
@@ -284,9 +283,9 @@
 
                 data: 
                 [
-                                        {
+                {
                         id: 0,
-                        type: 'external',
+                        type: ['external'],
                         href: 'https://www.example.com',
                         cls: 'flex-wrap-row-justify-space-evenly',
 
@@ -300,7 +299,7 @@
                     },
                     {
                         id: 1,
-                        type: 'external',
+                        type: ['external'],
                         href: 'https://www.example.com',
                         cls: 'flex-wrap-row-justify-space-evenly',
 
@@ -314,7 +313,7 @@
                     },
                     {
                         id: 2,
-                        type: 'external',
+                        type: ['external'],
                         href: 'https://www.example.com',
                         cls: 'flex-wrap-row-justify-space-evenly',
 
@@ -328,7 +327,7 @@
                     },
                     {
                         id: 3,
-                        type: 'external',
+                        type: ['img','external'],
                         href: 'https://www.example.com',
                         cls: 'flex-wrap-row-justify-space-evenly',
 
@@ -342,7 +341,7 @@
                     },
                     {
                         id: 4,
-                        type: 'external',
+                        type: ['img','external'],
                         href: 'https://www.example.com',
                         cls: 'flex-wrap-row-justify-space-evenly',
 
@@ -356,7 +355,7 @@
                     },
                     {
                         id: 5,
-                        type: 'external',
+                        type: ['img','external'],
                         href: 'https://www.example.com',
                         cls: 'flex-wrap-row-justify-space-evenly',
 
@@ -433,7 +432,7 @@
                         id: 0,
                         type: ['pdf', 'external'],
                         cls: ['media-content'],
-                        href: '/media/files/organization/SosEnt-Norge-medlemmer.pdf',
+                        href: '/media/files/organization/SosEnt-Norge-Medlemmer.pdf',
                         name: 'Medlemsoversikt',
                     },
                 },
