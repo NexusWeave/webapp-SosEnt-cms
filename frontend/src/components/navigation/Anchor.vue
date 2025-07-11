@@ -13,11 +13,11 @@
         </template>
 
         <template v-else-if="isMedia() == 'icon'">
-            <h3 v-if="media.files.find(type => type === data.type[0])":class="data.type[0]">
+            <h3 v-if="media.files.find(type => type === data.type[0])":class="data.type[0]? data.type[0] : 'default'">
                 <span class="icon" :aria-label="data.name"></span> 
                 {{ data.name }}
             </h3>
-            <span :class="data.type[0]" v-else>
+            <span :class="data.type[0] ? data.type[0]:'default'" v-else>
                 <span class="icon" :aria-label="data.name"></span> 
                 {{ data.name }}
             </span>
