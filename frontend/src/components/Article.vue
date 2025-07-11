@@ -3,9 +3,13 @@
         <header>
             <Figure :data="article.img" v-if="article.img" />
             <h2>{{ article.title }}</h2>
-            <p class="date">
-                <time datetime="{{ article.date }}">{{ article.date }}</time>
-            <Anchor :data="article"/>
+            <p>
+                <span class="date" v-if="article.date">
+                    <time datetime="{{ article.date }}">{{ article.date }}</time>
+                </span>
+                <span v-if="article.anchor" class="anchor">
+                    <Anchor :data="article.anchor"/>
+                </span>
             </p>
         </header>
         
