@@ -85,7 +85,7 @@ const navData = reactive({
   },
   footer:
   {
-    type: ['link'],
+    type: 'link',
     cls: ['nav-bar', 'flex-wrap-row-justify-flex-end',],
     id: 'footer-nav',
     section:
