@@ -24,9 +24,15 @@ const router = createRouter({
       component: () => import('../views/MembershipView.vue'),
     },
     {
-      path: '/Privacy-Policy',
-      name: 'privacy-policy',
-      component: () => import('../views/PrivacyPolicyView.vue'),
+      path: '/media/files/:pathMatch(.*)*',
+      name: 'file-redirect',
+
+      beforeEnter(to, from, next) 
+      {
+        const Path = window.location.orgin + to.path;
+        window.open(Path, '_blank');
+        next('/'); // Prevent navigation to the route
+      }
     },
   ],
 })
