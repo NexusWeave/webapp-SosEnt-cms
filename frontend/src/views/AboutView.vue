@@ -13,16 +13,16 @@
                 <Img :data="person.img" />
                 <h2>{{ person.name }}</h2>
                 <h3>{{ person.title }}</h3>
-                <span v-for="contact in person.contactData" :key="contact.id" :class="contact.cls">
-                 <Link :data="contact" />
-                </span>
+                <p>
+                    <Link v-for="contact in person.contactData" :key="contact.id" :data="contact"/>
+                </p>
             </div>
         </section>
 
         <h2> {{ organization.media.title }}</h2>
-        <section :class="organization.media.cls[0] + ' ' + organization.media.cls[1]">
+        <section :class="organization.media.cls">
             <div v-for="media in media.files" :class="media.cls" :key="media.id" :data-filetype="media.type">    
-                <Link :data="media" />
+                    <Link :data="media" />
                 <span :class="media.cls[2]">Dato :
                     <b><time :datetime="media.date"> {{ media.date }}</time></b>
                 </span>
@@ -187,7 +187,7 @@
                         [
                             {
                                 id: 0,
-                                type: 'email',
+                                type: ['email', 'external'],
                                 cls: 'card-data',
                                 name: 'Send en Epost',
                                 href: 'mailto:' + 'demo' +'@' + 'example.com',
@@ -195,7 +195,7 @@
                             {
                                 id: 1,
                                 name: '+47' + '12' + '34' + '56' + '78',
-                                type: 'telephone',
+                                type: ['telephone', 'external'],
                                 cls: 'card-data',
                                 href : 'tel:' + '+47' + '12' + '34' + '56' + '78',
                             },
@@ -220,7 +220,7 @@
                         [
                             {
                                 id: 0,
-                                type: 'email',
+                                type: ['email', 'external'],
                                 cls: 'card-data',
                                 name: 'Send en Epost',
                                 href: 'mailto:' + 'demo' + '@' + 'example.com',
@@ -228,7 +228,7 @@
                             {
                                 id: 1,
                                 name: '+47' + '12' + '34' + '56' + '78',
-                                type: 'telephone',
+                                type: ['telephone', 'external'],
                                 cls: 'card-data',
                                 href : 'tel:' + '+47' + '12' + '34' + '56' + '78',
                             },
@@ -247,7 +247,7 @@
             media:
             {
                 title : 'Dokumenter',
-                cls: ['flex-wrap-row-justify-space-evenly', 'media-container', 'media-text'],
+                cls: ['flex-wrap-row-justify-space-evenly', 'media-container'],
                 files:
                 [
                     {
@@ -255,7 +255,7 @@
                         type: ['pdf', 'external'],
                         name: 'Vedtekter',
                         date: '2025-04-01',
-                        cls: ['media-content', 'component-theme'],
+                        cls: ['media-content', 'component-theme', 'media-text'],
                         description: 'Vedtekter for medlemmene i SosEnt Norge.',
                         href: '/media/files/organization/SosEnt-Norge-vedtekter.pdf',
                     },
@@ -264,7 +264,7 @@
                         type: ['pdf', 'external'],
                         date: '2025-04-01',
                         name: 'Organisasjonskart',
-                        cls: ['media-content', 'component-theme'],
+                        cls: ['media-content', 'component-theme', 'media-text'],
                         description: 'Organisasjonskart over styret i SosEnt Norge.',
                         href: '/media/files/organization/SosEnt-Norge-organisajonskart.pdf',
                     },
@@ -432,7 +432,7 @@
                     {
                         id: 0,
                         type: ['pdf', 'external'],
-                        cls: ['media-content', 'component-theme'],
+                        cls: ['media-content'],
                         href: '/media/files/organization/SosEnt-Norge-medlemmer.pdf',
                         name: 'Medlemsoversikt',
                     },
