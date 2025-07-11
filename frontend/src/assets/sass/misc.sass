@@ -1,9 +1,8 @@
 //  Miscellaneous SASS mixins and themes
 @use 'sass:map'
-@use './mapping'
-@use './functions'
-
-@import './colors.sass', './mixins.sass'
+@use './utils/mapping'
+@use './utils/functions'
+@import './utils/colors', './utils/mixins'
 
 .component-theme
     @include light-component-theme($Groovy-brown)
@@ -12,7 +11,6 @@
     @include background-color($antique-soft, $Groovy-brown, $Groovy-orange)
 
 #app
-    padding: 2rem
     margin: 0 auto
     font-weight: normal
 
@@ -21,16 +19,17 @@
     display: inline-block
     font-family: "Bootstrap-icons"
 
-@each $file-type, $props in mapping.$file-types
+@each $icon-type, $props in mapping.$icon-types
 
-    $file-style: functions.file-icons($file-type)
+    $file-style: functions.icon-types($icon-type)
 
-    .#{$file-type}
+    .#{$icon-type}
         .icon
             color: map.get($file-style, txt-color) !important
             content: map.get($file-style, icon)
 
             &::before
+                padding: 0.5em
                 content: map.get($file-style, icon)
 
             &:hover
