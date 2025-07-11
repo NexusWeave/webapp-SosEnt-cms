@@ -11,6 +11,7 @@
         </RouterLink>
         
     </template>
+
     <template v-else-if="data.type === 'link'">
         <Link v-if="data.type === 'link'" :data="link" v-for="link in data.menu"/>
     </template>
