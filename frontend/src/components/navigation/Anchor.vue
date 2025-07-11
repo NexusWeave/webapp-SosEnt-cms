@@ -12,11 +12,15 @@
             <Img :data="img"/>
         </template>
 
-        <template v-if="isMedia() =='file'">
-            <h3 :class="data.type[0]">
+        <template v-if="isMedia() == 'icon'">
+            <h3 v-if="media.files.find(type => type === data.type[0])":class="data.type[0]">
                 <span class="icon" :aria-label="data.name"></span> 
                 {{ data.name }}
             </h3>
+            <span :class="data.type[0]" v-else>
+                <span class="icon" :aria-label="data.name"></span> 
+                {{ data.name }}
+            </span>
         </template>
 
         <template v-else>
@@ -29,7 +33,7 @@
 <script setup>
 
     import Img from '@/components/media/Figure.vue';
-    import { defineProps } from 'vue';
+    import { defineProps, reactive } from 'vue';
 
     const props = defineProps({
         data: {
@@ -40,13 +44,15 @@
 
     const media = 
     {
-        images: ['jpg', 'jpeg', 'png', 'svg'],
         files: ['pdf'],
+        contact: ['email', 'telephone'],
+        images: ['jpg', 'jpeg', 'png', 'svg'],
         downloadFiles: ['docx', 'xlsx', 'csv'],
     }
 
     const data = props.data;
     const img = data.img? data.img : null;
+    const icons = reactive([]);
     
     const isExternal = () => {
         if (Array.isArray(data.type)) {
@@ -63,12 +69,19 @@
     const isMedia = () => {
         if (!data.type) return false;
 
+        icons.push(media.files);
+        icons.push(media.contact);
+
         if (Array.isArray(data.type)) {
             switch (data.type[0]) {
+
                 case media.files.find(type => type === data.type[0]):
-                    return 'file';
-                
-                case media.downloadFiles.find(type => type === data.type[0]):
+                    return 'icon';
+
+                case media.contact.find(type => type === data.type[0]):
+                    return 'icon';
+
+                    case media.downloadFiles.find(type => type === data.type[0]):
                     return 'download';
 
                 case media.images.find(type => type === data.type[0]):
