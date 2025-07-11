@@ -79,13 +79,19 @@
                     id: 0,
                     date: "2024-10-01",
                     title: 'Sosent Nyheter',
-                    href: '/aktuelt/artikkel/',
                     cls: ['flex-column-align-items-center', 'news-card'],
+                    
                     img:
                     {
                         alt: 'SoSent Logo',
                         cls: 'article-img',
                         src: '/media/images/news/SosEnT-favicon.png',
+                    },
+                    anchor:
+                    {
+                        name: 'Les mer',
+                        cls: ['read-more'],
+                        href: '/aktuelt/artikkel/',
                     },
 
                     footer: null,
@@ -96,40 +102,67 @@
                     id: 1,
                     date: "2022-10-01", 
                     title: 'Sosent Nyheter',
-                    href: '/aktuelt/artikkel/',
                     cls: ['flex-column-align-items-center', 'news-card'],
+                    
                     img:
                     {
                         alt: 'SoSent Logo',
                         cls: 'article-img',
                         src: '/media/images/news/SosEnT-favicon.png',
                     },
+                    anchor:
+                    {
+                        name: 'Les mer',
+                        cls: ['read-more'],
+                        href: '/aktuelt/artikkel/',
+                    },
+                    footer: null,
+                    section: null,
+                    ingress: null,
                 },
                 {
                     id: 2,
                     date: "2023-10-01", 
                     title: 'Sosent Nyheter',
-                    href: '/aktuelt/artikkel/',
                     cls: ['flex-column-align-items-center', 'news-card'],
+                    
                     img:
                     {
                         alt: 'SoSent Logo',
                         cls: 'article-img',
                         src: '/media/images/news/SosEnT-favicon.png',
                     },
+                    anchor:
+                    {
+                        name: 'Les mer',
+                        cls: ['read-more'],
+                        href: '/aktuelt/artikkel/',
+                    },
+                    footer: null,
+                    section: null,
+                    ingress: null,
                 },
                 {
                     id: 3,
                     date: "2026-10-01",
                     title: 'Sosent Nyheter',
-                    href: '/aktuelt/artikkel/',
                     cls: ['flex-column-align-items-center', 'news-card'],
+
                     img:
                     {
                         alt: 'SoSent Logo',
                         cls: 'article-img',
                         src: '/media/images/news/SosEnT-favicon.png',
                     },
+                    anchor:
+                    {
+                        name: 'Les mer',
+                        cls: ['read-more'],
+                        href: '/aktuelt/artikkel/',
+                    },
+                    footer: null,
+                    section: null,
+                    ingress: null,
                 },
             ],
         },
