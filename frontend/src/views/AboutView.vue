@@ -38,8 +38,12 @@
                 <table>
                     <tbody>
                         <tr v-for="member in members.members.filter(member => member.id < 5)" :key="member.id">
-                            <td >
-                                <Link :data="member" />
+                            <td v-if="member.href">
+                                <Link :data="member"/>
+                            </td>
+
+                            <td v-else>
+                                {{ member.name }}
                             </td>
                         </tr>
                     </tbody>
@@ -77,7 +81,7 @@
                     date: "2024-10-01",
                     title: 'Sosent Nyheter',
                     href: '/aktuelt/artikkel/',
-                    cls: 'flex-column-align-items-center news-card',
+                    cls: ['flex-column-align-items-center', 'news-card'],
                     img:
                     {
                         alt: 'SoSent Logo',
@@ -94,7 +98,7 @@
                     date: "2022-10-01", 
                     title: 'Sosent Nyheter',
                     href: '/aktuelt/artikkel/',
-                    cls: 'flex-column-align-items-center news-card',
+                    cls: ['flex-column-align-items-center', 'news-card'],
                     img:
                     {
                         alt: 'SoSent Logo',
@@ -107,7 +111,7 @@
                     date: "2023-10-01", 
                     title: 'Sosent Nyheter',
                     href: '/aktuelt/artikkel/',
-                    cls: 'flex-column-align-items-center news-card',
+                    cls: ['flex-column-align-items-center', 'news-card'],
                     img:
                     {
                         alt: 'SoSent Logo',
@@ -120,7 +124,7 @@
                     date: "2026-10-01",
                     title: 'Sosent Nyheter',
                     href: '/aktuelt/artikkel/',
-                    cls: 'flex-column-align-items-center news-card',
+                    cls: ['flex-column-align-items-center', 'news-card'],
                     img:
                     {
                         alt: 'SoSent Logo',
@@ -190,7 +194,7 @@
                             },
                             {
                                 id: 1,
-                                name: 'Telefonnummer',
+                                name: '+47' + '12' + '34' + '56' + '78',
                                 type: 'telephone',
                                 cls: 'card-data',
                                 href : 'tel:' + '+47' + '12' + '34' + '56' + '78',
@@ -223,7 +227,7 @@
                             },
                             {
                                 id: 1,
-                                name: 'Telefonnummer',
+                                name: '+47' + '12' + '34' + '56' + '78',
                                 type: 'telephone',
                                 cls: 'card-data',
                                 href : 'tel:' + '+47' + '12' + '34' + '56' + '78',
@@ -248,21 +252,21 @@
                 [
                     {
                         id: 0,
-                        type: 'pdf',
+                        type: ['pdf', 'external'],
                         name: 'Vedtekter',
                         date: '2025-04-01',
                         cls: ['media-content', 'component-theme'],
                         description: 'Vedtekter for medlemmene i SosEnt Norge.',
-                        href: '@/assets/media/files/organization/SosEnt-Norge-vedtekter.pdf',
+                        href: '/media/files/organization/SosEnt-Norge-vedtekter.pdf',
                     },
                     {
                         id: 1,
-                        type: 'pdf',
+                        type: ['pdf', 'external'],
                         date: '2025-04-01',
                         name: 'Organisasjonskart',
                         cls: ['media-content', 'component-theme'],
                         description: 'Organisasjonskart over styret i SosEnt Norge.',
-                        href: '@/assets/media/files/organization/SosEnt-Norge-organisajonskart.pdf',
+                        href: '/media/files/organization/SosEnt-Norge-organisajonskart.pdf',
                     },
                 ],
             },
@@ -427,9 +431,9 @@
                     file:
                     {
                         id: 0,
-                        type: 'pdf',
+                        type: ['pdf', 'external'],
                         cls: ['media-content', 'component-theme'],
-                        href: '@/assets/media/files/organization/SosEnt-Norge-medlemmer.pdf',
+                        href: '/media/files/organization/SosEnt-Norge-medlemmer.pdf',
                         name: 'Medlemsoversikt',
                     },
                 },
@@ -439,7 +443,6 @@
 
     const team = organization.team;
     const media = organization.media;
-
     const members = networkData.membersData;
     const partners = networkData.partnerData;
 
