@@ -25,7 +25,7 @@ const navData = reactive({
   
       content:
       {
-        cls: 'flex-column-align-center',
+        cls: ['flex-column-align-center'],
         title: 'Sosial Entreprenørskap i Norge',
         text: 'Landsforeningen for Sosiale Etreprenører, sammen for et sterkere og inkluderende fjerde sektor',
       },
@@ -85,7 +85,7 @@ const navData = reactive({
   },
   footer:
   {
-    type: 'link',
+    type: ['link'],
     cls: ['nav-bar', 'flex-wrap-row-justify-flex-end',],
     id: 'footer-nav',
     section:
@@ -96,16 +96,17 @@ const navData = reactive({
     menu: 
     [
       {
+        type: ['external'],
         name : "Personvern",
         cls: "link nav-item",
-        href: "/personvern",
+        href: "/media/files/misc/SosEnT_personvern.pdf",
       },
       {
         
         cls: "nav-item",
-        type: 'external',
+        type: ['external'],
         name: "NO 935 329 930",
-        href: "https://www.proff.no/selskap/sosent-norge/oslo/medlemsorganisasjoner/IFGVD6Y10PU"
+        href: "https://proff.no/selskap/sosent-norge/oslo/medlemsorganisasjoner/IFGVD6Y10PU"
       },
     ],
   },
