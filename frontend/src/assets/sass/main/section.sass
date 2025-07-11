@@ -1,4 +1,4 @@
-@import '../mixins'
+@import '../utils/mixins'
 
 .media-container
     .media-text
@@ -6,9 +6,9 @@
         font-size: 0.999em
 
     .media-content
-        inline-size: 26em
         text-align: center
-        padding-block: 2em
+        padding-inline: 2em
+        padding-block-end: 2em
 
     h2, h3
         padding-inline: 0
@@ -25,7 +25,7 @@
             object-fit: cover
 
 div.card-container
-    padding: 1em
+    padding: 2em 1em
     inline-size: 26em
     text-align: center
         
@@ -34,7 +34,9 @@ div.card-container
     
     .card-data
         text-align: center
-        padding-inline: .5em
+        padding-block: .5em
+        
+
 
 .member-container
     @include background-color($soft-white, $Groovy-brown, $Groovy-orange)
