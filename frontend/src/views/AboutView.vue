@@ -6,8 +6,9 @@
     <S :data="aboutData" />
     <S :data="organization" />
 
-    <section :class="organization.cls">
-        <h2> {{ organization.team.title }}</h2>
+    <section :class="organization.cls[1]">
+        <h2 :class="organization.cls[0]"> {{ organization.team.title }}</h2>
+        
         <section :class="organization.team.cls">
             <div v-for="person in team.contactCards" :class="person.cls" :key="person.id">
                 <Img :data="person.img" />
@@ -19,7 +20,7 @@
             </div>
         </section>
 
-        <h2> {{ organization.media.title }}</h2>
+        <h2 :class="organization.cls"> {{ organization.media.title }}</h2>
         <section :class="organization.media.cls">
             <div v-for="media in media.files" :class="media.cls[0] + ' ' + media.cls[1]" :key="media.id" :data-filetype="media.type">    
                     <Link :data="media" />
@@ -31,9 +32,9 @@
         </section>
     </section>
     
-    <section :class="networkData.cls[0] + ' ' + networkData.cls[2]">
-        <h2>{{ networkData.title }}</h2>
-        <div :class="networkData.cls[1]">
+    <section :class="networkData.cls[1] + ' ' + networkData.cls[3]">
+        <h2 :class="networkData.cls[0]">{{ networkData.title }}</h2>
+        <div :class="networkData.cls[2]">
             <section :class="members.cls" v-if ="members.members.length > 0">
                 <table>
                     <tbody>
@@ -201,7 +202,7 @@
 
     const organization = reactive(
         {
-            cls: ['flex-column'],
+            cls: ['h2','flex-column'],
             team:
             {
                 title: 'Kontakt oss',
@@ -308,7 +309,7 @@
     const networkData = reactive(
         {
             title: 'Medlemmer og samarbeids-partnere',
-            cls: ['flex-column-align-content-center', 'flex-wrap-row-justify-space-evenly'],
+            cls: ['h2', 'flex-column-align-content-center', 'flex-wrap-row-justify-space-evenly'],
 
             partnerData:
             {
