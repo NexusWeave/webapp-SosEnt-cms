@@ -31,10 +31,11 @@
             </div>
         </section>
     </section>
-    
+
     <section :class="networkData.cls[1] + ' ' + networkData.cls[3]">
         <h2 :class="networkData.cls[0]">{{ networkData.title }}</h2>
         <div :class="networkData.cls[2]">
+
             <section :class="members.cls" v-if ="members.members.length > 0">
                 <table>
                     <tbody>
@@ -52,7 +53,7 @@
                     </tfoot>
                 </table>
             </section>
-            
+
             <section :class="partners.cls" v-if ="partners.data.length > 0" >
                 <div v-for="partner in partners.data" :key="partner.id" :class="partner.cls">
                     <Link :data="partner" />
@@ -64,12 +65,14 @@
 </template>
 
 <script setup>
+    import { reactive } from 'vue';
+    
     import S from '@/components/utils/Section.vue';
     import Img from '@/components/media/Figure.vue';    
     import Articles from '@/components/Article.vue';
     import Link from '@/components/navigation/Anchor.vue';
 
-    import { reactive } from 'vue';
+    
 
     const newsData = reactive(
         {
