@@ -1,6 +1,6 @@
 <template>
-    <section :class="newsData.cls">
-        <Articles v-if="newsData.articles.length > 0" :data="newsData.articles" />
+    <section :class="news.data.cls[1]" v-if="news.recent.length > 0">
+        <Articles v-for="header in news.recent" :key="header.id" :data="header.head" />
     </section>
 
     <S :data="aboutData" />
@@ -65,113 +65,14 @@
 </template>
 
 <script setup>
-    import { reactive } from 'vue';
+    import { onMounted, reactive } from 'vue';
+
+    import { newsStore } from '@/stores/newsStore.js';
 
     import S from '@/components/utils/Section.vue';
     import Img from '@/components/media/Figure.vue';    
     import Articles from '@/components/Article.vue';
     import Link from '@/components/navigation/Anchor.vue';
-
-    
-
-    const newsData = reactive(
-        {
-            cls: ['flex-wrap-row-justify-space-evenly'],
-            articles:
-            [
-                {
-                    id: 0,
-                    date: "2024-10-01",
-                    title: 'Sosent Nyheter',
-                    cls: ['flex-column-align-items-center', 'news-card'],
-                    
-                    img:
-                    {
-                        alt: 'SoSent Logo',
-                        cls: 'article-img',
-                        src: '/media/images/news/SosEnT-favicon.png',
-                    },
-
-                    anchor:
-                    {
-                        name: 'Les mer',
-                        cls: ['read-more'],
-                        href: '/aktuelt/artikkel/',
-                    },
-
-                    footer: null,
-                    section: null,
-                    ingress: 'innhold for nyhet 1',
-                },
-                {
-                    id: 1,
-                    date: "2022-10-01", 
-                    title: 'Sosent Nyheter',
-                    cls: ['flex-column-align-items-center', 'news-card'],
-                    
-                    img:
-                    {
-                        alt: 'SoSent Logo',
-                        cls: 'article-img',
-                        src: '/media/images/news/SosEnT-favicon.png',
-                    },
-                    anchor:
-                    {
-                        name: 'Les mer',
-                        cls: ['read-more'],
-                        href: '/aktuelt/artikkel/',
-                    },
-                    footer: null,
-                    section: null,
-                    ingress: null,
-                },
-                {
-                    id: 2,
-                    date: "2023-10-01", 
-                    title: 'Sosent Nyheter',
-                    cls: ['flex-column-align-items-center', 'news-card'],
-                    
-                    img:
-                    {
-                        alt: 'SoSent Logo',
-                        cls: 'article-img',
-                        src: '/media/images/news/SosEnT-favicon.png',
-                    },
-                    anchor:
-                    {
-                        name: 'Les mer',
-                        cls: ['read-more'],
-                        href: '/aktuelt/artikkel/',
-                    },
-                    footer: null,
-                    section: null,
-                    ingress: null,
-                },
-                {
-                    id: 3,
-                    date: "2026-10-01",
-                    title: 'Sosent Nyheter',
-                    cls: ['flex-column-align-items-center', 'news-card'],
-
-                    img:
-                    {
-                        alt: 'SoSent Logo',
-                        cls: 'article-img',
-                        src: '/media/images/news/SosEnT-favicon.png',
-                    },
-                    anchor:
-                    {
-                        name: 'Les mer',
-                        cls: ['read-more'],
-                        href: '/aktuelt/artikkel/',
-                    },
-                    footer: null,
-                    section: null,
-                    ingress: null,
-                },
-            ],
-        },
-    );
 
     const aboutData = reactive(
         {
@@ -482,5 +383,11 @@
     const media = organization.media;
     const members = networkData.membersData;
     const partners = networkData.partnerData;
+
+    const news = newsStore();
+
+    onMounted( async () => {
+        news.fetchNews();
+    });
 
 </script>
