@@ -26,6 +26,7 @@
         <template v-else>
             {{ data.name }}
         </template>
+        
     </a>
 
 </template>
