@@ -12,16 +12,16 @@
     const route = useRoute();
     const news = newsStore();
 
-    const data = news.data.articles;
+    const data = news.data;
     
     const article = reactive({
         data: null
     });
 
-    article.data = data.find(article => article.id === route.params.id.toString());
+    article.data = news.data.articles.find(article => article.id === route.params.id.toString());
 
     onMounted( async () => {
-        await news.fetchNews();
+        news.fetchNews();
     });
-    console.log("ArticleView loaded with data: ", route.params.id, article.data);
+    console.log("ArticleView loaded with data: ", route.params.id.toString(), data);
 </script>
