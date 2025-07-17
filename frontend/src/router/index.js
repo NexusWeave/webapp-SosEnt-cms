@@ -14,6 +14,11 @@ const router = createRouter({
       component: () => import('../views/NewsView.vue'),
     },
     {
+      path: '/aktuelt/artikkel/:id',
+      name: 'news-article',
+      component: () => import('../views/utils/ArticleView.vue'),
+    },
+    {
       path: '/fordeler',
       name: 'program',
       component: () => import('../views/ProgramView.vue'),
@@ -23,6 +28,7 @@ const router = createRouter({
       name: 'membership',
       component: () => import('../views/MembershipView.vue'),
     },
+
     {
       path: '/media/files/:pathMatch(.*)*',
       name: 'file-redirect',
