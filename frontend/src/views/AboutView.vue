@@ -66,7 +66,7 @@
 
 <script setup>
     import { reactive } from 'vue';
-    
+
     import S from '@/components/utils/Section.vue';
     import Img from '@/components/media/Figure.vue';    
     import Articles from '@/components/Article.vue';
@@ -91,6 +91,7 @@
                         cls: 'article-img',
                         src: '/media/images/news/SosEnT-favicon.png',
                     },
+
                     anchor:
                     {
                         name: 'Les mer',
@@ -100,7 +101,7 @@
 
                     footer: null,
                     section: null,
-                    ingress: null,
+                    ingress: 'innhold for nyhet 1',
                 },
                 {
                     id: 1,
