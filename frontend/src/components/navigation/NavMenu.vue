@@ -34,5 +34,5 @@
     const data = reactive(props.data);
     const nav = data.menu;
 
-    console.log("NavigationMenu loaded with data: ", data.menu);
+    // console.log("NavigationMenu loaded with data: ", data.menu);
 </script>
