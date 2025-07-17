@@ -1,59 +1,30 @@
-<template>
-    <section>News</section>
-    <section :class="newsData.cls">
-        <Articles v-if="newsData.articles.length > 0" :data="newsData.articles" />
+<template v-if="news.isLoaded">
+    <h2>Recent News</h2>
+    <section :class="news.data.cls[1]" v-if="news.recent.length > 0">
+        <Articles v-for="header in news.recent" :key="header.id" :data="header.head" />
     </section>
-    <section>News Archive</section>
-    <section :class="newsData.cls">
-        <Articles v-if="newsData.articles.length > 3" :data="newsData.articles" />
+    <h2>Archived News</h2>
+    <section :class="news.data.cls[1]">
+        <Table v-for="article in news.archived" :key="article.id" :data="article.head" />
+
     </section>
 </template>
 
 <script setup>
 
-    import { computed, reactive } from 'vue';
-    import Articles from '@/components/Article.vue';
+    import { onMounted } from 'vue';
 
-    const newsData = reactive(
-        {
-            title: 'Nyheter',
-            cls: ['flex-column', 'flex-wrap-row-justify-space-evenly'],
-            articles: [
-                {
-                    id: 0,
-                    title: 'Nyhet 1',
-                    content: 'Innhold for nyhet 1',
-                    date: '2023-10-01'
-                },
-                {
-                    id: 1,
-                    title: 'Nyhet 2',
-                    content: 'Innhold for nyhet 2',
-                    date: '2023-10-02'
-                },
-                {
-                    id: 2,
-                    title: 'Nyhet 3',
-                    content: 'Innhold for nyhet 3',
-                    date: '2023-10-03'
-                },
-                {
-                    id: 3,
-                    title: 'Nyhet 4',
-                    content: 'Innhold for nyhet 4',
-                    date: '2023-10-04'
-                }
-            ],
-            articleData: computed(() => {
-                const article = newsData.articles.sort((a, b) => new Date(b.date) - new Date(a.date));
-                return article.length < 3 ? article.slice(0, 3) : article;
-            }),
-            archive: computed(() => {
-                const article = newsData.articles.sort((a, b) => new Date(b.date) - new Date(a.date));
-                if (article.length > 3) {
-                    return article;
-                }
-            })
-        }
-    );
+    import Articles from '@/components/Article.vue';
+    import Table from '@/components/utils/Table.vue';
+    
+    import { newsStore } from '@/stores/newsStore.js';
+    
+
+    const news = newsStore();
+
+    onMounted( async () => {
+        news.fetchNews();   
+    });
+
+    console.log("NewsView loaded with data: ", news.archived);
 </script>
