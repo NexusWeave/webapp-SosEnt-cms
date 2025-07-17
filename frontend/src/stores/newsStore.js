@@ -1,6 +1,7 @@
-import {  reactive } from 'vue'
+import {  reactive, ref } from 'vue'
 import { defineStore } from 'pinia'
 
+import { fetchNews } from '@/services/sosent-news-api.js';
 export const newsStore = defineStore('newsData', 
     {
         state: () => ({
@@ -15,18 +16,16 @@ export const newsStore = defineStore('newsData',
         {
             addArticle(articles)
             {
-                if (typeof(articles.articles) === 'object')
-                {
-                    this.data.articles.push(article)
-                }
-                else
-                {
-                    articles.forEach(article => {
-                        this.data.articles.push(article)});
-                }
-                this.sortArticlesByDate();
-                
-                
+                articles.forEach(article => {
+                    article.archived = false;
+                    article.anchor.href = article.anchor.href + article.id;
+                    article.head.anchor.href = article.anchor.href;
+                    console.log("Adding article: ", article);
+                    this.data.articles.push(article);
+                });
+
+            this.sortArticlesByDate();
+
             },
 
             sortArticlesByDate()
@@ -36,19 +35,42 @@ export const newsStore = defineStore('newsData',
 
                 this.archiveArticle();
             },
+
             archiveArticle()
             {
-                const articles = this.data.articles.filter(article => article.archived === false);
-            
-                const n = articles.length;
-                
-                if (n < 3) return;
-                
-                for (let i = 3; i < n; i++)
+                const n = 3;
+
+                const tag = 
                 {
-                    articles[i].archived = !articles[i].archived?  true :false;
+                        id: 1,
+                        title: 'Archived',
+                        cls: ['tag', 'archived-tag']
+                };
+
+                const articles = this.data.articles.filter(article => article.archived === false);
+
+                if (articles.length <= n) return;
+                
+                for (let i = n; i < articles.length; i++)
+                {
+                    articles[i].tags.push(tag);
+                    articles[i].archived = true;
+                    articles[i].head.anchor.name = articles[i].head.title;
+                    console.log("Archiving article: ", articles[i].head.anchor.name);
                 }
             },
+            fetchNews()
+            {
+                if (this.data.isLoaded) return;
+
+                fetchNews().then((articles) => {
+                    this.addArticle(articles);
+                    this.data.isLoaded = true;
+                    
+                }).catch((error) => {
+                    console.error("Error fetching news data: ", error);
+                });
+            }
         },
         getters:
         {
