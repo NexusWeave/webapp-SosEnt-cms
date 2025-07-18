@@ -1,6 +1,6 @@
 <template>
     <section :class="news.data.cls[1]" v-if="news.recent.length > 0">
-        <Articles v-for="header in news.recent" :key="header.id" :data="header.head" />
+        <Articles v-for="article in news.recent" :key="article.id" :data="article.head" />
     </section>
 
     <S :data="aboutData" />
@@ -387,7 +387,8 @@
     const news = newsStore();
 
     onMounted( async () => {
-        news.fetchNews();
+        await news.fetchNews();
     });
 
+    //  console.log("AboutView loaded with data: ", { team, media, members, partners, news });
 </script>
