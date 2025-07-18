@@ -1,7 +1,7 @@
 <template>
     <template v-if="data.published">
         <span :class="data.cls">
-            <time :datetime="date">
+            <time :datetime="date()">
                 Saken ble {{ dateText() }}
             </time>
         </span>
@@ -41,11 +41,16 @@
 
     const data = props.data;
     const text = props.text;
-
+    const date = () => 
+    {
+        if (text == 'updated' && data.updated) return  new Date(data.updated).toLocaleDateString()
+        else if (text == 'published' && data.published) return new Date(data.published).toLocaleDateString()
+        else return;
+    };
     const dateText = () => 
     {
-        if (text == 'updated' && data.updated) return 'Oppdatert : ' + new Date(data.updated).toLocaleDateString()
-        else if (text == 'published' && data.published) return 'Publisert : ' + new Date(data.published).toLocaleDateString()
+        if (text == 'updated' && data.updated) return 'Oppdatert : ' + date()
+        else if (text == 'published' && data.published) return 'Publisert : ' + date()
         else return;
     };
 
