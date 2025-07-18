@@ -25,7 +25,7 @@ const navData = reactive({
   
       content:
       {
-        cls: ['flex-column-align-center'],
+        cls: ['flex-column-align-items-center'],
         title: 'Sosial Entreprenørskap i Norge',
         text: 'Landsforeningen for Sosiale Etreprenører, sammen for et sterkere og inkluderende fjerde sektor',
       },
