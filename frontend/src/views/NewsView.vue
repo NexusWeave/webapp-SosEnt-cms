@@ -23,8 +23,8 @@
     const news = newsStore();
 
     onMounted( async () => {
-        news.fetchNews();   
+        await news.fetchNews();   
     });
 
-    console.log("NewsView loaded with data: ", news.archived);
+    //console.log("NewsView loaded with data: ", news.archived);
 </script>
