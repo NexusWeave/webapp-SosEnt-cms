@@ -12,9 +12,9 @@ const articles = reactive(
                 title: 'Sosialt entreprenørskap må ikke svekkes av registerkrav',
                 cls:['flex-column-align-items-center', 'news-card', 'article-h2'],
                 img:
-                {
+                { 
                     alt: 'KIME-ressurssenter.jpg',
-                    cls: 'article-img',
+                    cls: ['article-image','article-img'],
                     src: '/media/images/team/ressurssenter/KIME-ressurssenter.jpg',
                     caption: 'Foto: KIME Ressurssenter',
                 },
@@ -47,7 +47,7 @@ const articles = reactive(
             img:
             {
                 alt: 'SoSent Logo',
-                cls: 'article-img',
+                cls: ['article-image','article-img'],
                 src: '/media/images/news/SosEnT-favicon.png',
             },
 
@@ -67,16 +67,80 @@ const articles = reactive(
             },
 
             ingress: {
+                title: 'Sosialt entreprenørskap må ikke svekkes av registerkrav',
                 cls: '',
-                content:"Vi må ikke skylle de sosiale entreprenørene ut med badevannet gjennom en ny registerløsning. Det sier generalsekretær Rune Kvarme i SosEnt Norge, som nylig var med på et dialogmøte i Digitaliserings- og forvaltningsdepartementet. "
+                content: `"– Vi må ikke skylle de sosiale entreprenørene ut med badevannet gjennom en ny registerløsning". 
+                Det sier generalsekretær Rune Kvarme i SosEnt Norge, som nylig var med på et dialogmøte i Digitaliserings- og 
+                forvaltningsdepartementet."`
             },
 
-            sections: ['"– Vi må ikke skylle de sosiale entreprenørene ut med badevannet gjennom en ny registerløsning". Det sier generalsekretær Rune Kvarme i SosEnt Norge, som nylig var med på et dialogmøte i Digitaliserings- og forvaltningsdepartementet."'],
+            sections: [''],
 
             footer:
             {
                 cls: ['footer'],
             }
+        },
+        {
+            id: generateHexID(),
+            head:
+            {
+                title: 'Nyhet 2',
+                cls:['flex-column-align-items-center', 'news-card'],
+
+                img:
+                {
+                    alt: 'SoSent Logo',
+                    cls: 'article-img',
+                    src: '/media/images/news/SosEnT-favicon.png',
+                },
+
+                anchor:
+                {
+                    name: 'Les mer',
+                    cls: ['read-more'],
+                    href: '/aktuelt/artikkel/',
+                },
+            },
+
+            tags:
+            [
+                {
+                    id: 0,
+                    title: 'News',
+                    cls: ['tag', 'news-tag']
+                    
+                }],
+
+            date:
+            {
+                cls: ['article-date'],
+                updated: '02-10-2023',
+                published: '02-10-2023',
+            },
+
+            img:
+            {
+                alt: 'SoSent Logo',
+                cls: 'article-img',
+                src: '/media/images/news/SosEnT-favicon.png',
+            },
+
+            anchor:
+            {
+                name: 'Les mer',
+                cls: ['read-more'],
+                href: '/aktuelt/artikkel/',
+            },
+
+            ingress: 
+            {
+                cls: '',
+                content: '',
+            },
+
+            sections: [],
+            footer: null
         },
         {
             id: generateHexID(),
