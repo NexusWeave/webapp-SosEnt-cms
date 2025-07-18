@@ -1,22 +1,23 @@
 <template>
     <article v-if="article" :class="article.cls">
-        <header >
-            <Figure :data="article.img" v-if="article.img" />
-            <h2>{{ article.title }}</h2>
+        <header v-if="head">
+            <h2 :class="head.cls[1]">{{ head.title }}</h2>
+            <h3 v-if="head.subtitle" :class="head.cls[2]">{{ head.subtitle }}</h3>
+            <Figure :data="head.img" v-if="head.img" />
 
             <p>
-                <Date :data="article.date" v-if="article.date" :text="article.date.type" />
-                <Date v-if="article.anchor && !article.footer" :data="article.anchor" />
+                <Date :data="head.date" v-if="head.date && head.date.type == 'updated' || !article.footer" :text="head.date.type" />
+                <Date v-if="head.anchor && !article.footer" :data="head.anchor" />
             </p>
             
-            <p v-if="article.author" class="author">
+            <p v-if="article.author" :class="head.cls[3]">
                 <span v-for="(author, index) in article.author" :key="index">{{ author }}</span>
             </p>
-
-            <span v-if="!article.footer" v-for="tag in article.tags" :key="tag.id" :class="tag.cls">
-                {{ tag.title }}
+            <span :class="head.cls[4]" v-if="article.tags && !article.footer">
+                <span v-for="tag in article.tags" :key="tag.id" :class="tag.cls[1]">
+                    {{ tag.title }}
+                </span>
             </span>
-
         </header>
 
         <main v-if="article.ingress">
@@ -38,11 +39,13 @@
         </main>
 
         <footer v-if="article.footer" :class="article.footer.cls">
-            <p>{{article.footer.content}}</p>
             <Figure :data="article.footer.img" v-if="article.footer.img" />
+
+            <p>{{article.footer.content}}</p>
+            
             <p>
-                <Date :data="article.date" v-if="article.date" :text="'published'" />
-                <Date v-if="article.anchor" :data="article.anchor" />
+                <Date :data="article.date" v-if="article.date" :text="'published'"/>
+                <Date v-if="article.footer.anchor" :data="article.footer.anchor" />
 
                 <span v-if="article.tags" class="tags flex-wrap-row-justify-flex-end-align-items-center">
                     <span v-if="article.tags" v-for="tag in article.tags" :key="tag.id" :class="tag.cls[1]">
@@ -69,11 +72,11 @@
             required: true
         }
     });
-
+    const head = props.data.head || null;
     const article = props.data;
-    console.log("Articles Component :", article);
 
-    //console.log("Article Component loaded with data: ", props.data);
-
+    article.cls = article.footer ? [article.cls[0], article.cls[1]]: [head.cls[0]];
     
+    //  console.log("Articles Component :", article);
+
 </script>
