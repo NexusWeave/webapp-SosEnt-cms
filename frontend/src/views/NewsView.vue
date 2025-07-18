@@ -1,11 +1,11 @@
 <template v-if="news.isLoaded">
     <h2>Recent News</h2>
     <section :class="news.data.cls[1]" v-if="news.recent.length > 0">
-        <Articles v-for="header in news.recent" :key="header.id" :data="header.head" />
+        <Articles v-for="article in news.recent" :key="article.id" :data="{ head: article.head }" />
     </section>
-    <h2>Archived News</h2>
-    <section :class="news.data.cls[1]">
-        <Table v-for="article in news.archived" :key="article.id" :data="article.head" />
+    <h2 v-if="news.archived.length > 0">Archived News</h2>
+    <section :class="news.data.cls[1]" v-if="news.archived.length > 0">
+        <Table v-for="article in news.archived" :key="article.id" :data="article" />
 
     </section>
 </template>
