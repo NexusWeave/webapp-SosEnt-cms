@@ -1,6 +1,6 @@
 <template>
     <section :class="news.data.cls[1]" v-if="news.recent.length > 0">
-        <Articles v-for="article in news.recent" :key="article.id" :data="article.head" />
+        <Articles v-for="article in news.recent" :key="article.id" :data="{ head: article.head }" />
     </section>
 
     <S :data="aboutData" />
