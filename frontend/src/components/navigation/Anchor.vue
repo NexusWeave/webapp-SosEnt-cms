@@ -65,8 +65,6 @@
         }
     };
 
-    console.log("Link component loaded with data: ", img);
-    
     const isMedia = () => {
         if (!data.type) return false;
 
@@ -117,4 +115,6 @@
             }
         }
     };
+
+    console.log("Link component loaded with data: ", data);
 </script>
