@@ -7,27 +7,45 @@ article.news-card
     border-radius: 0.5em
     @include background-color($soft-white, $Groovy-brown, $Groovy-orange)
 
-    .article-img
+    img.article-img
+        border-radius: 0.5em
         inline-size: 100%
 
-    span.date, span.header-date
+    span.article-date
         display: block
-
-    span.header-date
         font-size: 0.88em
 
-    h2 .header-h2
-        font-weight: bold
+    h2.article-title-h2
         font-size: .9em
+        font-weight: bold
+        text-align: center
+        margin-block: .5em
         color: $Groovy-brown     
 
 article
-    footer
-        span
-            .tag
+    header
+        figure
+            figcaption
+                
                 font-size: 0.8em
-                font-weight: bold
+                font-style: italic
+                text-align: center
+                color: $Groovy-brown
+    main
+        padding: 1em
+        margin: 0 auto
+        min-block-size: 0
+        inline-size: 37em
+        text-align: justify
+        
+    footer
+        span.tag
+            font-size: 0.8em
+            font-weight: bold
 
+        .read-more
+            display: block
+            font-weight: bold
         span
             @import '../main/span.sass'
 
@@ -35,3 +53,8 @@ article
     margin: 0 auto
     inline-size: 37em
     text-align: justify
+
+img.article-img
+        margin: auto
+        display: flex
+        inline-size: calc(100% - 10em)
