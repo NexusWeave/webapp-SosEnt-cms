@@ -16,10 +16,10 @@
             </p>
             <p v-if="!article.footer" v-for="tag in article.tags" :key="tag.id" :class="tag.cls">{{ tag.title }}</p>
         </header>
-        <main v-if="article.content">
+        <main v-if="article.ingress">
             <p v-if="article.ingress" :class='article.ingress.cls'>{{ article.ingress.content }}</p>
 
-            <section v-if="article.sections > 0" v-for="section in article.sections" :key="section.id" :class="section.cls">
+            <section v-if="article.sections" v-for="section in article.sections" :key="section.id" :class="section.cls">
 
                 <h2>{{ section.title }}</h2>
                 <p v-for="paragraph in section.paragraphs" :key="paragraph.id">{{ paragraph.content }}</p>
