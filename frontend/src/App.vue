@@ -56,8 +56,7 @@ const navData = reactive({
             type: 'router',
             cls: 'nav-link',
             href: '/fordeler',
-            name: 'Medlems fordeler',
-            
+            name: 'Medlemsfordeler',
           },
           {
             id: 4,
