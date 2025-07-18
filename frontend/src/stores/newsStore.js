@@ -1,7 +1,7 @@
-import {  reactive, ref } from 'vue'
-import { defineStore } from 'pinia'
-
+import { defineStore } from 'pinia';
+import { reactive, ref } from 'vue';
 import { fetchNews } from '@/services/sosent-news-api.js';
+
 export const newsStore = defineStore('newsData', 
     {
         state: () => ({
@@ -18,10 +18,21 @@ export const newsStore = defineStore('newsData',
             {
                 articles.forEach(article => {
                     article.archived = false;
+
                     article.anchor.href = article.anchor.href + article.id;
                     article.head.anchor.href = article.anchor.href;
-                    console.log("Adding article: ", article);
+                    
+                    article.date.updated ? article.date.type = 'updated' : '',
+
+                    article.head.date = {
+                        cls: ['header-date'],
+                        type : 'published',
+                        published: article.date.published,
+                    };
+
                     this.data.articles.push(article);
+
+                    console.log("Adding article: ", article);
                 });
 
             this.sortArticlesByDate();
@@ -31,7 +42,7 @@ export const newsStore = defineStore('newsData',
             sortArticlesByDate()
             {
                 const articles = reactive(this.data.articles);
-                this.data.articles = articles.sort((a, b) => new Date(a.date) - new Date(b.date));
+                this.data.articles = articles.sort((a, b) => new Date(a.head.date) - new Date(b.head.date));
 
                 this.archiveArticle();
             },

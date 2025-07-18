@@ -9,9 +9,8 @@ const articles = reactive(
             id: "0",
             head:
             {
+                cls:['flex-column-align-items-center', 'news-card', 'header-h2'],
                 title: 'Sosialt entreprenørskap må ikke svekkes av registerkrav',
-                date: '2023-10-01',
-                cls:['flex-column-align-items-center', 'news-card'],
 
                 img:
                 {
@@ -30,10 +29,20 @@ const articles = reactive(
             tags:[
                 {
                     id: 0,
-                    title: 'News',
-                    cls: ['tag', 'news-tag']
-                    
-                }],
+                    title: 'registerløsning',
+
+                    cls: ['tag', 'news-tag'],
+                    anchor:
+                    {
+                        href: '#',
+                    }
+                },
+                {
+                    id: 1,
+                    title: 'rammevilkår',
+                    cls: ['tag', 'news-tag'],
+                }
+            ],
 
             img:
             {
@@ -49,21 +58,33 @@ const articles = reactive(
                 href: '/aktuelt/artikkel/',
             },
 
+            date:
+            {
+                cls: ['date'],
+                type: 'published',
+                updated: '2023-10-01',
+                published: '2023-10-01',
+            },
+
             ingress: {
                 cls: '',
                 content:"Vi må ikke skylle de sosiale entreprenørene ut med badevannet gjennom en ny registerløsning. Det sier generalsekretær Rune Kvarme i SosEnt Norge, som nylig var med på et dialogmøte i Digitaliserings- og forvaltningsdepartementet. "
             },
+
             sections: ["– Vi må ikke skylle de sosiale entreprenørene ut med badevannet gjennom en ny registerløsning. Det sier generalsekretær Rune Kvarme i SosEnt Norge, som nylig var med på et dialogmøte i Digitaliserings- og forvaltningsdepartementet."],
-            footer: null
+            
+            footer:
+            {
+                cls: ['footer'],
+            }
         },
         {
             id: generateHexID(),
             head:
             {
                 title: 'Nyhet 2',
-                date: '2023-10-02',
                 cls:['flex-column-align-items-center', 'news-card'],
-                
+
                 img:
                 {
                     alt: 'SoSent Logo',
@@ -87,6 +108,13 @@ const articles = reactive(
                     cls: ['tag', 'news-tag']
                     
                 }],
+
+            date:
+            {
+                cls: ['date'],
+                updated: '02-10-2023',
+                published: '02-10-2023',
+            },
 
             img:
             {
@@ -116,7 +144,6 @@ const articles = reactive(
             head:
             {
                 title: 'Nyhet 3',
-                date: '2023-10-03',
                 cls:['flex-column-align-items-center', 'news-card'],
                 
                 img:
@@ -133,13 +160,15 @@ const articles = reactive(
                     href: '/aktuelt/artikkel/',
                 },
             },
+
             tags:
             [
                 {
                     id: 0,
                     title: 'News',
                     cls: ['tag', 'news-tag']
-                }],
+                }
+            ],
 
             img:
             {
@@ -154,6 +183,11 @@ const articles = reactive(
                 cls: ['read-more'],
                 href: '/aktuelt/artikkel/',
             },
+            date:
+            {
+                cls: ['date'],
+                published: '02-10-2023',
+            },
 
             ingress: null,
             sections: [],
@@ -164,7 +198,6 @@ const articles = reactive(
             head:
             {
                 title: 'Nyhet 4',
-                date: '2023-10-04',
                 cls:['flex-column-align-items-center', 'news-card'],
                 
                 img:
@@ -181,13 +214,21 @@ const articles = reactive(
                     href: '/aktuelt/artikkel/',
                 },
             },
+
             tags:
             [
                 {
                     id: 0,
                     title: 'News',
                     cls: ['tag', 'news-tag']
-                }],
+                }
+            ],
+
+            date:
+            {
+                cls: ['date'],
+                published: '04-10-2023',
+            },
 
             img:
             {
@@ -212,7 +253,6 @@ const articles = reactive(
             head:
             {
                 title: 'Nyhet 5',
-                date: '2023-10-05',
                 cls:['flex-column-align-items-center', 'news-card'],
                 
                 img:
@@ -236,7 +276,13 @@ const articles = reactive(
                     id: 0,
                     title: 'News',
                     cls: ['tag', 'news-tag']
-                }],
+                }
+            ],
+            date:
+            {
+                cls: ['date'],
+                published: '05-10-2023',
+            },
 
             img:
             {
