@@ -3,20 +3,25 @@
         <header >
             <Figure :data="article.img" v-if="article.img" />
             <h2>{{ article.title }}</h2>
+
             <p>
-                <span class="date" v-if="article.date">
-                    <time datetime="{{ article.date }}">{{ article.date }}</time>
-                </span>
-                <span v-if="article.anchor && !article.footer" class="anchor">
-                    <Anchor :data="article.anchor"/>
-                </span>
+                <Date :data="article.date" v-if="article.date" :text="article.date.type" />
+                <Date v-if="article.anchor && !article.footer" :data="article.anchor" />
             </p>
+            
             <p v-if="article.author" class="author">
                 <span v-for="(author, index) in article.author" :key="index">{{ author }}</span>
             </p>
-            <p v-if="!article.footer" v-for="tag in article.tags" :key="tag.id" :class="tag.cls">{{ tag.title }}</p>
+
+            <span v-if="!article.footer" v-for="tag in article.tags" :key="tag.id" :class="tag.cls">
+                {{ tag.title }}
+            </span>
+
         </header>
+
         <main v-if="article.ingress">
+            <Figure :data="article.ingress.img" v-if="article.ingress.img" />
+            <h3>{{ article.ingress.title }}</h3>
             <p v-if="article.ingress" :class='article.ingress.cls'>{{ article.ingress.content }}</p>
 
             <section v-if="article.sections" v-for="section in article.sections" :key="section.id" :class="section.cls">
@@ -34,14 +39,28 @@
 
         <footer v-if="article.footer" :class="article.footer.cls">
             <p>{{article.footer.content}}</p>
+            <Figure :data="article.footer.img" v-if="article.footer.img" />
+            <p>
+                <Date :data="article.date" v-if="article.date" :text="'published'" />
+                <Date v-if="article.anchor" :data="article.anchor" />
+
+                <span v-if="article.tags" class="tags flex-wrap-row-justify-flex-end-align-items-center">
+                    <span v-if="article.tags" v-for="tag in article.tags" :key="tag.id" :class="tag.cls[1]">
+                        {{ tag.title }}
+                    </span>
+                </span>
+            </p>
         </footer>
+
     </article>
 </template>
 
 <script setup>
 
     import { defineProps } from 'vue';
+
     import Anchor from './navigation/Anchor.vue';
+    import Date from '@/components/utils/Span.vue';
     import Figure from '@/components/media/Figure.vue';
 
     const props = defineProps({
