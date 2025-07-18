@@ -9,9 +9,28 @@ article.news-card
 
     .article-img
         inline-size: 100%
-    span.date
-            display: block
-    
+
+    span.date, span.header-date
+        display: block
+
+    span.header-date
+        font-size: 0.88em
+
+    h2 .header-h2
+        font-weight: bold
+        font-size: .9em
+        color: $Groovy-brown     
+
+article
+    footer
+        span
+            .tag
+                font-size: 0.8em
+                font-weight: bold
+
+        span
+            @import '../main/span.sass'
+
 .content
     margin: 0 auto
     inline-size: 37em
