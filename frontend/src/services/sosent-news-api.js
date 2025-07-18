@@ -9,7 +9,7 @@ const articles = reactive(
             id: "0",
             head:
             {
-                title: 'Nyhet 1',
+                title: 'Sosialt entreprenørskap må ikke svekkes av registerkrav',
                 date: '2023-10-01',
                 cls:['flex-column-align-items-center', 'news-card'],
 
@@ -49,8 +49,11 @@ const articles = reactive(
                 href: '/aktuelt/artikkel/',
             },
 
-            ingress: null,
-            sections: null,
+            ingress: {
+                cls: '',
+                content:"Vi må ikke skylle de sosiale entreprenørene ut med badevannet gjennom en ny registerløsning. Det sier generalsekretær Rune Kvarme i SosEnt Norge, som nylig var med på et dialogmøte i Digitaliserings- og forvaltningsdepartementet. "
+            },
+            sections: ["– Vi må ikke skylle de sosiale entreprenørene ut med badevannet gjennom en ny registerløsning. Det sier generalsekretær Rune Kvarme i SosEnt Norge, som nylig var med på et dialogmøte i Digitaliserings- og forvaltningsdepartementet."],
             footer: null
         },
         {
@@ -105,7 +108,7 @@ const articles = reactive(
                 content: '',
             },
 
-            sections: null,
+            sections: [],
             footer: null
         },
         {
@@ -153,7 +156,7 @@ const articles = reactive(
             },
 
             ingress: null,
-            sections: null,
+            sections: [],
             footer: null
         },
         {
