@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia';
 import { reactive, ref } from 'vue';
 import { fetchNews } from '@/services/sosent-news-api.js';
+import { generateHexID } from '@/utils/utils';
 
 export const newsStore = defineStore('newsData', 
     {
@@ -18,15 +19,16 @@ export const newsStore = defineStore('newsData',
             {
                 articles.forEach(article => {
                     article.archived = false;
-
+                    article.cls = ['news-article', 'flex-column-align-items-center', 'article-img','tags', 'author', ''];
                     article.anchor.href = article.anchor.href + article.id;
+                    article.head.cls = ['news-card', 'article-title-h2', 'article-title-h3','article-subtitle', article.cls[2]]
                     article.head.anchor.href = article.anchor.href;
                     
                     article.date.updated ? article.date.type = 'updated' : '',
 
                     article.head.date = {
-                        cls: ['header-date'],
                         type : 'published',
+                        cls: ['article-date'],
                         published: article.date.published,
                     };
 
