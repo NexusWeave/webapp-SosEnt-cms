@@ -1,6 +1,6 @@
 <template>
-    <figure :class="data.cls">
-        <img :src="data.src" :alt="data.alt" :class="data.cls">
+    <figure :class="data.cls[0]">
+        <img :src="data.src" :alt="data.alt" :class="data.cls[1]">
         <figcaption v-if="data.caption">{{ data.caption }}</figcaption>
     </figure>
 </template>
