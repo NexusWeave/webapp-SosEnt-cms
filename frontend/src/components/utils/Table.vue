@@ -34,5 +34,5 @@
     });
 
     const data = props.data;
-    console.log("Table Component loaded with data: ", data);
+    //  console.log("Table Component loaded with data: ", data);
 </script>
