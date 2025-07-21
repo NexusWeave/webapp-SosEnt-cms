@@ -1,5 +1,5 @@
 @use '../utils/mixins'
-
+@forward '../main/span.sass'
 article.news-card
     padding: 1.5em
     inline-size: 25em
@@ -38,8 +38,6 @@ article
         .read-more
             display: block
             font-weight: bold
-        span
-            @import '../main/span.sass'
 
     img
         inline-size: 100%
@@ -71,8 +69,8 @@ article
             font-weight: bold
             text-decoration: none
             color: $Groovy-orange
-            background-color: $soft-white
             border-radius: 0.5em
+            background-color: $soft-white
             border: 1px solid $Groovy-brown
 
 .content

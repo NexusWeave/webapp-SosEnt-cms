@@ -1,14 +1,15 @@
 //  Miscellaneous SASS mixins and themes
 @use 'sass:map'
+@use './utils/colors'
+@use './utils/mixins'
 @use './utils/mapping'
 @use './utils/functions'
-@import './utils/colors', './utils/mixins'
 
 .component-theme
-    @include light-component-theme($Groovy-brown)
+    @mixins.light-component-theme($Groovy-brown)
 
 .section-theme
-    @include background-color($antique-soft, $Groovy-brown, $Groovy-orange)
+    @mixins.background-color($antique-soft, $Groovy-brown, $Groovy-orange)
 
 #app
     margin: 0 auto
