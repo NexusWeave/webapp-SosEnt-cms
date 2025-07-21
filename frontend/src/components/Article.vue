@@ -1,12 +1,12 @@
 <template>
     <article v-if="article" :class="article.cls[0]">
-        <header v-if="head">
+        <header v-if="head && !article.ingress">
             <h2 :class="head.cls[1]" v-if="!article.footer">{{ head.title }}</h2>
-            <Figure :data="head.img" v-if="head.img" />
+            <Figure :data="head.img" v-if="head.img && !article.ingress" />
 
             <p>
-                <Date :data="head.date" v-if="head.date && head.date.type == 'updated' || !article.footer" :text="head.date.type" />
-                <Date v-if="head.anchor && !article.footer" :data="head.anchor" />
+                <Date :data="head.date" v-if="head.date && head.date.type == 'updated' || !article.ingress" :text="head.date.type" />
+                <Date v-if="head.anchor && !article.ingress" :data="head.anchor" />
             </p>
             
             <p v-if="article.author" :class="head.cls[3]">
@@ -20,28 +20,27 @@
         </header>
 
         <main v-if="article.ingress" :class="article.cls[1]">
-            <section v-if="article.ingress">
-                <section :class="article.ingress.cls">
+            <section v-if="article.ingress" :class="article.ingress.cls[0]">
+                <section :class="article.ingress.cls[1]">
                     <Figure :data="article.ingress.img" :class="article.cls[1]" v-if="article.ingress.img" />
-                </section>
+                </section>|
                 
-                <section :class="article.ingress.cls">
+                <section :class="article.ingress.cls[1]">
                     
                     <h2 :class="head.cls[1]">{{ article.ingress.title }}</h2>
-                    <Date :data="head.date" v-if="head.date && head.date.type == 'updated' || article.sections" :text="head.date.type" />
                     <cite>{{ article.ingress.citation }}</cite>
-                    
-                    <p :class='article.ingress.cls'>{{ article.ingress.content }}</p>
-                    <Date v-if="head.anchor && article.sections" :data="head.anchor" />
-                    <span :class="head.cls[4]" v-if="article.tags && !article.footer">
-                        <span v-for="tag in article.tags" :key="tag.id" :class="tag.cls[1]">
-                            {{ tag.title }}
-                        </span>
-                    </span>
+                    <p>
+                        <Date :data="article.date" v-if="article.date && head.date.type == 'updated' || article.ingress" :text="head.date.type" />
+                        <Date :array="article.tags" v-if="article.tags && !article.footer" />
+                    </p>
+
+                    <p :class='article.ingress.cls[2]'>{{ article.ingress.content }}</p>
+                    <Btn v-if="head.anchor && article.sections" :data="head.anchor" />
+
                 </section>
             </section>
 
-            <section v-if="article.sections" v-for="section in article.sections" :key="section.id" :class="section.cls">
+            <section v-if="article.sections > 0" v-for="section in article.sections" :key="section.id" :class="section.cls">
 
                 <h2>{{ section.title }}</h2>
                 <p v-for="paragraph in section.paragraphs" :key="paragraph.id">{{ paragraph.content }}</p>
@@ -79,6 +78,7 @@
 
     import Anchor from './navigation/Anchor.vue';
     import Date from '@/components/utils/Span.vue';
+    import Btn from '@/components/navigation/Button.vue';
     import Figure from '@/components/media/Figure.vue';
 
     const props = defineProps({
@@ -90,7 +90,7 @@
     const head = props.data.head || null;
     const article = props.data;
 
-    article.cls = article.footer ? [article.cls[0], article.cls[1]]: [head.cls[0]];
+    article.cls = article.ingress ? [article.cls[0], article.cls[1]]: [head.cls[0]];
     
     //  console.log("Articles Component :", article);
 
