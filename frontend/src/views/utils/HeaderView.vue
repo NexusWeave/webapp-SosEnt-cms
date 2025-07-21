@@ -1,8 +1,8 @@
 <template>
     <div :class="data.cls[0] + ' ' + data.cls[1]">
         <div :class="data.cls[2]">
-            <div :class="data.media.cls">
-                <Img :data="logo" />
+            <div :class="data.anchor.cls">
+                <Anchor :data="data.anchor" />
             </div>
             <Menu :data='data.nav' />
         </div>
@@ -15,9 +15,8 @@
 
 <script setup>
     import { reactive, defineProps } from 'vue';
-
-    import Img from '@/components/media/Figure.vue';
     import Menu from '@/components/navigation/NavMenu.vue';
+    import Anchor from '@/components/navigation/Anchor.vue';
     
     const props = defineProps({
     data: {
@@ -28,7 +27,6 @@
 
     const data = reactive(props.data);
     const content = reactive(data.content);
-    const logo = reactive(data.media.images[0]);
     
     //console.log("HeaderView loaded with data: ", content, logo);
 </script>
