@@ -2,9 +2,9 @@
 //  Importing Sass files for the main styles    padding: 1em
 @use './misc'
 @use './flexbox'
-@use './utils/colors'
-@use './utils/mixins'
-@use './main/_article.sass'
+@use './utils/mixins' as mix
+@use './utils/colors' as color
+
 @use './media-queries/mediaIndex'
 
 @use './footer.sass'
@@ -28,9 +28,8 @@ body
     text-rendering: optimizeLegibility
     -webkit-font-smoothing: antialiased
     transition: color 0.5s, background-color 0.5s
+    @include mix.apply-theme-colors(color.$antique-white, color.$Groovy-orange, color.$Groovy-brown)
     font-family: 'Nunito', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
-    
-    @mixins.apply-theme-colors( $antique-white, $Groovy-orange, $Groovy-brown)
 
 header
     nav
@@ -43,8 +42,6 @@ header
 main
     margin-block: 5em
     min-block-size: 38vh
-
-    
 
     section
         display: block
