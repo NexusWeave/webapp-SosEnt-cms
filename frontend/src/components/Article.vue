@@ -1,80 +1,83 @@
 <template>
-    <article v-if="article" :class="article.cls[0]">
-        <header v-if="head && !article.ingress">
-            <h2 :class="head.cls[1]" v-if="!article.footer">{{ head.title }}</h2>
-            <Figure :data="head.img" v-if="head.img && !article.ingress" />
-
+    <article :class="cls">
+        <header v-if="!isArticlePage && !isNewsPage">
+            <h2 :class="article.cls[2]">{{ article.ingress.title }}</h2>
+            <Figure :data="article.ingress.img" :class="article.cls[1]" v-if="article.ingress.img" />
+            <cite v-if="article.ingress.citation">{{ article.ingress.citation }}</cite>
             <p>
-                <Date :data="head.date" v-if="head.date && head.date.type == 'updated' || !article.ingress" :text="head.date.type" />
-                <Date v-if="head.anchor && !article.ingress" :data="head.anchor" />
-            </p>
-            
-            <p v-if="article.author" :class="head.cls[3]">
-                <span v-for="(author, index) in article.author" :key="index">{{ author }}</span>
-            </p>
-            <span :class="head.cls[4]" v-if="article.tags && !article.ingress">
-                <span v-for="tag in article.tags" :key="tag.id" :class="tag.cls[1]">
-                    {{ tag.title }}
+                <Date :data="article.date" v-if="article.date && article.date.type == 'updated' || article.ingress" :text="article.date.type" />
+                <span v-if="article.tags" :class="article.cls[4]">
+                    <Date :array="article.tags" />
                 </span>
-            </span>
+            </p>
+            <Btn v-if="article.anchor && article.sections && !isArticlePage" :data="article.anchor" />
+
         </header>
 
-        <main v-if="article.ingress" :class="article.cls[1]">
-            <section v-if="article.ingress" :class="article.ingress.cls[0]">
-                <section :class="article.ingress.cls[1]">
-                    <Figure :data="article.ingress.img" :class="article.cls[1]" v-if="article.ingress.img" />
-                </section>|
+        <main v-if="isNewsPage || isArticlePage" :class="article.cls[3]">
+            <section v-if="article.ingress" :class="article.cls[9]">
+                <section :class="article.cls[7]">
+                    <Figure :data="article.ingress.img" v-if="article.ingress.img" />
+                </section>
                 
-                <section :class="article.ingress.cls[1]">
-                    
-                    <h2 :class="head.cls[1]">{{ article.ingress.title }}</h2>
-                    <cite>{{ article.ingress.citation }}</cite>
+                <section :class="article.cls[7]">
+                    <button v-if="isArticlePage" @click="goBack" :class="btn.cls">{{ btn.text }}</button>
+                    <Btn v-if="isArticlePage" :data="btn"/>
+                    <h2 :class="article.cls[2]">{{ article.title }}</h2>
+                    <cite v-if="article.citation" :class="article.cls[5]">{{ article.ingress.citation }}</cite>
                     <p>
-                        <Date :data="article.date" v-if="article.date && head.date.type == 'updated' || article.ingress" :text="head.date.type" />
-                        <Date :array="article.tags" v-if="article.tags && !article.footer" />
+                        <Date :data="article.date" v-if="article.date && article.date.type == 'updated' || article.ingress" :text="article.date.type" />
+                        <span v-if="article.tags && !isArticlePage" :class="article.cls[4]">
+                            <Date :array="article.tags" />
+                        </span>
                     </p>
 
-                    <p :class='article.ingress.cls[2]'>{{ article.ingress.content }}</p>
-                    <Btn v-if="head.anchor && article.sections" :data="head.anchor" />
+                    <div class="flex-column-align-items-end">
+                        <p :class='article.cls[8]'>
+                            {{ article.ingress.content }}
+                        </p>
+                    <Btn v-if="article.anchor && article.sections && !isArticlePage" :data="article.anchor" />
 
+                    </div>
                 </section>
             </section>
 
-            <section v-if="article.sections > 0" v-for="section in article.sections" :key="section.id" :class="section.cls">
+            <section v-if="isArticlePage" v-for="section in article.sections" :key="section.id" :class="section.cls">
 
                 <h2>{{ section.title }}</h2>
-                <p v-for="paragraph in section.paragraphs" :key="paragraph.id">{{ paragraph.content }}</p>
+                <section v-for="p in section.content" :key="p.id">
+                    <p v-for="paragraph in p.content">{{ paragraph }}</p>
+                </section>
+
                 <ul v-if="section.list">
                     <li v-for="item in section.list.items" :key="item.id">{{ item.content }}</li>
                 </ul>
                 <p v-if="section.conclusion">{{ section.conclusion }}</p>
 
-                <Anchor  :data="section.anchor? section.anchor: null" />
+                <Anchor  v-if="section.anchor" :data="section.anchor" />
             </section>
-            <footer v-if="article.footer" :class="article.footer.cls">
-                <Figure :data="article.footer.img" v-if="article.footer.img" />
-
-                <p>{{article.footer.content}}</p>
-                
-                <p>
-                    <Date :data="article.date" v-if="article.date" :text="'published'"/>
-                    <Date v-if="article.footer.anchor" :data="article.footer.anchor" />
-
-                    <span v-if="article.tags" class="tags flex-wrap-row-justify-flex-end-align-items-center">
-                        <span v-if="article.tags" v-for="tag in article.tags" :key="tag.id" :class="tag.cls[1]">
-                            {{ tag.title }}
-                        </span>
-                    </span>
-                </p>
-            </footer>
         </main>
+        <footer v-if="isArticlePage" :class="article.cls">
+            <Figure v-if="article.footer.img" :data="article.footer.img" />
 
+            <p v-if="article.footer.content" v-for="(p, i) in article.footer.content" :key="i">
+                {{p}}
+            </p>
+            <p>
+                <Date :data="article.date" v-if="article.date" :text="'published'"/>
+                <Date v-if="article.footer.anchor" :data="article.footer.anchor" />
+                <span v-if="article.tags && isArticlePage" :class="article.cls[4]">
+                    <Date :array="article.tags" />
+                </span>
+            </p>
+        </footer>
     </article>
 </template>
 
 <script setup>
 
-    import { defineProps } from 'vue';
+    import { defineProps, computed } from 'vue';
+    import { useRoute } from 'vue-router';
 
     import Anchor from './navigation/Anchor.vue';
     import Date from '@/components/utils/Span.vue';
@@ -87,11 +90,30 @@
             required: true
         }
     });
-    const head = props.data.head || null;
-    const article = props.data;
 
-    article.cls = article.ingress ? [article.cls[0], article.cls[1]]: [head.cls[0]];
+    const goBack = () => {
+        window.history.back();
+    };
+
+    const btn = {
+        text: 'Go back',
+        cls: ['btn', 'btn-secondary'],
+        action: goBack
+    };
+    const article = props.data;
     
-    //  console.log("Articles Component :", article);
+
+    const route = useRoute();
+    const isPage = computed(() => {return route.name});
+    const isNewsPage = isPage.value === 'news' ? true : false;
+    const isArticlePage = isPage.value === 'article' ? true : false;
+
+    const cls = computed(() => {
+        if (!isNewsPage && !isArticlePage) {
+            return [article.cls[0], article.cls[1]];
+        }
+        else return [article.cls[3]];
+    });
+    console.log("Articles Component :", isPage.value, article, isNewsPage, isArticlePage);
 
 </script>
