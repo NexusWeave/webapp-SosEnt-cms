@@ -1,4 +1,4 @@
-@import '../utils/mixins'
+@use '../utils/mixins'
 
 article.news-card
     padding: 1.5em
@@ -63,6 +63,17 @@ article
 
             p.text
                font-size: 1.3em
+            
+        button.read-more
+            display: inline-block
+            margin-block: 1em
+            padding: 0.5em 1em
+            font-weight: bold
+            text-decoration: none
+            color: $Groovy-orange
+            background-color: $soft-white
+            border-radius: 0.5em
+            border: 1px solid $Groovy-brown
 
 .content
     margin: 0 auto
