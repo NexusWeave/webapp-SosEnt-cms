@@ -232,7 +232,7 @@
                         {
                             type: 'png',
                             alt: 'SoSent Logo',
-                            cls: 'partner-img',
+                            cls:['partner-img'],
                             src: '/media/images/partners/SosEnT-favicon.png',
                         },
                     },
@@ -246,7 +246,7 @@
                         {
                             type: 'png',
                             alt: 'SoSent Logo',
-                            cls: 'partner-img',
+                            cls:['partner-img'],
                             src: '/media/images/partners/SosEnT-favicon.png',
                         },
                     },
@@ -260,7 +260,7 @@
                         {
                             type: 'png',
                             alt: 'SoSent Logo',
-                            cls: 'partner-img',
+                            cls:['partner-img'],
                             src: '/media/images/partners/SosEnT-favicon.png',
                         },
                     },
@@ -274,7 +274,7 @@
                         {
                             type: 'png',
                             alt: 'SoSent Logo',
-                            cls: 'partner-img',
+                            cls:['partner-img'],
                             src: '/media/images/partners/SosEnT-favicon.png',
                         },
                     },
@@ -288,7 +288,7 @@
                         {
                             type: 'png',
                             alt: 'SoSent Logo',
-                            cls: 'partner-img',
+                            cls:['partner-img'],
                             src: '/media/images/partners/SosEnT-favicon.png',
                         },
                     },
@@ -302,7 +302,7 @@
                         {
                             type: 'png',
                             alt: 'SoSent Logo',
-                            cls: 'partner-img',
+                            cls:['partner-img'],
                             src: '/media/images/partners/SosEnT-favicon.png',
                         },
                     },
