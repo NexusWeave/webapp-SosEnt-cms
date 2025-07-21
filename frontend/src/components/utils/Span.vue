@@ -1,15 +1,19 @@
 <template>
-    <template v-if="data.published">
-        <span :class="data.cls">
+    <template v-if="data">
+        <span :class="data.cls" v-if="data.published">
+            Artikkelen ble {{ dateText() }}
             <time :datetime="date()">
-                Saken ble {{ dateText() }}
+                <b>{{ date() }}</b>
             </time>
+        </span>
+        <span :class="data.cls" v-else-if="data.anchor">
+            <Anchor :data="data"/>
         </span>
     </template>
 
-    <template v-else-if="data.href">
-        <span :class="data.cls">
-            <Anchor :data="data"/>
+    <template v-else-if="array && array.length > 0">
+        <span v-for="(item, i) in array" :key="i" :class="item.cls">
+         >> {{ item.title }}
         </span>
     </template>
 
@@ -31,6 +35,10 @@
             type: Object,
             required: false
         },
+        array: {
+            type: Array,
+            required: false
+        },
 
         text: {
             type: String,
@@ -43,14 +51,17 @@
     const text = props.text;
     const date = () => 
     {
-        if (text == 'updated' && data.updated) return  new Date(data.updated).toLocaleDateString()
-        else if (text == 'published' && data.published) return new Date(data.published).toLocaleDateString()
-        else return;
+        switch (text) {
+            case 'updated': return new Date(data.updated).toLocaleDateString();
+            case 'published': return new Date(data.published).toLocaleDateString();
+            default:
+                return
+        }
     };
     const dateText = () => 
     {
-        if (text == 'updated' && data.updated) return 'Oppdatert : ' + date()
-        else if (text == 'published' && data.published) return 'Publisert : ' + date()
+        if (text == 'updated' && data.updated) return 'Oppdatert :'
+        else if (text == 'published' && data.published) return 'Publisert :'
         else return;
     };
 
