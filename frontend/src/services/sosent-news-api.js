@@ -7,31 +7,13 @@ const articles = reactive(
     [
         {
             id: "0",
-            head:
-            {
-                title: 'Sosialt entreprenørskap må ikke svekkes av registerkrav',
-                cls:['flex-column-align-items-center', 'news-card', 'article-h2'],
-                img:
-                { 
-                    alt: 'KIME-ressurssenter.jpg',
-                    cls: ['article-image','article-img'],
-                    src: '/media/images/team/ressurssenter/KIME-ressurssenter.jpg',
-                    caption: 'Foto: KIME Ressurssenter',
-                },
-
-                anchor:
-                {
-                    name: 'Les mer',
-                    cls: ['read-more'],
-                    href: '/aktuelt/artikkel/',
-                },
-            },
+            title: 'Sosialt entreprenørskap må ikke svekkes av registerkrav',
             tags:[
                 {
                     id: 0,
                     title: 'registerløsning',
 
-                    cls: ['tag', 'news-tag'],
+                    cls: ['news-tag'],
                     anchor:
                     {
                         href: '#',
@@ -40,10 +22,16 @@ const articles = reactive(
                 {
                     id: 1,
                     title: 'rammevilkår',
-                    cls: ['tag', 'news-tag'],
+                    cls: ['news-tag'],
                 }
             ],
-
+            img:
+            { 
+                alt: 'KIME-ressurssenter.jpg',
+                cls: ['article-image','article-img'],
+                src: '/media/images/team/ressurssenter/KIME-rarticleessurssenter.jpg',
+                caption: 'Foto: KIME Ressurssenter',
+            },
             anchor:
             {
                 name: 'Les mer',
@@ -61,7 +49,6 @@ const articles = reactive(
 
             ingress: {
                 title: 'Sosialt entreprenørskap må ikke svekkes av registerkrav',
-                cls: ['flex-row-reversed-justify-space-around-align-content-center','ingress', 'text'],
                 img:
                 { 
                     alt: 'KIME-ressurssenter.jpg',
@@ -76,9 +63,29 @@ const articles = reactive(
                 forvaltningsdepartementet."`
             },
 
-            sections: [],
+            sections: [
+                {
+                    id: 0,
+                    title: 'Lorem ipsum dolor sit amet',
+                    cls: ['section-title'],
+                    content: [
+                        {
+                            id: 0,
+                            content:
+                            [
+                                `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce consectetur tincidunt magna pharetra feugiat.
+                                Proin vestibulum pellentesque enim, eu semper arcu. Morbi at urna vitae nibh faucibus maximus vel nec mauris.
+                                Maecenas et magna vestibulum, ultricies augue in, porta velit. Interdum et malesuada fames ac ante ipsum primis
+                                in faucibus. Fusce a lacus tortor. Ut tempus orci est, sed sodales libero lacinia et. Ut a metus eget erat volutpat
+                                convallis. Maecenas nec lectus nisi. Morbi ornare tellus sed laoreet ornare.`
+                            ]
+                        },
+                    ] 
 
-            footer: null
+                },
+            ],
+
+            footer: {}
         },
         {
             id: generateHexID(),
@@ -107,7 +114,7 @@ const articles = reactive(
                 {
                     id: 0,
                     title: 'News',
-                    cls: ['tag', 'news-tag']
+                    cls: ['news-tag']
                     
                 }],
 
@@ -168,7 +175,7 @@ const articles = reactive(
                 {
                     id: 0,
                     title: 'News',
-                    cls: ['tag', 'news-tag']
+                    cls: ['news-tag']
                     
                 }],
 

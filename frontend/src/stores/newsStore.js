@@ -18,18 +18,23 @@ export const newsStore = defineStore('newsData',
             {
                 articles.forEach(article => {
                     article.archived = false;
-                    article.cls = ['news-article', 'tags', 'author', 'article-title-h3'];
+                    article.cls = 
+                    [
+                        'flex-column-align-items-center', 'news-card', 
+                        'article-h2', 'news-article', 'tags', 'author',
+                        'article-title-h3','ingress', 'text',
+                        'flex-row-reversed-justify-center-align-content-center',
+                        //['flex-row-reversed-justify-center-align-content-center','ingress', 'text'],
+                    ];
                     article.anchor.href = article.anchor.href + article.id;
-                    article.head.cls = ['news-card', 'article-title-h2', article.cls[2]]
-                    article.head.anchor.href = article.anchor.href;
-                    
-                    article.date.updated ? article.date.type = 'updated' : '',
-
-                    article.head.date = {
-                        type : 'published',
-                        cls: ['article-date'],
-                        published: article.date.published,
-                    };
+                    //article.head.anchor.href = article.anchor.href;
+                    article.btn = 
+                    {
+                        cls: ['btn', 'btn-primary'],
+                        text: article.anchor.name,
+                        href: article.anchor.href,
+                    }
+                    article.date.updated ? article.date.type = 'updated' : article.date.type = 'published';
 
                     this.data.articles.push(article);
 
@@ -43,7 +48,7 @@ export const newsStore = defineStore('newsData',
             sortArticlesByDate()
             {
                 const articles = reactive(this.data.articles);
-                this.data.articles = articles.sort((a, b) => new Date(a.head.date) - new Date(b.head.date));
+                this.data.articles = articles.sort((a, b) => new Date(a.date) - new Date(b.date));
 
                 this.archiveArticle();
             },
