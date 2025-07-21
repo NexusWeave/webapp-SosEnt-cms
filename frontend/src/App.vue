@@ -68,18 +68,18 @@ const navData = reactive({
           }
         ],
       },
-      media: 
+      anchor: 
       {
-
-      cls: 'flex-wrap-row-justify-flex-start',
-      images:
-      [
+        cls: 'flex-wrap-row-justify-flex-start',
+        href: '/',
+        type: ['img'],
+        img:
         {
-          cls: ['img-container', 'logo-img'],
+          type: 'png',
           alt: 'SosEnT Logo',
+          cls: ['img-container', 'logo-img'],
           src: '/media/images/logo/SosEnT-logo.png',
         }
-      ],
     },
   },
   footer:
