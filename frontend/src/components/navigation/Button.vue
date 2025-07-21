@@ -1,26 +1,31 @@
 <template>
 
-    <button v-for="(item, i) in nav"
-        :type="button && 'submit' || 'button'" 
+    
+    <button v-for="(item, i) in data"
+        :type="btn ? btn.type : 'button'" 
         :key="i"
-        :href="item.to"
-        :class="item.cls" >{{ item.title }}</button>
-
-</template>
+        :class="item.cls" >
+            <Anchor :data="item" />
+        
+        </button>
+        </template>
 
 <script setup>
 
 import { defineProps } from 'vue';
+
+import Anchor from '@/components/navigation/Anchor.vue';
+
 const props = defineProps({
     data: {
         type: Object,
         required: true
-    }
+    },
 });
 
 const data = props.data;
-const button = data.type === 'button' || false;
+const btn = data.btn || null;
 
-//console.log("Button component loaded with data: ", data, isExternal);
+console.log("Button component loaded with data: ", data);
 
 </script>
