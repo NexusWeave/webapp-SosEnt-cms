@@ -42,26 +42,26 @@ const navData = reactive({
             href: '/',
             name: 'Om oss',
             type: 'router',
-            cls: 'nav-link',
+            cls: ['nav-link'],
           },
           {
             id: 2,
             href: '/aktuelt',
             
             name: 'Aktuelt',
-            cls: 'nav-link',
+            cls: ['nav-link'],
           },
           {
             id: 3,
             type: 'router',
-            cls: 'nav-link',
+            cls: ['nav-link'],
             href: '/fordeler',
             name: 'Medlemsfordeler',
           },
           {
             id: 4,
             type: 'router',
-            cls: 'nav-link',
+            cls: ['nav-link'],
             href: '/medlemskap',
             name: 'Medlemskap',
             
@@ -75,7 +75,7 @@ const navData = reactive({
       images:
       [
         {
-          cls: 'img-container ',
+          cls: ['img-container', 'logo-img'],
           alt: 'SosEnT Logo',
           src: '/media/images/logo/SosEnT-logo.png',
         }
@@ -97,12 +97,12 @@ const navData = reactive({
       {
         type: ['external'],
         name : "Personvern",
-        cls: "link nav-item",
+        cls: ['link', 'nav-item'],
         href: "/media/files/misc/SosEnT_personvern.pdf",
       },
       {
-        
-        cls: "nav-item",
+
+        cls: ['nav-item'],
         type: ['external'],
         name: "NO 935 329 930",
         href: "https://proff.no/selskap/sosent-norge/oslo/medlemsorganisasjoner/IFGVD6Y10PU"
