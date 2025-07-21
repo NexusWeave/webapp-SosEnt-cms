@@ -1,14 +1,9 @@
 <template>
-
-    
-    <button v-for="(item, i) in data"
-        :type="btn ? btn.type : 'button'" 
-        :key="i"
-        :class="item.cls" >
-            <Anchor :data="item" />
+    <button :type="btn ? btn.type : 'button'" :class="data.cls" v-if="data.href">
+        <Anchor :data="data" />
         
-        </button>
-        </template>
+    </button>
+</template>
 
 <script setup>
 
@@ -24,7 +19,7 @@ const props = defineProps({
 });
 
 const data = props.data;
-const btn = data.btn || null;
+const btn = data || null;
 
 console.log("Button component loaded with data: ", data);
 
