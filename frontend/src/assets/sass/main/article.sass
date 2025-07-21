@@ -22,25 +22,14 @@ article.news-card
         color: $Groovy-brown     
 
 article
-    header
-        figure
-            margin-block: 1em
-
-            figcaption
-                
-                font-size: 0.8em
-                font-style: italic
-                text-align: center
-                color: $Groovy-brown
+    
     main
         padding: 1em
         margin: 0 auto
         min-block-size: 0
-        inline-size: 37em
+        inline-size: 100%
         text-align: justify
-
-        
-        
+  
     footer
         span.tag
             font-size: 0.8em
@@ -52,11 +41,28 @@ article
         span
             @import '../main/span.sass'
 
-    img.article-image
+    img
         inline-size: 100%
+        border-radius: 0.5em
 
-    .figure-image
-        inline-size: 35em
+    figure.article-figure
+        inline-size: 35em      
+
+        figcaption
+
+            font-size: 0.8em
+            font-style: italic
+            text-align: center
+            color: $Groovy-brown
+    section
+        .ingress
+            inline-size: 39em
+
+            p
+                margin-block: 1em
+
+            p.text
+               font-size: 1.3em
 
 .content
     margin: 0 auto
