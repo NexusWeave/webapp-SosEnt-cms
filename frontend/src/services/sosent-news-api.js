@@ -44,13 +44,6 @@ const articles = reactive(
                 }
             ],
 
-            img:
-            {
-                alt: 'SoSent Logo',
-                cls: ['article-figure','article-image'],
-                src: '/media/images/news/SosEnT-favicon.png',
-            },
-
             anchor:
             {
                 name: 'Les mer',
@@ -59,27 +52,33 @@ const articles = reactive(
             },
 
             date:
-            {
-                cls: ['article-date'],
+            {   
                 type: 'published',
+                cls: ['article-date'],
                 updated: '01.06-2025',
                 published: '01.06-2025',
             },
 
             ingress: {
                 title: 'Sosialt entreprenørskap må ikke svekkes av registerkrav',
-                cls: '',
+                cls: ['flex-row-reversed-justify-space-around-align-content-center','ingress', 'text'],
+                img:
+                { 
+                    alt: 'KIME-ressurssenter.jpg',
+                    cls: ['article-figure','article-img'],
+                    src: '/media/images/team/ressurssenter/KIME-ressurssenter.jpg',
+                    caption: 'Foto: KIME Ressurssenter',
+                },
+
+
                 content: `"– Vi må ikke skylle de sosiale entreprenørene ut med badevannet gjennom en ny registerløsning". 
                 Det sier generalsekretær Rune Kvarme i SosEnt Norge, som nylig var med på et dialogmøte i Digitaliserings- og 
                 forvaltningsdepartementet."`
             },
 
-            sections: [''],
+            sections: [],
 
-            footer:
-            {
-                cls: ['footer'],
-            }
+            footer: null
         },
         {
             id: generateHexID(),

@@ -18,7 +18,7 @@ export const newsStore = defineStore('newsData',
             {
                 articles.forEach(article => {
                     article.archived = false;
-                    article.cls = ['flex-row-reversed-justify-space-between-align-content-center', 'news-article', 'tags', 'author', 'article-title-h3'];
+                    article.cls = ['news-article', 'tags', 'author', 'article-title-h3'];
                     article.anchor.href = article.anchor.href + article.id;
                     article.head.cls = ['news-card', 'article-title-h2', article.cls[2]]
                     article.head.anchor.href = article.anchor.href;
