@@ -24,10 +24,8 @@ export const newsStore = defineStore('newsData',
                         'article-h2', 'news-article', 'tags', 'author',
                         'article-title-h3','ingress', 'text',
                         'flex-row-reversed-justify-center-align-content-center',
-                        //['flex-row-reversed-justify-center-align-content-center','ingress', 'text'],
                     ];
                     article.anchor.href = article.anchor.href + article.id;
-                    //article.head.anchor.href = article.anchor.href;
                     article.btn = 
                     {
                         cls: ['btn', 'btn-primary'],
@@ -38,7 +36,7 @@ export const newsStore = defineStore('newsData',
 
                     this.data.articles.push(article);
 
-                    console.log("Adding article: ", article);
+                    //console.log("Adding article: ", article);
                 });
 
             this.sortArticlesByDate();
