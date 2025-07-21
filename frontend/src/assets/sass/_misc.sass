@@ -1,15 +1,15 @@
 //  Miscellaneous SASS mixins and themes
 @use 'sass:map'
-@use './utils/colors'
-@use './utils/mixins'
-@use './utils/mapping'
-@use './utils/functions'
+@use './utils/mixins' as mix
+@use './utils/colors' as color
+@use './utils/mapping' as mapping
+@use './utils/functions' as functions
 
 .component-theme
-    @mixins.light-component-theme($Groovy-brown)
+    @include mix.light-component-theme(color.$Groovy-brown)
 
 .section-theme
-    @mixins.background-color($antique-soft, $Groovy-brown, $Groovy-orange)
+    @include mix.background-color(color.$antique-soft, color.$Groovy-brown, color.$Groovy-orange)
 
 #app
     margin: 0 auto
@@ -37,3 +37,18 @@
                 color: map.get($file-style, hover-color) !important
 
 
+@each $tags, $props in mapping.$tags
+
+    $tag-style: functions.tags($tags)
+
+    span.tags       
+        font-size: 0.8em
+        font-weight: bold
+
+        .#{$tags}
+            padding: 0.5em 1em
+            margin-inline: 1em
+            border-radius: 0.5em
+            text-decoration: none
+            display: inline-block
+            @include mix.background-color(map.get($tag-style, bg-color), map.get($tag-style, txt-color), map.get($tag-style, link-color))

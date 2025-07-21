@@ -1,11 +1,12 @@
-@use '../utils/mixins'
-@forward '../main/span.sass'
+@use '../utils/colors' as color
+@use '../utils/mixins' as mix
+
 article.news-card
     padding: 1.5em
-    inline-size: 25em
+    inline-size: 28em
     text-align: center
     border-radius: 0.5em
-    @include background-color($soft-white, $Groovy-brown, $Groovy-orange)
+    @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$Groovy-orange)
 
     img.article-img
         inline-size: 100%
@@ -19,7 +20,7 @@ article.news-card
         font-weight: bold
         text-align: center
         margin-block: .5em
-        color: $Groovy-brown     
+        color: color.$Groovy-brown
 
 article
     
@@ -29,49 +30,51 @@ article
         min-block-size: 0
         inline-size: 100%
         text-align: justify
-  
-    footer
-        span.tag
-            font-size: 0.8em
-            font-weight: bold
 
-        .read-more
-            display: block
-            font-weight: bold
+    button.read-more
+        display: inline-block
+        margin-block: 1em
+        padding: 0.5em 1em
+        font-weight: bold
+        text-decoration: none
+        border-radius: 0.5em
+        color: color.$Groovy-orange
+        background-color: color.$soft-white
+        border: 1px solid color.$Groovy-brown
+        @include mix.background-color(color.$Groovy-orange, color.$soft-white)
 
+        a
+            text-decoration: none
     img
         inline-size: 100%
         border-radius: 0.5em
 
     figure.article-figure
-        inline-size: 35em      
+        inline-size: 100%      
 
         figcaption
 
             font-size: 0.8em
             font-style: italic
             text-align: center
-            color: $Groovy-brown
+            color: color.$Groovy-brown
+
     section
         .ingress
-            inline-size: 39em
+            margin: auto
+            inline-size: 38em
 
             p
                 margin-block: 1em
 
             p.text
                font-size: 1.3em
-            
-        button.read-more
-            display: inline-block
-            margin-block: 1em
-            padding: 0.5em 1em
-            font-weight: bold
-            text-decoration: none
-            color: $Groovy-orange
-            border-radius: 0.5em
-            background-color: $soft-white
-            border: 1px solid $Groovy-brown
+
+    &:nth-child(odd)
+        background-color: color.$antique-soft
+
+    &:nth-child(even)
+        background-color: color.$soft-white
 
 .content
     margin: 0 auto

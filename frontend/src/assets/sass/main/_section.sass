@@ -1,4 +1,6 @@
-@use '../utils/mixins'
+@use '../utils/colors' as color
+@use '../utils/mixins' as mixin
+
 
 .media-container
     .media-text
@@ -42,4 +44,5 @@ div.card-container
     text-align: center
 
 .member-container
-    @mixins.background-color($soft-white, $Groovy-brown, $Groovy-orange)
+
+    @include mixin.background-color(color.$soft-white, color.$Groovy-brown, color.$Groovy-orange)

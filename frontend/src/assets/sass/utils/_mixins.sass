@@ -1,6 +1,6 @@
-@use './colors.sass'
+@use './colors.sass' as color
 
-@mixin apply-theme-colors( $bg-color, $border, $text-color)
+@mixin apply-theme-colors($bg-color, $border, $text-color)
     $color-border: $border
 
     border: $border
@@ -21,7 +21,7 @@
 
 @mixin light-component-theme($color, $padding-inline: null, $padding-start: null)
 
-    $color-text: $soft-white
+    $color-text: color.$soft-white
     $color-link: rgba($color, 0.6)
     $color-border: rgba($color, 0.2)
     $bg-color: rgba($color, 0.1)
@@ -31,13 +31,13 @@
     
     @if $padding-start == null
         $padding-start: .7em
-    
-    @if $color == $Groovy-brown
+
+    @if  $color == color.$Groovy-brown
 
         $bg-color: rgba($color, 1)
-        $color-link: $Groovy-yellow
-        $color-text: rgba($soft-white, 0.8)
-        $color-border: rgba($Groovy-orange, 0.2)
+        $color-link: color.$Groovy-yellow
+        $color-text: rgba(color.$soft-white, 0.8)
+        $color-border: rgba(color.$Groovy-orange, 0.2)
         
 
     p
@@ -53,7 +53,6 @@
         padding-block-start: $padding-start
 
     border-radius: 0.5em
-
     @include background-color($bg-color, $color-text, $color-link)
     
 
@@ -70,10 +69,10 @@
     @if $color-visited == null
         $color-visited: rgba($color, 0.5)
 
-    @if $color == $Groovy-yellow
-        $color-active: rgba($Groovy-green, 1) !important
-        $color-hover: rgba($Groovy-green, 0.8) !important
-        $color-visited: rgba($Groovy-orange, 0.3) !important
+    @if $color == color.$Groovy-yellow
+        $color-active: rgba(color.$Groovy-green, 1) !important
+        $color-hover: rgba(color.$Groovy-green, 0.8) !important
+        $color-visited: rgba(color.$Groovy-orange, 0.3) !important
 
     a
         font-size: 1.3em
@@ -95,7 +94,10 @@
             color: $color !important
                 
 
-@mixin background-color($bg-color, $text-color, $link-color)
+@mixin background-color($bg-color, $text-color, $link-color:null)
+
+    @if not $link-color
+        $link-color: $text-color
 
     color: rgba($text-color, 1)
     background-color: rgba($bg-color, 1)
