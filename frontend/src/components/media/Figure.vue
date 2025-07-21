@@ -15,4 +15,5 @@ const props = defineProps({
 });
 
 const data = props.data;
+console.log('Figure data:', data);
 </script>
