@@ -2,7 +2,6 @@ import { defineStore } from 'pinia';
 import { reactive, ref } from 'vue';
 import { fetchNews } from '@/services/sosent-news-api.js';
 
-
 export const newsStore = defineStore('newsData', 
     {
         state: () => ({
@@ -19,7 +18,7 @@ export const newsStore = defineStore('newsData',
             {
                 articles.forEach(article => {
                     article.archived = false;
-                    article.cls = ['flex-wrap-reverse', 'news-article', 'article-img', 'tags', 'author', 'article-title-h3'];
+                    article.cls = ['flex-row-reversed-justify-space-between-align-content-center', 'news-article', 'tags', 'author', 'article-title-h3'];
                     article.anchor.href = article.anchor.href + article.id;
                     article.head.cls = ['news-card', 'article-title-h2', article.cls[2]]
                     article.head.anchor.href = article.anchor.href;

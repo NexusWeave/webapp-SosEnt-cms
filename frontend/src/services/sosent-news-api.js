@@ -47,7 +47,7 @@ const articles = reactive(
             img:
             {
                 alt: 'SoSent Logo',
-                cls: ['article-image','article-img'],
+                cls: ['article-figure','article-image'],
                 src: '/media/images/news/SosEnT-favicon.png',
             },
 
@@ -122,7 +122,7 @@ const articles = reactive(
             img:
             {
                 alt: 'SoSent Logo',
-                cls: 'article-img',
+                cls: ['article-figure','article-image'],
                 src: '/media/images/news/SosEnT-favicon.png',
             },
 
@@ -152,7 +152,7 @@ const articles = reactive(
                 img:
                 {
                     alt: 'SoSent Logo',
-                    cls: 'article-img',
+                    cls: ['article-figure','article-image'],
                     src: '/media/images/news/SosEnT-favicon.png',
                 },
 
@@ -183,7 +183,7 @@ const articles = reactive(
             img:
             {
                 alt: 'SoSent Logo',
-                cls: 'article-img',
+                cls: ['article-figure','article-image'],
                 src: '/media/images/news/SosEnT-favicon.png',
             },
 
