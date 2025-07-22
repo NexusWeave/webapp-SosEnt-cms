@@ -5,22 +5,28 @@ article.news-card
     padding: 1.5em
     inline-size: 28em
     text-align: center
-    border-radius: 0.5em
+    border: 1px solid color.$Groovy-brown
+
     @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$Groovy-orange)
 
-    img.article-img
-        inline-size: 100%
-        border-radius: 0.5em
+    header
 
-    span.article-date
-        display: block
-        font-size: 0.88em
+        img.article-img
+            inline-size: 100%
+            border-radius: 0.5em
 
-    h2.article-title-h2
-        font-weight: bold
-        text-align: center
-        margin-block: .5em
-        color: color.$Groovy-brown
+        span.article-date
+            display: block
+            font-size: 0.88em
+
+        h2.article-title-h2
+            font-size: 1em
+            font-weight: bold
+            text-align: center
+            margin-block: .5em
+            color: color.$Groovy-brown
+
+
 
 article
     
