@@ -1,23 +1,29 @@
 <template>
-    <h3 :class="cls[0]">{{ title }}</h3>
+    <h3 v-if="title" :class="cls[1]">{{ title }}</h3>
     <section 
     v-for="content in section.contents"
-    :class=" content.id % 2 === 0 ? 'flex-row-reversed-justify-center-align-content-center' : 'flex-row'"
+    :class=" content.id % 2 === 0 ? cls[0] : 'flex-row'"
     :key="content.id"> 
+        <Figure :data="content.content.img"  v-if="content.content.img"/>
 
-    <section v-if="content.content.img" :class="cls[1]">
-        <Figure :data="content.content.img" />
-    </section>
+        <section :class="cls[2]">
+            <Btn 
+            v-if="content.id == 0 && isArticlePage" 
+            :data="section.btn"/>
 
-        <section :class="cls[1]">
-            <Btn v-if="content.id == 0 && isArticlePage" :data="section.btn" />
+            <h4 
+                v-if="content.content.title"
+                :class="cls[3]">
+                    {{ content.content.title }}
+            </h4>
 
-            <h4 v-if="content.content.title">{{ content.content.title }}</h4>
             <p> {{ content.content.text }} </p>
         </section>
     </section>
 
-    <footer v-if="conclusion" :class="cls">
+    <footer
+        v-if="conclusion" 
+        :class="cls[4]">
         <h2>{{ conclusion.title }}</h2>
 
         <ul v-if="conclusion.list">
@@ -26,7 +32,7 @@
             </li>
         </ul>
 
-        <p v-if="section.cite">
+        <p v-if="section.cite" :class="cls[5]">
             {{ section.cite.text }}
         </p>
     </footer>
