@@ -1,22 +1,24 @@
 <template>
-    <article :class="article.cls[3]">
+    <article :class="article.cls[5]">
        <header>
            <Header
                :article="article"
                :isArticlePage="isArticlePage"
+                :isNewsPage="isNewsPage"
                :Cls="[ 
-                   article.cls[9], article.cls[7], article.cls[2], 
-                   article.cls[4], article.cls[3], article.cls[7]
-               ]"
-           />
+                    article.cls[article.cls.length-1], article.cls[2],
+                    article.cls[9], article.cls[6], article.cls[8]]"/>
        </header>
-        <main  v-if="isArticlePage" :class="article.cls[3]">
+        <main  v-if="isArticlePage">
             <Main
             :Section="article.section" 
             :isArticlePage="isArticlePage" 
-            :Cls="[article.cls[7], article.cls[7], article.cls[article.cls.length-1]]"
-            :date="article.date"    
-        />
+            :Cls="[
+                article.cls[article.cls.length - 1], article.cls[3],
+                article.cls[13], article.cls[4], article.cls[11],
+                article.cls[12]
+            ]"
+            :date="article.date"/>
         </main>
         <footer>
         </footer>        
