@@ -21,7 +21,16 @@
     font-family: "Bootstrap-icons"
 
 button.btn
-    @include mix.background-color(color.$Groovy-orange, color.$soft-white)
+    //@include mix.background-color(color.$Groovy-orange, color.$soft-white)
+
+    .read-more
+        @include mix.background-color(color.$Groovy-orange, color.$soft-white)
+        color: color.$soft-white
+        font-weight: bold
+        text-decoration: none
+        padding: 0.5em 1em
+        border-radius: 0.5em
+        display: inline-block
 
 @each $icon-type, $props in mapping.$icon-types
 
