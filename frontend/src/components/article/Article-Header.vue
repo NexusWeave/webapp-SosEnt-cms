@@ -2,10 +2,9 @@
     <section :class="cls[0]">
         <section :class="cls[cls.length - 1]">
             <h2 :class="cls[1]">
-                {{ article.title }}
             </h2>
             <MetaData 
-                v-if="article.date && article.date.type == 'updated'" 
+                v-if="article.date" 
                 :data="article.date" 
                 :Cls="[article.date.cls]" 
                 :text="article.date.type"/>
@@ -57,6 +56,6 @@
     const article = props.article;
     const isNewsPage = props.isNewsPage;
     const isArticlePage = props.isArticlePage;
-    
 
+    console.log("Article Header Component :", article, isNewsPage, isArticlePage);
 </script>
