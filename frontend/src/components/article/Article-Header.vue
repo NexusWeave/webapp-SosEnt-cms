@@ -1,37 +1,32 @@
 <template>
-    <header>
-        <section :class="cls[0]">
-            <section :class="cls[1]">
-                <section>
-                    <h2 :class="cls[2]">
-                        {{ article.title }}
-                    </h2>
-                    <MetaData 
-                        v-if="article.date && article.date.type == 'updated'" 
-                        :data="article.date" 
-                        :Cls="[cls[3]]" 
-                        :text="article.date.type"
-                    />
-                    <p>{{ article.ingress.content }}</p>
-                </section>
-                <section>
-                    <p>
-                        <MetaData v-if="article.tags" 
-                            :Cls="[cls[4]]" 
-                            :array="article.tags"
-                        />
-                        <Btn
-                            v-if="article.anchor  && article.section && !isArticlePage"
-                            :data="article.anchor"
-                        />
-                    </p>
-                </section>
+    <section :class="cls[0]">
+        <section :class="cls[1]">
+            <section>
+                <h2 :class="cls[2]">
+                    {{ article.title }}
+                </h2>
+                <MetaData 
+                    v-if="article.date && article.date.type == 'updated'" 
+                    :data="article.date" 
+                    :Cls="[cls[3]]" 
+                    :text="article.date.type"/>
+                <p>{{ article.ingress.content }}</p>
             </section>
-            <section v-if="!isArticlePage && article.img" :class="cls[5]">
-                <Figure :data="article.img" />
+            <section>
+                <p>
+                    <MetaData v-if="article.tags" 
+                        :Cls="[cls[4]]" 
+                        :array="article.tags"/>
+                    <Btn
+                        v-if="article.btn  && article.section && !isArticlePage"
+                        :data="article.btn"/>
+                </p>
             </section>
         </section>
-    </header>
+        <section v-if="!isArticlePage && article.img" :class="cls[5]">
+            <Figure :data="article.img" />
+        </section>
+    </section>
 </template>
 <script setup>
 
