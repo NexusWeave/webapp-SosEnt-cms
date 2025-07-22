@@ -1,8 +1,7 @@
 <template>
     <section :class="cls[0]">
         <section :class="cls[cls.length - 1]">
-            <h2 :class="cls[1]">
-            </h2>
+            <h2 :class="cls[1]"> {{ article.title }}</h2>
             <MetaData 
                 v-if="article.date" 
                 :data="article.date" 
