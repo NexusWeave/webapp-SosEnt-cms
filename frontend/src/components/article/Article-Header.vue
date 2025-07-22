@@ -21,7 +21,7 @@
                 :data="article.btn"/>
 
         </section>
-        <Figure :data="article.img" v-if="isNewsPage && !isArticlePage"/>
+        <Figure :data="article.img" v-if="isNewsPage && !isArticlePage && !article.archived"/>
     </section>
 </template>
 <script setup>
