@@ -1,6 +1,6 @@
 <template>
     <section :class="cls[0]">
-        <section :class="cls[1]">
+        <section :class="cls[cls.length - 1]">
             <section>
                 <h2 :class="cls[2]">
                     {{ article.title }}
@@ -8,24 +8,25 @@
                 <MetaData 
                     v-if="article.date && article.date.type == 'updated'" 
                     :data="article.date" 
-                    :Cls="[cls[3]]" 
+                    :Cls="[article.date.cls]" 
                     :text="article.date.type"/>
-                <p>{{ article.ingress.content }}</p>
+                <p :class="cls[3]">{{ article.ingress.content }}</p>
             </section>
-            <section>
-                <p>
+            <p>
+                <span :class="cls[4]" v-if="article.tags && !isArticlePage">
                     <MetaData v-if="article.tags" 
-                        :Cls="[cls[4]]" 
+                        :Cls="[cls[5]]" 
                         :array="article.tags"/>
-                    <Btn
-                        v-if="article.btn  && article.section && !isArticlePage"
-                        :data="article.btn"/>
-                </p>
+                </span>
+                <Btn
+                    v-if="article.btn  && article.section && !isArticlePage"
+                    :data="article.btn"/>
+                    
+            </p>
+            <section>
             </section>
         </section>
-        <section v-if="!isArticlePage && article.img" :class="cls[5]">
-            <Figure :data="article.img" />
-        </section>
+        <Figure :data="article.img" v-if="isNewsPage && !isArticlePage"/>
     </section>
 </template>
 <script setup>
@@ -43,7 +44,11 @@
         },
         isArticlePage: {
             type: Boolean,
-            required: true
+            required: false
+        },
+        isNewsPage: {
+            type: Boolean,
+            required: false
         },
         Cls: {
             type: Array,
@@ -53,6 +58,8 @@
     
     const cls = props.Cls;
     const article = props.article;
+    const isNewsPage = props.isNewsPage;
     const isArticlePage = props.isArticlePage;
+    
 
 </script>
