@@ -7,7 +7,7 @@
     import { onMounted, reactive, computed } from 'vue';
     import { newsStore } from '@/stores/newsStore';
 
-    import Article from '@/components/Article.vue';
+    import Article from '@/components/article/Article.vue';
 
     const route = useRoute();
     const news = newsStore();
