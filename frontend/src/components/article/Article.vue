@@ -5,7 +5,7 @@
                :article="article"
                :isArticlePage="isArticlePage"
                 :isNewsPage="isNewsPage"
-               :Cls="[ 
+               :Cls="[
                     article.cls[article.cls.length-1], article.cls[2],
                     article.cls[9], article.cls[6], article.cls[8]]"/>
        </header>
