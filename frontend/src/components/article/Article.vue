@@ -20,7 +20,7 @@
             ]"
             :date="article.date"/>
         </main>
-        <footer>
+        <footer v-if="isArticlePage">
         </footer>        
     </article>
 </template>
