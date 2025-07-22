@@ -1,6 +1,6 @@
 <template>
     <section :class="[news.data.cls[1]]" v-if="news.recent.length > 0">
-        <Card 
+        <NewsCard
             v-for="article in news.recent" 
             :key="article.id" 
             :data="article" 
@@ -77,7 +77,7 @@
 
     import S from '@/components/utils/Section.vue';
     import Img from '@/components/media/Figure.vue';    
-    import Card from '@/components/article/Article.vue';
+    import NewsCard from '@/components/article/Article.vue';
     import Link from '@/components/navigation/Anchor.vue';
 
     const aboutData = reactive(
