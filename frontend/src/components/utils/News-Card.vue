@@ -11,7 +11,7 @@
                             
                 <p>
                     <MetaData v-if="article.tags" :array="article.tags" />
-                    <Btn v-if="article.anchor && article.section" :data="article.anchor" />
+                    <Btn v-if="article.btn && article.section" :data="article.btn" />
                 </p>
             </section>
         </header>
