@@ -22,8 +22,11 @@ export const newsStore = defineStore('newsData',
                     article.cls = 
                     [
                         'flex-column-align-items-center', 'news-card', 
-                        'article-title-h2', 'news-article', 'tags',
-                        'author', 'article-title-h3','ingress', 'text',
+                        'article-title-h2','article-title-h3', 'article-title-h4',
+                        'news-article', 'tags', 'author','ingress', 'text',
+
+                        'article-section', 'article-conclusion','article-citation',
+                        'article-section-content'
                     ];
 
                     const ID = parseInt(article.id);

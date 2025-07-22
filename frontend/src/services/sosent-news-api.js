@@ -65,10 +65,12 @@ const articles = reactive(
                             {
                                 cls: ['flex-row'],
                                 img:
-                                {
-                                    src: '/media/images/team/ressurssenter/KIME-ressurssenter.jpg',
-                                    alt: 'KIME-ressurssenter.jpg',
-                                    cls: ['section-img'],
+                                    {
+                                        
+                                        alt: 'KIME-ressurssenter.jpg',
+                                        caption: 'Foto: KIME Ressurssenter',
+                                        cls: ['content-figure','article-img'],
+                                        src: '/media/images/team/ressurssenter/KIME-ressurssenter.jpg',
                                 },
                                 text: `Introduction to the article.
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -90,9 +92,9 @@ const articles = reactive(
                             {
                                 img:
                                 {
-                                    src: '/media/images/team/ressurssenter/KIME-ressurssenter.jpg',
                                     alt: 'KIME-ressurssenter.jpg',
-                                    cls: ['section-img'],
+                                    cls: ['content-figure', 'article-img'],
+                                    src: '/media/images/team/ressurssenter/KIME-ressurssenter.jpg',
                                 },
                                 text: `Donec vel orci leo. In eu nisi massa. Vestibulum dolor orci,
                                 viverra aliquet leo rhoncus, bibendum blandit turpis. Nam blandit,
@@ -131,10 +133,12 @@ const articles = reactive(
                             content:
                             {
                                 img:
-                                {
-                                    src: '/media/images/team/ressurssenter/KIME-ressurssenter.jpg',
-                                    alt: 'KIME-ressurssenter.jpg',
-                                    cls: ['section-img'],
+                                    {
+                                        
+                                        alt: 'KIME-ressurssenter.jpg',
+                                        caption: 'Foto: KIME Ressurssenter',
+                                        cls: ['content-figure','article-img'],
+                                        src: '/media/images/team/ressurssenter/KIME-ressurssenter.jpg',
                                 },
 
                                 text: `Cras finibus tellus quis ipsum
@@ -167,9 +171,11 @@ const articles = reactive(
                 ],
                 img:
                     {
-                        src: '/media/images/team/ressurssenter/KIME-ressurssenter.jpg',
+                        
                         alt: 'KIME-ressurssenter.jpg',
+                        caption: 'Foto: KIME Ressurssenter',
                         cls: ['article-figure','article-img'],
+                        src: '/media/images/team/ressurssenter/KIME-ressurssenter.jpg',
                 },
                 btn:
                 {
