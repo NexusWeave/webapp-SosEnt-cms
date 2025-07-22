@@ -12,7 +12,7 @@
 
     import { onMounted } from 'vue';
 
-    import Articles from '@/components/Article.vue';
+    import Articles from '@/components/article/Article.vue';
     import Card from '@/components/utils/News-Card.vue';
     
     import { newsStore } from '@/stores/newsStore.js';
