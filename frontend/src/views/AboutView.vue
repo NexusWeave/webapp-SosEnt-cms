@@ -1,8 +1,13 @@
 <template>
-    <section :class="news.data.cls[1]" v-if="news.recent.length > 0">
-        <Card v-for="article in news.recent" :key="article.id" :data="article" />
-    </section>
-
+    <article :class="[news.data.cls[1], news.data.cls[1]]" v-if="news.recent.length > 0">
+        <Card 
+            v-for="article in news.recent" 
+            :key="article.id" 
+            :article="article" 
+            :Cls="[ article.cls[2], article.cls[9], article.cls[6],
+            article.cls[8],
+                    ]"/>
+    </article>
     <S :data="aboutData" />
     <S :data="organization" />
 
@@ -71,7 +76,7 @@
 
     import S from '@/components/utils/Section.vue';
     import Img from '@/components/media/Figure.vue';    
-    import Card from '@/components/utils/News-Card.vue';
+    import Card from '@/components/article/Article-Header.vue';
     import Link from '@/components/navigation/Anchor.vue';
 
     const aboutData = reactive(
