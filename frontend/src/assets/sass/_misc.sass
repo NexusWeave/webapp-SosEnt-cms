@@ -20,6 +20,9 @@
     display: inline-block
     font-family: "Bootstrap-icons"
 
+button.btn
+    @include mix.background-color(color.$Groovy-orange, color.$soft-white)
+
 @each $icon-type, $props in mapping.$icon-types
 
     $file-style: functions.icon-types($icon-type)
