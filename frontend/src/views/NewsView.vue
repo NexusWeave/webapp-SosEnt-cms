@@ -8,14 +8,15 @@
 
     <h2 v-if="news.archived.length > 0"> Arkiverte Nyheter</h2>
     <section :class="[news.data.cls[1]]" v-if="news.archived.length > 0">
-            <NewsCard 
+            <Articles 
                 v-for="article in news.archived" 
                 :key="article.id" 
                 :data="article" 
                 :Cls="[ '', '', article.cls[2], article.cls[3],
                 article.cls[8], article.cls[1], article.cls[6],
                 '', article.cls[14]
-                ]"/>
+                ]"
+                />"
     </section>
 </template>
 
