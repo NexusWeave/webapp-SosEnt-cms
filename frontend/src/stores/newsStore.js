@@ -23,10 +23,10 @@ export const newsStore = defineStore('newsData',
                     [
                         'flex-column-align-items-center', 'news-card', 
                         'article-title-h2','article-title-h3', 'article-title-h4',
-                        'news-article', 'tags', 'author','ingress', 'text',
+                        'news-article', 'tags', 'author','article-ingress', 'text',
 
                         'article-section', 'article-conclusion','article-citation',
-                        'article-section-content'
+                        'article-section-content', 'article-head-content'
                     ];
 
                     const ID = parseInt(article.id);
@@ -38,7 +38,7 @@ export const newsStore = defineStore('newsData',
                         anchor: article.anchor,
                         text: article.anchor.name,
                         href: article.anchor.href,
-                        cls: ['btn', 'read-more'],
+                        cls: ['button', 'read-more'],
                     }
                     article.date.updated ? article.date.type = 'updated' : article.date.type = 'published';
 
