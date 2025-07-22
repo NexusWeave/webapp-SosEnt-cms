@@ -89,7 +89,8 @@ export const newsStore = defineStore('newsData',
         },
         getters:
         {
-            archived: (state) => { return state.data.articles.filter(article => article.archived); },
             recent: (state) => { return state.data.articles.filter(article => !article.archived); },
+            archived: (state) => { return state.data.articles.filter(article => article.archived); },
+            
         },
         });
