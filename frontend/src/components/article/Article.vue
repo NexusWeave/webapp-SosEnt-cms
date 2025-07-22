@@ -1,13 +1,13 @@
 <template>
-    <article :class="article.cls[5]">
+    <article :class="cls[5]">
        <header>
            <Header
                :article="article"
                :isArticlePage="isArticlePage"
                 :isNewsPage="isNewsPage"
                :Cls="[
-                    article.cls[article.cls.length-1], article.cls[2],
-                    article.cls[9], article.cls[6], article.cls[8]]"/>
+                    cls[cls.length-1], cls[2],
+                    cls[9], cls[6], cls[8]]"/>
        </header>
         <main  v-if="isArticlePage">
             <Main
@@ -33,14 +33,22 @@
     import Header from '@/components/article/Article-Header.vue';
     import Main from '@/components/article/Article-Main.vue';
 
-    const props = defineProps({
+    const props = defineProps(
+        {
         data: {
             type: Object || Array,
             required: true
+        },
+        Cls: {
+            type: Array,
+            required: false
         }
     });
 
     const article = props.data;
+    const cls = computed(() => {
+        return props.Cls ? props.Cls : article.cls;
+    });
 
     const route = useRoute();
     const isPage = computed(() => {return route.name});
