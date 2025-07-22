@@ -1,12 +1,12 @@
 <template>
     <template v-if="data">
-        <span :class="data.cls" v-if="data.published">
-            Artikkelen ble {{ dateText() }}
+        <span :class="cls" v-if="text">
+            {{ dateText() }} <b> * </b>
             <time :datetime="date()">
                 <b>{{ date() }}</b>
             </time>
         </span>
-        <span :class="data.cls" v-else-if="data.anchor">
+        <span :class="cls" v-else-if="data.anchor">
             <Anchor :data="data"/>
         </span>
     </template>
@@ -39,7 +39,11 @@
             type: Array,
             required: false
         },
-
+        
+        Cls: {
+            type: Array,
+            required: false
+        },
         text: {
             type: String,
             required: false
@@ -47,22 +51,21 @@
 
     });
 
+    const cls = props.Cls;
     const data = props.data;
     const text = props.text;
+    
     const date = () => 
     {
-        switch (text) {
-            case 'updated': return new Date(data.updated).toLocaleDateString();
-            case 'published': return new Date(data.published).toLocaleDateString();
-            default:
-                return
-        }
+        return text == 'updated' ? new Date(data.updated).toLocaleDateString()
+            : text == 'published' ? new Date(data.published).toLocaleDateString()
+            : null;
     };
     const dateText = () => 
     {
-        if (text == 'updated' && data.updated) return 'Oppdatert :'
-        else if (text == 'published' && data.published) return 'Publisert :'
-        else return;
+        return text == 'updated' ? 'Oppdatert '
+            : text == 'published' ? 'Publisert '
+            : null;
     };
 
     console.log("Span Component loaded with data: ", dateText(), props.text, data);
