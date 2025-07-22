@@ -1,30 +1,27 @@
 <template>
     <section :class="cls[0]">
         <section :class="cls[cls.length - 1]">
-            <section>
-                <h2 :class="cls[2]">
-                    {{ article.title }}
-                </h2>
-                <MetaData 
-                    v-if="article.date && article.date.type == 'updated'" 
-                    :data="article.date" 
-                    :Cls="[article.date.cls]" 
-                    :text="article.date.type"/>
-                <p :class="cls[3]">{{ article.ingress.content }}</p>
-            </section>
-            <p>
-                <span :class="cls[4]" v-if="article.tags && !isArticlePage">
+            <h2 :class="cls[1]">
+                {{ article.title }}
+            </h2>
+            <MetaData 
+                v-if="article.date && article.date.type == 'updated'" 
+                :data="article.date" 
+                :Cls="[article.date.cls]" 
+                :text="article.date.type"/>
+            <p :class="cls[2]">{{ article.ingress.content }}</p>
+            <section v-if="article.tags.length > 0" :class="cls[3]">
+                <p> Categories : </p>
+                <span :class="cls[3]" v-if="article.tags && !isArticlePage">
                     <MetaData v-if="article.tags" 
-                        :Cls="[cls[5]]" 
+                        :Cls="[cls[4]]" 
                         :array="article.tags"/>
                 </span>
-                <Btn
-                    v-if="article.btn  && article.section && !isArticlePage"
-                    :data="article.btn"/>
-                    
-            </p>
-            <section>
             </section>
+            <Btn
+                v-if="article.btn  && article.section && !isArticlePage"
+                :data="article.btn"/>
+
         </section>
         <Figure :data="article.img" v-if="isNewsPage && !isArticlePage"/>
     </section>
