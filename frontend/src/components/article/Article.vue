@@ -42,7 +42,7 @@
         Cls: {
             type: Array,
             required: false
-        }
+        },
     });
 
     const article = props.data;
@@ -52,8 +52,8 @@
 
     const route = useRoute();
     const isPage = computed(() => {return route.name});
-    
-    const isNewsPage = isPage.value === 'news' ? true : false;
+
+    const isNewsPage =  isPage.value === 'news' ? true : false;
     const isArticlePage = isPage.value === 'article' ? true : false;
 
 
