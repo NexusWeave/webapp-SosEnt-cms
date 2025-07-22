@@ -1,7 +1,17 @@
 <template>
-    <button :type="btn ? btn.type : 'button'" :class="data.cls" v-if="data.href">
-        <Anchor :data="data" />
-        
+    <button 
+        :class="btn.cls"    
+        :type="btn ? btn.type : 'button'"
+        @click="btn.action ? btn.action : null"     
+        :disabled="btn ? btn.disabled : false">
+        <template v-if="btn.anchor">
+            <Anchor :data="btn.anchor" v-if="btn.anchor"/>
+        </template>
+
+        <template v-else>
+            {{ btn.text }}
+        </template>    
+            
     </button>
 </template>
 
