@@ -3,33 +3,31 @@
 
 article.news-card
     padding: 1.5em
-    inline-size: 28em
-    text-align: center
-    border: 1px solid color.$Groovy-brown
-
+    max-inline-size: 29em
+    border-radius: 0.5em
+    box-shadow: 0 0 10px rgba(color.$Groovy-brown, .2)
+    
     @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$Groovy-orange)
 
     header
-
-        img.article-img
-            inline-size: 100%
-            border-radius: 0.5em
-
         span.article-date
             display: block
             font-size: 0.88em
 
-        h2.article-title-h2
-            font-size: 1em
-            font-weight: bold
-            text-align: center
-            margin-block: .5em
-            color: color.$Groovy-brown
+        .article-head-content
+            margin: auto
 
+            h2.article-title-h2
+                margin-block-end: .1em
+                color: color.$Groovy-brown
 
+            p.article-ingress
+                font-size: 0.9em
+                text-align: justify
+                margin-block: 0.5em
+                inline-size: 100% !important
 
 article
-    
     main
         padding: 1em
         margin: 0 auto
@@ -37,20 +35,15 @@ article
         inline-size: 100%
         text-align: justify
 
-    button.read-more
-        display: inline-block
-        margin-block: 1em
-        padding: 0.5em 1em
-        font-weight: bold
-        text-decoration: none
-        border-radius: 0.5em
-        color: color.$Groovy-orange
-        background-color: color.$soft-white
-        border: 1px solid color.$Groovy-brown
+    button.button
         
-
+        border-radius: 0.5em
+        border: 1px solid color.$Groovy-brown
+        @include mix.background-color(color.$Groovy-orange, color.$soft-white)
+        
         a
-            text-decoration: none
+                text-decoration: none
+    
     img
         inline-size: 100%
         border-radius: 0.5em
@@ -67,7 +60,7 @@ article
             color: color.$Groovy-brown
 
     section
-        .ingress, .article-section-content
+        .article-ingress, .article-section-content
             margin: auto
             inline-size: 38em
 
