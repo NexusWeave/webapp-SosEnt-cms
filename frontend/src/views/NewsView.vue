@@ -2,10 +2,9 @@
     <h2>Recent News</h2>
     <Articles v-for="article in news.recent" :key="article.id" :data="article" v-if="news.recent.length > 0"/>
 
-    <h2 v-if="news.archived.length > 0">Archived News</h2>
+    <h2 v-if="news.archived.length > 0">Arkiverte Nyheter</h2>
     <section :class="news.data.cls[1]" v-if="news.archived.length > 0">
-        <Table v-for="article in news.archived" :key="article.id" :data="article" />
-
+        <Card v-for="article in news.archived" :key="article.id" :data="article" />
     </section>
 </template>
 
@@ -14,7 +13,7 @@
     import { onMounted } from 'vue';
 
     import Articles from '@/components/Article.vue';
-    import Table from '@/components/utils/Table.vue';
+    import Card from '@/components/utils/News-Card.vue';
     
     import { newsStore } from '@/stores/newsStore.js';
     
