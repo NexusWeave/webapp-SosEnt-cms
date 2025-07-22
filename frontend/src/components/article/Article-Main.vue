@@ -10,27 +10,24 @@
     </section>
 
         <section :class="cls[1]">
-            <button v-if="content.id == 0 && isArticlePage" 
-                @click="goBack">
-                    {{ btn.text }}
-            </button>
+            <Btn v-if="content.id == 0 && isArticlePage" :data="section.btn" />
 
             <h4 v-if="content.content.title">{{ content.content.title }}</h4>
             <p> {{ content.content.text }} </p>
         </section>
     </section>
 
-    <footer v-if="section.conclusion.exists" :class="cls">
-        <h2>{{ section.conclusion.title }}</h2>
+    <footer v-if="conclusion" :class="cls">
+        <h2>{{ conclusion.title }}</h2>
 
-        <ul v-if="section.list">
-            <li v-for="item in section.list.items" :key="item.id">
-                {{ item.content }}
+        <ul v-if="conclusion.list">
+            <li v-for="item in conclusion.list" :key="item.id">
+                {{ item.text }}
             </li>
         </ul>
 
-        <p v-if="section.conclusion.content">
-            {{ section.conclusion.content }}
+        <p v-if="section.cite">
+            {{ section.cite.text }}
         </p>
     </footer>
 </template>
@@ -42,10 +39,6 @@
     import Figure from '@/components/media/Figure.vue';
     import Btn from '@/components/navigation/Button.vue';
     import Anchor from '@/components/navigation/Anchor.vue';
-
-    const goBack = () => {
-        window.history.back();
-    };
 
     const props = defineProps({
         date: {
@@ -69,15 +62,10 @@
     const cls = props.Cls;
     const date = props.date;
     const section = reactive(props.Section);
+    const conclusion = section.conclusion ? section.conclusion : null;
 
 
     const isArticlePage = props.isArticlePage;
-    
-    const btn = {
-        text: 'Go back',
-        cls: ['btn', 'btn-secondary'],
-        action: goBack
-    };
 
     
     onMounted(() => {
