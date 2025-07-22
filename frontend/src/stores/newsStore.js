@@ -40,7 +40,7 @@ export const newsStore = defineStore('newsData',
                         href: article.anchor.href,
                         cls: ['button', 'read-more'],
                     }
-                    article.date.updated ? article.date.type = 'updated' : article.date.type = 'published';
+                    article.date.type = article.date.updated ? 'updated' : 'published';
 
                     this.data.articles.push(article);
 

@@ -601,10 +601,10 @@ const articles = reactive(
             },
 
             date:
-            {
+            {   
                 type: 'published',
                 cls: ['article-date'],
-                published: '01.03-2025',
+                published: '01.05-2025',
             },
 
             ingress: {
@@ -745,6 +745,7 @@ const articles = reactive(
                 },
             },
         },
+
 ]);
 
 // API simulation
