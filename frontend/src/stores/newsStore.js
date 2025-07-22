@@ -32,9 +32,10 @@ export const newsStore = defineStore('newsData',
                     article.anchor.href = article.anchor.href + article.id;
                     article.btn = 
                     {
-                        cls: ['btn', 'btn-primary'],
+                        anchor: article.anchor,
                         text: article.anchor.name,
                         href: article.anchor.href,
+                        cls: ['btn', 'read-more'],
                     }
                     article.date.updated ? article.date.type = 'updated' : article.date.type = 'published';
 
