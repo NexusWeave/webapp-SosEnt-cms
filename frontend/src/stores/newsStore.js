@@ -18,13 +18,17 @@ export const newsStore = defineStore('newsData',
             {
                 articles.forEach(article => {
                     article.archived = false;
+
                     article.cls = 
                     [
                         'flex-column-align-items-center', 'news-card', 
-                        'article-h2', 'news-article', 'tags', 'author',
-                        'article-title-h3','ingress', 'text',
-                        'flex-row-reversed-justify-center-align-content-center',
+                        'article-title-h2', 'news-article', 'tags',
+                        'author', 'article-title-h3','ingress', 'text',
                     ];
+
+                    const ID = parseInt(article.id);
+                    
+                    ID % 2 === 0 ? article.cls.push('flex-row-reversed-justify-center-align-content-center') : article.cls.push('flex-row')
                     article.anchor.href = article.anchor.href + article.id;
                     article.btn = 
                     {
@@ -36,7 +40,7 @@ export const newsStore = defineStore('newsData',
 
                     this.data.articles.push(article);
 
-                    //console.log("Adding article: ", article);
+                    console.log("Adding article: ", article);
                 });
 
             this.sortArticlesByDate();
@@ -55,23 +59,15 @@ export const newsStore = defineStore('newsData',
             {
                 const n = 3;
 
-                const tag = 
-                {
-                        id: 1,
-                        title: 'Archived',
-                        cls: ['tag', 'archived-tag']
-                };
-
                 const articles = this.data.articles.filter(article => article.archived === false);
 
                 if (articles.length <= n) return;
                 
                 for (let i = n; i < articles.length; i++)
                 {
-                    articles[i].tags.push(tag);
                     articles[i].archived = true;
-                    articles[i].head.anchor.name = articles[i].head.title;
-                    console.log("Archiving article: ", articles[i].head.anchor.name);
+                    articles[i].tags.push('archived');
+                    //console.log("Archiving article: ", articles[i].title);
                 }
             },
             fetchNews()
