@@ -12,8 +12,9 @@
     </template>
 
     <template v-else-if="array && array.length > 0">
-        <span v-for="(item, i) in array" :key="i" :class="item.cls">
-         >> {{ item.title }}
+        <span v-for="(item, i) in array" :key="i">
+            <i :class="item.cls"></i> 
+            {{ item.title }}
         </span>
     </template>
 
@@ -68,5 +69,5 @@
             : null;
     };
 
-    console.log("Span Component loaded with data: ", dateText(), props.text, data);
+    //console.log("Span Component loaded with data: ", dateText(), props.text, data);
 </script>
