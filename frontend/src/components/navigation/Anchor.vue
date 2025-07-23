@@ -116,5 +116,5 @@
         }
     };
 
-    console.log("Link component loaded with data: ", data);
+    //console.log("Link component loaded with data: ", data);
 </script>
