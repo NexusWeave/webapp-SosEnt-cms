@@ -385,13 +385,11 @@
         }
     );
 
+    const news = newsStore();
     const team = organization.team;
     const media = organization.media;
     const members = networkData.membersData;
     const partners = networkData.partnerData;
-
-    const news = newsStore();
-
     onMounted( async () => {
         await news.fetchNews();
     });
