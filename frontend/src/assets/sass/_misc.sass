@@ -5,6 +5,7 @@
 @use './utils/mapping' as mapping
 @use './utils/functions' as functions
 
+@import '../../../node_modules/bootstrap-icons/font/bootstrap-icons'
 .component-theme
     @include mix.light-component-theme(color.$Groovy-brown)
 
@@ -46,7 +47,6 @@ button.button
 
             &:hover
                 color: map.get($file-style, hover-color) !important
-
 
 @each $tags, $props in mapping.$tags
 
