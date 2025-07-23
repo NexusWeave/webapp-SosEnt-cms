@@ -51,13 +51,13 @@ const navData = reactive({
             name: 'Aktuelt',
             cls: ['nav-link'],
           },
-          {
+          /*{
             id: 3,
             type: 'router',
             cls: ['nav-link'],
             href: '/fordeler',
             name: 'Medlemsfordeler',
-          },
+          },*/
           {
             id: 4,
             type: 'router',
