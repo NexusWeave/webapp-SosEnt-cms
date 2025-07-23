@@ -1,8 +1,8 @@
 @use './colors.sass' as color
 
 @mixin apply-theme-colors($bg-color, $border, $text-color)
-    $color-border: $border
 
+    $color-border: $border
     border: $border
     color: $text-color
     border-radius: 0.5em
@@ -75,8 +75,9 @@
         $color-visited: rgba(color.$Groovy-orange, 0.3) !important
 
     a
-        font-size: 1.3em
         color: $color
+        font-size: 1.3em
+        text-decoration: none
 
         &:active
             color: $color-active
