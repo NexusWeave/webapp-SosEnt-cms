@@ -3,30 +3,34 @@
 
 article.news-card
     padding: 1.5em
-    max-inline-size: 29em
     border-radius: 0.5em
+    max-inline-size: 29em
     box-shadow: 0 0 10px rgba(color.$Groovy-brown, .2)
-    
-    @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$Groovy-orange)
 
     header
         span.article-date
             display: block
-            font-size: 0.88em
+            font-size: 0.7em
 
         .article-head-content
             margin: auto
 
             h2.article-title-h2
+                font-size: .9em
                 margin-block-end: .1em
                 color: color.$Groovy-brown
 
             p.article-ingress
-                font-size: 0.9em
+                font-size: 0.7em
                 text-align: justify
                 margin-block: 0.5em
                 inline-size: 100% !important
 
+    &:nth-child(odd)
+        @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$antique-soft)
+
+    &:nth-child(even)
+        @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$antique-soft)
 article
     main
         padding: 1em
@@ -35,23 +39,13 @@ article
         inline-size: 100%
         text-align: justify
 
-    button.button
-        
-        border-radius: 0.5em
-        border: 1px solid color.$Groovy-brown
-        @include mix.background-color(color.$Groovy-orange, color.$soft-white)
-        
-        a
-                text-decoration: none
-    
     img
         inline-size: 100%
         border-radius: 0.5em
 
     figure.article-figure, .content-figure
-        margin: auto auto
-        inline-size: 38em
-        //inline-size: 100%
+        margin: .5em auto
+        inline-size: 100%
 
         figcaption
             font-size: 0.8em
@@ -70,12 +64,12 @@ article
             p.text
                font-size: 1.3em
 
+
     &:nth-child(odd)
-        background-color: color.$antique-soft
+        @include mix.background-color(color.$antique-soft, color.$Groovy-brown, color.$soft-white)
 
     &:nth-child(even)
-        background-color: color.$soft-white
-
+        @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$antique-soft)
 .content
     margin: 0 auto
     inline-size: 37em
