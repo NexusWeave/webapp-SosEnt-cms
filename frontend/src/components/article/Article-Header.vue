@@ -1,29 +1,32 @@
 <template>
     <section :class="cls[0]">
         <section :class="cls[cls.length - 1]">
+            <Figure  v-if="!isNewsPage || article.archived ":data="article.img"/>
             <h2 :class="cls[1]"> {{ article.title }}</h2>
-            <MetaData 
-                v-if="article.date" 
-                :data="article.date" 
-                :Cls="[article.date.cls]" 
-                :text="article.date.type"/>
-            <p :class="cls[2]">{{ article.ingress.content }}</p>
-            <section v-if="article.tags.length > 0" :class="cls[3]">
-                <p> Categories : </p>
-                <span :class="cls[3]" v-if="article.tags && !isArticlePage">
+            <p class="flex-wrap-row">
+                <MetaData 
+                    v-if="article.date" 
+                    :data="article.date" 
+                    :Cls="[article.date.cls]" 
+                    :text="article.date.type"/>
+                <span :class="cls[3]" v-if="article.tags">
                     <MetaData v-if="article.tags" 
                         :Cls="[cls[4]]" 
                         :array="article.tags"/>
                 </span>
-            </section>
+            </p>
+            <p :class="cls[2]">{{ article.ingress.content }}</p>
             <Btn
                 v-if="article.btn  && article.section && !isArticlePage"
                 :data="article.btn"/>
 
         </section>
-        <Figure :data="article.img" v-if="isNewsPage && !isArticlePage && !article.archived"/>
+        <section :class="cls[cls.length - 1]">
+            <Figure :data="article.img" v-if="isNewsPage && !isArticlePage && !article.archived"/>
+        </section>
     </section>
 </template>
+
 <script setup>
 
     import { defineProps } from 'vue';
@@ -56,5 +59,5 @@
     const isNewsPage = props.isNewsPage;
     const isArticlePage = props.isArticlePage;
 
-    console.log("Article Header Component :", article, isNewsPage, isArticlePage);
+    //console.log("Article Header Component :", article, isNewsPage, isArticlePage);
 </script>
