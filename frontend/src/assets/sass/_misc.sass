@@ -21,13 +21,16 @@
     font-family: "Bootstrap-icons"
 
 button.button
-    border: none
+
+    border-radius: 0.5em
+    border: 1px solid color.$Groovy-brown
     @include mix.background-color(color.$Groovy-orange, color.$soft-white)
 
     .read-more
         padding: 0.1em
         font-weight: bold
         display: inline-block
+
 @each $icon-type, $props in mapping.$icon-types
 
     $file-style: functions.icon-types($icon-type)
@@ -49,14 +52,14 @@ button.button
 
     $tag-style: functions.tags($tags)
 
-    span.tags       
-        font-size: 0.8em
+    span.tags
+        font-size: .7em
         font-weight: bold
 
         .#{$tags}
-            padding: 0.5em 1em
+            padding: .5em .5em
             margin-inline: 1em
-            border-radius: 0.5em
+            border-radius: .5em
             text-decoration: none
             display: inline-block
             @include mix.background-color(map.get($tag-style, bg-color), map.get($tag-style, txt-color), map.get($tag-style, link-color))
