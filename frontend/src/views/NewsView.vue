@@ -7,24 +7,25 @@
         :data="article"
         :key="article.id" />
 
-    <h2 v-if="news.archived.length > 0"> Arkiverte Nyheter</h2>
-    Display 3 archived articles
-    <Pagnition 
-        :Cls="archived.cls"
-        :totalPage="archived.total" 
-        :activePage="archived.activePage"
-        @update="(page) => archived.activePage = page" />
-
-    <section :class="[news.data.cls[1]]" v-if="news.archived.length > 0">
-            <Articles 
-                v-for="article in archived.articles" 
-                :key="article.id" 
-                :data="article" 
-                :Cls="[ '', '', article.cls[2], article.cls[3],
-                article.cls[8], article.cls[1], article.cls[6],
-                '', article.cls[14]
-                ]"/>
-    </section>
+    <seaction v-if="news.archived.length > 0">
+        <h2> Arkiverte Nyheter</h2>
+        <Pagnition
+            :Cls="archived.cls"
+            :totalPage="archived.total" 
+            :activePage="archived.activePage"
+            @update="(page) => archived.activePage = page" />
+    
+        <section :class="[news.data.cls[1]]" v-if="news.archived.length > 0">
+                <Articles 
+                    v-for="article in archived.articles" 
+                    :key="article.id" 
+                    :data="article" 
+                    :Cls="[ '', '', article.cls[2], article.cls[3],
+                    article.cls[8], article.cls[1], article.cls[6],
+                    '', article.cls[14]
+                    ]"/>
+        </section>
+    </seaction>
 </template>
 
 <script setup>
@@ -46,7 +47,7 @@ import Pagnition from '@/components/utils/Pagnition.vue';
             n: 3,
             activePage: 1,
             cls: ['flex-wrap-row-justify-center', 'archive-pagnition'],
-            total : computed(() => Math.ceil(news.archived.length / archived.n) + 2),
+            total : computed(() => Math.ceil(news.archived.length / archived.n)),
             articles: computed(() =>
             {
                 const n = archived.n;
