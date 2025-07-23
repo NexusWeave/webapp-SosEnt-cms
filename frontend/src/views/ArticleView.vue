@@ -4,9 +4,9 @@
 </template>
 <script setup>
     import { useRoute } from 'vue-router';
-    import { onMounted, reactive, computed } from 'vue';
     import { newsStore } from '@/stores/newsStore';
-
+    import { onMounted, reactive, computed } from 'vue';
+    
     import Article from '@/components/article/Article.vue';
 
     const route = useRoute();
