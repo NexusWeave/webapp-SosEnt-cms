@@ -62,10 +62,10 @@ export const newsStore = defineStore('newsData',
             archiveArticle()
             {
                 const n = 3;
-
+                const length = this.data.articles.length;
                 const articles = this.data.articles.filter(article => article.archived === false);
 
-                if (articles.length <= n) return;
+                if (length <= n) return;
                 
                 for (let i = n; i < articles.length; i++)
                 {
@@ -85,12 +85,11 @@ export const newsStore = defineStore('newsData',
                 }).catch((error) => {
                     console.error("Error fetching news data: ", error);
                 });
-            }
+            },
         },
         getters:
         {
             recent: (state) => { return state.data.articles.filter(article => !article.archived); },
             archived: (state) => { return state.data.articles.filter(article => article.archived); },
-            
         },
-        });
+    });
