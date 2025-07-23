@@ -9,29 +9,29 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue'),
     },
     {
-      path: '/aktuelt',
       name: 'news',
+      path: '/aktuelt',
       component: () => import('../views/NewsView.vue'),
     },
     {
-      path: '/aktuelt/artikkel/:id',
       name: 'article',
-      component: () => import('../views/utils/ArticleView.vue'),
+      path: '/aktuelt/artikkel/:id',
+      component: () => import('../views/ArticleView.vue'),
     },
     {
-      path: '/fordeler',
       name: 'program',
+      path: '/fordeler',
       component: () => import('../views/ProgramView.vue'),
     },
     {
-      path: '/medlemskap',
       name: 'membership',
+      path: '/medlemskap',
       component: () => import('../views/MembershipView.vue'),
     },
 
     {
-      path: '/media/files/:pathMatch(.*)*',
       name: 'file-redirect',
+      path: '/media/files/:pathMatch(.*)*',
 
       beforeEnter(to, from, next) 
       {
