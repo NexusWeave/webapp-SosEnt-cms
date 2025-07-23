@@ -76,6 +76,6 @@
     
     onMounted(() => {
 
-        console.log("Article Main Component loaded with data: ", section);
+        //console.log("Article Main Component loaded with data: ", section);
     });
 </script>
