@@ -2,7 +2,7 @@
     <button 
         :class="btn.cls"    
         :type="btn ? btn.type : 'button'"
-        @click="btn.action ? btn.action : null"     
+        @click="btn.action()"     
         :disabled="btn.disabled">
         <template v-if="btn.anchor">
             <Anchor :data="btn.anchor" v-if="btn.anchor"/>
@@ -17,7 +17,7 @@
 
 <script setup>
 
-    import { defineProps } from 'vue';
+    import { defineProps, watch } from 'vue';
 
     import Anchor from '@/components/navigation/Anchor.vue';
 
@@ -28,9 +28,11 @@
         },
     });
 
-    const data = props.data;
-    const btn = data || null;
+    const btn = props.data;
+    watch(() => props.data, (newValue) => {
+        Object.assign(btn, newValue);
+    }, { immediate: true });
 
-    // console.log("Button component loaded with data: ", data);
+    //console.log("Button component loaded with data: ", btn);
 
 </script>
