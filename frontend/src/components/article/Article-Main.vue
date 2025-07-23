@@ -1,10 +1,10 @@
 <template>
-    <h3 v-if="title" :class="cls[1]">{{ title }}</h3>
+    <h3 v-if="section.title" :class="cls[1]">{{ section.title }}</h3>
     <section 
     v-for="content in section.contents"
     :class=" content.id % 2 === 0 ? cls[0] : 'flex-row'"
     :key="content.id"> 
-        <Figure :data="content.content.img"  v-if="content.content.img"/>
+        <Figure :data="content.img"  v-if="content.img"/>
 
         <section :class="cls[2]">
             <Btn 
@@ -12,30 +12,15 @@
             :data="section.btn"/>
 
             <h4 
-                v-if="content.content.title"
+                v-if="content.title"
                 :class="cls[3]">
-                    {{ content.content.title }}
+                    {{ content.title }}
             </h4>
 
-            <p> {{ content.content.text }} </p>
+            <p> {{ content.content }} </p>
         </section>
     </section>
 
-    <footer
-        v-if="conclusion" 
-        :class="cls[4]">
-        <h2>{{ conclusion.title }}</h2>
-
-        <ul v-if="conclusion.list">
-            <li v-for="item in conclusion.list" :key="item.id">
-                {{ item.text }}
-            </li>
-        </ul>
-
-        <p v-if="section.cite" :class="cls[5]">
-            {{ section.cite.text }}
-        </p>
-    </footer>
 </template>
 
 <script setup>
