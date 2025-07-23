@@ -1,7 +1,7 @@
-//  This file is an Api simulation of the SoSEnT web application project.
+//  This file is a part of the SoSEnT web application project.
 import {reactive } from 'vue';
+import { fetchOrganization } from '@/services/sosent-organization-api.js';
 
-import { generateHexID } from '@/utils/utils.js';
 
 const organization = reactive();
 
