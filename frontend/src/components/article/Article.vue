@@ -9,7 +9,7 @@
                     cls[cls.length-1], cls[2],
                     cls[9], cls[6], cls[8]]"/>
        </header>
-        <main  v-if="isArticlePage">
+        <main  v-if="article.section && isArticlePage">
             <Main
             :Section="article.section" 
             :isArticlePage="isArticlePage" 
@@ -20,7 +20,8 @@
             ]"
             :date="article.date"/>
         </main>
-        <footer v-if="isArticlePage">
+        <footer v-if="article.conclusion && isArticlePage">
+            <ArticleFooter :data="article" :id="article.id"/>
         </footer>        
     </article>
 </template>
@@ -57,5 +58,5 @@
     const isArticlePage = isPage.value === 'article' ? true : false;
 
 
-    //console.log("Articles Component :", isPage.value, article, isNewsPage, isArticlePage);
+    console.log("Articles Component :", isPage.value, article, isNewsPage, isArticlePage), article.conclusion;
 </script>
