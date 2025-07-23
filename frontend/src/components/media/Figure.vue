@@ -6,14 +6,14 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
-const props = defineProps({
-    data: {
-        type: Object,
-        required: true
-    }
-});
+    import { defineProps } from 'vue';
+    const props = defineProps({
+        data: {
+            type: Object,
+            required: true
+        }
+    });
 
-const data = props.data;
-console.log('Figure data:', data);
+    const data = props.data;
+    console.log('Figure data:', data);
 </script>
