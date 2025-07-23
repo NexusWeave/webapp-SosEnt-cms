@@ -1,5 +1,6 @@
+//  This file is a part of the SoSEnT web application project.
+import { reactive } from 'vue';
 import { defineStore } from 'pinia';
-import { reactive, ref } from 'vue';
 import { fetchNews } from '@/services/sosent-news-api.js';
 
 export const newsStore = defineStore('newsData', 
