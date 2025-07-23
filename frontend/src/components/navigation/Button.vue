@@ -3,13 +3,13 @@
         :class="btn.cls"    
         :type="btn ? btn.type : 'button'"
         @click="btn.action ? btn.action : null"     
-        :disabled="btn ? btn.disabled : false">
+        :disabled="btn.disabled">
         <template v-if="btn.anchor">
             <Anchor :data="btn.anchor" v-if="btn.anchor"/>
         </template>
 
         <template v-else>
-            {{ btn.text }}
+            <b>{{ btn.name }}</b>
         </template>    
             
     </button>
@@ -17,20 +17,20 @@
 
 <script setup>
 
-import { defineProps } from 'vue';
+    import { defineProps } from 'vue';
 
-import Anchor from '@/components/navigation/Anchor.vue';
+    import Anchor from '@/components/navigation/Anchor.vue';
 
-const props = defineProps({
-    data: {
-        type: Object,
-        required: true
-    },
-});
+    const props = defineProps({
+        data: {
+            type: Object,
+            required: true
+        },
+    });
 
-const data = props.data;
-const btn = data || null;
+    const data = props.data;
+    const btn = data || null;
 
-console.log("Button component loaded with data: ", data);
+    // console.log("Button component loaded with data: ", data);
 
 </script>
