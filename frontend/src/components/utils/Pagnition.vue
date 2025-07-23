@@ -8,7 +8,7 @@
 
 <script setup>
 
-    import { ref, reactive, watch, defineProps, defineEmits, computed } from 'vue';
+    import { ref, watch, defineProps, defineEmits, computed } from 'vue';
 
     import Btn from '@/components/navigation/Button.vue';
 
@@ -17,15 +17,15 @@
     {
         activePage: 
         {
+            default: 1,
             type: Number,
             required: false,
-            default: 1
         },
         totalPage: 
         {
+            default: 1,
             type: Number,
             required: false,
-            default: 1
         },
         Cls:
         {
@@ -58,8 +58,9 @@
                 id: 0,
                 name: 'Forrige',
                 cls: ['button', 'archive-btn'],
-                action: () => { if (activePage.value > 1)  activePage.value--; },
                 disabled: activePage.value <= 1 ? 'disabled' : false,
+                action: () => { if (activePage.value > 1)  activePage.value--; },
+
             },
             {
                 id: 1,
@@ -67,9 +68,8 @@
                 cls: ['button', 'archive-btn'],
                 disabled: activePage.value >= totalPages.value? 'disabled' : false,
                 action: () => { if (activePage.value < totalPages.value)  activePage.value++; },
-
             },
         ]);
-    
+
     console.log('Pagnition component initialized with data:', data);  
 </script>
