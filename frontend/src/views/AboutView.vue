@@ -123,24 +123,25 @@
                 [
                     {
                         id: 0,
-                        cls: ['card-container', 'component-theme'],
                         title: 'Styreleder',
                         name: 'Helle V. Rødahl',
+                        cls: ['card-container', 'component-theme'],
                         // Make the email and phone numbers bot protected
                         contactData:
                         [
                             {
                                 id: 0,
-                                type: ['email', 'external'],
-                                cls: 'card-data',
+                                
+                                cls: ['card-data'],
                                 name: 'Send en Epost',
+                                type: ['email', 'external'],
                                 href: 'mailto:' + 'demo' +'@' + 'example.com',
                             },
                             {
                                 id: 1,
-                                name: '+47' + '12' + '34' + '56' + '78',
+                                cls: ['card-data'],
                                 type: ['telephone', 'external'],
-                                cls: 'card-data',
+                                name: '+47' + '12' + '34' + '56' + '78',
                                 href : 'tel:' + '+47' + '12' + '34' + '56' + '78',
                             },
                         ],
@@ -148,32 +149,31 @@
                         img:
                         {
                             type: 'jpg',
-                            cls: 'contact-logo',
+                            cls: ['contact-logo'],
                             src: '/media/images/team/profil-helle-privat.jpg',
                             alt: "JPG bilde av Helle V. Rødahl",
                         },
                     },
                     {
                         id: 1,
+                        name: 'Rune Kvarme',
                         title: 'Generalsekretær',
                         cls: ['card-container', 'component-theme'],
-                        name: 'Rune Kvarme',
 
-                        // Make the email and phone numbers bot protected
                         contactData:
                         [
                             {
                                 id: 0,
-                                type: ['email', 'external'],
-                                cls: 'card-data',
+                                cls: ['card-data'],
                                 name: 'Send en Epost',
-                                href: 'mailto:' + 'demo' + '@' + 'example.com',
+                                type: ['email', 'external'],
+                                href: 'mailto:' + 'rune.kvarme' + '@' + 'samfunnsbedriftene.no',
                             },
                             {
                                 id: 1,
-                                name: '+47' + '12' + '34' + '56' + '78',
+                                cls: ['card-data'],
                                 type: ['telephone', 'external'],
-                                cls: 'card-data',
+                                name: '+47' + '12' + '34' + '56' + '78',
                                 href : 'tel:' + '+47' + '12' + '34' + '56' + '78',
                             },
                         ],
@@ -181,7 +181,7 @@
                         img:
                         {
                             type: 'png',
-                            cls: 'card-img',
+                            cls: ['card-img'],
                             alt: "Rune J. Kvarme ",
                             src: '/media/images/team/52700234381_5e75074f92_q.jpg',
                         },
@@ -232,7 +232,7 @@
                         id: 0,
                         type: ['external'],
                         href: 'https://www.example.com',
-                        cls: 'flex-wrap-row-justify-space-evenly',
+                        cls: ['flex-wrap-row-justify-space-evenly'],
 
                         img:
                         {
@@ -246,7 +246,7 @@
                         id: 1,
                         type: ['external'],
                         href: 'https://www.example.com',
-                        cls: 'flex-wrap-row-justify-space-evenly',
+                        cls: ['flex-wrap-row-justify-space-evenly'],
 
                         img:
                         {
@@ -260,7 +260,7 @@
                         id: 2,
                         type: ['external'],
                         href: 'https://www.example.com',
-                        cls: 'flex-wrap-row-justify-space-evenly',
+                        cls: ['flex-wrap-row-justify-space-evenly'],
 
                         img:
                         {
@@ -274,7 +274,7 @@
                         id: 3,
                         type: ['img','external'],
                         href: 'https://www.example.com',
-                        cls: 'flex-wrap-row-justify-space-evenly',
+                        cls: ['flex-wrap-row-justify-space-evenly'],
 
                         img:
                         {
@@ -288,7 +288,7 @@
                         id: 4,
                         type: ['img','external'],
                         href: 'https://www.example.com',
-                        cls: 'flex-wrap-row-justify-space-evenly',
+                        cls: ['flex-wrap-row-justify-space-evenly'],
 
                         img:
                         {
@@ -302,7 +302,7 @@
                         id: 5,
                         type: ['img','external'],
                         href: 'https://www.example.com',
-                        cls: 'flex-wrap-row-justify-space-evenly',
+                        cls: ['flex-wrap-row-justify-space-evenly'],
 
                         img:
                         {
