@@ -1,17 +1,25 @@
 <template>
-    <footer v-if="isArticlePage" :class="article.cls">
-        <Figure v-if="article.footer.img" :data="article.footer.img" />
-        <p v-if="article.footer.content" v-for="(p, i) in article.footer.content" :key="i">
-            {{p}}
-        </p>
-        <p>
-            <MetaData :data="article.date" v-if="article.date" :text="'published'"/>
-            <MetaData v-if="article.footer.anchor" :data="article.footer.anchor" />
-            <span v-if="article.tags && isArticlePage" :class="article.cls[4]">
-                <MetaData :array="article.tags" />
-            </span>
-        </p>
-    </footer>
+    <h4>{{ article.title }}</h4>
+    <Figure v-if="article.conclusion.img" :data="article.conclusion.img" />
+    <ul v-if="article.conclusion.list">
+        <li v-for="item in article.conclusion.list" :key="item.id">
+            {{ item.bullet }}
+        </li>
+    </ul>
+
+    <p v-if="section.cite" :class="cls[5]">
+        {{ section.cite.text }}
+    </p>
+        
+    <p v-if="article.content" 
+        v-for="(p, i) in article.content" :key="i">
+        {{p}}
+    </p>
+
+    <p>
+        <MetaData :data="article.date" v-if="article.date" :text="'published'"/>
+        <MetaData v-if="article.anchor" :data="article.anchor" />
+    </p>
 </template>
 
 <script setup>
@@ -28,9 +36,16 @@
         isArticlePage: {
             type: Boolean,
             required: true
+        },
+        id: {
+            type: String,
+            required: false
         }
     });
+    
+    const data = reactive(props.data);
 
-    const article = reactive(props.data);
+    const date = data.date;
+    const article = data.article[props.id].conclusion;
     console.log("Article Footer Component loaded with data: ", article);
 </script>
