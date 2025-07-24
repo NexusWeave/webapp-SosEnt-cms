@@ -7,7 +7,7 @@
             :key="i"
             :to="link.href"
             :class="link.cls" >
-            {{ link.name }}
+            {{ link.label }}
         </RouterLink>
         
     </template>
