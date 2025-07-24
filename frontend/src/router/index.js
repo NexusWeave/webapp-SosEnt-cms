@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+import { newsStore } from '@/stores/news-store.js';
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -17,6 +19,14 @@ const router = createRouter({
       name: 'article',
       path: '/aktuelt/artikkel/:id',
       component: () => import('../views/ArticleView.vue'),
+      beforeEnter: async (to, from, next) => {
+
+        const news = newsStore();
+        await news.fetchNews();
+
+        news.articles ? next() : next('/404');
+        
+      }
     },
     {
       name: 'program',
@@ -36,6 +46,7 @@ const router = createRouter({
       beforeEnter(to, from, next) 
       {
         const Path = window.location.orgin + to.path;
+        
         window.open(Path, '_blank');
         next('/'); // Prevent navigation to the route
       }
