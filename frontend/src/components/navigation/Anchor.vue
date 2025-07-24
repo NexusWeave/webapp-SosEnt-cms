@@ -15,16 +15,16 @@
         <template v-else-if="isMedia() == 'icon'">
             <h3 v-if="media.files.find(type => type === data.type[0])":class="data.type[0]? data.type[0] : 'default'">
                 <span class="icon" :aria-label="data.name"></span> 
-                {{ data.name }}
+                {{ data.label }}
             </h3>
             <span :class="data.type[0] ? data.type[0]:'default'" v-else>
                 <span class="icon" :aria-label="data.name"></span> 
-                {{ data.name }}
+                {{ data.label }}
             </span>
         </template>
 
         <template v-else>
-            {{ data.name }}
+            {{ data.label }}
         </template>
         
     </a>
@@ -72,8 +72,6 @@
         icons.push(media.contact);
 
         if (Array.isArray(data.type)) {
-
-            if (img) console.log("Data type array: ", img.type);
             
             switch (data.type[0]) {
 
@@ -97,7 +95,6 @@
         }
         else
         {
-            console.log("Data type: ", data.type);  
             switch (data.type)
             {
                 case media.files.find(type => type === data.type):
@@ -107,7 +104,6 @@
                     return 'download';
 
                 case img && media.images.find(type => type === img.type):
-                    console.log("Image type found: ", img.type);
                     return 'img';
 
                 default:
