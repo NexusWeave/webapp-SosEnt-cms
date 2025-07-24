@@ -9,7 +9,7 @@
         </template>
 
         <template v-else>
-            <b>{{ btn.name }}</b>
+            {{ btn.label }}
         </template>    
             
     </button>
