@@ -1,13 +1,12 @@
 <template>
-    <section :class="[news.data.cls[1]]" v-if="news.recent.length > 0">
+    <section v-if="news.recent.length > 0" :class="[news.data.cls[1]]">
         <NewsCard
             v-for="article in news.recent" 
             :key="article.id" 
             :data="article" 
-            :Cls="[ '', '', article.cls[2], article.cls[3],
-            article.cls[8], article.cls[1], article.cls[6],
-            '', article.cls[14]
-            ]"/>
+            :Cls="[[article.cls[0], article.cls[12]], article.cls[12], 
+                    article.cls[3], article.cls[11], article.cls[8],
+                    article.cls[6]]"/>
     </section>
     <S :data="aboutData" />
     <S :data="organization" />
@@ -42,20 +41,23 @@
         <h2 :class="networkData.cls[0]">{{ networkData.title }}</h2>
         <div :class="networkData.cls[2]">
 
-            <section :class="members.cls" v-if ="members.members.length > 0">
+            <section 
+                v-if ="members.data.isLoaded"
+                :class="members.cls" >
                 <table>
                     <tbody>
-                        <tr v-for="member in members.members.filter(member => member.id < 5)" :key="member.id">
+                        <tr v-for="member in members.members.slice(0, 5)" :key="member.id">
                             <td v-if="member.href">
                                 <Link :data="member"/>
                             </td>
                             <td v-else>
-                                {{ member.name }}
+                                {{ member.label }}
                             </td>
                         </tr>
                     </tbody>
                     <tfoot v-if="members.members.length > 5">
-                        <Link :data="members.media.file" />
+                        
+                        <Link :data="members.media" />
                     </tfoot>
                 </table>
             </section>
@@ -71,9 +73,10 @@
 </template>
 
 <script setup>
-    import { onMounted, reactive } from 'vue';
+    import { computed, onMounted, reactive } from 'vue';
 
-    import { newsStore } from '@/stores/newsStore.js';
+    import { newsStore } from '@/stores/news-store.js';
+    import { memberStore } from '@/stores/member-store.js';
 
     import S from '@/components/utils/Section.vue';
     import Img from '@/components/media/Figure.vue';    
@@ -124,7 +127,7 @@
                     {
                         id: 0,
                         title: 'Styreleder',
-                        name: 'Helle V. Rødahl',
+                        label: 'Helle V. Rødahl',
                         cls: ['card-container', 'component-theme'],
                         // Make the email and phone numbers bot protected
                         contactData:
@@ -133,7 +136,7 @@
                                 id: 0,
                                 
                                 cls: ['card-data'],
-                                name: 'Send en Epost',
+                                label: 'Send en Epost',
                                 type: ['email', 'external'],
                                 href: 'mailto:' + 'demo' +'@' + 'example.com',
                             },
@@ -141,7 +144,7 @@
                                 id: 1,
                                 cls: ['card-data'],
                                 type: ['telephone', 'external'],
-                                name: '+47' + '12' + '34' + '56' + '78',
+                                label: '+47' + '12' + '34' + '56' + '78',
                                 href : 'tel:' + '+47' + '12' + '34' + '56' + '78',
                             },
                         ],
@@ -156,7 +159,7 @@
                     },
                     {
                         id: 1,
-                        name: 'Rune Kvarme',
+                        label: 'Rune Kvarme',
                         title: 'Generalsekretær',
                         cls: ['card-container', 'component-theme'],
 
@@ -165,7 +168,7 @@
                             {
                                 id: 0,
                                 cls: ['card-data'],
-                                name: 'Send en Epost',
+                                label: 'Send en Epost',
                                 type: ['email', 'external'],
                                 href: 'mailto:' + 'rune.kvarme' + '@' + 'samfunnsbedriftene.no',
                             },
@@ -173,7 +176,7 @@
                                 id: 1,
                                 cls: ['card-data'],
                                 type: ['telephone', 'external'],
-                                name: '+47' + '12' + '34' + '56' + '78',
+                                label: '+47' + '12' + '34' + '56' + '78',
                                 href : 'tel:' + '+47' + '12' + '34' + '56' + '78',
                             },
                         ],
@@ -196,7 +199,7 @@
                 [
                     {
                         id: 0,
-                        name: 'Vedtekter',
+                        label: 'Vedtekter',
                         date: '2025-04-01',
                         type: ['pdf', 'calendar', 'external'],
                         cls: ['media-content', 'component-theme', 'media-text'],
@@ -207,7 +210,7 @@
                         id: 1,
                         type: ['pdf', 'calendar','external' ],
                         date: '2025-04-01',
-                        name: 'Organisasjonskart',
+                        label: 'Organisasjonskart',
                         cls: ['media-content', 'component-theme', 'media-text'],
                         description: 'Organisasjonskart over styret i SosEnt Norge.',
                         href: '/media/files/organization/SosEnt-Norge-organisajonskart.pdf',
@@ -330,14 +333,14 @@
                     {
                         id: 0,
                         type: 'external',
-                        name: 'Medlem 1',
+                        label: 'Medlem 1',
                         href: 'https://www.example.com',
                         description: 'Beskrivelse av medlem 1.',
                     },
                     {
                         id: 1,
                         type: 'external',
-                        name: 'Medlem 2',
+                        label: 'Medlem 2',
                         href: 'https://www.example.com',
                         description: 'Beskrivelse av medlem 2.',
                         
@@ -345,27 +348,27 @@
                     {
                         id: 2,
                         type: 'external',
-                        name: 'Medlem 3',
+                        label: 'Medlem 3',
                         description: 'Beskrivelse av medlem 3.',
                     },
                     {
                         id: 3,
                         type: 'external',
-                        name: 'Medlem 4',
+                        label: 'Medlem 4',
                         href: 'https://www.example.com',
                         description: 'Beskrivelse av medlem 1.',
                     },
                     {
                         id: 4,
                         type: 'external',
-                        name: 'Medlem 5',
+                        label: 'Medlem 5',
                         href: 'https://www.example.com',
                         description: 'Beskrivelse av medlem 1.',
                     },
                     {
                         id: 5,
                         type: 'external',
-                        name: 'Medlem 6',
+                        label: 'Medlem 6',
                         href: 'https://www.example.com',
                         description: 'Beskrivelse av medlem 1.',
                     },
@@ -378,7 +381,7 @@
                         type: ['pdf', 'external'],
                         cls: ['media-content'],
                         href: '/media/files/organization/SosEnt-Norge-Medlemmer.pdf',
-                        name: 'Medlemsoversikt',
+                        label: 'Medlemsoversikt',
                     },
                 },
             },
@@ -386,13 +389,16 @@
     );
 
     const news = newsStore();
+    const members = memberStore();
     const team = organization.team;
     const media = organization.media;
-    const members = networkData.membersData;
+    //const members = networkData.membersData;
     const partners = networkData.partnerData;
+
     onMounted( async () => {
         await news.fetchNews();
+        await members.fetchMembers();
     });
 
-    //  console.log("AboutView loaded with data: ", { team, media, members, partners, news });
+    console.log("AboutView loaded with data: ", );
 </script>
