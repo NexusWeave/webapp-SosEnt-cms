@@ -19,6 +19,7 @@ export const memberStore = defineStore('memberData',
                         type: ['pdf'],
                         href: '/media/files/organization/SosEnt-Norge-Medlemmer.pdf',
                     },
+                    cls : ['member-container'],
             },
         }),
         actions:
@@ -55,6 +56,7 @@ export const memberStore = defineStore('memberData',
         },
         getters:
         {
+            cls: (state) => {return state.data.cls;},
             media: (state) => {return state.data.media;},
             isLoaded: (state) => {return state.data.isLoaded;},
             members: (state) => {return state.data.members;}, // Return first 5 members
