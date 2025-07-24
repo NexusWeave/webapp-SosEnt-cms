@@ -1,7 +1,7 @@
 <template>
-    <nav :class="cls">
+    <nav :class="cls[0]">
         <Btn :data="btn[0]"/>
-        <span> {{ activePage > 0 ?  activePage + ' / ' + totalPages : '' }}</span>
+        <span :class="cls[1]"> {{ activePage > 0 ?  activePage + ' / ' + totalPages : '' }}</span>
         <Btn :data="btn[1]"/>
     </nav>
 </template>
@@ -40,7 +40,7 @@
     //  Watch for changes in the 'data' prop
     const activePage = ref(props.activePage);
 
-        watch(() => props.activePage, (newValue) => 
+    watch(() => props.activePage, (newValue) => 
     {
         activePage.value = newValue;
     });
@@ -57,7 +57,7 @@
             {
                 id: 0,
                 name: 'Forrige',
-                cls: ['button', 'archive-btn'],
+                cls: ['button', 'pagnition-btn'],
                 disabled: activePage.value <= 1 ? 'disabled' : false,
                 action: () => { if (activePage.value > 1)  activePage.value--; },
 
