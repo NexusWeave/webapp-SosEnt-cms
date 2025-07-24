@@ -22,17 +22,14 @@ export const newsStore = defineStore('newsData',
 
                     article.cls = 
                     [
-                        'flex-column-align-items-center', 'news-card', 
-                        'article-title-h2','article-title-h3', 'article-title-h4',
-                        'news-article', 'tags', 'author','article-ingress', 'text',
-
-                        'article-section', 'article-conclusion','article-citation',
-                        'article-section-content', 'article-head-content'
+                        'flex-column-align-items-center', 'flex-wrap-row',
+                        'flex-row-reversed-justify-center-align-content-center',
+                        'article-title-h2', 'article-title-h3', 'article-title-h4',
+                        'news-card', 'news-article', 'tags', 'author',
+                        'article-ingress', 'text', 'article-section',
+                        'article-section-content', 'article-conclusion',
+                        'article-citation',,'article-head-content'
                     ];
-
-                    const ID = parseInt(article.id);
-                    
-                    ID % 2 === 0 ? article.cls.push('flex-row-reversed-justify-center-align-content-center') : article.cls.push('flex-row')
                     article.anchor.href = article.anchor.href + article.id;
                     article.btn = 
                     {
@@ -45,11 +42,10 @@ export const newsStore = defineStore('newsData',
 
                     this.data.articles.push(article);
 
-                    console.log("Adding article: ", article);
+                    //console.log("Adding article: ", article);
                 });
 
             this.sortArticlesByDate();
-
             },
 
             sortArticlesByDate()
@@ -62,17 +58,19 @@ export const newsStore = defineStore('newsData',
 
             archiveArticle()
             {
+                const data = this.data.articles;
+            
                 const n = 3;
-                const length = this.data.articles.length;
-                const articles = this.data.articles.filter(article => article.archived === false);
+                const length = data.length;
 
                 if (length <= n) return;
-                
+
+                const articles = data.filter(article => article.archived === false);                
                 for (let i = n; i < articles.length; i++)
                 {
                     articles[i].archived = true;
                     articles[i].tags.push('archived');
-                    //console.log("Archiving article: ", articles[i].title);
+                    //console.log("Archiving article: ", articles[i].cls);
                 }
             },
             fetchNews()
@@ -90,7 +88,9 @@ export const newsStore = defineStore('newsData',
         },
         getters:
         {
+            
             recent: (state) => { return state.data.articles.filter(article => !article.archived); },
             archived: (state) => { return state.data.articles.filter(article => article.archived); },
+            articles: (state) => { return state.data.articles; },
         },
     });
