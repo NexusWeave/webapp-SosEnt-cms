@@ -27,7 +27,7 @@
 
         <h2 :class="organization.cls"> {{ organization.media.title }}</h2>
         <section :class="organization.media.cls">
-            <div v-for="media in media.files" :class="media.cls[0] + ' ' + media.cls[1]" :key="media.id" :data-filetype="media.type">    
+            <div v-for="media in organization.media.files" :class="media.cls[0] + ' ' + media.cls[1]" :key="media.id" :data-filetype="media.type">    
                     <Link :data="media" />
                 <span :class="media.cls[2]">Dato :
                     <b><time :datetime="media.date"> {{ media.date }}</time></b>
@@ -42,11 +42,11 @@
         <div :class="networkData.cls[2]">
 
             <section 
-                v-if ="members.data.isLoaded"
-                :class="members.cls" >
+                v-if ="membersData.isLoaded"
+                :class="membersData.cls" >
                 <table>
                     <tbody>
-                        <tr v-for="member in members.members.slice(0, 5)" :key="member.id">
+                        <tr v-for="member in membersData.members.slice(0, 5)" :key="member.id">
                             <td v-if="member.href">
                                 <Link :data="member"/>
                             </td>
@@ -55,15 +55,17 @@
                             </td>
                         </tr>
                     </tbody>
-                    <tfoot v-if="members.members.length > 5">
+                    <tfoot v-if="membersData.members.length > 5">
                         
-                        <Link :data="members.media" />
+                        <Link :data="membersData.media" />
                     </tfoot>
                 </table>
             </section>
 
-            <section :class="partners.cls" v-if ="partners.data.length > 0" >
-                <div v-for="partner in partners.data" :key="partner.id" :class="partner.cls">
+            <section v-if ="partners.isLoaded"
+                :class="partners.cls"  >
+                <div v-for="partner in partners.data" :key="partner.id" 
+                    :class="partner.cls">
                     <Link :data="partner" />
                 </div>
             </section>
@@ -82,6 +84,11 @@
     import Img from '@/components/media/Figure.vue';    
     import NewsCard from '@/components/article/Article.vue';
     import Link from '@/components/navigation/Anchor.vue';
+
+    const news = newsStore();
+    const membersData = memberStore();
+    //const partnersData = partnerStore();
+    //const organization = organizationStore();
 
     const aboutData = reactive(
         {
@@ -320,7 +327,6 @@
             membersData:
             {
                 cls: ['flex-column-align-items-center', 'member-container'],
-
                 columns: 
                 [
                     {
@@ -328,76 +334,22 @@
                         title: 'Navn',
                     },
                 ],
-                members: 
-                [
-                    {
-                        id: 0,
-                        type: 'external',
-                        label: 'Medlem 1',
-                        href: 'https://www.example.com',
-                        description: 'Beskrivelse av medlem 1.',
-                    },
-                    {
-                        id: 1,
-                        type: 'external',
-                        label: 'Medlem 2',
-                        href: 'https://www.example.com',
-                        description: 'Beskrivelse av medlem 2.',
-                        
-                    },
-                    {
-                        id: 2,
-                        type: 'external',
-                        label: 'Medlem 3',
-                        description: 'Beskrivelse av medlem 3.',
-                    },
-                    {
-                        id: 3,
-                        type: 'external',
-                        label: 'Medlem 4',
-                        href: 'https://www.example.com',
-                        description: 'Beskrivelse av medlem 1.',
-                    },
-                    {
-                        id: 4,
-                        type: 'external',
-                        label: 'Medlem 5',
-                        href: 'https://www.example.com',
-                        description: 'Beskrivelse av medlem 1.',
-                    },
-                    {
-                        id: 5,
-                        type: 'external',
-                        label: 'Medlem 6',
-                        href: 'https://www.example.com',
-                        description: 'Beskrivelse av medlem 1.',
-                    },
-                ],
-                media:
-                {
-                    file:
-                    {
-                        id: 0,
-                        type: ['pdf', 'external'],
-                        cls: ['media-content'],
-                        href: '/media/files/organization/SosEnt-Norge-Medlemmer.pdf',
-                        label: 'Medlemsoversikt',
-                    },
-                },
+                media: computed (() => membersData.data.media ) ,
+                members: computed (() => membersData.data.members ),
+                isLoaded: computed (() => membersData.data.isLoaded ),
+                
             },
         }
     );
 
-    const news = newsStore();
-    const members = memberStore();
+    
     const team = organization.team;
     const media = organization.media;
-    //const members = networkData.membersData;
     const partners = networkData.partnerData;
 
     onMounted( async () => {
         await news.fetchNews();
-        await members.fetchMembers();
+        await membersData.fetchMembers();
     });
 
     console.log("AboutView loaded with data: ", );
