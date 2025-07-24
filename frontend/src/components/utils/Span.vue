@@ -14,7 +14,7 @@
     <template v-else-if="array && array.length > 0">
         <span v-for="(item, i) in array" :key="i">
             <i :class="item.cls"></i> 
-            {{ item.title }}
+            {{ item.label }}
         </span>
     </template>
 
