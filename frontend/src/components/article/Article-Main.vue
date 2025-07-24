@@ -1,19 +1,18 @@
 <template>
-    <h3 v-if="section.title" :class="cls[1]">{{ section.title }}</h3>
-    <section 
-    v-for="content in section.contents"
-    :class=" content.id % 2 === 0 ? cls[0] : 'flex-row'"
-    :key="content.id"> 
+    <h3 v-if="section.title" :class="cls[0]">{{ section.title }}</h3>
+    <section v-for="content in section.contents"
+        :class=" content.id % 2 === 0 ? cls[1] : cls[2]"
+        :key="content.id"> 
         <Figure :data="content.img"  v-if="content.img"/>
 
-        <section :class="cls[2]">
+        <section :class="cls[3]">
             <Btn 
             v-if="content.id == 0 && isArticlePage" 
             :data="section.btn"/>
 
             <h4 
                 v-if="content.title"
-                :class="cls[3]">
+                :class="cls[4]">
                     {{ content.title }}
             </h4>
 
