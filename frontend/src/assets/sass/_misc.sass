@@ -5,12 +5,11 @@
 @use './utils/mapping' as mapping
 @use './utils/functions' as functions
 
-@import '../../../node_modules/bootstrap-icons/font/bootstrap-icons'
 .component-theme
     @include mix.light-component-theme(color.$Groovy-brown)
 
 .section-theme
-    @include mix.background-color(color.$antique-soft, color.$Groovy-brown, color.$Groovy-orange)
+    @include mix.background-color(color.$antique-soft, color.$Groovy-brown, color.$Groovy-orange)    
 
 #app
     margin: 0 auto
@@ -20,17 +19,7 @@
     font-size: 1em
     display: inline-block
     font-family: "Bootstrap-icons"
-
-button.button
-
-    border-radius: 0.5em
-    border: 1px solid color.$Groovy-brown
-    @include mix.background-color(color.$Groovy-orange, color.$soft-white)
-
-    .read-more
-        padding: 0.1em
-        font-weight: bold
-        display: inline-block
+    
 
 @each $icon-type, $props in mapping.$icon-types
 

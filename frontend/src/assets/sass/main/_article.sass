@@ -2,8 +2,9 @@
 @use '../utils/mixins' as mix
 
 article.news-card
-    padding: 1.5em
+    margin-block: 1em
     border-radius: 0.5em
+    padding-inline: 1.5em
     max-inline-size: 29em
     box-shadow: 0 0 10px rgba(color.$Groovy-brown, .2)
 
@@ -54,6 +55,9 @@ article
             color: color.$Groovy-brown
 
     section
+        .article-section
+            margin: 0
+
         .article-ingress, .article-section-content
             margin: auto
             inline-size: 38em
