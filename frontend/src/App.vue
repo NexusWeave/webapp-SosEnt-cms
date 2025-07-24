@@ -40,15 +40,14 @@ const navData = reactive({
           {
             id: 1,
             href: '/',
-            name: 'Om oss',
+            label: 'Om oss',
             type: 'router',
             cls: ['nav-link'],
           },
           {
             id: 2,
             href: '/aktuelt',
-            
-            name: 'Aktuelt',
+            label: 'Aktuelt',
             cls: ['nav-link'],
           },
           /*{
@@ -56,15 +55,15 @@ const navData = reactive({
             type: 'router',
             cls: ['nav-link'],
             href: '/fordeler',
-            name: 'Medlemsfordeler',
+            label: 'Medlemsfordeler',
           },*/
           {
             id: 4,
             type: 'router',
             cls: ['nav-link'],
             href: '/medlemskap',
-            name: 'Medlemskap',
-            
+            label: 'Medlemskap',
+
           }
         ],
       },
