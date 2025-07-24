@@ -15,10 +15,10 @@
     </template>
 
     <template v-else>
-        <section :class="data.cls">
         <h2 :class="data.cls">{{ data.title }}</h2>
-        <p v-for="(ph, i) in data.paragraphs" :key="i">
-            {{ ph }}</p>
+        <section :class="data.cls">
+            <p v-for="(p, i) in data.paragraphs" :key="i">
+            {{ p }}</p>
         </section>
     </template>
 </template>
