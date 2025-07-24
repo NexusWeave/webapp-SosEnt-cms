@@ -1,28 +1,27 @@
 <template>
     <section :class="cls[0]">
-        <section :class="cls[cls.length - 1]">
+        <section :class="cls[1]">
             <Figure  v-if="!isNewsPage || article.archived ":data="article.img"/>
-            <h2 :class="cls[1]"> {{ article.title }}</h2>
-            <p class="flex-wrap-row">
+            <h2 :class="cls[2]"> {{ article.title }}</h2>
+            <p :class="cls[3]">
                 <MetaData 
                     v-if="article.date" 
                     :data="article.date" 
                     :Cls="[article.date.cls]" 
                     :text="article.date.type"/>
-                <span :class="cls[3]" v-if="article.tags">
+                <span :class="cls[4]" v-if="article.tags">
                     <MetaData v-if="article.tags" 
-                        :Cls="[cls[4]]" 
                         :array="article.tags"/>
                 </span>
             </p>
-            <p :class="cls[2]">{{ article.ingress.content }}</p>
+            <p :class="cls[3]">{{ article.ingress.content }}</p>
             <Btn
                 v-if="article.btn  && article.section && !isArticlePage"
                 :data="article.btn"/>
 
         </section>
-        <section :class="cls[cls.length - 1]">
-            <Figure :data="article.img" v-if="isNewsPage && !isArticlePage && !article.archived"/>
+        <section :class="cls[1]" v-if="isNewsPage && !isArticlePage && !article.archived">
+            <Figure :data="article.img"/>
         </section>
     </section>
 </template>
