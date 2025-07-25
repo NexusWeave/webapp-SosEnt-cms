@@ -30,15 +30,38 @@ export const newsStore = defineStore('newsData',
                         'article-section-content', 'article-conclusion',
                         'article-citation',,'article-head-content'
                     ];
-                    article.anchor.href = article.anchor.href + article.id;
+                    
+                    
+                    article.tags.forEach(tag => { // Tags
+                        tag.cls = ['news-tag'];
+                        tag.anchor = { href: '#' };
+                    });
+                    
+                    article.anchor = 
+                    {
+                        label: 'Les mer',
+                        cls: ['read-more'],
+                        href: '/aktuelt/artikkel/' + article.id
+                    };
+                    
                     article.btn = 
                     {
                         anchor: article.anchor,
                         text: article.anchor.name,
                         href: article.anchor.href,
                         cls: ['button', 'read-more'],
-                    }
-                    article.date.type = article.date.updated ? 'updated' : 'published';
+                    };
+                    article.section.btn = 
+                    {
+                        anchor: article.anchor,
+                        text: article.anchor.name,
+                        href: article.anchor.href,
+                        cls: ['button', 'read-more'],
+                    };
+
+                    article.date.type = 'news';
+                    article.date.cls = ['article-date'];
+                    
 
                     this.data.articles.push(article);
 
@@ -88,9 +111,10 @@ export const newsStore = defineStore('newsData',
         },
         getters:
         {
-            
+            isLoaded: (state) => { return state.data.isLoaded; },
+            articles: (state) => { return state.data.articles; },
             recent: (state) => { return state.data.articles.filter(article => !article.archived); },
             archived: (state) => { return state.data.articles.filter(article => article.archived); },
-            articles: (state) => { return state.data.articles; },
+            
         },
     });
