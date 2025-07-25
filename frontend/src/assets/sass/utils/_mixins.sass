@@ -55,7 +55,6 @@
     border-radius: 0.5em
     @include background-color($bg-color, $color-text, $color-link)
     
-
 @mixin link-color($color, $color-hover: null, $color-active: null, $color-visited: null)
 
     $color: rgba($color, 1)
@@ -107,3 +106,17 @@
     background-color: rgba($bg-color, 1)
 
     @include link-color($link-color)
+
+
+@mixin font($size, $font-family: 'Nunito', $line-height: null)
+
+    @if $line-height == null
+        $line-height: 1.6
+
+    @if $font-family == null
+        $font-family: 'Nunito', sans-serif
+
+
+    font-size: $size
+    font-family: $font-family
+    line-height: $line-height
