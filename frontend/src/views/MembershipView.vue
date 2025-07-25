@@ -3,16 +3,22 @@
     <section v-for="content in membership.content" :key="content.id">
         <h3>{{ content.title }}</h3>
         <p>{{ content.content }}</p>
-        <Btn :data="membership.btn" v-if="content.id === 1"/>
+        
+        
+    </section>
+    <section v-if="membership.schema">
+        <h3>{{ membership.schema.title }}</h3>
+        <Form v-if="membership.schema" :schema="membership.schema" />
+    </section>
+    <section v-if="membership.anchor">
+        <Anchor :data="membership.anchor" />
     </section>
 </template>
 
 <script setup>
 
-    import { onMounted } from 'vue';
-    import { useRoute } from 'vue-router';
+    import Anchor from '@/components/navigation/Anchor.vue';
 
-    import Btn from '@/components/navigation/Button.vue';
     const membership = {
         title: 'Medlemskap i SoSEnT Norge',
         cls: ['membership', 'section'],
@@ -66,19 +72,12 @@
             }
 
         ],
-        btn: {
-            id: 0,
-            cls: 'btn btn-primary',
-            name: 'Meld interesse',
-            action: 'submitMembershipForm',
-
-            anchor: {
-                cls: ['card-data'],
-                name: 'Meld interesse her',
-                type: ['email', 'external'],
-                href: 'mailto:' + 'rune.kvarme' + '@' + 'samfunnsbedriftene.no',
-                
-            }
+        anchor:
+        {
+            cls: ['card-data'],
+            label: 'Meld interesse her',
+            type: ['email', 'external'],
+            href: 'mailto:' + 'rune.kvarme' + '@' + 'samfunnsbedriftene.no',
         },
 
         schema: {
