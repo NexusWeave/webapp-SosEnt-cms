@@ -9,13 +9,11 @@ const partnerData = reactive(
             id: generateHexID(),
             anchor: 
             {
-                type: 'external',
                 href: 'https://www.example.com',
                 img:
                 {
                     type: 'png',
                     alt: 'SoSent Logo',
-                    cls:['partner-img'],
                     src: '/media/images/partners/SosEnT-favicon.png',
                 },
             },
@@ -24,13 +22,11 @@ const partnerData = reactive(
             id: generateHexID(),
             anchor: 
             {
-                type: 'external',
                 href: 'https://www.example.com',
                 img:
                 {
                     type: 'png',
                     alt: 'SoSent Logo',
-                    cls:['partner-img'],
                     src: '/media/images/partners/SosEnT-favicon.png',
                 },
             },
@@ -39,13 +35,11 @@ const partnerData = reactive(
             id: generateHexID(),
             anchor: 
             {
-                type: 'external',
                 href: 'https://www.example.com',
                 img:
                 {
                     type: 'png',
                     alt: 'SoSent Logo',
-                    cls:['partner-img'],
                     src: '/media/images/partners/SosEnT-favicon.png',
                 },
             },
@@ -54,13 +48,11 @@ const partnerData = reactive(
             id: generateHexID(),
             anchor: 
             {
-                type: 'external',
                 href: 'https://www.example.com',
                 img:
                 {
                     type: 'png',
                     alt: 'SoSent Logo',
-                    cls:['partner-img'],
                     src: '/media/images/partners/SosEnT-favicon.png',
                 },
             },
@@ -69,13 +61,11 @@ const partnerData = reactive(
             id: generateHexID(),
             anchor: 
             {
-                type: 'external',
                 href: 'https://www.example.com',
                 img:
                 {
                     type: 'png',
                     alt: 'SoSent Logo',
-                    cls:['partner-img'],
                     src: '/media/images/partners/SosEnT-favicon.png',
                 },
             },
@@ -84,28 +74,11 @@ const partnerData = reactive(
             id: generateHexID(),
             anchor: 
             {
-                type: 'external',
                 href: 'https://www.example.com',
                 img:
                 {
                     type: 'png',
                     alt: 'SoSent Logo',
-                    cls:['partner-img'],
-                    src: '/media/images/partners/SosEnT-favicon.png',
-                },
-            },
-        },
-        {
-            id: generateHexID(),
-            anchor: 
-            {
-                type: 'external',
-                href: 'https://www.example.com',
-                img:
-                {
-                    type: 'png',
-                    alt: 'SoSent Logo',
-                    cls:['partner-img'],
                     src: '/media/images/partners/SosEnT-favicon.png',
                 },
             },
