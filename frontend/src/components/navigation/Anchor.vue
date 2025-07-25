@@ -1,5 +1,5 @@
 <template>
-    <a v-if ="data.href"
+    <a
         :href="data.href"
         :class="data.cls"
         :target="isExternal() ? '_blank' : '_self'"
@@ -9,7 +9,7 @@
         >
 
         <template v-if="isMedia() === 'img'">
-            <Img :data="img"/>
+            <Figure :data="img" />
         </template>
 
         <template v-else-if="isMedia() == 'icon'">
@@ -33,8 +33,9 @@
 
 <script setup>
 
-    import Img from '@/components/media/Figure.vue';
-    import { defineProps, reactive } from 'vue';
+    import { defineProps } from 'vue';
+
+    import Figure from '@/components/media/Figure.vue';
 
     const props = defineProps({
         data: {
@@ -53,7 +54,6 @@
 
     const data = props.data;
     const img = data.img? data.img : null;
-    const icons = reactive([]);
     
     const isExternal = () => {
         if (Array.isArray(data.type)) {
@@ -68,9 +68,10 @@
     const isMedia = () => {
         if (!data.type) return false;
 
-        icons.push(media.files);
-        icons.push(media.contact);
-
+        if (!Array.isArray(data.type)) {
+            console.warn('Data type is not an array:', data.type, data);
+            return false;
+        }
         if (Array.isArray(data.type)) {
             
             switch (data.type[0]) {
@@ -83,34 +84,20 @@
 
                 case media.downloadFiles.find(type => type === data.type[0]):
                     return 'download';
-                
+
                 case 'img':
-                    if (media.images.find(type => type === img.type)) return 'img';
-                    return false
+                    if (media.images.find(type => type === data.img.type)) {
+                        return 'img';
+                    }
+                    console.warn('Image type is not supported:', data.img.type, data);
 
                 default:
+                    console.log(data.img)
+                    console.warn('Data type is illegal:', data.type, data);
                     return false;
-            }
-            
-        }
-        else
-        {
-            switch (data.type)
-            {
-                case media.files.find(type => type === data.type):
-                    return 'file';
-                
-                case media.downloadFiles.find(type => type === data.type):
-                    return 'download';
-
-                case img && media.images.find(type => type === img.type):
-                    return 'img';
-
-                default:
-                    return false;
-            }
+            }   
         }
     };
 
-    //console.log("Link component loaded with data: ", data);
+    console.log("Link component loaded with data: ", data, img);
 </script>
