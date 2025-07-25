@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import { newsStore } from '@/stores/news-store.js';
+import { memberStore } from '@/stores/member-store.js';
+import { partnerStore } from '@/stores/partner-store.js';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -9,6 +11,19 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: () => import('../views/AboutView.vue'),
+
+      beforeEnter: async (to, from, next) => {
+
+        const news = newsStore();
+        const members = memberStore();
+        const partners = partnerStore();
+
+        await news.fetchNews();
+        await members.fetchMembers();
+        await partners.fetchPartners();
+
+        news.isLoaded && members.isLoaded && partners.isLoaded ? next() : next();
+      }
     },
     {
       name: 'news',
