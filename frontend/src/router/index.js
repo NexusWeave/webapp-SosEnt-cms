@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { newsStore } from '@/stores/news-store.js';
 import { memberStore } from '@/stores/member-store.js';
 import { partnerStore } from '@/stores/partner-store.js';
+import { organizationStore } from '@/stores/organization-store';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,12 +18,14 @@ const router = createRouter({
         const news = newsStore();
         const members = memberStore();
         const partners = partnerStore();
-
+        const organization = organizationStore();
+        
         await news.fetchNews();
         await members.fetchMembers();
         await partners.fetchPartners();
+        await organization.fetchOrganization();
 
-        news.isLoaded && members.isLoaded && partners.isLoaded ? next() : next();
+        news.isLoaded && members.isLoaded && partners.isLoaded && organization.isLoaded ? next() : next();
       }
     },
     {
@@ -37,8 +40,8 @@ const router = createRouter({
       beforeEnter: async (to, from, next) => {
 
         const news = newsStore();
-        await news.fetchNews();
 
+        await news.fetchNews();
         news.articles ? next() : next('/404');
         
       }
