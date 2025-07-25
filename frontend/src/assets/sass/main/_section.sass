@@ -1,8 +1,13 @@
 @use '../utils/colors' as color
-@use '../utils/mixins' as mixin
+@use '../utils/mixins' as mix
 
 
 .media-container
+    inline-size: 100%
+
+    .connections-h2
+        inline-size: calc(100% - 24em)
+
     .media-text
         display: block
         font-size: 0.999em
@@ -27,22 +32,34 @@
             inline-size: 100%
             object-fit: cover
 
-div.card-container
-    padding: 2em 1em
-    inline-size: 26em
-    text-align: center
-        
-    img
-        inline-size: 100%
+.card-container
+    inline-size: 100%
+
+    .card-content
+        padding: 2em 1em
+        inline-size: 26em
+        text-align: center
+
+        img
+            inline-size: 100%
     
     .card-data
         text-align: center
         padding-block: .5em
 
+    .organization-h2
+        inline-size: calc(100% - 10.11em)
 
-.h2
-    text-align: center
+        &:nth-child(3)
+            inline-size: calc(100% - 12.6em)
+.organization-h2
+        inline-size: calc(100% - 21.11em)
+
+.p-content
+    text-align: justify
+    max-inline-size: 31em
+    @include mix.font(1.3em, 'Inter, sans-serif')
 
 .member-container
 
-    @include mixin.background-color(color.$soft-white, color.$Groovy-brown, color.$Groovy-orange)
+    @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$Groovy-orange)
