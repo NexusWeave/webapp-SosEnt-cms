@@ -8,7 +8,6 @@ export const partnerStore = defineStore('partnerData',
             data: {
                 partners: [],
                 isLoaded: false,
-                
             },
             
         }),
