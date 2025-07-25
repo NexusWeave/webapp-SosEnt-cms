@@ -27,15 +27,13 @@
 
     .#{$icon-type}
         .icon
-            color: map.get($file-style, txt-color) !important
+            
             content: map.get($file-style, icon)
+            color: map.get($file-style, text-color) !important
 
             &::before
                 padding: 0.5em
                 content: map.get($file-style, icon)
-
-            &:hover
-                color: map.get($file-style, hover-color) !important
 
 @each $tags, $props in mapping.$tags
 
