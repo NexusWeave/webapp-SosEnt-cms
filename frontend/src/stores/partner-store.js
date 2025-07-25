@@ -6,6 +6,7 @@ export const partnerStore = defineStore('partnerData',
     {
         state: () => ({
             data: {
+                cls: ['partner-container', 'flex-wrap-row-justify-space-evenly'],
                 partners: [],
                 isLoaded: false,
             },
@@ -17,7 +18,10 @@ export const partnerStore = defineStore('partnerData',
             {
                 partners.forEach(partner =>
                     {
-                        partner.cls = ['partner-container', 'flex-wrap-row-justify-space-evenly']
+                        partner.cls = ['partner-img'];
+                        partner.anchor.img.cls = ['partner-img'];
+                        partner.anchor.type = ['img', 'external'];
+
                         this.data.partners.push(partner);
                         console.log("Partner added: ", partner);
                     }); 
@@ -42,7 +46,8 @@ export const partnerStore = defineStore('partnerData',
         },
         getters:
         {
-            partners: (state) => {return state.data.partners},
-            isLoaded: (state) => {return state.data.isLoaded},
+            cls: (state) => {return state.data.cls;},
+            partners: (state) => {return state.data.partners;},
+            isLoaded: (state) => {return state.data.isLoaded;},
         },
     });
