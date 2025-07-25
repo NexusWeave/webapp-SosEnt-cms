@@ -17,6 +17,7 @@ import { RouterView } from 'vue-router';
 
 import Header from './views/utils/HeaderView.vue';
 import Footer from './views/utils/FooterView.vue';
+import { generateHexID } from './utils/utils';
 
 const navData = reactive({
   header:
@@ -32,46 +33,48 @@ const navData = reactive({
       
       nav:
       {
-        cls: ['nav-bar', 'flex-wrap-row-justify-space-evenly'],
-        type: 'router-link',
         id: 'main-nav',
+        type: 'router-link',
+        cls: ['nav-bar', 'flex-wrap-row-justify-space-evenly'],
+        
         menu: 
         [
           {
-            id: 1,
             href: '/',
-            label: 'Om oss',
             type: 'router',
+            label: 'Om oss',
             cls: ['nav-link'],
+            id: generateHexID(),
           },
           {
-            id: 2,
             href: '/aktuelt',
             label: 'Aktuelt',
             cls: ['nav-link'],
+            id: generateHexID(),
           },
           /*{
-            id: 3,
+            
             type: 'router',
             cls: ['nav-link'],
             href: '/fordeler',
+            id: generateHexID(),
             label: 'Medlemsfordeler',
           },*/
           {
-            id: 4,
             type: 'router',
             cls: ['nav-link'],
+            id: generateHexID(),
             href: '/medlemskap',
             label: 'Medlemskap',
-
           }
         ],
       },
       anchor: 
       {
-        cls: 'flex-wrap-row-justify-flex-start',
-        href: '/',
-        type: ['img'],
+        href: '/', 
+        type: ['img'], 
+        cls: ['flex-wrap-row-justify-flex-start'],
+
         img:
         {
           type: 'png',
@@ -91,19 +94,20 @@ const navData = reactive({
       cls: ['flex-wrap-row-align-center', 'component-theme', 'flex-wrap-row-justify-space-between'],
       text: ' © alle rettigheter reservert av SosEnT Norge',
     },
-    menu: 
+    menu:
     [
       {
-        type: ['external'],
-        name : "Personvern",
-        cls: ['link', 'nav-item'],
+        
+        cls: ['nav-item'],
+        label: "Personvern",
+        type: ['link','external'],
         href: "/media/files/misc/SosEnT_personvern.pdf",
       },
       {
 
         cls: ['nav-item'],
         type: ['external'],
-        name: "NO 935 329 930",
+        label: "NO 935 329 930",
         href: "https://proff.no/selskap/sosent-norge/oslo/medlemsorganisasjoner/IFGVD6Y10PU"
       },
     ],
