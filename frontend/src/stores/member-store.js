@@ -19,7 +19,7 @@ export const memberStore = defineStore('memberData',
                         type: ['pdf'],
                         href: '/media/files/organization/SosEnt-Norge-Medlemmer.pdf',
                     },
-                    cls : ['member-container'],
+                    cls : ['flex-column-align-items-center', 'member-container'],
             },
         }),
         actions:
@@ -28,9 +28,8 @@ export const memberStore = defineStore('memberData',
             {
                 members.forEach(member => 
                     {
-                        member.type = 'external';
                         this.data.members.push(member);
-                        console.log("Members added: ", member);
+                        //console.warn("Members added: ", member);
                     });
             },
             randomizeMembers()
@@ -47,9 +46,10 @@ export const memberStore = defineStore('memberData',
                         this.addMembers(members);
                         this.randomizeMembers();
                         this.data.isLoaded = true;
+
                     }).catch((error) =>
                     {
-                        console.warn("Error fetching members: ", error);
+                        console.error("Error fetching members: ", error);
                         this.data.isLoaded = false;
                     });
             }
