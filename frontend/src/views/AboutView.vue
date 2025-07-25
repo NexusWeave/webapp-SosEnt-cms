@@ -10,7 +10,6 @@
     </section>
     <S :data="aboutData" />
     <S :data="organization" />
-
     <section :class="organization.cls[1]">
         <h2 :class="organization.cls[0]"> {{ organization.team.title }}</h2>
         
@@ -42,11 +41,11 @@
         <div :class="networkData.cls[2]">
 
             <section 
-                v-if ="membersData.isLoaded"
-                :class="membersData.cls" >
+                v-if ="members.isLoaded"
+                :class="members.cls" >
                 <table>
                     <tbody>
-                        <tr v-for="member in membersData.members.slice(0, 5)" :key="member.id">
+                        <tr v-for="member in members.members.slice(0, 5)" :key="member.id">
                             <td v-if="member.href">
                                 <Link :data="member"/>
                             </td>
@@ -55,18 +54,18 @@
                             </td>
                         </tr>
                     </tbody>
-                    <tfoot v-if="membersData.members.length > 5">
+                    <tfoot v-if="members.members.length > 5">
                         
-                        <Link :data="membersData.media" />
+                        <Link :data="members.media" />
                     </tfoot>
                 </table>
             </section>
 
             <section v-if ="partners.isLoaded"
                 :class="partners.cls"  >
-                <div v-for="partner in partners.data" :key="partner.id" 
+                <div v-for="partner in partners.members" :key="partner.id" 
                     :class="partner.cls">
-                    <Link :data="partner" />
+                    <Link :data="partner.anchor" />
                 </div>
             </section>
         </div>
@@ -78,16 +77,19 @@
     import { computed, onMounted, reactive } from 'vue';
 
     import { newsStore } from '@/stores/news-store.js';
+    import { partnerStore } from '@/stores/partner-store';
     import { memberStore } from '@/stores/member-store.js';
-
+    
     import S from '@/components/utils/Section.vue';
     import Img from '@/components/media/Figure.vue';    
     import NewsCard from '@/components/article/Article.vue';
     import Link from '@/components/navigation/Anchor.vue';
 
     const news = newsStore();
-    const membersData = memberStore();
-    //const partnersData = partnerStore();
+    const members = memberStore();
+    const partners = partnerStore();
+    
+    
     //const organization = organizationStore();
 
     const aboutData = reactive(
@@ -334,9 +336,9 @@
                         title: 'Navn',
                     },
                 ],
-                media: computed (() => membersData.data.media ) ,
-                members: computed (() => membersData.data.members ),
-                isLoaded: computed (() => membersData.data.isLoaded ),
+                media: computed (() => members.data.media ) ,
+                members: computed (() => members.data.members ),
+                isLoaded: computed (() => members.data.isLoaded ),
                 
             },
         }
@@ -345,11 +347,13 @@
     
     const team = organization.team;
     const media = organization.media;
-    const partners = networkData.partnerData;
+    //const partners = networkData.partnerData;
 
     onMounted( async () => {
         await news.fetchNews();
-        await membersData.fetchMembers();
+        await members.fetchMembers();
+        await partners.fetchPartners();
+        //await organization.fetchOrganization();
     });
 
     console.log("AboutView loaded with data: ", );
