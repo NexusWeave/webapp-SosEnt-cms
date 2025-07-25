@@ -5,10 +5,8 @@
             <h2 :class="cls[2]"> {{ article.title }}</h2>
             <p :class="cls[3]">
                 <MetaData 
-                    v-if="article.date" 
                     :data="article.date" 
-                    :Cls="[article.date.cls]" 
-                    :text="article.date.type"/>
+                    :Cls="[article.date.cls]" />
                 <span :class="cls[4]" v-if="article.tags">
                     <MetaData v-if="article.tags" 
                         :array="article.tags"/>
