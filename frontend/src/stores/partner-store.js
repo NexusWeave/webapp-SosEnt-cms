@@ -45,6 +45,5 @@ export const partnerStore = defineStore('partnerData',
         {
             partners: (state) => {return state.data.partners},
             isLoaded: (state) => {return state.data.isLoaded},
-
         },
     });
