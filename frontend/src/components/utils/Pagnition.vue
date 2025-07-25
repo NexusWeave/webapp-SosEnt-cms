@@ -56,7 +56,7 @@
         [
             {
                 id: 0,
-                name: 'Forrige',
+                label: 'Forrige',
                 cls: ['button', 'pagnition-btn'],
                 disabled: activePage.value <= 1 ? 'disabled' : false,
                 action: () => { if (activePage.value > 1)  activePage.value--; },
@@ -64,7 +64,7 @@
             },
             {
                 id: 1,
-                name: 'Neste',
+                label: 'Neste',
                 cls: ['button', 'archive-btn'],
                 disabled: activePage.value >= totalPages.value? 'disabled' : false,
                 action: () => { if (activePage.value < totalPages.value)  activePage.value++; },
