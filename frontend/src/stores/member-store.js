@@ -30,8 +30,8 @@ export const memberStore = defineStore('memberData',
                     {
                         member.type = 'external';
                         this.data.members.push(member);
+                        console.log("Members added: ", member);
                     });
-                    console.log("Members added: ", this.data.members);
             },
             randomizeMembers()
             {
@@ -40,7 +40,7 @@ export const memberStore = defineStore('memberData',
             },
             fetchMembers()
             {
-                if (this.isLoaded) return;
+                if (this.data.isLoaded) return;
 
                 fetchMembers().then((members) => 
                     {
@@ -58,7 +58,7 @@ export const memberStore = defineStore('memberData',
         {
             cls: (state) => {return state.data.cls;},
             media: (state) => {return state.data.media;},
+            members: (state) => {return state.data.members;},
             isLoaded: (state) => {return state.data.isLoaded;},
-            members: (state) => {return state.data.members;}, // Return first 5 members
         },
     });
