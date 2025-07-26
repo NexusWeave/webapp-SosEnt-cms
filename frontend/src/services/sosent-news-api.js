@@ -6,7 +6,7 @@ import { generateHexID } from '@/utils/utils.js';
 const articles = reactive(
     [
         {
-            id: "0",
+            id: '0',
             title: 'Sosialt entreprenørskap må ikke svekkes av registerkrav',
             tags:[
                 {
