@@ -11,9 +11,7 @@
 
     <section v-if="organization.isLoaded"
             :class="organization.cls[0]">
-        <div>
             <h2 :class="organization.cls[2]"> {{ organization.title }}</h2>
-        </div>
         <p v-for="paragraph in organization.content"
             :class="organization.cls[1]"
             :key="paragraph.id">{{ paragraph }}</p>
@@ -113,5 +111,5 @@
         }
     );
 
-    console.log("AboutView loaded with data: ", );
+    //console.log("AboutView loaded with data: ", );
 </script>
