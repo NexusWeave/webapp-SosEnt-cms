@@ -8,34 +8,20 @@ const articles = reactive(
         {
             id: '0',
             title: 'Sosialt entreprenørskap må ikke svekkes av registerkrav',
-            tags:[
-                {
-                    id: generateHexID(),
-                    label: 'registerløsning',
-                },
-                {
-                    id: generateHexID(),
-                    label: 'rammevilkår',
-                }
-            ],
-
             img:
             { 
                 alt: 'KIME-ressurssenter.jpg',
                 cls: ['article-figure','article-img'],
                 src: '/media/images/team/ressurssenter/KIME-ressurssenter.jpg',
-                caption: 'Foto: KIME Ressurssenter',
+                caption: 'Illustrasjonsbilde fra KIMEs gründerprogram for flerkulturelle entreprenører. Foto: MIKS Ressurssenter',
             },
 
             date:
             {
-                updated: '01.06-2025',
-                published: '01.06-2025',
+                published: '06.13-2025',
             },
 
             ingress: {
-                title: `Sosialt entreprenørskap må ikke svekkes av 
-                registerkrav`,
                 content: `Sosiale entreprenører uttrykker bekymring for
                 en foreslått ny registerløsning. Generalsekretær Rune
                 Kvarme i SosEnt Norge advarer om at dette kan utelukke
@@ -52,7 +38,7 @@ const articles = reactive(
                         
                         alt: 'KIME-ressurssenter.jpg',
                         caption: 'Foto: KIME Ressurssenter',
-                        cls: ['article-figure','article-img'],
+                        cls: ['figure-grid','article-img'],
                         src: '/media/images/team/ressurssenter/KIME-ressurssenter.jpg',
                 },
                 contents:
@@ -60,27 +46,16 @@ const articles = reactive(
                     {
                         
                         cls: ['flex-row'],
-                        id: generateHexID(),
-                        content: `– Vi må ikke skylle de sosiale
+                        id: 0,
+                        content: [`Vi må ikke skylle de sosiale
                         entreprenørene ut med badevannet gjennom en ny
                         registerløsning. Det sier generalsekretær
                         Rune Kvarme i SosEnt Norge, som nylig var med på
                         et dialogmøte i Digitaliserings- og
-                        forvaltningsdepartementet.`,
-                        img:
-                        {
-                            alt: 'KIME-ressurssenter.jpg',
-                            caption: 'Foto: KIME Ressurssenter',
-                            cls: ['content-figure','article-img'],
-                            src: '/media/images/team/ressurssenter/KIME-ressurssenter.jpg',
-                        },
-                    },
-                    {
-                        id: generateHexID(),
-                        content:`– Det må ikke bli slik at et
-                        «ideell-register» i praksis stenger veien for
-                        enkeltpersonforetak, AS-er og andre
-                        organisasjonsformer som benyttes av sosiale
+                        forvaltningsdepartementet.`, 
+                        `Det må ikke bli slik at et «ideell-register» i
+                        praksis stenger veien for enkeltpersonforetak, AS-er
+                        og andre organisasjonsformer som benyttes av sosiale
                         entreprenører, legger han til. Den 11. juni deltok
                         Kvarme på et dialogmøte i Digitaliserings- og
                         forvaltningsdepartementet. Statssekretær Anette
@@ -91,167 +66,217 @@ const articles = reactive(
                         forarbeidet med den nye loven. Her opplevde man
                         et relativt stort sprik mellom de ulike
                         høringsinnspillene til NOU 2024:1 Definisjon og
-                        registrering av ideelle velferdsaktører.`,
+                        registrering av ideelle velferdsaktører.`],
+                        img:
+                        {
+                            alt: 'KIME-ressurssenter.jpg',
+                            caption: 'Foto: KIME Ressurssenter',
+                            cls: ['figure-grid','article-img'],
+                            src: '/media/images/team/ressurssenter/KIME-ressurssenter.jpg',
+                        },
                     },
                     {
-                        id: generateHexID(),
+                        id: 2,
                         title: 'Må ikke straffes for å være liten',
-                        content: `– Det må heller ikke stilles så store
+                        content: [`Det må heller ikke stilles så store
                         krav og kostnader til registrereringen at det
                         blir uoverkommelig for de ofte små sosiale
                         entreprenørene å bli en del av dette registret,
-                        sa Kvarme på møtet.
-                        – Et slikt register kan raskt bli det som NAV og
-                        forvaltningen peker på når det kommer til
-                        prosjektmidler, anbud og tilskudd. Og da
+                        sa Kvarme på møtet.`, `Et slikt register kan raskt
+                        bli det som NAV og forvaltningen peker på når det
+                        kommer til prosjektmidler, anbud og tilskudd. Og da
                         risikerer vi å stenge ute mange av de sosiale
                         entreprenørene som gjør en betydelig innsats
                         rundt omkring i landet vårt. For SosEnt Norge er
                         det også viktig at det ikke settes noen særlige
                         begrensinger på graden av kommersielle inntekter
-                        for å kunne stå i det foreslåtte registret.
-                        – Det må jo være bra at den kommersielle driften
+                        for å kunne stå i det foreslåtte registret.`,
+                        `Det må jo være bra at den kommersielle driften
                         ute hos de sosiale entreprenørene er med på å
                         betale den velferden som disse aktørene bidrar
                         til gjennom formålsparagraf og utbytteforbud,
-                        avslutter Kvarme.`
+                        avslutter Kvarme.`]
                     },
                 ],
-            },
-
-            conclusion:
-            {
-                title: 'Oppsummering av artikkelen',
-                list :
-                [
-                    {
-                        id: generateHexID(),
-                        bullet: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                    },
-                    {
-                        id: generateHexID(),
-                        bullet: 'Sed erat arcu, tempus in pretium quis, tempus vel lectus.',
-                    },
-                    {
-                        id: generateHexID(),
-                        bullet: 'Mauris vel sem elit. Vestibulum vitae dignissim purus.',
-                    },
-                ],
-                img:
-                {
-                    alt: 'KIME-ressurssenter.jpg',
-                    caption: 'Foto: KIME Ressurssenter',
-                },
             },
         },
         {
             id: "1",
-            title: 'Sosialt entreprenørskap må ikke svekkes av registerkrav',
-            tags:[
-                {
-                    id: generateHexID(),
-                    label: 'registerløsning',
-                },
-                {
-                    id: generateHexID(),
-                    label: 'rammevilkår',
-                }
-            ],
-
+            title: 'Ny landsforening skal styrke sosiale entreprenører',
             img:
             { 
-                alt: 'KIME-ressurssenter.jpg',
+                alt: 'KIME-klar-kompetanse-kokk-herre-dame.jpg',
                 cls: ['article-figure','article-img'],
-                src: '/media/images/team/ressurssenter/KIME-ressurssenter.jpg',
-                caption: 'Foto: KIME Ressurssenter',
+                src: '/media/images/misc-images/klar-kompetanse-kokk-herre-dame.jpg',
+                caption: 'Fotograf Karina Lange, Klar Kompetanse',
             },
 
             date:
             {
-                published: '01.05-2025',
+                published: '04.22-2025',
             },
 
             ingress: {
-                title: `Sosialt entreprenørskap må ikke svekkes av 
-                registerkrav`,
-                content: `Sosiale entreprenører uttrykker bekymring for
-                en foreslått ny registerløsning. Generalsekretær Rune
-                Kvarme i SosEnt Norge advarer om at dette kan utelukke
-                små aktører og kvele innovasjon. Frykten er at strenge
-                krav vil begrense velferdsbidraget fra sosialt
-                entreprenørskap i landet.`
+                content: `SosEnt Norge er etablert for å styrke sosiale entreprenører,
+                fremme deres samfunnsnytte og forbedre rammevilkårene. Foreningen blir
+                et viktig talerør og en møteplass for erfaringsutveksling, med
+                Samfunnsbedriftene som sekretariat. Meld din interesse!`
             },
 
             section:
             {
-                title: 'Lorem ipsum dolor sit amet',
-                img:
-                    {
-                        
-                        alt: 'KIME-ressurssenter.jpg',
-                        caption: 'Foto: KIME Ressurssenter',
-                        cls: ['article-figure','article-img'],
-                        src: '/media/images/team/ressurssenter/KIME-ressurssenter.jpg',
-                },
+                title: `Ny forening samler og styrker Norges "fjerde sektor"`,
                 contents:
                 [
                     {
-                        cls: ['flex-row'],
-                        id: generateHexID(),
-                        content: `– Vi må ikke skylle de sosiale
-                        entreprenørene ut med badevannet gjennom en ny
-                        registerløsning. Det sier generalsekretær
-                        Rune Kvarme i SosEnt Norge, som nylig var med på
-                        et dialogmøte i Digitaliserings- og
-                        forvaltningsdepartementet.`,
-                        img:
+                        id: 0,
+                        content: [`Den nye foreningen SosEnt Norge skal
+                        være et talerør for bransjen, fremme
+                        erfaringsutveksling og synliggjøre medlemmenes
+                        betydelige samfunnsnytte. Sett gjerne av to
+                        minutter for å melde interesse.`,
+                        `I en tid med økende utenforskap, ser vi en voksende
+                        interesse for å fremme løsninger på ulike sosiale
+                        problemer, sier generalsekretær Rune Kvarme i SosEnt
+                        Norge. Han leder den nye foreningen som skal samle
+                        de ulike sosiale entreprenørene og jobbe for å
+                        styrke rammevilkårene deres.`,
+                        `Dette er virksomheter som gir verdighet til
+                        enkeltmennesker og som utvikler arbeidskraft og
+                        kompetanse lokalt. Da trenger de en sterkere stemme
+                        opp mot ulike myndigheter og i samfunnsdebatten
+                        generelt.`
+                    ],
+                    },
+
+                    {
+                        id: 3,
+                        title: 'Hva er SosEnt Norge?',
+                        content: 
+                        [ `I denne bransjen er det mange dyktige og sterke
+                        fagmiljøer. Ved å komme sammen og dele erfaringer,
+                        tror vi også det er et potensial for at de kan
+                        spille hverandre enda bedre. Som kjent kan det være
+                        mye å lære av andre.`,
+                        ],
+                        
+                        cta:
+                        [
+                            {
+                                id: generateHexID(),
+                                title: 'Er du en sosial entreprenør?',
+                                content: `Ellers ønsker du å bli det? Da ville det
+                                hjelpe oss stort om du tok deg to minutter til å
+                                melde din interesse ved besvare noen spørsmål. Å
+                                svare er helt uforpliktende og innebærer ikke
+                                innmelding.`,
+                                nav: 
+                                [
+                                    {
+                                        id: generateHexID(),
+                                        href: '#/medlemskap',
+                                        label: 'MELD DIN INTERESSE',
+                                    },
+                                ],
+                            },
+                            {
+                                id: generateHexID(),
+                                title: 'Sosiale entreprenører',
+                                content: `Sosiale entreprenører jobber for å løse
+                                samfunnsutfordringer gjennom innovative løsninger
+                                som kombinerer økonomisk bærekraft med sosiale mål.
+                                Til tross for deres betydelige samfunnsbidrag,
+                                møter de ofte utfordringer knyttet til finansiering,
+                                reguleringer og anerkjennelse.`,
+                            },
+                            {
+                                id: generateHexID(),
+                                title: 'SosEnt Norge',
+                                content: `SosEnt Norge skal jobbe for at sosiale
+                                entreprenører skal få bedre rammevilkår. I
+                                grunnlagsdokumentet kan du lese mer om bakgrunn,
+                                interimstyret og finansiering: Grunnlagsdokumentet
+                                for SosEnt Norge`,
+                                
+                                anchor:
+                                {
+                                    label: 'GRUNNLAGSDOKUMENTET',
+                                    href: '/media/documents/sosent-norge-grunnlagsdokument.pdf',
+                                },
+                            },
+                        ],
+                    },
+                    {
+                        id: 4,
+                        title: 'Hva skal SosEnt Norge gjøre?',
+                        content: ['formålet med SosEnt Norge er å:'],
+                        list: [
+                            {
+                                id: generateHexID(),
+                                bullet: `Definere sosialt entreprenørskap i en
+                                norsk kontekst.`,
+                            },
+                            {
+                                id: generateHexID(),
+                                bullet: `Spre kunnskap om denne «fjerde sektoren».`,
+                            },
+                            {
+                                id: generateHexID(),
+                                bullet: `Påvirke interessepolitisk for å bedre
+                                rammevilkårene til sosiale entreprenører i Norge.`,
+                            },
+                            {
+                                id: generateHexID(),
+                                bullet: `Gjøre det lettere å finne finansiering
+                                til drift og lage partnerskap med det offentlige.`,
+                            },
+                            {
+                                id: generateHexID(),
+                                bullet: `Svare ut aktuelle høringer som angår
+                                de sosiale entreprenørene.`,
+                            },
+                            {
+                                id: generateHexID(),
+                                bullet: `Spredning av kunnskap, og lage
+                                matnyttige nettverk og møteplasser for
+                                foreningens medlemmer.`,
+                            },
+                        ],
+                    },
+                    {
+                        id: 5,
+                        title: 'Samfunnsbedriftene er sekretariat',
+                        content: [`Samfunnsbedriftene er valgt som
+                        sekretariat for den nye foreningen. Det er flere
+                        grunner til dette. For det første har
+                        Samfunnsbedriftene mye kompetanse innenfor
+                        politisk påvirkning, juridisk rådgivning og
+                        nettverksbygging. For det andre kan
+                        Samfunnsbedriftenes tilknytning til KS gi sosiale
+                        entreprenører en viktig plattform for å fremme
+                        sine interesser. Ved å benytte seg av
+                        Samfunnsbedriftenes kapasitet, kan SosEnt Norge
+                        dessuten konsentrere seg om sine kjerneoppgaver.
+                        Det hører også med til historien at det var
+                        Samfunnsbedriftene som i 2024 tok initiativ til å
+                        samle de ulike sosiale entreprenørene og sondere
+                        viljen til å danne en forening.`]
+                    },
+                    {
+                        id: 6,
+                        title: 'Er du en sosial entreprenør?',
+                        content: 
+                        [`Ellers ønsker du å bli det? Da ville det hjelpe
+                        oss stort om du tok deg to minutter til å melde din
+                        interesse ved besvare noen spørsmål. Å svare er
+                        helt uforpliktende og innebærer ikke innmelding.`
+                        ],
+                        anchor:
                         {
-                            alt: 'KIME-ressurssenter.jpg',
-                            caption: 'Foto: KIME Ressurssenter',
-                            cls: ['content-figure','article-img'],
-                            src: '/media/images/team/ressurssenter/KIME-ressurssenter.jpg',
+                            cls: ['read-more'],
+                            href: '#/aktuelt/artikkel/1',
+                            label: 'samle de ulike sosiale entreprenørene ',
                         },
-                    },
-                    {
-                        id: generateHexID(),
-                        content:`– Det må ikke bli slik at et
-                        «ideell-register» i praksis stenger veien for
-                        enkeltpersonforetak, AS-er og andre
-                        organisasjonsformer som benyttes av sosiale
-                        entreprenører, legger han til. Den 11. juni deltok
-                        Kvarme på et dialogmøte i Digitaliserings- og
-                        forvaltningsdepartementet. Statssekretær Anette
-                        Davidsen hadde invitert berørte bransjer til å
-                        komme med synspunkter på utkastet til ny lov om
-                        registrering av ideelle velferdsaktører. I fjor
-                        holdt departementet en høring som en del av
-                        forarbeidet med den nye loven. Her opplevde man
-                        et relativt stort sprik mellom de ulike
-                        høringsinnspillene til NOU 2024:1 Definisjon og
-                        registrering av ideelle velferdsaktører.`,
-                    },
-                    {
-                        id: generateHexID(),
-                        title: 'Må ikke straffes for å være liten',
-                        content: `– Det må heller ikke stilles så store
-                        krav og kostnader til registrereringen at det
-                        blir uoverkommelig for de ofte små sosiale
-                        entreprenørene å bli en del av dette registret,
-                        sa Kvarme på møtet.
-                        – Et slikt register kan raskt bli det som NAV og
-                        forvaltningen peker på når det kommer til
-                        prosjektmidler, anbud og tilskudd. Og da
-                        risikerer vi å stenge ute mange av de sosiale
-                        entreprenørene som gjør en betydelig innsats
-                        rundt omkring i landet vårt. For SosEnt Norge er
-                        det også viktig at det ikke settes noen særlige
-                        begrensinger på graden av kommersielle inntekter
-                        for å kunne stå i det foreslåtte registret.
-                        – Det må jo være bra at den kommersielle driften
-                        ute hos de sosiale entreprenørene er med på å
-                        betale den velferden som disse aktørene bidrar
-                        til gjennom formålsparagraf og utbytteforbud,
-                        avslutter Kvarme.`
                     },
                 ],
             },
@@ -284,17 +309,6 @@ const articles = reactive(
         {
             id: "2",
             title: 'Sosialt entreprenørskap må ikke svekkes av registerkrav',
-            tags:[
-                {
-                    id: generateHexID(),
-                    label: 'registerløsning',
-                },
-                {
-                    id: generateHexID(),
-                    label: 'rammevilkår',
-                }
-            ],
-
             img:
             { 
                 alt: 'KIME-ressurssenter.jpg',
@@ -421,17 +435,6 @@ const articles = reactive(
         {
             id: "3",
             title: 'Sosialt entreprenørskap må ikke svekkes av registerkrav',
-            tags:[
-                {
-                    id: generateHexID(),
-                    label: 'registerløsning',
-                },
-                {
-                    id: generateHexID(),
-                    label: 'rammevilkår',
-                }
-            ],
-
             img:
             { 
                 alt: 'KIME-ressurssenter.jpg',
@@ -558,17 +561,6 @@ const articles = reactive(
         {
             id: "4",
             title: 'Sosialt entreprenørskap må ikke svekkes av registerkrav',
-            tags:[
-                {
-                    id: generateHexID(),
-                    label: 'registerløsning',
-                },
-                {
-                    id: generateHexID(),
-                    label: 'rammevilkår',
-                }
-            ],
-
             img:
             { 
                 alt: 'KIME-ressurssenter.jpg',
