@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 
 import { newsStore } from '@/stores/news-store.js';
 import { memberStore } from '@/stores/member-store.js';
@@ -6,7 +6,7 @@ import { partnerStore } from '@/stores/partner-store.js';
 import { organizationStore } from '@/stores/organization-store';
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -42,6 +42,10 @@ const router = createRouter({
         const news = newsStore();
 
         await news.fetchNews();
+
+        console.warn('Article ID:', to.params.id);
+        console.warn('Articles:', news.articles);
+
         news.articles ? next() : next('/404');
         
       }
