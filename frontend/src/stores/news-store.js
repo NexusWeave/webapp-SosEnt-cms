@@ -41,7 +41,7 @@ export const newsStore = defineStore('newsData',
                     {
                         label: 'Les mer',
                         cls: ['read-more'],
-                        href: '/aktuelt/artikkel/' + article.id
+                        href: '#/aktuelt/artikkel/' + article.id
                     };
                     
                     article.btn = 
