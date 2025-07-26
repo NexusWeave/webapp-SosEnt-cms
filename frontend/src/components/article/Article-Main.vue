@@ -1,23 +1,52 @@
 <template>
     <h3 v-if="section.title" :class="cls[0]">{{ section.title }}</h3>
+
     <section v-for="content in section.contents"
-        :class=" content.id % 2 === 0 ? cls[1] : cls[2]"
+        :class="cls[1]"
         :key="content.id"> 
-        <Figure :data="content.img"  v-if="content.img"/>
 
-        <section :class="cls[3]">
-            <Btn 
-            v-if="content.id == 0 && isArticlePage" 
-            :data="section.btn"/>
+        <Figure :data="content.img"  v-if="content.img && !content.cta"/>
 
-            <h4 
-                v-if="content.title"
-                :class="cls[4]">
-                    {{ content.title }}
+        <section :class="cls[2]">
+            <Btn  v-if="content.id === 0 && isArticlePage" 
+                :data="section.btn"/>
+
+            <h4 v-if="content.title"
+            :class="cls[3]">
+                {{ content.title }}
             </h4>
-
-            <p> {{ content.content }} </p>
+            <p v-for="(paragraph, i) in content.content" 
+                :key="i">{{ paragraph }}</p>
+            <ul v-if ="content.list && content.list.length > 0">
+                <li v-for="(item, i) in content.list" :key="i">
+                {{ item.bullet }}
+                </li>
+            </ul>
         </section>
+
+        <aside v-if="content.cta" 
+            :class="cls[4]">
+            <div :class="cls[5]">
+            <section v-for="(cta, i) in content.cta" 
+                :key="i"
+                :class="cta.cls[0]">
+
+                <h4  v-if="cta.title"
+                    :class="cls[3]">
+                    {{ cta.title }}
+                </h4>
+                <p v-if="cta.content"
+                    :key="i"
+                    :class="cta.cls[1]">
+                    {{ cta.content }}
+                    <NavMenu v-if="cta.nav > 0" 
+                        v-for="(item, j) in cta.nav" 
+                        :key="j"
+                        :data="item" />
+                </p>
+            </section>
+            </div>
+        </aside>
     </section>
 
 </template>
@@ -25,10 +54,12 @@
 <script setup>
     import { defineProps, onMounted, reactive } from 'vue';
 
+    import NavMenu from '../navigation/NavMenu.vue';
     import MetaData from '@/components/utils/Span.vue';
     import Figure from '@/components/media/Figure.vue';
     import Btn from '@/components/navigation/Button.vue';
     import Anchor from '@/components/navigation/Anchor.vue';
+    
 
     const props = defineProps({
         date: {
