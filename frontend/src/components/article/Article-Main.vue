@@ -5,8 +5,6 @@
         :class="cls[1]"
         :key="content.id"> 
 
-        <Figure :data="content.img"  v-if="content.img && !content.cta"/>
-
         <section :class="cls[2]">
             <Btn  v-if="content.id === 0 && isArticlePage" 
                 :data="section.btn"/>
