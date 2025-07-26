@@ -13,7 +13,7 @@
                 :Section="article.section"
                 :isArticlePage="isArticlePage"
                 :Cls="[ cls[5], cls[6], cls[7], 
-                        cls[8], cls[9], cls[10]]"/>
+                        cls[8], cls[9], cls[10], cls[11]]"/>
 
         </main>
         <footer v-if="article.conclusion && isArticlePage">
@@ -53,5 +53,5 @@
     const isArticlePage = isPage.value === 'article' ? true : false;
 
 
-    console.log("Articles Component :", isPage.value, article, isNewsPage, isArticlePage), article.conclusion;
+    //console.log("Articles Component :", isPage.value, article, isNewsPage, isArticlePage), article.conclusion;
 </script>
