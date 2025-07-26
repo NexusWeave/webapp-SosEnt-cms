@@ -18,24 +18,33 @@ export const newsStore = defineStore('newsData',
             addArticle(articles)
             {
                 articles.forEach(article => {
+
                     article.archived = false;
 
                     article.cls = 
                     [
+                        // 0 1 2
                         'flex-column-align-items-center', 'flex-wrap-row',
                         'flex-row-reversed-justify-center-align-content-center',
+                        // 3 4 5
                         'article-title-h2', 'article-title-h3', 'article-title-h4',
+                        // 6 7 8 9
                         'news-card', 'news-article', 'tags', 'author',
+                        //10 11 12
                         'article-ingress', 'text', 'article-section',
+                        //13 14
                         'article-section-content', 'article-conclusion',
-                        'article-citation',,'article-head-content'
-                    ];
-                    
-                    
-                    article.tags.forEach(tag => { // Tags
+                        //15 16
+                        'article-citation','article-head-content',
+                        //17 18 19 20 21
+                        'container-grid', 'main-grid', 'aside-grid',
+                        'component-theme','article-cta'];
+
+                    // Tags
+                    /*article.tags.forEach(tag => { 
                         tag.cls = ['news-tag'];
                         tag.anchor = { href: '#' };
-                    });
+                    });*/
                     
                     article.anchor = 
                     {
@@ -51,7 +60,9 @@ export const newsStore = defineStore('newsData',
                         href: article.anchor.href,
                         cls: ['button', 'read-more'],
                     };
-                    article.section.btn = 
+
+                    const section = article.section;
+                    section.btn = 
                     {
                         anchor: article.anchor,
                         text: article.anchor.name,
@@ -59,12 +70,40 @@ export const newsStore = defineStore('newsData',
                         cls: ['button', 'read-more'],
                     };
 
-                    article.date.type = 'news';
-                    article.date.cls = ['article-date'];
+                    const date = article.date;
+                    date.type = 'news';
+                    date.cls = ['article-date'];
+
+                    const contents = section.contents;
+                    contents.forEach((content) => {
+                        content.cls = ['flex-wrap-row', 'flex-wrap-reversed-row',
+                                        'article-content'];
+
+                        const figure = content.img;
+                        if (figure)
+                        {
+                            figure.cls = ['grid-figure', 'article-figure'];
+                        }
                     
-
+                        const cta = content.cta;
+                        if (cta)
+                        {
+                            cta.forEach((item, i) =>
+                            {
+                                item.cls = ['cta-section', 'cta-content'];
+                                if (item.nav > 0)
+                                {
+                                    const nav = item.nav;
+                                    nav.forEach((navItem, j) => {
+                                        navItem.anchor.href.includes('/media/documents/') ?
+                                        navItem.anchor.cls = ['pdf', 'nav-link'] :
+                                        navItem.anchor.cls = ['nav-link', 'cta-content'];
+                                    });
+                                }
+                            });
+                        }
+                    });
                     this.data.articles.push(article);
-
                     //console.log("Adding article: ", article);
                 });
 
@@ -92,7 +131,6 @@ export const newsStore = defineStore('newsData',
                 for (let i = n; i < articles.length; i++)
                 {
                     articles[i].archived = true;
-                    articles[i].tags.push('archived');
                     //console.log("Archiving article: ", articles[i].cls);
                 }
             },
