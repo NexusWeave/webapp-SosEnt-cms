@@ -99,5 +99,5 @@
         }
     };
 
-    console.log("Link component loaded with data: ", data, img);
+    //console.log("Link component loaded with data: ", data, img);
 </script>

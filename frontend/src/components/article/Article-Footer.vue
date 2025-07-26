@@ -47,5 +47,5 @@
 
     const date = data.date;
     const article = data.article[props.id].conclusion;
-    console.log("Article Footer Component loaded with data: ", article);
+    //console.log("Article Footer Component loaded with data: ", article);
 </script>

@@ -71,5 +71,5 @@
             },
         ]);
 
-    console.log('Pagnition component initialized with data:', data);  
+    // console.log('Pagnition component initialized with data:', data);  
 </script>
