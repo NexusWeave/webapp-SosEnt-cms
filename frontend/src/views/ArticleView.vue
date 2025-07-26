@@ -18,10 +18,13 @@
     const article = news.articles.find(article => article.id === route.params.id.toString());
 
 
-    const cls = [   article.cls[0], article.cls[10], article.cls[3],
-                    article.cls[11], article.cls[8], article.cls[4],
-                    [article.cls[1], article.cls[13]], [article.cls[2], article.cls[13]], article.cls[13],
-                    article.cls[4], article.cls[5], article.cls[7]];
+    const cls = [article.cls[0], article.cls[10], article.cls[3],
+                article.cls[11], article.cls[8], // End of Header classes
+                article.cls[4], [article.cls[17],
+                article.cls[13]], article.cls[18], article.cls[4],
+                article.cls[19], article.cls[20], article.cls[7] 
+                // End of Main classes
+            ];
 
     watch(() => news, (data) => {
         const ID = route.params.id.toString();
@@ -31,5 +34,5 @@
             console.log("ArticleView updated with new ID: ", ID, article);
         }
     });
-    console.log("ArticleView loaded with data: ",  article, route.params.id, cls);
+    //console.log("ArticleView loaded with data: ",  article, route.params.id, cls);
 </script>
