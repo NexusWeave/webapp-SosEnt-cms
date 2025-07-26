@@ -15,6 +15,33 @@
     margin: 0 auto
     font-weight: normal
 
+.container-grid
+    gap: 1em
+    padding: 1em
+    display: grid
+    grid-auto-flow: row
+    grid-template-rows: minmax(0, 1fr)
+    grid-template-columns: minmax(0, 0fr) 3fr 1.3fr
+    grid-template-areas: "Start middle end"
+
+    .main-grid, .aside-grid, .figure-grid
+        padding: 1em
+        box-shadow: 0 0 10px rgba(color.$Groovy-brown, .2)
+
+    .main-grid
+        grid-row: 1
+        grid-column: 1 / 3
+        grid-area: middle
+
+    .aside-grid
+        block-size: 0
+        grid-row: auto
+        grid-area: end
+    
+    .figure-grid
+        grid-row: auto
+        grid-area: start
+    
 .icon
     font-size: 1em
     display: inline-block

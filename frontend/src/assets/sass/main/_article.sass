@@ -54,20 +54,31 @@ article
             text-align: center
             color: color.$Groovy-brown
 
-    section
-        .article-section
-            margin: 0
+    main
+        section
+            margin-block: 0em
+            .article-section
+                margin: 0
 
-        .article-ingress, .article-section-content
-            margin: auto
-            inline-size: 38em
+            .article-ingress, .article-section-content
+                margin: auto
+                inline-size: 38em
 
-            p
-                margin-block: 1em
+                p
+                    margin-block: 1em
 
-            p.text
-               font-size: 1.3em
+                p.text
+                font-size: 1.3em
 
+    aside.article-cta
+            padding: 2em
+            inline-size: 24em
+            
+            .cta-section
+                h4.article-h4
+                    padding-inline: 0
+                p
+                    max-inline-size: 19em
 
     &:nth-child(odd)
         @include mix.background-color(color.$antique-soft, color.$Groovy-brown, color.$soft-white)
