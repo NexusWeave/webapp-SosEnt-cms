@@ -5,7 +5,7 @@ import { generateHexID } from '@/utils/utils.js';
 
 const partnerData = reactive(
     [
-        {
+        /*{
             id: generateHexID(),
             anchor: 
             {
@@ -82,9 +82,8 @@ const partnerData = reactive(
                     src: '/media/images/partners/SosEnT-favicon.png',
                 },
             },
-        },
-    ],
-);
+        },*/
+    ],);
 
 export const fetchPartners = async () =>
 {
