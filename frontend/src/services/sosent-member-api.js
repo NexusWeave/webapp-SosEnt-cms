@@ -5,7 +5,7 @@ import { generateHexID } from '@/utils/utils.js';
 // API simulation
 const members = reactive(
     [
-        {
+        /*{
             id: generateHexID(),
             description: 'Beskrivelse av medlem 1.',
             anchor: 
@@ -58,7 +58,7 @@ const members = reactive(
                 label: 'Medlem 6',
                 href: 'https://www.example.com',
             },
-        },
+        },*/
     ]);
 
 export const fetchMembers = async () =>
