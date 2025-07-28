@@ -14,6 +14,13 @@
 #app
     margin: 0 auto
     font-weight: normal
+.section-content
+    inline-size: 49em
+
+    p
+        font-size: 1.2em
+        line-height: 1.5em
+        text-align: justify
 
 .container-grid
     gap: 1em
@@ -21,7 +28,7 @@
     display: grid
     grid-auto-flow: row
     grid-template-rows: minmax(0, 1fr)
-    grid-template-columns: minmax(0, 0fr) 3fr 1.3fr
+    grid-template-columns: minmax(0, 1fr) 2fr 1fr
     grid-template-areas: "Start middle end"
 
     .main-grid, .aside-grid, .figure-grid
@@ -29,14 +36,14 @@
         box-shadow: 0 0 10px rgba(color.$Groovy-brown, .2)
 
     .main-grid
-        grid-row: 1
-        grid-column: 1 / 3
         grid-area: middle
+        inline-size: 100%
 
     .aside-grid
         block-size: 0
         grid-row: auto
         grid-area: end
+        max-inline-size: 24em
     
     .figure-grid
         grid-row: auto

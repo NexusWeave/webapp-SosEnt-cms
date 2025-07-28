@@ -11,35 +11,28 @@ article.news-card
     header
         span.article-date
             display: block
-            font-size: 0.7em
+            font-size: 0.9em
+            text-align: center
 
-        .article-head-content
-            margin: auto
+        .article-section
+            margin-block: 1em
 
-            h2.article-title-h2
-                font-size: .9em
+            h2
                 margin-block-end: .1em
                 color: color.$Groovy-brown
 
-            p.article-ingress
-                font-size: 0.7em
+            p
+                font-size: 1em
+                inline-size: 100%
                 text-align: justify
-                margin-block: 0.5em
-                inline-size: 100% !important
 
     &:nth-child(odd)
         @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$antique-soft)
 
     &:nth-child(even)
         @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$antique-soft)
-article
-    main
-        padding: 1em
-        margin: 0 auto
-        min-block-size: 0
-        inline-size: 100%
-        text-align: justify
 
+article
     img
         inline-size: 100%
         border-radius: 0.5em
@@ -54,38 +47,50 @@ article
             text-align: center
             color: color.$Groovy-brown
 
+    header
+        section.article-ingress, .article-section-content
+            inline-size: 52em
+            margin-block: 0.5em
+
+            p
+                font-size: 1.3em
+                margin-block: 1em
+                text-align: justify
     main
+        padding: 1em
+        margin: 0 auto
+        inline-size: 100%
+        text-align: justify
+
         section
             margin-block: 0em
+        
             .article-section
                 margin: 0
 
-            .article-ingress, .article-section-content
+            .article-section-content
                 margin: auto
-                inline-size: 38em
-
+                inline-size: 40em
                 p
+                    font-size: 1.3em
                     margin-block: 1em
-
-                p.text
-                font-size: 1.3em
-
-    aside.article-cta
-            padding: 2em
-            inline-size: 24em
-            
+                    text-align: justify
+                
+                li
+                    font-size: 1.2em
+        aside
             .cta-section
-                h4.article-h4
-                    padding-inline: 0
-                p
-                    max-inline-size: 19em
+                padding: 1em
+
+                .cta-section-content
+                    h4.article-title-h4
+                        font-size: 1.2em
+                        padding-inline: 0em !important
+                    p
+                        max-inline-size: 19em
 
     &:nth-child(odd)
         @include mix.background-color(color.$antique-soft, color.$Groovy-brown, color.$soft-white)
 
     &:nth-child(even)
         @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$antique-soft)
-.content
-    margin: 0 auto
-    inline-size: 37em
-    text-align: justify
