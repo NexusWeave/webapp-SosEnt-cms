@@ -1,50 +1,48 @@
 <template>
-    <h3 v-if="section.title" :class="cls[0]">{{ section.title }}</h3>
+    <section :class="cls[0]">
+        <h3 v-if="section.title" :class="cls[1]">{{ section.title }}</h3>
+        <section v-for="content in section.contents"
+            :class="!content.cta ?'article-section' : ['container-grid', 'article-section']"
+            :key="content.id"> 
 
-    <section v-for="content in section.contents"
-        :class="cls[1]"
-        :key="content.id"> 
-
-        <section :class="cls[2]">
-            <Btn  v-if="content.id === 0 && isArticlePage" 
-                :data="section.btn"/>
-
-            <h4 v-if="content.title"
-            :class="cls[3]">
-                {{ content.title }}
-            </h4>
-            <p v-for="(paragraph, i) in content.content" 
-                :key="i">{{ paragraph }}</p>
-            <ul v-if ="content.list && content.list.length > 0">
-                <li v-for="(item, i) in content.list" :key="i">
-                {{ item.bullet }}
-                </li>
-            </ul>
-        </section>
-
-        <aside v-if="content.cta" 
-            :class="cls[4]">
-            <div :class="cls[5]">
-            <section v-for="(cta, i) in content.cta" 
-                :key="i"
-                :class="cta.cls[0]">
-
-                <h4  v-if="cta.title"
-                    :class="cls[3]">
-                    {{ cta.title }}
+            <section :class="cls[2]">
+                <h4 v-if="content.title"
+                :class="cls[3]">
+                    {{ content.title }}
                 </h4>
-                <p v-if="cta.content"
-                    :key="i"
-                    :class="cta.cls[1]">
-                    {{ cta.content }}
-                    <NavMenu v-if="cta.nav > 0" 
-                        v-for="(item, j) in cta.nav" 
-                        :key="j"
-                        :data="item" />
-                </p>
+                <p v-for="(paragraph, i) in content.content" 
+                    :key="i">{{ paragraph }}</p>
+                <ul v-if ="content.list && content.list.length > 0">
+                    <li v-for="(item, i) in content.list" :key="i">
+                    {{ item.bullet }}
+                    </li>
+                </ul>
             </section>
-            </div>
-        </aside>
+
+            <aside v-if="content.cta" 
+                :class="cls[4]">
+
+                <section :class="cls[5]">
+                    <section v-for="(cta, i) in content.cta" 
+                        :key="i"
+                        :class=cls[6]>
+
+                        <h4  v-if="cta.title"
+                            :class="cls[3]">
+                            {{ cta.title }}
+                        </h4>
+                        <p v-if="cta.content"
+                            :key="i">
+                            {{ cta.content }}
+                        </p>
+                            <Anchor v-if="cta.anchor" 
+                                v-for="(item, j) in cta.anchor" 
+                                :key="j"
+                                :data="item" />
+                    </section>
+                </section>
+            </aside>
+        </section>
     </section>
 
 </template>
@@ -52,7 +50,6 @@
 <script setup>
     import { defineProps, onMounted, reactive } from 'vue';
 
-    import NavMenu from '../navigation/NavMenu.vue';
     import MetaData from '@/components/utils/Span.vue';
     import Figure from '@/components/media/Figure.vue';
     import Btn from '@/components/navigation/Button.vue';
@@ -85,7 +82,6 @@
 
 
     const isArticlePage = props.isArticlePage;
-
     
     onMounted(() => {
 
