@@ -35,10 +35,17 @@
                             :key="i">
                             {{ cta.content }}
                         </p>
-                            <Anchor v-if="cta.anchor" 
-                                v-for="(item, j) in cta.anchor" 
-                                :key="j"
-                                :data="item" />
+                        <section v-if="cta.media">
+                            <div v-for="media in cta.media" :key="media.id"
+                                :data-filetype="media.type"
+                                :class="media.cls"  >    
+                                <Anchor :data="media.anchor" />
+                                <metaData :data="media.date" />
+                                <span :class="media.cls">
+                                    {{ media.description }}
+                                </span>
+                            </div>
+                        </section>
                     </section>
                 </section>
             </aside>
