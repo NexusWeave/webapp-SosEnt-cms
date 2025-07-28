@@ -101,7 +101,7 @@ const navData = reactive({
         cls: ['nav-item'],
         label: "Personvern",
         type: ['link','external'],
-        href: "/media/files/misc/SosEnT_personvern.pdf",
+        href: "/media/files/documents/SosEnT-Norge-Personvern.pdf",
       },
       {
 
