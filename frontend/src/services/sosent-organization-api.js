@@ -7,7 +7,7 @@ const organization = reactive(
     {
         media:
         [
-            {
+            /*{
                 id: generateHexID(),
                 date: {published: '01.04-2025'},
                 description: 'Organisasjonskart over styret i SosEnt Norge.',
@@ -15,8 +15,21 @@ const organization = reactive(
                 {
                     type: ['pdf'],
                     label: 'Organisasjonskart',
-                    href: '/media/files/organization/SosEnt-Norge-organisajonskart.pdf',
+                    href: '/media/files/documents/SosEnt-Norge-organisajonskart.pdf',
                 },
+            },
+            {
+                id: generateHexID(),
+                date: {published: '01.04-2025'},
+                label: 'GRUNNLAGSDOKUMENTET For SosEnt Norge',
+                description: 'Grunnlagsdokumentet for SosEnt Norge',
+                anchor:
+                {
+                    type: ['pdf'],
+                    label: 'GRUNNLAGSDOKUMENTET For SosEnt Norge',
+                    href: '/#/media/files/documents/SosEnt-Norge-Grunnlagsdokument.pdf',
+                },
+                
             },
             {
                 id: generateHexID(),
@@ -26,9 +39,9 @@ const organization = reactive(
                 {
                     type: ['pdf'],
                     label: 'Vedtekter',
-                    href: '/media/files/organization/SosEnt-Norge-vedtekter.pdf',
+                    href: '/media/files/documents/SosEnt-Norge-vedtekter.pdf',
                 },
-            },
+            },*/
 
         ],
         team:
