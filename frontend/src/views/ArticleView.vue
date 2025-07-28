@@ -7,9 +7,10 @@
 </template>
 
 <script setup>
+    import { computed, watch } from 'vue';
     import { useRoute } from 'vue-router';
     import { newsStore } from '@/stores/news-store.js';
-    import { onMounted, reactive, computed, watch } from 'vue';
+    
     
     import Article from '@/components/article/Article.vue';
     
@@ -18,13 +19,14 @@
     const article = news.articles.find(article => article.id === route.params.id.toString());
 
 
-    const cls = [article.cls[0], article.cls[10], article.cls[3],
-                article.cls[11], article.cls[8], // End of Header classes
-                article.cls[4], [article.cls[17],
-                article.cls[13]], article.cls[18], article.cls[4],
-                article.cls[19], article.cls[20], article.cls[7] 
-                // End of Main classes
-            ];
+    const cls = ['container-grid', ['article-ingress', 'main-grid'], 
+    'article-title-h2', 'tags',// End of Header classes
+    'flex-column-align-items-center', 'article-title-h3', ['main-grid',
+    'article-section-content'], 'article-title-h4', 'aside-grid',
+    ['component-theme', 'cta-section'], 'cta-section-content', 
+    'article-news'
+    // End of Main classes
+    ];
 
     watch(() => news, (data) => {
         const ID = route.params.id.toString();
