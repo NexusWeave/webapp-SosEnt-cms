@@ -2,12 +2,12 @@
     <h2 :class="page.cls">{{ page.title}}</h2>
     <Articles 
         v-if="news.recent.length > 0"
-        v-for="article in news.recent"         
+        v-for="article in news.recent" :key="article.id" 
         :data="article"
-        :key="article.id" 
-        :Cls="[ article.id % 2 ? article.cls[1] : article.cls[2],
-                article.cls[10], article.cls[3], article.cls[11],
-                article.cls[8], article.cls[8]]"/>
+        :Cls="[ article.id % 2 ? 'flex-wrap-row-justify-space-around' : 
+        'flex-row-reversed-justify-space-around-align-content-center',
+        'article-ingress', article.cls[0],article.cls[1], 
+        'news-article']"/>
 
     <section v-if="news.archived.length > 0">
         <h2 :class="page.section.cls"> {{ page.section.title }}</h2>
@@ -17,13 +17,13 @@
             :activePage="archived.activePage"
             @update="(page) => archived.activePage = page" />
     
-        <section :class="[news.data.cls[1]]" v-if="news.archived.length > 0">
+        <section v-if="news.archived.length > 0"
+                :class="[news.data.cls[1]]" >
             <Articles 
                 v-for="article in archived.articles" :key="article.id"
                 :data="article" 
-                :Cls="[[article.cls[0], article.cls[12]], article.cls[12], 
-                    article.cls[3], article.cls[11], article.cls[8],
-                    article.cls[6]]"/>
+                :Cls="[['flex-column-align-items-center', 'article-section'],
+            'article-section', article.cls[0], article.cls[1], 'news-card']"/>
         </section>
     </section>
 </template>
