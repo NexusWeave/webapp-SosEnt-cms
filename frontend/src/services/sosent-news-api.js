@@ -150,7 +150,7 @@ const articles = reactive(
                     },
 
                     {
-                        id: 3,
+                        id: 1,
                         title: 'Hva er SosEnt Norge?',
                         content: 
                         [ `I denne bransjen er det mange dyktige og sterke
@@ -170,7 +170,7 @@ const articles = reactive(
                                 melde din interesse ved besvare noen spørsmål. Å
                                 svare er helt uforpliktende og innebærer ikke
                                 innmelding.`,
-                                nav: 
+                                anchor: 
                                 [
                                     {
                                         id: generateHexID(),
@@ -199,10 +199,21 @@ const articles = reactive(
                                 for SosEnt Norge`,
                                 
                                 anchor:
-                                {
-                                    label: 'GRUNNLAGSDOKUMENTET',
-                                    href: '/media/documents/sosent-norge-grunnlagsdokument.pdf',
-                                },
+                                [
+                                    {
+                                        id: generateHexID(),
+                                        date: {published: '01.04-2025'},
+                                        label: 'GRUNNLAGSDOKUMENTET For SosEnt Norge',
+                                        description: 'Grunnlagsdokumentet for SosEnt Norge',
+                                        anchor:
+                                        {
+                                            type: ['pdf'],
+                                            label: 'GRUNNLAGSDOKUMENTET For SosEnt Norge',
+                                            href: '/media/files/documents/SosEnt-Norge-Grunnlagsdokument.pdf',
+                                        },
+                                        
+                                    },
+                                ],
                             },
                         ],
                     },
@@ -280,7 +291,13 @@ const articles = reactive(
                     },
                 ],
             },
-
+            tags:
+            [
+                {
+                    id: generateHexID(),
+                    label: 'SosEnt Norge',
+                }
+            ],
             conclusion:
             {
                 title: 'Oppsummering av artikkelen',
@@ -347,7 +364,6 @@ const articles = reactive(
                 contents:
                 [
                     {
-                        cls: ['flex-row'],
                         id: generateHexID(),
                         content: `– Vi må ikke skylle de sosiale
                         entreprenørene ut med badevannet gjennom en ny
