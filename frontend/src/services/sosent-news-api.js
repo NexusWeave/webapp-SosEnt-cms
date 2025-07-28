@@ -197,10 +197,10 @@ const articles = reactive(
                                 grunnlagsdokumentet kan du lese mer om bakgrunn,
                                 interimstyret og finansiering: Grunnlagsdokumentet
                                 for SosEnt Norge`,
-                                
-                                anchor:
+                                media:
                                 [
                                     {
+                                        type: 'pdf',
                                         id: generateHexID(),
                                         date: {published: '01.04-2025'},
                                         label: 'GRUNNLAGSDOKUMENTET For SosEnt Norge',

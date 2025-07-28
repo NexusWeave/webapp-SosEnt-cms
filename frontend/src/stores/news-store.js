@@ -63,6 +63,17 @@ export const newsStore = defineStore('newsData',
                                         anchorItem.cls = ['pdf', 'nav-link'] :
                                         anchorItem.cls = ['nav-link', 'cta-content'];
                                     });
+
+                                    if(cta.media)
+                                    {
+                                        const media = cta.media;
+                                        media.forEach((mediaItem, k) => {
+                                            mediaItem.cls = ['media-container', 'pdf'];
+                                            mediaItem.href.startsWith('/media/documents/') ?
+                                            mediaItem.cls =['media-container', 'pdf'] :
+                                            mediaItem.cls = ['media-container'];
+                                        });
+                                    }
                                     
                                 }
                             });
