@@ -3,49 +3,48 @@
         <NewsCard
             v-for="article in news.recent" 
             :key="article.id" 
-            :data="article" 
-            :Cls="[[article.cls[0], article.cls[12]], article.cls[12], 
-                    article.cls[3], article.cls[11], article.cls[8],
-                    article.cls[6]]"/>
-    </section>
-
-    <section v-if="organization.isLoaded"
-            :class="organization.cls[0]">
-            <h2 :class="organization.cls[2]"> {{ organization.title }}</h2>
-        <p v-for="paragraph in organization.content"
-            :class="organization.cls[1]"
-            :key="paragraph.id">{{ paragraph }}</p>
+            :data="article"    
+            :Cls="[['flex-column-align-items-center', 'article-section'],
+            'article-section', article.cls[0], 'tags', 'news-card']"/>
     </section>
 
     <section :class="organization.cls[0]">
-        <h2 :class="organization.cls[2]"> {{ organization.team.title }}</h2>
-        <section v-if="organization.team.isLoaded" 
-                :class="organization.team.cls">
-            <div v-for="person in organization.team.team" 
-                :class="person.cls" :key="person.id">
-                <Figure v-if="person.img" :data="person.img" />
-                <h2>{{ person.name }}</h2>
-                <h3>{{ person.title }}</h3>
-                <p>
-                    <Anchor v-for="contact in person.contactInfo" 
-                            :key="contact.id" :data="contact.anchor"/>
-                </p>
-            </div>
+        <section v-if="organization.isLoaded"
+                class="section-content">
+                <h2 :class="organization.cls[2]"> {{ organization.title }}</h2>
+                <p v-for="paragraph in organization.content"
+                    :key="paragraph.id">{{ paragraph }}</p>
         </section>
 
-        <h2 :class="organization.cls[2]"> {{ organization.media.title }}</h2>
-        <section v-if="organization.media.isLoaded"
-            :class="organization.media.cls">
-            
-            <div v-for="media in organization.media.files" :class="media.cls[0] + ' ' + media.cls[1]" :key="media.id" :data-filetype="media.type">    
-                <Anchor :data="media.anchor" />
-                <metaData :data="media.date" :text="media.date.type" />
-                <span :class="media.cls[2]">{{ media.description }}</span>
-            </div>
+        <section v-if="organization.team.isLoaded"
+            :class="[organization.cls[0], organization.team.cls[1]]">
+            <h2 :class="organization.cls[2]"> {{ organization.team.title }}</h2>
+            <section v-if="organization.team.isLoaded" 
+                    :class="organization.team.cls">
+                <div v-for="person in organization.team.team" 
+                    :class="person.cls" :key="person.id">
+                    <Figure v-if="person.img" :data="person.img" />
+                    <h2>{{ person.name }}</h2>
+                    <h3>{{ person.title }}</h3>
+                    <p>
+                        <Anchor v-for="contact in person.contactInfo" 
+                                :key="contact.id" :data="contact.anchor"/>
+                    </p>
+                </div>
+            </section>
+            <section v-if="organization.media.files.length > 0"
+                :class="organization.media.cls">
+                <h2 :class="organization.cls[2]"> {{ organization.media.title }}</h2>
+                <div v-for="media in organization.media.files" :class="media.cls[0] + ' ' + media.cls[1]" :key="media.id" :data-filetype="media.type">    
+                    <Anchor :data="media.anchor" />
+                    <metaData :data="media.date" :text="media.date.type" />
+                    <span :class="media.cls[2]">{{ media.description }}</span>
+                </div>
+            </section>
         </section>
     </section>
-    
-    <section :class="connectionData.cls[0]">
+
+    <section v-if="members.members.length > 0 || partners.partners.length > 0" :class="connectionData.cls[0]">
 
         <h2 :class="connectionData.cls[1]">{{ connectionData.title }}</h2>
         <section :class="connectionData.cls[2]">
