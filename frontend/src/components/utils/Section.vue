@@ -46,7 +46,7 @@
         anchor: data.anchor ?? null,
         description: data.description ?? null,
         isMedia: mediaData.files.includes(data.type),
-        cls: ['component-theme', ['pdf', 'media-link'],
+        cls: [['flex-column-align-items-center','component-theme'], ['pdf', 'media-link'],
         'title-h4', 'media-content', 'meta-date', 'calendar'],
     };
 

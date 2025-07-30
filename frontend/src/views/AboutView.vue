@@ -32,15 +32,13 @@
                     </p>
                 </div>
             </section>
+        </section>
 
-            <section v-if="organization.media.media.length > 0"
-                :class="organizationData.media.cls[0]">
-                <h2 :class="organizationData.media.cls[2]"> {{ organization.media.title }}</h2>
-                <section :class="[organizationData.media.cls[1], 'media-container']">
-
+        <section v-if="organization.media.isLoaded" :class="organizationData.media.cls[2]">
+            <h2 :class="organizationData.media.cls[0]"> {{ organization.media.title }} </h2>
+            <section :class="[organizationData.media.cls[1]]">
                     <Sections v-for="file in organization.media.media" :key="file.id"
                         :data="file"/>
-                </section>
             </section>
         </section>
     </section>
@@ -83,7 +81,7 @@
 </template>
 
 <script setup>
-    import { onMounted, reactive } from 'vue';
+    import { reactive } from 'vue';
 
     import { newsStore } from '@/stores/news-store.js';
     import { partnerStore } from '@/stores/partner-store';
@@ -94,8 +92,6 @@
     import Figure from '@/components/media/Figure.vue';    
     import Anchor from '@/components/navigation/Anchor.vue';
     import NewsCard from '@/components/article/Article.vue';
-    
-    
 
     const news = newsStore();
     const members = memberStore();
@@ -105,7 +101,7 @@
 
         media:
         {
-            cls: ['', 'flex-wrap-row-justify-space-evenly'],
+            cls: [ 'organization-title-h2','flex-wrap-row-justify-space-evenly', 'media-container', ],
         }
     }
     const organization = organizationStore();
