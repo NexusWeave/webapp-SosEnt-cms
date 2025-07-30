@@ -7,41 +7,30 @@ const organization = reactive(
     {
         media:
         [
-            /*{
+            {
+                type: 'pdf',
                 id: generateHexID(),
                 date: {published: '01.04-2025'},
                 description: 'Organisasjonskart over styret i SosEnt Norge.',
                 anchor:
                 {
-                    type: ['pdf'],
+                    type: ['pdf', 'external'],
                     label: 'Organisasjonskart',
                     href: '/media/files/documents/SosEnt-Norge-organisajonskart.pdf',
                 },
             },
             {
-                id: generateHexID(),
-                date: {published: '01.04-2025'},
-                label: 'GRUNNLAGSDOKUMENTET For SosEnt Norge',
-                description: 'Grunnlagsdokumentet for SosEnt Norge',
-                anchor:
-                {
-                    type: ['pdf'],
-                    label: 'GRUNNLAGSDOKUMENTET For SosEnt Norge',
-                    href: '/#/media/files/documents/SosEnt-Norge-Grunnlagsdokument.pdf',
-                },
-                
-            },
-            {
+                type: 'pdf',
                 id: generateHexID(),
                 date: {published: '01.04-2025'},
                 description: 'Vedtekter for medlemmene i SosEnt Norge.',
                 anchor:
                 {
-                    type: ['pdf'],
+                    type: ['pdf', 'external'],
                     label: 'Vedtekter',
                     href: '/media/files/documents/SosEnt-Norge-vedtekter.pdf',
                 },
-            },*/
+            },
 
         ],
         team:
@@ -88,7 +77,6 @@ const organization = reactive(
                     id: 0,
                     anchor:
                     {
-                        label: 'Send en Epost',
                         href: 'mailto:' + 'rune.kvarme' + '@' + 'samfunnsbedriftene.no',
                     },
                 },
@@ -96,7 +84,6 @@ const organization = reactive(
                     id: 1,
                     anchor:
                     {
-                        label: '+47' + '12' + '34' + '56' + '78',
                         href : 'tel:' + '+47' + '12' + '34' + '56' + '78',    
                     },
                     

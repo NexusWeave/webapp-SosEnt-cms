@@ -203,12 +203,11 @@ const articles = reactive(
                                         type: 'pdf',
                                         id: generateHexID(),
                                         date: {published: '01.04-2025'},
-                                        label: 'GRUNNLAGSDOKUMENTET For SosEnt Norge',
                                         description: 'Grunnlagsdokumentet for SosEnt Norge',
                                         anchor:
                                         {
                                             type: ['pdf'],
-                                            label: 'GRUNNLAGSDOKUMENTET For SosEnt Norge',
+                                            label: 'Grunnlags dokument',
                                             href: '/media/files/documents/SosEnt-Norge-Grunnlagsdokument.pdf',
                                         },
                                         

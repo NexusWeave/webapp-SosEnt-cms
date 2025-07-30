@@ -13,10 +13,10 @@ export const memberStore = defineStore('memberData',
                     isLoaded: false,
                     media:
                     {
-                        id: generateHexID(),
-                        cls: ['media-content'],
-                        label: 'Medlemsoversikt',
                         type: ['pdf'],
+                        id: generateHexID(),                       
+                        label: 'Medlemsoversikt',
+                        cls: ['pdf', 'media-content'],
                         href: '/media/files/organization/SosEnt-Norge-Medlemmer.pdf',
                     },
                     cls : ['flex-column-align-items-center', 'member-container'],

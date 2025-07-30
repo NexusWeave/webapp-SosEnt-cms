@@ -12,7 +12,7 @@ export const organizationStore = defineStore('organizationData',
                     isLoaded: false,
                     title: 'Om SosEnt Norge',
                     cls: [  'flex-column-align-items-center', 
-                            'p-content', 'organization-h2',
+                            '', 'organization-h2',
                             'flex-column'],
                     content:
                     [   `SosEnt Norge – Landsforeningen for sosiale
@@ -58,10 +58,9 @@ export const organizationStore = defineStore('organizationData',
                     
                     media:
                     {
-                        files: [],
+                        media: [],
                         isLoaded: false,
                         title: 'Dokumenter',
-                        cls: ['flex-wrap-row-justify-space-evenly', 'media-container'],
                     },
                 }
             }),
@@ -70,14 +69,7 @@ export const organizationStore = defineStore('organizationData',
             addMedia(media)
             {
                 media.forEach(file => {
-                    
-                    file.date.icon = true;
-                    file.date.type = 'file';
-                    file.date.cls = ['media-date'];
-                    file.anchor.cls = ['media-link'];
-                    file.cls = ['media-content', 'component-theme', 'media-text'];
-
-                    this.data.media.files.push(file);
+                    this.data.media.media.push(file);
                 });
                 this.data.media.isLoaded = true;
             },
@@ -92,14 +84,13 @@ export const organizationStore = defineStore('organizationData',
                     contactInfo.forEach((card) =>
                         {
                             card.cls = ['card-data'];
-
-                            card.id % 2 === 0 ? 
-                            card.anchor.label = 'Send en Epost' :
-                            card.anchor.label = 'Ring meg';
                             
-                            card.id % 2 === 0 ?
-                            card.anchor.type = ['email', 'external'] :
-                            card.anchor.type = ['telephone', 'external'];
+                            const anchor = card.anchor;
+                            const label = anchor.href.split(':');
+
+                            card.id % 2 === 0 ? anchor.label = 'Send en Epost' : anchor.label = label[1];
+                            card.id % 2 === 0 ? anchor.type = ['email', 'external'] : anchor.type = ['telephone', 'external'];
+                            anchor.cls = anchor.type[0];
                         });
                         this.data.team.team.push(member);
                     });

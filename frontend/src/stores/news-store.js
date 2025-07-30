@@ -60,7 +60,7 @@ export const newsStore = defineStore('newsData',
                                     const anchor = item.anchor;
                                     anchor.forEach((anchorItem, j) => {
                                         anchorItem.href.startsWith('/media/documents/') ?
-                                        anchorItem.cls = ['pdf', 'nav-link'] :
+                                        anchorItem.cls = [['pdf', 'article-title-h4'], 'nav-link'] :
                                         anchorItem.cls = ['nav-link', 'cta-content'];
                                     });
 
@@ -68,7 +68,6 @@ export const newsStore = defineStore('newsData',
                                     {
                                         const media = cta.media;
                                         media.forEach((mediaItem, k) => {
-                                            mediaItem.cls = ['media-container', 'pdf'];
                                             mediaItem.href.startsWith('/media/documents/') ?
                                             mediaItem.cls =['media-container', 'pdf'] :
                                             mediaItem.cls = ['media-container'];
