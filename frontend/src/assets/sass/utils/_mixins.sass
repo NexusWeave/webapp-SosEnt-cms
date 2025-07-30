@@ -54,28 +54,13 @@
 
     border-radius: 0.5em
     @include background-color($bg-color, $color-text, $color-link)
-    
-@mixin link-color($color, $color-hover: null, $color-active: null, $color-visited: null)
+
+@mixin link-color($color, $font-size, $color-hover, $color-active, $color-visited)
 
     $color: rgba($color, 1)
-
-    @if $color-hover == null
-        $color-hover: rgba($color, 0.8)
-    
-    @if $color-active == null
-        $color-active: rgba($color, 0.6)
-    
-    @if $color-visited == null
-        $color-visited: rgba($color, 0.5)
-
-    @if $color == color.$Groovy-yellow
-        $color-active: rgba(color.$Groovy-green, 1) !important
-        $color-hover: rgba(color.$Groovy-green, 0.8) !important
-        $color-visited: rgba(color.$Groovy-orange, 0.3) !important
-
     a
         color: $color
-        font-size: 1.3em
+        font-size: $font-size
         text-decoration: none
 
         &:active
@@ -97,15 +82,36 @@
             padding: 0.1em
             display: inline-block
 
-@mixin background-color($bg-color, $text-color, $link-color:null)
+@mixin background-color($bg-color, $text-color, $link-color:null, $font-size: null, $color-hover: null, $color-active: null, $color-visited: null)
+
+    @if $font-size == null
+        $font-size: 1.3em
 
     @if not $link-color
         $link-color: $text-color
 
+    @if $link-color == color.$Groovy-yellow
+        $color-active: rgba(color.$Groovy-green, 1) !important
+        $color-hover: rgba(color.$Groovy-green, 0.8) !important
+        $color-visited: rgba(color.$Groovy-orange, 0.3) !important
+
+    @else if $link-color == color.$Groovy-orange
+        $color-active: rgba(color.$Groovy-green, 1) !important
+        $color-hover: rgba(color.$Groovy-green, 0.8) !important
+        $color-visited: rgba(color.$Groovy-orange, 0.3) !important
+
+    @if $color-hover == null
+        $color-hover: rgba($link-color, 0.8)
+    @if $color-active == null
+        $color-active: rgba($link-color, 1)
+    @if $color-visited == null
+        $color-visited: rgba($link-color, 0.3)
+
     color: rgba($text-color, 1)
     background-color: rgba($bg-color, 1)
 
-    @include link-color($link-color)
+
+    @include link-color($link-color, $font-size, $color-hover, $color-active, $color-visited)
 
 
 @mixin font($size, $font-family: 'Nunito', $line-height: null)

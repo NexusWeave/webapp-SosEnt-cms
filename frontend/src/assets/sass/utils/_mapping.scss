@@ -1,8 +1,8 @@
 @use './colors' as color;
 
 $icon-types: (
-  
   "pdf": ( icon: "\F63D", text-color:color.$icon-pdf),
+  "dot": ( icon: "\F309", text-color:color.$icon-white),
   "email": ( icon: "\F84B", text-color:color.$icon-white),
   "default": ( icon: "\F82E", text-color:color.$icon-white),
   "calendar": ( icon: "\F1F6", text-color:color.$icon-white),

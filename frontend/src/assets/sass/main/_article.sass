@@ -85,12 +85,19 @@ article
                 .cta-section-content
                     h4.article-title-h4
                         font-size: 1.2em
-                        padding-inline: 0em !important
+                        padding-block: 0
+                        font-weight: bold
+                        padding-inline: 0
+                        
                     p
                         max-inline-size: 19em
 
+                .media-link
+                    .icon::before
+                        padding: 0.2em
+                
     &:nth-child(odd)
-        @include mix.background-color(color.$antique-soft, color.$Groovy-brown, color.$soft-white)
+        @include mix.background-color(color.$antique-soft, color.$Groovy-brown, color.$soft-white, $font-size: 1.1em)
 
     &:nth-child(even)
-        @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$antique-soft)
+        @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$antique-soft, $font-size: 1.1em)
