@@ -7,8 +7,8 @@
             <p>
                 <MetaData 
                     :data="article.date" 
-                    Cls="article-date" />
-                
+                    :Cls="['article-date']" />
+
                 <span :class="cls[3]" v-if="article.tags">
                     <MetaData v-if="article.tags" 
                         :array="article.tags"/>

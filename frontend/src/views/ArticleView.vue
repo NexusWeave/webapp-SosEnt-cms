@@ -23,8 +23,8 @@
     'article-title-h2', 'tags',// End of Header classes
     'flex-column-align-items-center', 'article-title-h3', ['main-grid',
     'article-section-content'], 'article-title-h4', 'aside-grid',
-    ['component-theme', 'cta-section'], 'cta-section-content', 
-    'article-news'
+    ['component-theme', 'cta-section'], 'cta-section-content',
+    'article-news',
     // End of Main classes
     ];
 

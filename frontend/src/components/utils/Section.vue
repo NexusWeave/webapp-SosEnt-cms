@@ -1,41 +1,56 @@
 
 <template>
-    <template v-if="organization">
-        <h2> {{ organization.team.title }}</h2>
-        <section :class="organization.team.cls">
-            <div v-for="person in team.contactCards" :class="person.cls" :key="person.id">
-                <Figure :data="person.img" />
-                <h2>{{ person.name }}</h2>
-                <h3>{{ person.title }}</h3>
-                <span v-for="contact in person.contactData" :key="contact.id" :class="contact.cls">
-                 <Link :data="contact" />
+    <template v-if="media.isMedia">
+        <section :data-filetype="media.type"
+            :class="media.cls[0]">
+            <Anchor :data="media.anchor" :Cls="[media.cls[1], media.cls[2]]"/>
+
+            <section :class="media.cls[3]">
+                <Date :data="media.date" :Cls="[media.cls[4], media.cls[5]]" />
+                <span>
+                    {{ media.description }}
                 </span>
-            </div>
+            </section>
         </section>
     </template>
 
-    <template v-else>
-        <h2 :class="data.cls">{{ data.title }}</h2>
-        <section :class="data.cls">
-            <p v-for="(p, i) in data.paragraphs" :key="i">
-            {{ p }}</p>
-        </section>
-    </template>
 </template>
 <script setup>
 
-    import { defineProps } from 'vue';
-
+    import { defineProps, ref } from 'vue';
     import Figure from '@/components/media/Figure.vue';
-    import Link from '@/components/navigation/Anchor.vue';
+    import Date from '@/components/utils/Span.vue';
+    import Anchor from '@/components/navigation/Anchor.vue';
 
     const props = defineProps({
         data: {
             type: Object,
             required: false
+        },
+        cls: {
+            type: Array,
+            required: false
         }
     });
     const data = props.data;
 
+    const cls = props.cls ? props.cls : data.cls ? data.cls : null;
+    const mediaData = {
+        files: ['pdf', 'docx', 'xlsx', 'csv'],
+    };
+
+    const media = 
+    {
+        type: data.type ?? null,
+        date: data.date ?? null,
+        anchor: data.anchor ?? null,
+        description: data.description ?? null,
+        isMedia: mediaData.files.includes(data.type),
+        cls: ['component-theme', ['pdf', 'media-link'],
+        'title-h4', 'media-content', 'meta-date', 'calendar'],
+    };
+
     const organization = data.organization;
+
+    console.warn('Section - Media Data:', media.isMedia, data);
 </script>

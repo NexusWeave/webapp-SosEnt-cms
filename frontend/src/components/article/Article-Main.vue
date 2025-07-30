@@ -35,17 +35,8 @@
                             :key="i">
                             {{ cta.content }}
                         </p>
-                        <section v-if="cta.media">
-                            <div v-for="media in cta.media" :key="media.id"
-                                :data-filetype="media.type"
-                                :class="media.cls"  >    
-                                <Anchor :data="media.anchor" />
-                                <metaData :data="media.date" />
-                                <span :class="media.cls">
-                                    {{ media.description }}
-                                </span>
-                            </div>
-                        </section>
+
+                        <Sections v-if="cta.media" :data="cta.media"/>
                     </section>
                 </section>
             </aside>
@@ -55,13 +46,13 @@
 </template>
 
 <script setup>
-    import { defineProps, onMounted, reactive } from 'vue';
+    import { defineProps, computed, reactive } from 'vue';
 
-    import MetaData from '@/components/utils/Span.vue';
+    import MetaData from '@/components/utils/Span.vue';    
     import Figure from '@/components/media/Figure.vue';
     import Btn from '@/components/navigation/Button.vue';
+    import Sections from '@/components/utils/Section.vue';
     import Anchor from '@/components/navigation/Anchor.vue';
-    
 
     const props = defineProps({
         date: {
@@ -76,22 +67,16 @@
             type: Array,
             required: true
         },
-        Section: {
+        data: {
             type: Object,
             required: true
         }
     });
 
     const cls = props.Cls;
-    const date = props.date;
-    const section = reactive(props.Section);
-    const conclusion = section.conclusion ? section.conclusion : null;
-
-
     const isArticlePage = props.isArticlePage;
-    
-    onMounted(() => {
+    const section = props.data ? props.data : props.Section;
+    const content = section.contents ? section.contents : null;
 
-        //console.log("Article Main Component loaded with data: ", section);
-    });
+    //console.log("Article Main Component loaded with data: ", section);
 </script>

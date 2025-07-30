@@ -27,19 +27,20 @@
                     <h2>{{ person.name }}</h2>
                     <h3>{{ person.title }}</h3>
                     <p>
-                        <Anchor v-for="contact in person.contactInfo" 
-                                :key="contact.id" :data="contact.anchor"/>
+                        <Anchor v-for="contact in person.contactInfo" :key="contact.id" 
+                        :data="contact.anchor"/>
                     </p>
                 </div>
             </section>
-            <section v-if="organization.media.files.length > 0"
-                :class="organization.media.cls">
-                <h2 :class="organization.cls[2]"> {{ organization.media.title }}</h2>
-                <div v-for="media in organization.media.files" :class="media.cls[0] + ' ' + media.cls[1]" :key="media.id" :data-filetype="media.type">    
-                    <Anchor :data="media.anchor" />
-                    <metaData :data="media.date" :text="media.date.type" />
-                    <span :class="media.cls[2]">{{ media.description }}</span>
-                </div>
+
+            <section v-if="organization.media.media.length > 0"
+                :class="organizationData.media.cls[0]">
+                <h2 :class="organizationData.media.cls[2]"> {{ organization.media.title }}</h2>
+                <section :class="[organizationData.media.cls[1], 'media-container']">
+
+                    <Sections v-for="file in organization.media.media" :key="file.id"
+                        :data="file"/>
+                </section>
             </section>
         </section>
     </section>
@@ -89,9 +90,8 @@
     import { memberStore } from '@/stores/member-store.js';
     import { organizationStore } from '@/stores/organization-store.js';
     
-    import S from '@/components/utils/Section.vue';
+    import Sections from '@/components/utils/Section.vue';
     import Figure from '@/components/media/Figure.vue';    
-    import metaData from '@/components/utils/Span.vue';
     import Anchor from '@/components/navigation/Anchor.vue';
     import NewsCard from '@/components/article/Article.vue';
     
@@ -100,6 +100,14 @@
     const news = newsStore();
     const members = memberStore();
     const partners = partnerStore();
+    const organizationData =
+    {
+
+        media:
+        {
+            cls: ['', 'flex-wrap-row-justify-space-evenly'],
+        }
+    }
     const organization = organizationStore();
 
     const connectionData = reactive(

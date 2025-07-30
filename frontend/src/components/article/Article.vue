@@ -10,10 +10,10 @@
         <main  v-if="article.section && isArticlePage">
             <Main
                 :date="article.date"
-                :Section="article.section"
+                :data="article.section"
                 :isArticlePage="isArticlePage"
-                :Cls="[ cls[4], cls[5], cls[6], 
-                        cls[7], cls[8], cls[9], cls[10], cls[11]]"/>
+                :Cls="[ cls[4], cls[5], cls[6], cls[7], cls[8], cls[9],
+                cls[10], cls[11], cls[12], cls[13], cls[14]]" />
 
         </main>
         <footer v-if="article.conclusion && isArticlePage">

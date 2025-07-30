@@ -1,17 +1,23 @@
 <template>
     <template v-if="data">
 
-        <span :class="cls" v-if="dateObject.isLoaded()">
+        <span :class="[cls[0]]" v-if="dateObject.isLoaded()">
             {{ dateObject.text() }}
-            
-            <b>{{ dateObject.delimiter }}</b>
+
+            <template v-if="dateObject.delimiter">
+                <span :class="dateObject.delimiter">
+                    <i :class="cls[cls.length - 1]" :aria-label="dateObject.type()"></i>
+                </span>
+            </template>
             
             <time :datetime="dateObject.updated() ? dateObject.updated() : dateObject.published()">
                 <b>{{ dateObject.updated() ? dateObject.updated() : dateObject.published() }}</b>
             </time>
-            <template v-if="dateObject.icon.exists()">
-                <span :class="dateObject.icon.cls[0]">
-                    <span :class="dateObject.icon.cls[1]"></span>
+
+            <template v-if="cls.includes('icon')">
+                <span :class="cls[1]">
+                
+                    <i :class="cls[cls.length - 1]" :aria-label="dateObject.type()"></i>
                 </span>
             </template>
         </span>
@@ -19,6 +25,7 @@
         <span :class="cls" v-if="data.anchor">
             <Anchor :data="data"/>
         </span>
+
     </template>
 
     <template v-else-if="array && array.length > 0">
@@ -29,7 +36,7 @@
     </template>
 
     <template v-else>
-        <span :class="data.cls">
+        <span :class="Cls">
             {{ text }}
         </span>
     </template>
@@ -55,27 +62,42 @@
             type: Array,
             required: false
         },
+        isIcon: {
+            type: Boolean,
+            default: false,
+            required: false,
+            
+        }
 
     });
-
-    const cls = props.Cls;
     const data = props.data;
+    const classList =() =>
+    {
+        const cls = props.Cls ? props.Cls : [];
+        const icons = ['calendar'];
+
+
+        icons.forEach(icon => {
+            if (cls.includes(icon)) {
+                cls.push('icon');
+            }
+        });
+
+        return cls;
+    };
+
+    const cls = classList()
     
+
     const dateObject =
     {
-        delimiter: '*',
+        delimiter: 'dot',
         isLoaded: () => { if(data) return true; else return false; },
         type: () => { if (data.type) return data.type; else return 'date'; },
-        icon:
-        {
-            cls: ['calendar', 'icon'],
-            exists : () => { if (data.icon) return true; else return false; }
-            
-        },
         text : () => 
         { 
-            return data.updated ? 'Oppdatert '
-            : data.published ? 'Publisert '
+            return data.updated ? `Oppdatert`
+            : data.published ? `Publisert`
             : ''; 
         },
         updated: () => data.updated ? new Date(data.updated).toLocaleDateString() : null,

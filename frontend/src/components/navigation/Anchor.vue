@@ -1,26 +1,22 @@
 <template>
     <a
         :href="data.href"
-        :class="data.cls"
+        :class="cls[0]"
         :target="isExternal() ? '_blank' : '_self'"
         :rel="isExternal() ? 'noopener noreferrer' : null"
         :data-external-link="isExternal()? 'true' : 'false' "
-        :download="isMedia() == 'download' ? 'SosEnT_'+ data.name.replace(/\s+/g, '_').toLowerCase() + '.' + data.type[0] : null"
+        :download="isMedia() == 'download' ? data.label + '.' + data.type[0] : null"
         >
 
         <template v-if="isMedia() === 'img'">
             <Figure :data="img" />
         </template>
 
-        <template v-else-if="isMedia() == 'icon'">
-            <h3 v-if="media.files.find(type => type === data.type[0])":class="data.type[0]? data.type[0] : 'default'">
-                <span class="icon" :aria-label="data.name"></span> 
+        <template v-else-if="isMedia() == cls[cls.length - 1]">
+            <h4 v-if="data.label" :class="cls[1]">
+                <span :class="cls[cls.length - 1]" :aria-label="data.label"></span> 
                 {{ data.label }}
-            </h3>
-            <span :class="data.type[0] ? data.type[0]:'default'" v-else>
-                <span class="icon" :aria-label="data.name"></span> 
-                {{ data.label }}
-            </span>
+            </h4>
         </template>
 
         <template v-else>
@@ -41,6 +37,14 @@
         data: {
             type: Object,
             required: true
+        },
+        Cls: {
+            type: [String, Array],
+            required: false,
+        },
+        img: {
+            type: Object,
+            required: false,
         }
     });
 
@@ -53,7 +57,16 @@
     }
 
     const data = props.data;
-    const img = data.img? data.img : null;
+    const img = props.img ?? null;
+    const classList = () => {
+
+        const cls = props.Cls ? props.Cls : (Array.isArray(data.cls) ? data.cls : [data.cls]);
+        cls.push('icon');
+
+        return cls;
+    };
+    
+    const cls = classList();
     
     const isExternal = () => {
         if (Array.isArray(data.type)) {
@@ -77,16 +90,16 @@
             switch (data.type[0]) {
 
                 case media.files.find(type => type === data.type[0]):
-                    return 'icon';
+                    return cls[cls.length - 1];
 
                 case media.contact.find(type => type === data.type[0]):
-                    return 'icon';
+                    return cls[cls.length - 1];
 
                 case media.downloadFiles.find(type => type === data.type[0]):
                     return 'download';
 
-                case 'img':
-                    if (media.images.find(type => type === data.img.type)) {
+                case img && media.images.find(type => type === data.img.type):
+                    {
                         return 'img';
                     }
                     console.warn('Image type is not supported:', data.img.type, data);
