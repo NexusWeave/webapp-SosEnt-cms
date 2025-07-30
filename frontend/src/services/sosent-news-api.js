@@ -198,21 +198,19 @@ const articles = reactive(
                                 interimstyret og finansiering: Grunnlagsdokumentet
                                 for SosEnt Norge`,
                                 media:
-                                [
+                                {
+                                    type: 'pdf',
+                                    id: generateHexID(),
+                                    date: {published: '01.04-2025'},
+                                    description: 'Grunnlagsdokumentet for SosEnt Norge',
+                                    anchor:
                                     {
-                                        type: 'pdf',
-                                        id: generateHexID(),
-                                        date: {published: '01.04-2025'},
-                                        description: 'Grunnlagsdokumentet for SosEnt Norge',
-                                        anchor:
-                                        {
-                                            type: ['pdf'],
-                                            label: 'Grunnlags dokument',
-                                            href: '/media/files/documents/SosEnt-Norge-Grunnlagsdokument.pdf',
+                                        type: ['pdf'],
+                                        label: 'Grunnlags dokument',
+                                        href: '/media/files/documents/SosEnt-Norge-Grunnlagsdokument.pdf',
                                         },
                                         
-                                    },
-                                ],
+                                },
                             },
                         ],
                     },
