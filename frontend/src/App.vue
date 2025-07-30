@@ -1,12 +1,20 @@
 <template>  
   <header>
-    <Header :data = 'navData.header' />
+    <Header :data="data.header"
+      :cls="[['flex-wrap-column-justify-space-between','component-theme'],
+      'flex-wrap-row', ['nav-bar', 
+      'flex-wrap-row-align-items-center-justify-space-evenly'],
+      'flex-column-align-items-center']" />
   </header>
   <main>
     <router-view></router-view>
   </main>
   <footer>
-    <Footer :data = 'navData.footer' />
+    <Footer :data = 'data.footer'
+      :cls="[['flex-wrap-row-align-center', 'component-theme',
+      'flex-wrap-row-justify-space-between'], ['nav-bar',
+      'flex-wrap-row-justify-flex-end']]"
+      :menu="data.footer.menu"/>
   </footer>
 
 </template>
@@ -19,10 +27,9 @@ import Header from './views/utils/HeaderView.vue';
 import Footer from './views/utils/FooterView.vue';
 import { generateHexID } from './utils/utils';
 
-const navData = reactive({
+const data = reactive({
   header:
     {
-      cls: ['flex-wrap-column-justify-space-between','component-theme', 'flex-wrap-row'],
   
       content:
       {
@@ -47,6 +54,7 @@ const navData = reactive({
             id: generateHexID(),
           },
           {
+            type: 'router',
             href: '/aktuelt',
             label: 'Aktuelt',
             cls: ['nav-link'],
@@ -72,7 +80,7 @@ const navData = reactive({
       anchor: 
       {
         href: '/', 
-        type: ['img'], 
+
         cls: ['flex-wrap-row-justify-flex-start'],
 
         img:
@@ -86,31 +94,26 @@ const navData = reactive({
   },
   footer:
   {
-    type: 'link',
-    cls: ['nav-bar', 'flex-wrap-row-justify-flex-end',],
-    id: 'footer-nav',
-    section:
-    {
-      cls: ['flex-wrap-row-align-center', 'component-theme', 'flex-wrap-row-justify-space-between'],
-      text: ' © alle rettigheter reservert av SosEnT Norge',
-    },
+    copyRight: ' © alle rettigheter reservert av SosEnT Norge',
     menu:
+    
     [
       {
         
         cls: ['nav-item'],
         label: "Personvern",
-        type: ['link','external'],
+        type: ['anchor','external'],
         href: "/media/files/documents/SosEnT-Norge-Personvern.pdf",
       },
       {
 
         cls: ['nav-item'],
-        type: ['external'],
+        type: ['anchor','external'],
         label: "NO 935 329 930",
         href: "https://proff.no/selskap/sosent-norge/oslo/medlemsorganisasjoner/IFGVD6Y10PU"
       },
     ],
   },
 });
+console.log("App loaded with data: ", data.footer, data.footer.menu);
 </script>

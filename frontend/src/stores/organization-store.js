@@ -7,15 +7,14 @@ export const organizationStore = defineStore('organizationData',
     {
         state: () => (
             {
+            
+                cls: [],
                 data:
                 {
                     isLoaded: false,
                     title: 'Om SosEnt Norge',
-                    cls: [  'flex-column-align-items-center', 
-                            '', 'organization-h2',
-                            'flex-column'],
                     content:
-                    [   `SosEnt Norge – Landsforeningen for sosiale
+                    [ `SosEnt Norge – Landsforeningen for sosiale
                         entreprenører – er en interessepolitisk forening
                         som søker å styrke og påvirke rammebetingelser og
                         regelverk til beste for sosiale entreprenører i
@@ -52,8 +51,6 @@ export const organizationStore = defineStore('organizationData',
                         team: [],
                         isLoaded: false,
                         title: 'Kontakt oss',
-                        cls: [  'flex-wrap-row-justify-space-evenly',
-                                'card-container'],
                     },
                     
                     media:
@@ -78,13 +75,10 @@ export const organizationStore = defineStore('organizationData',
             {
 
                 team.forEach(member => {
-                    member.cls = ['card-content', 'component-theme'];
 
                     const contactInfo = member.contactInfo;
                     contactInfo.forEach((card) =>
-                        {
-                            card.cls = ['card-data'];
-                            
+                        {   
                             const anchor = card.anchor;
                             const label = anchor.href.split(':');
 

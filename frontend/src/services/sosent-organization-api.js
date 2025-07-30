@@ -61,7 +61,7 @@ const organization = reactive(
             img:
             {
                 type: 'jpg',
-                cls: ['contact-logo'],
+                cls: ['card-img'],
                 alt: "JPG bilde av Helle V. Rødahl",
                 src: '/media/images/team/profil-helle-privat.jpg',
             },

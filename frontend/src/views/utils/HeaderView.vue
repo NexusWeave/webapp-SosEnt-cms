@@ -1,13 +1,11 @@
 <template>
-    <div :class="data.cls[0] + ' ' + data.cls[1]">
-        <div :class="data.cls[2]">
-            <div :class="data.anchor.cls">
-                <Anchor :data="data.anchor" />
-            </div>
-            <Menu :data='data.nav' />
+    <div :class="cls[0]">
+        <div :class="cls[1]">
+            <Anchor :data="data.anchor" />
+            <Menu :data='menu' :cls="[cls[2]]"/>
         </div>
     </div>
-    <section :class="data.content.cls">
+    <section :class="cls[3]">
         <h1>{{ content.title }}</h1>
         <p>{{ content.text }}</p>
     </section>
@@ -19,14 +17,19 @@
     import Anchor from '@/components/navigation/Anchor.vue';
     
     const props = defineProps({
-    data: {
-        type: Object,
-        required: true
-    }
+        data: {
+            type: Object,
+            required: true
+        },
+        cls: {
+            type: Array,
+            required: false,
+        }
     });
 
-    const data = reactive(props.data);
-    const content = reactive(data.content);
-    
+    const cls = props.cls;
+    const data = props.data;
+    const content = data.content;
+    const menu = props.data.nav.menu;
     //console.log("HeaderView loaded with data: ", content, logo);
 </script>

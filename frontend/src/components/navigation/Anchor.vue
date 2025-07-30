@@ -57,7 +57,8 @@
     }
 
     const data = props.data;
-    const img = props.img ?? null;
+    const img = data.img ?? null;
+    
     const classList = () => {
 
         const cls = props.Cls ? props.Cls : (Array.isArray(data.cls) ? data.cls : [data.cls]);
@@ -79,36 +80,31 @@
     };
 
     const isMedia = () => {
-        if (!data.type) return false;
 
-        if (!Array.isArray(data.type)) {
-            console.warn('Data type is not an array:', data.type, data);
-            return false;
-        }
-        if (Array.isArray(data.type)) {
-            
-            switch (data.type[0]) {
+        if (!data.type && !img) return false;
 
-                case media.files.find(type => type === data.type[0]):
-                    return cls[cls.length - 1];
+        const search = data.type ? data.type[0] : img.type ?? null
+        console.log("Search type:", search, "Data type:", data.type, "Image type:", img ? img.type : 'No image');
 
-                case media.contact.find(type => type === data.type[0]):
-                    return cls[cls.length - 1];
+        const files = media.files.find(type => type === search);
+        const images = media.images.find(type => type === search);
+        const contact = media.contact.find(type => type === search);
+        const download = media.downloadFiles.find(type => type === search);
 
-                case media.downloadFiles.find(type => type === data.type[0]):
-                    return 'download';
+        switch (search)
+        {
+            case files || contact:
+                return cls[cls.length - 1];
 
-                case img && media.images.find(type => type === data.img.type):
-                    {
-                        return 'img';
-                    }
-                    console.warn('Image type is not supported:', data.img.type, data);
+            case download:
+                return 'download';
 
-                default:
-                    console.log(data.img)
-                    console.warn('Data type is illegal:', data.type, data);
-                    return false;
-            }   
+            case images:
+                return 'img';
+
+            default:
+                console.warn('Data type is illegal:', search, data);
+                return false;
         }
     };
 

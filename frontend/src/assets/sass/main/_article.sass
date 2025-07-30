@@ -1,6 +1,6 @@
 @use '../utils/colors' as color
 @use '../utils/mixins' as mix
-
+@forward '../utils/grid'
 article.news-card
     margin-block: 1em
     border-radius: 0.5em
@@ -71,6 +71,9 @@ article
             .article-section-content
                 margin: auto
                 inline-size: 40em
+
+                h4.title-h4
+                    font-weight: bold
                 p
                     font-size: 1.3em
                     margin-block: 1em
@@ -83,15 +86,17 @@ article
                 padding: 1em
 
                 .cta-section-content
-                    h4.article-title-h4
+                    h4.title-h4
                         font-size: 1.2em
                         padding-block: 0
                         font-weight: bold
                         padding-inline: 0
                         
-                    p
+                    span
                         max-inline-size: 19em
 
+                    .media-content
+                        padding: 0
                 .media-link
                     .icon::before
                         padding: 0.2em

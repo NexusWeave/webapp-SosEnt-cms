@@ -1,52 +1,55 @@
 <template>
     <section v-if="news.recent.length > 0" :class="[news.data.cls[1]]">
-        <NewsCard
-            v-for="article in news.recent" 
-            :key="article.id" 
-            :data="article"    
+        <NewsCard v-for="article in news.recent"  :key="article.id"
+            :data="article"
             :Cls="[['flex-column-align-items-center', 'article-section'],
-            'article-section', article.cls[0], 'tags', 'news-card']"/>
+            'article-section', 'article-title-h2', 'tags', 'news-card']"/>
     </section>
 
-    <section :class="organization.cls[0]">
+    <section class="flex-column-align-items-center">
         <section v-if="organization.isLoaded"
                 class="section-content">
-                <h2 :class="organization.cls[2]"> {{ organization.title }}</h2>
+                <h2 class="title-h2"> {{ organization.title }}</h2>
                 <p v-for="paragraph in organization.content"
                     :key="paragraph.id">{{ paragraph }}</p>
         </section>
 
         <section v-if="organization.team.isLoaded"
-            :class="[organization.cls[0], organization.team.cls[1]]">
-            <h2 :class="organization.cls[2]"> {{ organization.team.title }}</h2>
+            :class="['flex-column-align-content-center', 'card-container']">
+            <h2 class="title-h2"> {{ organization.team.title }}</h2>
+
             <section v-if="organization.team.isLoaded" 
-                    :class="organization.team.cls">
+                class="flex-wrap-row-justify-space-evenly card-container">
+
                 <div v-for="person in organization.team.team" 
-                    :class="person.cls" :key="person.id">
+                    :class="[['card-content', 'component-theme'],'title-h4']" :key="person.id">
                     <Figure v-if="person.img" :data="person.img" />
                     <h2>{{ person.name }}</h2>
                     <h3>{{ person.title }}</h3>
                     <p>
+
                         <Anchor v-for="contact in person.contactInfo" :key="contact.id" 
-                        :data="contact.anchor"/>
+                        :data="contact.anchor" :Cls="[contact.anchor.type[0], 'title-h4']" />
                     </p>
                 </div>
             </section>
         </section>
 
-        <section v-if="organization.media.isLoaded" :class="organizationData.media.cls[2]">
-            <h2 :class="organizationData.media.cls[0]"> {{ organization.media.title }} </h2>
-            <section :class="[organizationData.media.cls[1]]">
+        <section v-if="organization.media.isLoaded" 
+            class="media-container">
+            <h2 class="title-h2"> {{ organization.media.title }} </h2>
+            <section class="flex-wrap-row-justify-space-evenly">
                     <Sections v-for="file in organization.media.media" :key="file.id"
                         :data="file"/>
             </section>
         </section>
     </section>
 
-    <section v-if="members.members.length > 0 || partners.partners.length > 0" :class="connectionData.cls[0]">
-
-        <h2 :class="connectionData.cls[1]">{{ connectionData.title }}</h2>
-        <section :class="connectionData.cls[2]">
+    <section 
+        v-if="members.members.length > 0 || partners.partners.length > 0"
+        class="flex-column-align-content-center">
+        <h2 class="title-h2">{{ connectionData.title }}</h2>
+        <section class="flex-wrap-row-justify-space-evenly">
 
             <section v-if ="members.isLoaded"
                 :class="members.cls" >
@@ -96,16 +99,14 @@
     const news = newsStore();
     const members = memberStore();
     const partners = partnerStore();
-    const organizationData =
-    {
 
-        media:
+
+    const data = reactive(
         {
-            cls: [ 'organization-title-h2','flex-wrap-row-justify-space-evenly', 'media-container', ],
+            cls: []
         }
-    }
+    );
     const organization = organizationStore();
-
     const connectionData = reactive(
         {
             title: 'Medlemmer og samarbeids-partnere',

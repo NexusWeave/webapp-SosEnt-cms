@@ -1,11 +1,11 @@
 <template>
-    <section :class="data.section.cls">
+    <section :class="cls[0]">
         <section></section>
         <section>
-            {{ data.section.text }}
+        <p>{{ data.copyRight }}</p>
         </section>
         <section>
-            <Menu :data="data" />
+            <NavMenu :data="menu" :cls="cls[1]" />
         </section>
     </section>
     
@@ -14,18 +14,29 @@
 
 <script setup>
 
-    import { defineProps, reactive } from 'vue';
-    import Menu from '@/components/navigation/NavMenu.vue';
+    import { defineProps } from 'vue';
+    import NavMenu from '@/components/navigation/NavMenu.vue';
 
     const props = defineProps({
         data:
         {
             type: Object,
             required: true
+        },
+        cls:
+        {
+            type: [String, Array],
+            required: true,
+        },
+        menu: {
+            type: Array,
+            required: true,
         }
     });
 
-    const data = reactive(props.data);
+    const cls = props.cls;
+    const data = props.data;
+    const menu = props.menu;
 
     //console.log("FooterView loaded with data: ", data);
 </script>

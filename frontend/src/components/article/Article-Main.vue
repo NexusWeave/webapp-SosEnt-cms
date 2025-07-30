@@ -35,8 +35,9 @@
                             :key="i">
                             {{ cta.content }}
                         </p>
-
-                        <Sections v-if="cta.media" :data="cta.media"/>
+                        <section v-if="cta.media" :class="['media-container']">
+                            <Sections v-if="cta.media" :data="cta.media"/>
+                        </section>
                     </section>
                 </section>
             </aside>
