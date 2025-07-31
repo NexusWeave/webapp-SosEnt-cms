@@ -18,9 +18,21 @@ export const partnerStore = defineStore('partnerData',
             {
                 partners.forEach(partner =>
                     {
-                        partner.cls = ['partner-img'];
-                        partner.anchor.img.cls = ['partner-img'];
-                        partner.anchor.type = ['img', 'external'];
+                        const image = 'SosEnT-favicon.png';
+                        const path = '/media/images/partners/';
+
+                        partner.anchor =
+                        {
+                            type: ['png', 'external'],
+                            href: partner.anchor.href ?? null,
+                            img:
+                            {
+                                type: 'png',
+                                alt: image,
+                                src: path + image,
+                                cls : ['partner-figure','partner-img'],
+                            },
+                        }
 
                         this.data.partners.push(partner);
                         console.log("Partner added: ", partner);
