@@ -20,34 +20,28 @@
             </section>
         </section>
     </template>
-    <template v-if="isConnections">
-        <section v-if ="connection.isConnections"
-                :class="['flex-column', 'connection-container']">
-                <h2 class="title-h2">{{ connection.title }}</h2>
-                <section :class="['flex-wrap-row-justify-space-evenly']" >
-                    <section v-if ="isMembers"
-                        :class="['flex-column', 'member-container']" >
-                        <Table :data="members" :cls="[]" />
-                    </section>
-                    
-                    <section v-if ="isPartners"
-                        :class="['flex-wrap-row', 'partner-container']">
-                        <div v-for="partner in partners.partners" :key="partner.id" 
-                            :class="['partner-img']">
-                            <Anchor :data="partner.anchor" :Cls="['partner-img']"/>
-                        </div>
-                    </section>
-                </section>
-            </section>
+    <template v-if="isMembers">
+        <section :class="['flex-column', 'member-container']" >
+            <Table :data="connection" :cls="cls[3]" />
+        </section>
     </template>
-
+    <template v-if="isPartners">
+        <section :class="['flex-wrap-row', 'partner-container']">
+            <div v-for="partner in connection.partners" :key="partner.id"
+                :class="['partner-img']">
+                <Anchor :data="partner.anchor" :Cls="['partner-img']"/>
+            </div>
+        </section>
+    </template>
 </template>
 <script setup>
 
-    import { computed, defineProps, reactive, ref } from 'vue';
-    import Date from '@/components/utils/Span.vue';
-    import Anchor from '@/components/navigation/Anchor.vue';
+    import { computed, defineProps } from 'vue';
 
+    import Date from '@/components/utils/Span.vue';
+    import Table from '@/components/utils/Table.vue';
+    import Anchor from '@/components/navigation/Anchor.vue';
+    
     const props = defineProps({
         data: {
             type: Object,
@@ -62,24 +56,36 @@
             required: false
         },
     });
-    
-    
 
     const data = props.data;
     const cls = props.cls ?? null;
+    const isMembers = computed(() => { return !!data.isMembers; });
 
-    const isConnections = computed(() => { return !!data.isConnections; });
-        const connection = computed(() => 
+    const isPartners = computed(() => { return !!data.isPartners; });
+    console.warn('Section - isMember:', data.isMembers, data);
+    const connection = computed(() =>
+    {
+        console.warn('Section - Connection Data:', isMembers, data);
+        if (isMembers.value)
         {
-            if (!!isConnections.value)
-            {
-                return {
-                    title: data.title,
-                    members: data.members ?? [],
-                    partners: data.partners ?? [],
-                }
+            console.warn('Section - Members Data:', data);
+            const members = data.members;
+            return {
+                isMembers: isMembers.value,
+                members: members,
             }
-        });
+        }
+        if (!!isPartners.value)
+        {
+            console.warn('Section - Partners Data:', data);
+            const partners = data.partners;
+            return {
+                isPartners: isPartners.value,
+                partners: partners,
+            }
+        }
+    })
+
     const isMedia = computed(() => { return !!data.isLoaded; });
     const media = computed(() => 
     {
@@ -93,7 +99,6 @@
         }
      });
 
-    const organization = data.organization;
 
-    //console.warn('Section - Media Data:', media.value);
+    console.warn('Section - Media Data:', media.value, connection.value, data.value);
 </script>
