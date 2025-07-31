@@ -101,6 +101,7 @@ export const organizationStore = defineStore('organizationData',
                         this.data.isLoaded = true;
                         this.addMedia(data.media);
                         this.addOrganization(data.team);
+
                     }).catch((error) =>
                     {
                         this.data.isLoaded = false;
