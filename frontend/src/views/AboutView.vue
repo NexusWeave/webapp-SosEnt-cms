@@ -34,48 +34,29 @@
                 </div>
             </section>
         </section>
+        <Sections v-if="isMedia" 
+            :data="media"
+            filter="medlemskap"
+            :cls="['media-container','flex-wrap-row-justify-space-evenly',
+            ['media-content', 'flex-column', 'component-theme']]"/>
 
-        <section v-if="organization.media.isLoaded" 
-            class="media-container">
-            <h2 class="title-h2"> {{ organization.media.title }} </h2>
-            <section class="flex-wrap-row-justify-space-evenly">
-                    <Sections v-for="file in organization.media.media" :key="file.id"
-                        :data="file"/>
-            </section>
-        </section>
     </section>
 
-    <section 
-        v-if="members.members.length > 0 || partners.partners.length > 0"
+    <section  v-if="members.members.length > 0 || partners.partners.length > 0"
         class="flex-column-align-content-center">
         <h2 class="title-h2">{{ connectionData.title }}</h2>
         <section class="flex-wrap-row-justify-space-evenly">
 
-            <section v-if ="members.isLoaded"
-                :class="members.cls" >
-                <table>
-                    <tbody>
-                        <tr v-for="member in members.members.slice(0, 5)" :key="member.id">
-                            <td v-if="member.anchor">
-                                <Anchor :data="member.anchor"/>
-                            </td>
-                            <td v-else>
-                                {{ member.label }}
-                            </td>
-                        </tr>
-                    </tbody>
-                    <tfoot v-if="members.members.length > 5">
-                        
-                        <Anchor :data="members.media" />
-                    </tfoot>
-                </table>
+            <section v-if ="isMembers"
+                :class="['flex-column', 'member-container']" >
+                <Table :data="members" :cls="[]" />
             </section>
 
-            <section v-if ="partners.isLoaded"
-                :class="partners.cls">
+            <section v-if ="isPartners"
+                :class="['flex-column', 'partner-container']">
                 <div v-for="partner in partners.partners" :key="partner.id" 
-                    :class="partner.cls">
-                    <Anchor :data="partner.anchor" />
+                    :class="['partner-img']">
+                    <Anchor :data="partner.anchor" :Cls="['partner-img']"/>
                 </div>
             </section>
         </section>
@@ -84,23 +65,28 @@
 </template>
 
 <script setup>
-    import { reactive } from 'vue';
-
+    import { reactive, computed } from 'vue';
+    
     import { newsStore } from '@/stores/news-store.js';
+    import { mediaStore } from '@/stores/media-store.js';
     import { partnerStore } from '@/stores/partner-store';
     import { memberStore } from '@/stores/member-store.js';
     import { organizationStore } from '@/stores/organization-store.js';
     
+    import Table from '@/components/utils/Table.vue';
+    import Figure from '@/components/media/Figure.vue';
     import Sections from '@/components/utils/Section.vue';
-    import Figure from '@/components/media/Figure.vue';    
     import Anchor from '@/components/navigation/Anchor.vue';
     import NewsCard from '@/components/article/Article.vue';
 
     const news = newsStore();
+    const media = mediaStore();
     const members = memberStore();
     const partners = partnerStore();
 
-
+    const isMedia = computed(() => media.isLoaded);
+    const isMembers = computed(() => members.isLoaded);
+    const isPartners = computed(() => partners.isLoaded);
     const data = reactive(
         {
             cls: []
