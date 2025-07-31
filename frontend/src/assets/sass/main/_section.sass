@@ -1,16 +1,24 @@
 @use '../utils/colors' as color
 @use '../utils/mixins' as mix
-
+//@forward '/utils/media'
 
 .media-container
-    inline-size: 100%
+    inline-size: 30em
 
     .connections-h2
         inline-size: calc(100% - 24em)
 
     .media-content
         padding-inline: 2em
+        max-inline-size: 27em
         padding-block-end: 2em
+        
+        h2, h3
+            padding-inline: 0
+            padding-block: 0.5em
+        
+        p
+            text-align: center
 
     .meta-date
         display: block
@@ -19,10 +27,6 @@
 
     .media-link
         display: inline-block
-    
-    h2, h3
-        padding-inline: 0
-        padding-block: 0.5em
 
 .partner-container
     inline-size: 39em
@@ -49,6 +53,11 @@
         text-align: center
         padding-block: .5em
 
+.stakeholder-container
+    inline-size: 100%
+
+.connection-container
+    inline-size: 60em
 
 .p-content
     text-align: justify
