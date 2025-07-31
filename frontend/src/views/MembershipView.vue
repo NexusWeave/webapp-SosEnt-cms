@@ -26,14 +26,64 @@
                 <Form :schema="membership.schema" />
             </section>
         </section>
-        
+
+        <section :class="['flex-wrap-row-justify-space-around', 'Stakeholder-container']">
+            <Sections v-if="media.isLoaded" :data="media"
+                filter="medlemskap"
+                :cls="['media-container','flex-column',
+                    ['media-content', 'flex-column', 'component-theme']]"/>
+
+            <section v-if ="connection.isConnections"
+                :class="['flex-column', 'connection-container']">
+                <h2 class="title-h2">{{ connection.title }}</h2>
+                <section :class="['flex-wrap-row-justify-space-evenly']" >
+                    <section v-if ="isMembers"
+                        :class="['flex-column', 'member-container']" >
+                        <Table :data="members" :cls="[]" />
+                    </section>
+                    
+                    <section v-if ="isPartners"
+                        :class="['flex-wrap-row', 'partner-container']">
+                        <div v-for="partner in partners.partners" :key="partner.id" 
+                            :class="['partner-img']">
+                            <Anchor :data="partner.anchor" :Cls="['partner-img']"/>
+                        </div>
+                    </section>
+                </section>
+            </section>
+        </section>
     </section>
 </template>
 
 <script setup>
 
+    import { computed } from 'vue';
+
+    import { mediaStore } from '@/stores/media-store';
+    import { memberStore } from '@/stores/member-store';
+    import { partnerStore } from '@/stores/partner-store.js';
+    
+    import Table from '@/components/utils/Table.vue';
+    import Sections from '@/components/utils/Section.vue';
     import Anchor from '@/components/navigation/Anchor.vue';
 
+    const media = mediaStore();
+    const isMedia = computed(() => media.isLoaded);
+    const membersDocs = computed(() => media.filter('medlemskap'));
+
+    const members = memberStore();
+    const partners = partnerStore();
+    const isMembers = computed(() => members.isLoaded);
+    const isPartners = computed(() => partners.isLoaded);
+
+
+    const connection = {
+        isConnections: isMembers.value || isPartners.value,
+        title: 'Medlemmer og samarbeids-partnere',
+    }
+    
+
+    
     const membership = {
         title: 'Medlemskap i SoSEnT Norge',
         cls: ['membership', 'section'],
