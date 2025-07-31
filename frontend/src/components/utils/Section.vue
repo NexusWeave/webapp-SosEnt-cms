@@ -1,24 +1,50 @@
 
 <template>
-    <template v-if="media.isMedia">
-        <section :data-filetype="media.type"
-            :class="media.cls[0]">
-            <Anchor :data="media.anchor" :Cls="[media.cls[1], media.cls[2]]"/>
+    <template v-if="isMedia">
+        
+        <section :data-filetype="media.type" :class="cls[0]">
+            <h2 class="title-h2"> {{ media.title }} </h2>
 
-            <section :class="media.cls[3]">
-                <Date :data="media.date" :Cls="[media.cls[4], media.cls[5]]" />
-                <span>
-                    {{ media.description }}
-                </span>
+            <section :class="cls[1]">
+                <section v-for="media in media.media" :key="media.id"
+                    :class="cls[2]">
+                    <Anchor :data="media.anchor"
+                        :Cls="[media.type, 'title-h4']" />
+                    <p>
+                        <Date :data="media.date" :Cls="['meta-date', 'calendar']" />
+                        <span>
+                            {{ media.description }}
+                        </span>
+                    </p>
+                </section>
             </section>
         </section>
+    </template>
+    <template v-if="isConnections">
+        <section v-if ="connection.isConnections"
+                :class="['flex-column', 'connection-container']">
+                <h2 class="title-h2">{{ connection.title }}</h2>
+                <section :class="['flex-wrap-row-justify-space-evenly']" >
+                    <section v-if ="isMembers"
+                        :class="['flex-column', 'member-container']" >
+                        <Table :data="members" :cls="[]" />
+                    </section>
+                    
+                    <section v-if ="isPartners"
+                        :class="['flex-wrap-row', 'partner-container']">
+                        <div v-for="partner in partners.partners" :key="partner.id" 
+                            :class="['partner-img']">
+                            <Anchor :data="partner.anchor" :Cls="['partner-img']"/>
+                        </div>
+                    </section>
+                </section>
+            </section>
     </template>
 
 </template>
 <script setup>
 
-    import { defineProps, ref } from 'vue';
-    import Figure from '@/components/media/Figure.vue';
+    import { computed, defineProps, reactive, ref } from 'vue';
     import Date from '@/components/utils/Span.vue';
     import Anchor from '@/components/navigation/Anchor.vue';
 
@@ -30,27 +56,44 @@
         cls: {
             type: Array,
             required: false
-        }
+        },
+        filter: {
+            type: String,
+            required: false
+        },
     });
+    
+    
+
     const data = props.data;
+    const cls = props.cls ?? null;
 
-    const cls = props.cls ? props.cls : data.cls ? data.cls : null;
-    const mediaData = {
-        files: ['pdf', 'docx', 'xlsx', 'csv'],
-    };
-
-    const media = 
+    const isConnections = computed(() => { return !!data.isConnections; });
+        const connection = computed(() => 
+        {
+            if (!!isConnections.value)
+            {
+                return {
+                    title: data.title,
+                    members: data.members ?? [],
+                    partners: data.partners ?? [],
+                }
+            }
+        });
+    const isMedia = computed(() => { return !!data.isLoaded; });
+    const media = computed(() => 
     {
-        type: data.type ?? null,
-        date: data.date ?? null,
-        anchor: data.anchor ?? null,
-        description: data.description ?? null,
-        isMedia: mediaData.files.includes(data.type),
-        cls: [['flex-column-align-items-center','component-theme'], ['pdf', 'media-link'],
-        'title-h4', 'media-content', 'meta-date', 'calendar'],
-    };
+        if (!!isMedia.value)
+        {
+            const media = data.media;
+            return {
+                title: data.title,
+                media: media,
+            }
+        }
+     });
 
     const organization = data.organization;
 
-    console.warn('Section - Media Data:', media.isMedia, data);
+    //console.warn('Section - Media Data:', media.value);
 </script>
