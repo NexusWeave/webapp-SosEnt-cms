@@ -28,7 +28,7 @@
         </section>
 
         <section :class="['flex-wrap-row-justify-space-around', 'Stakeholder-container']">
-            <Sections v-if="media.isLoaded" :data="media"
+            <Sections v-if="isMedia" :data="media"
                 filter="medlemskap"
                 :cls="['media-container','flex-column',
                     ['media-content', 'flex-column', 'component-theme']]"/>
@@ -36,20 +36,12 @@
             <section v-if ="connection.isConnections"
                 :class="['flex-column', 'connection-container']">
                 <h2 class="title-h2">{{ connection.title }}</h2>
-                <section :class="['flex-wrap-row-justify-space-evenly']" >
-                    <section v-if ="isMembers"
-                        :class="['flex-column', 'member-container']" >
-                        <Table :data="members" :cls="[]" />
-                    </section>
-                    
-                    <section v-if ="isPartners"
-                        :class="['flex-wrap-row', 'partner-container']">
-                        <div v-for="partner in partners.partners" :key="partner.id" 
-                            :class="['partner-img']">
-                            <Anchor :data="partner.anchor" :Cls="['partner-img']"/>
-                        </div>
-                    </section>
-                </section>
+                <Sections v-if="isMembers" :data="connection.members.value"
+                    :cls="['flex-column', 'connection-container']"/>
+
+                
+                <Sections v-if ="isPartners" :data="connection.partners.value"
+                    :cls="['flex-wrap-row', 'partner-container']" />
             </section>
         </section>
     </section>
@@ -76,14 +68,30 @@
     const isMembers = computed(() => members.isLoaded);
     const isPartners = computed(() => partners.isLoaded);
 
-
-    const connection = {
-        isConnections: isMembers.value || isPartners.value,
+    console.log('Members:', isMembers.value);
+    const connection =
+    {
         title: 'Medlemmer og samarbeids-partnere',
-    }
-    
+        isConnections: computed(() => !!isMembers.value || !!isPartners.value),
+        members: computed(() => 
+        {
+            if (!isMembers.value) return false; 
+            return {
+                members: members.members,
+                isMembers: members.isLoaded,
+                };
 
-    
+        }),
+        partners: computed(() => 
+        {
+            if (!isPartners.value) return false;
+            return {
+                partners: partners.partners,
+                isPartners: isPartners.value,
+            };
+        }),
+    }
+  
     const membership = {
         title: 'Medlemskap i SoSEnT Norge',
         cls: ['membership', 'section'],
