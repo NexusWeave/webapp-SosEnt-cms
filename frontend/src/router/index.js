@@ -1,9 +1,11 @@
 import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 
+import { mediaStore } from '@/stores/media-store';
 import { newsStore } from '@/stores/news-store.js';
 import { memberStore } from '@/stores/member-store.js';
 import { partnerStore } from '@/stores/partner-store.js';
 import { organizationStore } from '@/stores/organization-store';
+
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -16,13 +18,18 @@ const router = createRouter({
       beforeEnter: async (to, from, next) => {
 
         const news = newsStore();
-        const members = memberStore();
-        const partners = partnerStore();
-        const organization = organizationStore();
-        
         await news.fetchNews();
+
+        const members = memberStore();
         await members.fetchMembers();
+        
+        const media = mediaStore();
+        await media.fetchMedia();
+
+        const partners = partnerStore();
         await partners.fetchPartners();
+
+        const organization = organizationStore();
         await organization.fetchOrganization();
 
         news.isLoaded && members.isLoaded && partners.isLoaded && organization.isLoaded ? next() : next();
@@ -59,7 +66,24 @@ const router = createRouter({
       name: 'membership',
       path: '/medlemskap',
       component: () => import('../views/MembershipView.vue'),
+      
+      beforeEnter: async (to, from, next) =>
+      {
+
+        const members = memberStore();
+        await members.fetchMembers();
+        
+        const media = mediaStore();
+        await media.fetchMedia();
+
+        const partners = partnerStore();
+        await partners.fetchPartners();
+
+        members.isLoaded && partners.isLoaded && media.isLoaded ? next() : next();
+      }
+
     },
+    
 
     {
       name: 'file-redirect',
