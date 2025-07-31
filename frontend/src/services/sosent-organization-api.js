@@ -31,7 +31,6 @@ const organization = reactive(
                     href: '/media/files/documents/SosEnt-Norge-vedtekter.pdf',
                 },
             },
-
         ],
         team:
         [
