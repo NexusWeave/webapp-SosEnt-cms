@@ -1,0 +1,44 @@
+@use '../utils/colors' as color
+
+section
+    .media-container
+    inline-size: 50em
+
+    .connections-h2
+        inline-size: calc(100% - 24em)
+
+    .media-content
+        padding-inline: 2em
+        max-inline-size: 27em
+        padding-block-end: 2em
+        
+        h2, h3
+            padding-inline: 0
+            padding-block: 0.5em
+        
+        p
+            text-align: center
+
+    .meta-date
+        display: block
+        font-size: .8em
+        text-align: center
+
+    .media-link
+        display: inline-block
+
+article
+    
+    img
+        inline-size: 100%
+        border-radius: 0.5em
+
+    figure.article-figure, .content-figure
+        margin: .5em auto
+        inline-size: 100%
+
+        figcaption
+            font-size: 0.8em
+            font-style: italic
+            text-align: center
+            color: color.$Groovy-brown
