@@ -5,85 +5,49 @@ import { generateHexID } from '@/utils/utils.js';
 
 const partnerData = reactive(
     [
-        /*{
+        {
             id: generateHexID(),
-            anchor: 
+            anchor:
             {
                 href: 'https://www.example.com',
-                img:
-                {
-                    type: 'png',
-                    alt: 'SoSent Logo',
-                    src: '/media/images/partners/SosEnT-favicon.png',
-                },
-            },
+            }
         },
         {
             id: generateHexID(),
-            anchor: 
+            anchor:
             {
-                href: 'https://www.example.com',
-                img:
-                {
-                    type: 'png',
-                    alt: 'SoSent Logo',
-                    src: '/media/images/partners/SosEnT-favicon.png',
-                },
-            },
+                href: 'https://www.example2.com',
+            }
         },
         {
             id: generateHexID(),
-            anchor: 
+            anchor:
             {
-                href: 'https://www.example.com',
-                img:
-                {
-                    type: 'png',
-                    alt: 'SoSent Logo',
-                    src: '/media/images/partners/SosEnT-favicon.png',
-                },
-            },
+                href: 'https://www.example3.com',
+            }
         },
         {
             id: generateHexID(),
-            anchor: 
+            anchor:
             {
-                href: 'https://www.example.com',
-                img:
-                {
-                    type: 'png',
-                    alt: 'SoSent Logo',
-                    src: '/media/images/partners/SosEnT-favicon.png',
-                },
-            },
+                href: 'https://www.example4.com',
+            }
         },
         {
             id: generateHexID(),
-            anchor: 
+            anchor:
             {
-                href: 'https://www.example.com',
-                img:
-                {
-                    type: 'png',
-                    alt: 'SoSent Logo',
-                    src: '/media/images/partners/SosEnT-favicon.png',
-                },
-            },
+                href: 'https://www.example5.com',
+            }
         },
         {
             id: generateHexID(),
-            anchor: 
+            anchor:
             {
-                href: 'https://www.example.com',
-                img:
-                {
-                    type: 'png',
-                    alt: 'SoSent Logo',
-                    src: '/media/images/partners/SosEnT-favicon.png',
-                },
-            },
-        },*/
-    ],);
+                href: 'https://www.example6.com',
+            }
+        },
+    ]);
 
 export const fetchPartners = async () =>
 {
