@@ -11,14 +11,6 @@ export const memberStore = defineStore('memberData',
                 data: {
                     members: [],
                     isLoaded: false,
-                    media:
-                    {
-                        type: ['pdf'],
-                        id: generateHexID(),                       
-                        label: 'Medlemsoversikt',
-                        cls: ['pdf', 'media-content'],
-                        href: '/media/files/organization/SosEnt-Norge-Medlemmer.pdf',
-                    },
                     cls : ['flex-column-align-items-center', 'member-container'],
             },
         }),
@@ -56,9 +48,10 @@ export const memberStore = defineStore('memberData',
         },
         getters:
         {
-            cls: (state) => {return state.data.cls;},
-            media: (state) => {return state.data.media;},
-            members: (state) => {return state.data.members;},
+            members: (state) =>
+                {
+                return state.data.members.filter(member => member.isActive);
+                },
             isLoaded: (state) => {return state.data.isLoaded;},
         },
     });
