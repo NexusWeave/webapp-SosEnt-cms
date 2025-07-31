@@ -5,9 +5,11 @@ import { generateHexID } from '@/utils/utils.js';
 // API simulation
 const members = reactive(
     [
-        /*{
+        {
+            isActive: true,
             id: generateHexID(),
             description: 'Beskrivelse av medlem 1.',
+            
             anchor: 
             {
                 label: 'Medlem 1',
@@ -15,6 +17,7 @@ const members = reactive(
             },
         },
         {
+            isActive: true,
             id: generateHexID(),
             description: 'Beskrivelse av medlem 2.',
             anchor: 
@@ -24,6 +27,7 @@ const members = reactive(
             },
         },
         {
+            isActive: true,
             id: generateHexID(),
             description: 'Beskrivelse av medlem 3.',
             anchor: 
@@ -33,6 +37,7 @@ const members = reactive(
             },
         },
         {
+            isActive: true,
             id: generateHexID(),
             description: 'Beskrivelse av medlem 4.',
             anchor: 
@@ -42,6 +47,7 @@ const members = reactive(
             },
         },
         {
+            isActive: true,
             id: generateHexID(),
             description: 'Beskrivelse av medlem 5.',
             anchor: 
@@ -51,6 +57,7 @@ const members = reactive(
             },
         },
         {
+            isActive: true,
             id: generateHexID(),
             description: 'Beskrivelse av medlem 5.',
             anchor: 
@@ -58,7 +65,7 @@ const members = reactive(
                 label: 'Medlem 6',
                 href: 'https://www.example.com',
             },
-        },*/
+        },
     ]);
 
 export const fetchMembers = async () =>
