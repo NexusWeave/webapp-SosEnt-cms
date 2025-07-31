@@ -46,9 +46,11 @@
             });
         }),
     };
+    
+    const cls = props.cls;
     const data = props.data;
 
-    const cls = props.cls;
+
 
     // console.log("NavigationMenu loaded with data: ", data.menu);
 </script>
