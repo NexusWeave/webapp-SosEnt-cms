@@ -1,7 +1,7 @@
 <template>
-    <template v-if="data">
+    <template v-if="dateObject.isLoaded()">
 
-        <span :class="[cls[0]]" v-if="dateObject.isLoaded()">
+        <span :class="[cls[0]]">
             {{ dateObject.text() }}
 
             <template v-if="dateObject.delimiter">
@@ -10,8 +10,9 @@
                 </span>
             </template>
             
-            <time :datetime="dateObject.updated() ? dateObject.updated() : dateObject.published()">
-                <b>{{ dateObject.updated() ? dateObject.updated() : dateObject.published() }}</b>
+            <time :datetime="dateObject.updated() ??  dateObject.published()">
+
+                <b>{{ dateObject.updated() ?? dateObject.published() }}</b>
             </time>
 
             <template v-if="cls.includes('icon')">
