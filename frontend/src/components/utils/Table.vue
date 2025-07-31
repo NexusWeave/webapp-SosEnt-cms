@@ -32,14 +32,12 @@
         }
     });
 
-
     const data = props.data;
     const cls = props.cls ?? [];
 
     const hasMembers = computed(() =>
     {
-        console.log('hasMembers', members);
-        return !!data.members && data.members.length > 0;
+        return !!data.isMembers && data.members.length > 0;
     });
     const members = computed(() => {
         return !!hasMembers.value ? data.members : [];
