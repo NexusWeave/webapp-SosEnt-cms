@@ -1,6 +1,7 @@
 <template>
     <section :class="cls[0]">
         <h3 v-if="section.title" :class="cls[1]">{{ section.title }}</h3>
+
         <section v-for="content in section.contents"
             :class="!content.cta ?'article-section' : ['container-grid', 'article-section']"
             :key="content.id"> 
@@ -47,21 +48,13 @@
 </template>
 
 <script setup>
-    import { defineProps, computed, reactive } from 'vue';
+    import { defineProps } from 'vue';
 
-    import MetaData from '@/components/utils/Span.vue';    
-    import Figure from '@/components/media/Figure.vue';
-    import Btn from '@/components/navigation/Button.vue';
     import Sections from '@/components/utils/Section.vue';
-    import Anchor from '@/components/navigation/Anchor.vue';
 
     const props = defineProps({
         date: {
             type: Object,
-            required: true
-        },
-        isArticlePage: {
-            type: Boolean,
             required: true
         },
         Cls: {
@@ -75,9 +68,7 @@
     });
 
     const cls = props.Cls;
-    const isArticlePage = props.isArticlePage;
     const section = props.data ? props.data : props.Section;
-    const content = section.contents ? section.contents : null;
 
     //console.log("Article Main Component loaded with data: ", section);
 </script>
