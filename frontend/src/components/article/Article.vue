@@ -11,7 +11,6 @@
             <Main
                 :date="article.date"
                 :data="article.section"
-                :isArticlePage="isArticlePage"
                 :Cls="[ cls[4], cls[5], cls[6], cls[7], cls[8], cls[9],
                 cls[10], cls[11], cls[12], cls[13], cls[14]]" />
 
@@ -23,11 +22,11 @@
 
 <script setup>
 
-    import { defineProps, computed, onMounted } from 'vue';
+    import { defineProps, computed } from 'vue';
     import { useRoute } from 'vue-router';
 
-    import Header from '@/components/article/Article-Header.vue';
     import Main from '@/components/article/Article-Main.vue';
+    import Header from '@/components/article/Article-Header.vue';
 
     const props = defineProps(
         {
@@ -42,16 +41,13 @@
     });
 
     const article = props.data;
-    const cls = computed(() => {
-        return props.Cls ? props.Cls : article.cls;
-    });
+    const cls = props.Cls ?? null;
 
     const route = useRoute();
     const isPage = computed(() => {return route.name});
 
     const isNewsPage =  isPage.value === 'news' ? true : false;
     const isArticlePage = isPage.value === 'article' ? true : false;
-
 
     //console.log("Articles Component :", isPage.value, article, isNewsPage, isArticlePage), article.conclusion;
 </script>
