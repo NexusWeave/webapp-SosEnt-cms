@@ -3,19 +3,25 @@
 //@forward '/utils/media'
 
 .media-container
-    inline-size: 30em
+    max-inline-size: 100%
+
+    h2
+        text-align: center
 
     .connections-h2
         inline-size: calc(100% - 24em)
 
     .media-content
-        padding-inline: 2em
-        max-inline-size: 27em
-        padding-block-end: 2em
+        margin: .5em
+        inline-size: 23em
+        padding-block-end: 1em
         
         h2, h3
             padding-inline: 0
             padding-block: 0.5em
+
+        h4.title-h4, h2.title-h2
+            text-align: center
         
         p
             text-align: center
@@ -29,7 +35,7 @@
         display: inline-block
 
 .partner-container
-    inline-size: 39em
+    inline-size: 100%
 
     .partner-img
         inline-size: 10em
@@ -39,8 +45,17 @@
             object-fit: cover
 
 .card-container
+    padding: 0
     inline-size: 100%
+    
 
+    .card-item
+        padding: 1em
+        list-style: none
+        margin-block: 0.5em
+        max-inline-size: 100%
+        box-shadow: 0 0 1em rgba(0, 0, 0, 0.1)
+        @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$Groovy-orange)
     .card-content
         padding: 2em 1em
         inline-size: 26em
@@ -57,7 +72,7 @@
     inline-size: 100%
 
 .connection-container
-    inline-size: 60em
+    inline-size: 100%
 
 .p-content
     text-align: justify
