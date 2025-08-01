@@ -79,7 +79,7 @@ export const mediaStore = defineStore('mediaData',
         },
         getters:
         {
-            filter: (state) => (tag) =>
+            mediaFilter: (state) => (tag) =>
             {
                 return state.data.media.filter((item) => item.tag.includes(tag));
             },
