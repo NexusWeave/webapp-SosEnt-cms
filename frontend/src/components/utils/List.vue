@@ -1,7 +1,7 @@
 <template>
     <template v-if="isMembers">
         <ul class ="card-container flex-wrap-row-align-content-start-justify-space-evenly">
-            <li v-for="(member, i) in data.members" :key="i"
+            <li v-for="member in data.members" :key="member.id"
             :class="['card-item']">
                 <Anchor v-if="member.anchor" :data="member.anchor"/>
                 <p>
