@@ -1,30 +1,28 @@
 
 <template>
     <template v-if="isMedia">
-        
-        <section :data-filetype="media.type" :class="cls[0]">
-            <h2 class="title-h2"> {{ media.title }} </h2>
-
-            <section :class="cls[1]">
-                <section v-for="media in media.media" :key="media.id"
-                    :class="cls[2]">
-                    <Anchor :data="media.anchor"
-                        :Cls="[media.type, 'title-h4']" />
-                    <p>
-                        <Date :data="media.date" :Cls="['meta-date', 'calendar']" />
-                        <span>
-                            {{ media.description }}
-                        </span>
-                    </p>
-                </section>
+        <section :class="[cls[0], cls[1]]" :data-filetype="media.type">
+            <section v-for="media in media.media" :key="media.id"
+                :class="cls[2]">
+                <Anchor :data="media.anchor"
+                    :Cls="[media.type, 'title-h4']" />
+                <p>
+                    <Date :data="media.date" :Cls="['meta-date', 'calendar']" />
+                    <span>
+                        {{ media.description }}
+                    </span>
+                </p>
             </section>
         </section>
     </template>
+
     <template v-if="isMembers">
         <section :class="['flex-column', 'member-container']" >
-            <Table :data="connection" :cls="cls[3]" />
+            <MembersCard v-if="connection.isMembers"
+                :data="connection.members" :cls="['flex-column', 'member-container']"/>
         </section>
     </template>
+
     <template v-if="isPartners">
         <section :class="['flex-wrap-row', 'partner-container']">
             <div v-for="partner in connection.partners" :key="partner.id"
@@ -40,7 +38,9 @@
 
     import Date from '@/components/utils/Span.vue';
     import Table from '@/components/utils/Table.vue';
+    import MembersCard from '@/components/utils/List.vue';
     import Anchor from '@/components/navigation/Anchor.vue';
+    
     
     const props = defineProps({
         data: {
