@@ -1,27 +1,27 @@
 <template>
     <section :class="cls[0]">
         <section :class="cls[1]">
-            <Figure  v-if="!isArticlePage && !isNewsPage ||  article.archived" :data="article.img"/>
-            <Anchor  v-if="isArticlePage" :data="anchor"/>
+            <Figure  v-if="!isArticlePage && !isNewsPage ||  article.archived"
+                :data="article.img" :cls="article.img.cls" />
+            
+                <Anchor  v-if="isArticlePage" :data="anchor"/>
             <h2 :class="cls[2]"> {{ article.title }}</h2>
             <p>
-                <MetaData 
-                    :data="article.date" 
-                    :Cls="['article-date']" />
-
-                <span :class="cls[3]" v-if="article.tags">
-                    <MetaData v-if="article.tags" 
-                        :array="article.tags"/>
+                <Date :data="article.date" :Cls="['article-date']" />
+                
+                <span v-if="!!article.tags" :class="cls[3]" >
+                    <Tags v-for="tag in article.tags"
+                        :key="tag.id" :data="tag" :cls="[tag.cls]"/>
                 </span>
             </p>
             <p>{{ article.ingress.content }}</p>
             <Anchor v-if="!isArticlePage && article.section"
                 :data="anchor"/>
 
-            <Figure  v-if="isArticlePage" :data="article.img"/>
+            <Figure  v-if="isArticlePage" :data="article.img" :cls="article.img.cls"/>
         </section>
         <section :class="cls[1]" v-if="isNewsPage && !isArticlePage && !article.archived">
-            <Figure :data="article.img"/>
+            <Figure :data="article.img" :cls="article.img.cls"/>
         </section>
     </section>
 </template>
@@ -30,9 +30,10 @@
 
     import { computed, defineProps, reactive } from 'vue';
 
+    
+    import Tags from '@/components/utils/Tags.vue';
+    import Date from '@/components/utils/Date.vue';
     import Figure from '@/components/media/Figure.vue';
-    import MetaData from '@/components/utils/Span.vue';
-    import Btn from '@/components/navigation/Button.vue';
     import Anchor from '@/components/navigation/Anchor.vue';
 
     const props = defineProps({
