@@ -6,7 +6,9 @@ const mediaContent = {
     media:
     [
         {
+            
             type: 'pdf',
+            isFiltered: false,
             id: generateHexID(),
             label: 'Personvern',
             date: {published: '2025-06-28'},
@@ -20,6 +22,7 @@ const mediaContent = {
         },
         {
             type: 'pdf',
+            isFiltered: false,
             id: generateHexID(),
             label: 'Grunnlags Dokument',
             date: {published: '2025-02-28'},

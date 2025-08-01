@@ -134,8 +134,4 @@
       ],
     }});
   console.warn("App loaded with data: ", media, personvern.value);
-
-  onMounted(async () => {
-    await media.fetchMedia();
-  });
 </script>
