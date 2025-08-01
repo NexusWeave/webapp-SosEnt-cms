@@ -1,6 +1,4 @@
 //  This file is an Api simulation of the SoSEnT web application project.
-import {reactive } from 'vue';
-
 import { generateHexID } from '@/utils/utils.js';
 
 // API simulation
@@ -10,8 +8,21 @@ const mediaContent = {
         {
             type: 'pdf',
             id: generateHexID(),
+            label: 'Personvern',
+            date: {published: '2025-06-28'},
+            name: 'SosEnt-Norge-Personvern',
+            description: 'Personverns ærklering for nettstedet.',
+            
+            tag: 
+            [
+                'dokumenter', 'personvern', 'pdf',
+            ],
+        },
+        {
+            type: 'pdf',
+            id: generateHexID(),
             label: 'organisasjonens Kart',
-            date: {published: '01.04-2025'},
+            date: {published: '2025-04-01'},
             name: 'SosEnt-Norge-organisajonskart',
             description: 'organisasjonenskart over styret i foreningen.',
 
@@ -26,7 +37,7 @@ const mediaContent = {
             label: 'Vedtekter',
             id: generateHexID(),
             name: 'SosEnt-Norge-Vedtekter',
-            date: {published: '01.04-2025'},
+            date: {published: '2025-04-01'},
             description: 'Vedtekter for medlemmene i foreningen.',
 
             tag: 
@@ -40,14 +51,14 @@ const mediaContent = {
             type: 'pdf',
             id: generateHexID(),
             label: 'Grunnlags Dokument',
-            date: {published: '02.28-2025'},
+            date: {published: '2025-02-28'},
             name: 'SosEnt-Norge-GrunnlagsDokument',
             description: 'Grunnlags Dokument for foreningen.',
 
             tag: 
             [
                 'organisasjonen', 'dokumenter', 'medlemskap', 'pdf',
-                'grunnlag', 'cta-dokument'
+                'grunnlags-dokument'
             ],
 
         },
@@ -56,7 +67,7 @@ const mediaContent = {
             label: 'Medlemmer',
             id: generateHexID(),
             name: 'SosEnt-Norge-Medlemmer',
-            date: {published: '02.28-2025'},
+            date: {published: '2025-02-28'},
             description: 'Liste med medlemmer av foreningen.',
 
             tag:

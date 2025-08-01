@@ -38,8 +38,8 @@ export const mediaStore = defineStore('mediaData',
                 {
                     item.anchor.href = paths.images + item.anchor.href;
                 }
-                media.push(item);
-                console.warn('Media added:', item);
+                media.push(item);                
+                //console.warn('Media added:', item.label);
             },
 
             fetchMedia()
@@ -49,39 +49,28 @@ export const mediaStore = defineStore('mediaData',
 
                 fetchMedia().then((data) =>
                     {
-                        media.isLoaded = true;
                         data.forEach((item) => {
                             this.addMedia(item);
+                            
                         });
+                        media.isLoaded = true;
                     }).catch((error) =>
                     {
                         this.data.isLoaded = false;
                         console.error("Error fetching media: ", error);
                     });
             },
-            sortMedia()
-            {
-
-            },
-            archiveMedia()
-            {
-                const media = this.data.media;
-                const archive = this.data.archived;
-                media.forEach((item) => {
-                    if (item.tag != 'organization')
-                    {
-                        archive.push(item);
-                    }
-                });
-                this.data.media = media.filter(item => !item.archived);
-            }
 
         },
         getters:
         {
             mediaFilter: (state) => (tag) =>
             {
-                return state.data.media.filter((item) => item.tag.includes(tag));
+                let media = state.data.media;
+                media = media.filter((item) => item.tag.includes(tag));
+                return media.sort((a, b) => {
+                    return new Date(b.date.published) - new Date(a.date.published);
+                });
             },
             title: (state) => state.data.title,
             media: (state) => state.data.media,

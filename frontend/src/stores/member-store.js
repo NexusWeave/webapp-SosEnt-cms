@@ -23,11 +23,16 @@ export const memberStore = defineStore('memberData',
                         this.data.members.push(member);
                         //console.warn("Members added: ", member);
                     });
+
+                this.randomizeMembers();
             },
             randomizeMembers()
             {
                 const membersData = reactive(this.data.members);
-                this.data.members = membersData.sort((a) => a.id[Math.random(0,membersData.length - 1)]);
+                const n = .5;
+
+                this.data.members = membersData.sort(() => Math.random() - n);
+                //console.warn("Members randomized");
             },
             fetchMembers()
             {
@@ -50,7 +55,10 @@ export const memberStore = defineStore('memberData',
         {
             members: (state) =>
                 {
-                return state.data.members.filter(member => member.isActive);
+                    const n = 6;
+                    let members = state.data.members;
+                    members = members.filter(member => member.isActive);
+                return members.slice(0, n);
                 },
             isLoaded: (state) => {return state.data.isLoaded;},
         },

@@ -47,11 +47,10 @@ const router = createRouter({
       beforeEnter: async (to, from, next) => {
 
         const news = newsStore();
-
         await news.fetchNews();
 
-        console.warn('Article ID:', to.params.id);
-        console.warn('Articles:', news.articles);
+        const media = mediaStore();
+        await media.fetchMedia();
 
         news.articles ? next() : next('/404');
         

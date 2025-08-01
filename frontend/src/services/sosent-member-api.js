@@ -17,14 +17,12 @@ const members = reactive(
             },
         },
         {
+            
             isActive: true,
+            label: 'Medlem 2',
             id: generateHexID(),
             description: 'Beskrivelse av medlem 2.',
-            anchor: 
-            {
-                label: 'Medlem 2',
-                href: 'https://www.example.com',
-            },
+            
         },
         {
             isActive: true,
