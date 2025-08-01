@@ -47,9 +47,7 @@
     import { memberStore } from '@/stores/member-store.js';
     import { organizationStore } from '@/stores/organization-store.js';
     
-    import Table from '@/components/utils/Table.vue';
     import Figure from '@/components/media/Figure.vue';
-    import Sections from '@/components/utils/Section.vue';
     import Anchor from '@/components/navigation/Anchor.vue';
     import NewsCard from '@/components/article/Article.vue';
 
