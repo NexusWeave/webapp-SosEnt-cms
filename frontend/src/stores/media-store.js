@@ -67,7 +67,10 @@ export const mediaStore = defineStore('mediaData',
             mediaFilter: (state) => (tag) =>
             {
                 let media = state.data.media;
-                media = media.filter((item) => item.tag.includes(tag));
+                media = media.filter((item) => 
+                    item.tag.includes(tag) &&
+                    item.isFiltered === false
+                );
                 return media.sort((a, b) => {
                     return new Date(b.date.published) - new Date(a.date.published);
                 });
