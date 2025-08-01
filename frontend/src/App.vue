@@ -1,8 +1,8 @@
 <template>  
   <header>
     <Header :data="data.header"
-      :cls="[['flex-wrap-column-justify-space-between','component-theme'],
-      'flex-wrap-row', ['nav-bar', 
+      :cls="[['flex-wrap-row-align-items-end','component-theme'],
+      'logo-container', ['nav-bar', 
       'flex-wrap-row-align-items-center-justify-space-evenly'],
       'flex-column-align-items-center']" />
   </header>
@@ -13,7 +13,7 @@
     <Footer :data = 'data.footer'
       :cls="[['flex-wrap-row-align-center', 'component-theme',
       'flex-wrap-row-justify-space-between'], ['nav-bar',
-      'flex-wrap-row-justify-flex-end'], ['nav-item'],]"
+      'flex-wrap-row-justify-flex-end'],]"
       :menu="data.footer.menu"/>
   </footer>
 
@@ -35,11 +35,12 @@
   console.warn("Media store loaded: ", isMedia.value);
   const personvern = computed(() => {
     return {
-      
+      type: 'anchor',
+      id: generateHexID(),
       anchor:
       {
         label: 'Personvern',
-        type: ['anchor', 'external'],
+        type: ['external'],
         href: 'https://sosent.no/personvern',
       },
     };
@@ -47,83 +48,81 @@
 
   const organization = computed(() => {
     return {
-          cls: ['nav-item'],
-          id: generateHexID(),
-          type: ['anchor', 'external'],
-          anchor:
-          {
-            type: ['external'],
-            label: " Org nr : NO 935 329 930",
-            
-            href: 'https://proff.no/selskap/sosent-norge/oslo/medlemsorganisasjoner/IFGVD6Y10PU',
-          },
-        };
+      type: 'anchor',    
+      id: generateHexID(),
+
+      anchor:
+      {
+        type: ['external'],
+        label: " Org nr : (935 329 930)",
+        href: 'https://proff.no/selskap/sosent-norge/oslo/medlemsorganisasjoner/IFGVD6Y10PU',
+      },
+    };
   });
+
+  const logo = {
+    type: 'anchor',
+    anchor:
+    {
+      href: '/',
+      id: generateHexID(),
+
+        img:
+        {
+          type: 'png',
+          alt: 'SosEnT Logo',
+          cls: ['img-container', 'logo-img'],
+          src: '/media/images/logo/SosEnT-logo.png',
+        }
+      }
+  };
 
   const data = reactive({
     header:
-      {
+    {
     
-        content:
+      content:
         {
           cls: ['flex-column-align-items-center'],
           title: 'Sosial Entreprenørskap i Norge',
           text: 'Landsforeningen for Sosiale Etreprenører, sammen for et sterkere og inkluderende fjerde sektor',
-        },
-        
-        nav:
+      },
+
+      menu: 
+      [
         {
-          id: 'main-nav',
-          type: 'router-link',
-          cls: ['nav-bar', 'flex-wrap-row-justify-space-evenly'],
-          
-          menu: 
-          [
-            {
               href: '/',
               type: 'router',
               label: 'Om oss',
               cls: ['nav-link'],
               id: generateHexID(),
-            },
-            {
+        },
+        {
               type: 'router',
               href: '/aktuelt',
               label: 'Aktuelt',
               cls: ['nav-link'],
               id: generateHexID(),
-            },
-            /*{
-              
-              type: 'router',
-              cls: ['nav-link'],
-              href: '/fordeler',
-              id: generateHexID(),
-              label: 'Medlemsfordeler',
-            },*/
-            {
-              type: 'router',
-              cls: ['nav-link'],
-              id: generateHexID(),
-              href: '/medlemskap',
-              label: 'Medlemskap',
-            }
-          ],
         },
-        anchor: 
+        /*{
+
+          type: 'router',
+          href: '/fordeler',
+          id: generateHexID(),
+          label: 'Medlemsfordeler',
+        },*/
         {
-          href: '/', 
+          type: 'router',
+          id: generateHexID(),
+          href: '/medlemskap',
+          label: 'Medlemskap',
+        },
+      ],
 
-          cls: ['flex-wrap-row-justify-flex-start'],
-
-          img:
-          {
-            type: 'png',
-            alt: 'SosEnT Logo',
-            cls: ['img-container', 'logo-img'],
-            src: '/media/images/logo/SosEnT-logo.png',
-          }
-      },
+      logo:
+      [
+        logo,
+      ],
     },
     footer:
     {
@@ -132,10 +131,8 @@
       [
         personvern.value,
         organization.value,
-
       ],
-    },
-  });
+    }});
   console.warn("App loaded with data: ", media, personvern.value);
 
   onMounted(async () => {
