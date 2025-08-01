@@ -5,11 +5,11 @@
         :target="isExternal() ? '_blank' : '_self'"
         :rel="isExternal() ? 'noopener noreferrer' : null"
         :data-external-link="isExternal()? 'true' : 'false' "
-        :download="isMedia() == 'download' ? data.label + '.' + data.type[0] : null"
+        :download="isMedia() === 'download' ? data.label + '.' + data.type[0] : null"
         >
 
         <template v-if="isMedia() === 'img'">
-            <Figure :data="img" />
+            <Figure :data="img" :cls="img.cls" />
         </template>
 
         <template v-else-if="isMedia() == cls[cls.length - 1]">
