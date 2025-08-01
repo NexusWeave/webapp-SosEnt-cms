@@ -50,7 +50,7 @@
 <script setup>
     import { defineProps } from 'vue';
 
-    import Sections from '@/components/utils/Section.vue';
+    import Sections from '@/components/utils/Partners.vue';
 
     const props = defineProps({
         date: {
