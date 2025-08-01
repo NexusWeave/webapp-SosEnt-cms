@@ -4,8 +4,8 @@
         <section>
         <p>{{ data.copyRight }}</p>
         </section>
-        <section>
-            <NavMenu :data="menu" :cls="cls"  type="anchor"/>
+        <section> 
+            <NavMenu :data="menu"/>
         </section>
     </section>
     

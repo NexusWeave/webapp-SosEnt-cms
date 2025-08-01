@@ -13,7 +13,7 @@
         </template>
 
         <template v-else-if="isMedia() == cls[cls.length - 1]">
-            <h4 v-if="data.label" :class="cls[1]">
+            <h4 v-if="!!data.label" :class="cls[1]">
                 <span :class="cls[cls.length - 1]" :aria-label="data.label"></span> 
                 {{ data.label }}
             </h4>

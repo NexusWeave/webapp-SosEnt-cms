@@ -1,18 +1,22 @@
 <template>
-    <nav :class="cls[0]">
-
+    <nav :class="['nav-bar', 'flex-wrap-row-justify-space-between']">
+        <ul :class="['nav-list', 'flex-row-align-items-center']">
         <template v-if="!!isRouterLink">
-            <RouterLink v-for="(link, i) in data" :key="i"
-                :to="link.href" >
-                {{ link.label }}
-            </RouterLink>
+            <li v-for="item in data" :key="item.id"
+                :class="['nav-item']">
+                <RouterLink :to="item.href" :class="item.cls">
+                    {{ item.label }}
+                </RouterLink>
+            </li>
         </template>
 
         <template v-else-if="!!isAnchor">
-            <Anchor v-for=" link in data" :key="link.id"
-                :data="link.anchor"
-                :cls="cls[cls.length-1]"/>
+                <li v-for="item in data" :key="item.id"
+                    :class="['nav-item']">
+                    <Anchor :data="item.anchor" :Cls="item.cls"/>
+                </li>
         </template>
+        </ul>
     </nav>
 </template>
 
@@ -30,29 +34,19 @@
         cls: {
             type: Array,
             required: false,
-        },
-        type: {
-            type: String,
-            required: true,
-            default: () => ({
-                isAnchor: false,
-                isRouterLink: false
-            })
         }
     });
-    const isAnchor = computed(() => {
-        const anchor = 'anchor'
-        return !!props.type && props.type === anchor;
-    });
-    const isRouterLink = computed(() => {
-        const routerLink = 'router-link'
-        return !!props.type && props.type === routerLink;
-    });
-    
-    const cls = props.cls;
     const data = props.data;
 
+    const isAnchor = computed(() => {
 
+        const anchorData = data.filter(item => item.type === 'anchor');
+        return !!anchorData.length ;
+    });
+    const isRouterLink = computed(() => {
+        const routerData = data.filter(item => item.type === 'router');
+        return !!routerData.length;
+    });
 
-    // console.log("NavigationMenu loaded with data: ", data.menu);
+    console.log("NavigationMenu loaded with data: ", data, isAnchor.value, isRouterLink.value);
 </script>
