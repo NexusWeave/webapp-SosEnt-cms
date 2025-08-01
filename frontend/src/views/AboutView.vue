@@ -34,32 +34,6 @@
                 </div>
             </section>
         </section>
-        <Sections v-if="isMedia" 
-            :data="media"
-            filter="medlemskap"
-            :cls="['media-container','flex-wrap-row-justify-space-evenly',
-            ['media-content', 'flex-column', 'component-theme']]"/>
-
-    </section>
-
-    <section  v-if="members.members.length > 0 || partners.partners.length > 0"
-        class="flex-column-align-content-center">
-        <h2 class="title-h2">{{ connectionData.title }}</h2>
-        <section class="flex-wrap-row-justify-space-evenly">
-
-            <section v-if ="isMembers"
-                :class="['flex-column', 'member-container']" >
-                <Table :data="members" :cls="[]" />
-            </section>
-
-            <section v-if ="isPartners"
-                :class="['flex-column', 'partner-container']">
-                <div v-for="partner in partners.partners" :key="partner.id" 
-                    :class="['partner-img']">
-                    <Anchor :data="partner.anchor" :Cls="['partner-img']"/>
-                </div>
-            </section>
-        </section>
     </section>
 
 </template>
