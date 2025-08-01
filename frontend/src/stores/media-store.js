@@ -73,7 +73,7 @@ export const mediaStore = defineStore('mediaData',
                         archive.push(item);
                     }
                 });
-                media = media.filter(item => !item.archived);
+                this.data.media = media.filter(item => !item.archived);
             }
 
         },
