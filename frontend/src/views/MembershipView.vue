@@ -57,30 +57,6 @@
     const partners = partnerStore();
     const isMembers = computed(() => members.isLoaded);
     const isPartners = computed(() => partners.isLoaded);
-
-    console.log('Members:', isMembers.value);
-    const connection =
-    {
-        title: 'Medlemmer og samarbeids-partnere',
-        isConnections: computed(() => !!isMembers.value || !!isPartners.value),
-        members: computed(() => 
-        {
-            if (!isMembers.value) return false; 
-            return {
-                members: members.members,
-                isMembers: members.isLoaded,
-                };
-
-        }),
-        partners: computed(() => 
-        {
-            if (!isPartners.value) return false;
-            return {
-                partners: partners.partners,
-                isPartners: isPartners.value,
-            };
-        }),
-    }
   
     const membership = {
         title: 'Medlemskap i SoSEnT Norge',

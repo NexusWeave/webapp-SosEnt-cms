@@ -1,7 +1,6 @@
 <template v-if="news.isLoaded">
     <h2 :class="page.cls">{{ page.title}}</h2>
-    <Articles 
-        v-if="news.recent.length > 0"
+    <Articles  v-if="news.recent.length > 0"
         v-for="article in news.recent" :key="article.id" 
         :data="article"
         :Cls="[ article.id % 2 ? 'flex-wrap-row-justify-space-around' : 
@@ -11,7 +10,7 @@
 
     <section v-if="news.archived.length > 0">
         <h2 :class="page.section.cls"> {{ page.section.title }}</h2>
-        <Pagnition
+        <Pagnition v-if="archived.total > 1"
             :Cls="archived.cls"
             :totalPage="archived.total" 
             :activePage="archived.activePage"
@@ -19,8 +18,7 @@
     
         <section v-if="news.archived.length > 0"
                 :class="[news.data.cls[1]]" >
-            <Articles 
-                v-for="article in archived.articles" :key="article.id"
+            <Articles  v-for="article in archived.articles" :key="article.id"
                 :data="article" 
                 :Cls="[['flex-column-align-items-center', 'article-section'],
             'article-section', article.cls[0], article.cls[1], 'news-card']"/>

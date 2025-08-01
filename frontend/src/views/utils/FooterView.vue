@@ -5,7 +5,7 @@
         <p>{{ data.copyRight }}</p>
         </section>
         <section>
-            <NavMenu :data="menu" :cls="cls[1]" />
+            <NavMenu :data="menu" :cls="cls"  type="anchor"/>
         </section>
     </section>
     

@@ -7,7 +7,7 @@
                 <Anchor  v-if="isArticlePage" :data="anchor"/>
             <h2 :class="cls[2]"> {{ article.title }}</h2>
             <p>
-                <Date :data="article.date" :Cls="['article-date']" />
+                <Date :data="article.date" :Cls="['article-date', 'calendar']" />
                 
                 <span v-if="!!article.tags" :class="cls[3]" >
                     <Tags v-for="tag in article.tags"
@@ -28,7 +28,7 @@
 
 <script setup>
 
-    import { computed, defineProps, reactive } from 'vue';
+    import { computed, defineProps } from 'vue';
 
     
     import Tags from '@/components/utils/Tags.vue';

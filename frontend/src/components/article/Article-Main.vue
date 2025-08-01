@@ -36,8 +36,15 @@
                             :key="i">
                             {{ cta.content }}
                         </p>
-                        <section v-if="cta.media" :class="['media-container']">
-                            <Sections v-if="cta.media" :data="cta.media"/>
+                        <section v-if="cta.media"
+                            v-for="media in cta.media" :key="media.id"
+                            :class="['media-container']">
+                            <Media v-if="!! media.media"
+                                :data="media"
+                                :cls="['media-container',
+                                'flex-wrap-row-justify-space-evenly',
+                        ['media-content', 'flex-column', 'component-theme']]"/>
+
                         </section>
                     </section>
                 </section>
@@ -50,7 +57,7 @@
 <script setup>
     import { defineProps } from 'vue';
 
-    import Sections from '@/components/utils/Partners.vue';
+    import Media from '@/components/media/Media.vue';
 
     const props = defineProps({
         date: {
@@ -68,7 +75,10 @@
     });
 
     const cls = props.Cls;
+    
     const section = props.data ? props.data : props.Section;
+    
 
-    //console.log("Article Main Component loaded with data: ", section);
+
+    console.log("Article Main Component loaded with data: ", section);
 </script>

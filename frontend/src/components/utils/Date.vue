@@ -1,21 +1,21 @@
 <template>
     <span :class="[cls[0]]">
-        {{ dateObject.text() }}
+        {{ dateObject.text }}
 
         <template v-if="dateObject.delimiter">
             <span :class="dateObject.delimiter">
-                <i :class="cls[cls.length - 1]" :aria-label="dateObject.type()"></i>
+                <i :class="cls[cls.length - 1]" :aria-label="dateObject.type"></i>
             </span>
         </template>
-            
-        <time :datetime="dateObject.updated() ??  dateObject.published()">
-            <b>{{ dateObject.updated() ?? dateObject.published() }}</b>
+
+        <time :datetime="dateObject.updated ??  dateObject.published">
+            <b>{{ dateObject.updated ?? dateObject.published }}</b>
         </time>
 
         <template v-if="cls.includes('icon')">
             <span :class="cls[1]">
                 
-                <i :class="cls[cls.length - 1]" :aria-label="dateObject.type()"></i>
+                <i :class="cls[cls.length - 1]" :aria-label="dateObject.type"></i>
             </span>
         </template>
     </span>
@@ -58,22 +58,22 @@
     };
 
     const cls = classList()
-    
+    const norwegianTime = new Intl.DateTimeFormat('nb-NO',
+    {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+    })
 
     const dateObject =
     {
-        delimiter: 'dot',
-        isLoaded: () => { if(data) return true; else return false; },
-        type: () => { if (data.type) return data.type; else return 'date'; },
-        text : () => 
-        { 
-            return data.updated ? `Oppdatert`
-            : data.published ? `Publisert`
-            : ''; 
-        },
-        updated: () => data.updated ? new Date(data.updated).toLocaleDateString() : null,
-        published: () => data.published ? new Date(data.published).toLocaleDateString() : null,
+        delimiter: !! data.delimiter ? data.delimiter : 'dot',
+        type: !!data.type ? data.type : 'date',
+        text : !!data.updated ? `Oppdatert` : `Publisert`,
+        updated: !!data.updated ? norwegianTime.format(new Date(data.updated)) :null,
+        published: data.published ? norwegianTime.format(new Date(data.published)) : null,
 
     }
-    //console.log("Span Component loaded with data: ", dateText(), props.text, data);
+
+    console.log("Date Component loaded with data: ", data);
 </script>

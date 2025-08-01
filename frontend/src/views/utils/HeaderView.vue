@@ -2,7 +2,7 @@
     <div :class="cls[0]">
         <div :class="cls[1]">
             <Anchor :data="data.anchor" />
-            <Menu :data='menu' :cls="[cls[2]]"/>
+            <Menu :data='menu' :cls="[cls[2]]" type="router-link"/>
         </div>
     </div>
     <section :class="cls[3]">

@@ -30,17 +30,20 @@
             },
             filter: {
                 type: String,
-                required: true,
+                required: false,
             },
         });
 
     const data = props.data;
+    const mediaFilter = props.filter;
     const cls = props.cls ?? null;
+    
 
     const media = computed(() => 
     {
-        return data.mediaFilter(props.filter);
+        if (!!mediaFilter) return data.mediaFilter(mediaFilter);
+        else return data.media;
     });
 
-    console.warn('Media - Media Data:', data);
+    //console.warn('Media - Media Data:', data);
 </script>
