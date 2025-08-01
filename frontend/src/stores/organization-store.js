@@ -7,8 +7,6 @@ export const organizationStore = defineStore('organizationData',
     {
         state: () => (
             {
-            
-                cls: [],
                 data:
                 {
                     isLoaded: false,
@@ -111,7 +109,6 @@ export const organizationStore = defineStore('organizationData',
         },
         getters:
         {
-            cls: (state) => {return state.data.cls;},
             title : (state) => {return state.data.title;},
             content: (state) => {return state.data.content;},
             isLoaded: (state) => {return state.data.isLoaded;},
