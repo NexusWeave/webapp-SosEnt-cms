@@ -1,12 +1,19 @@
-<template>
-    <figure :class="cls[0]">
+<template >
+    <template v-if="!!isFigure.value">
+        <figure :class="cls[0]">
+            <img :src="data.src" :alt="data.alt" :class="cls[1]">
+            <figcaption v-if="!!data.caption">{{ data.caption }}</figcaption>
+        </figure>
+
+    </template>
+    <template v-else>
         <img :src="data.src" :alt="data.alt" :class="cls[1]">
-        <figcaption v-if="!!data.caption">{{ data.caption }}</figcaption>
-    </figure>
+    </template>
+
 </template>
 
 <script setup>
-    import { defineProps } from 'vue';
+    import { defineProps, computed } from 'vue';
     const props = defineProps({
         data: {
             type: Object,
@@ -18,7 +25,11 @@
         }
     });
 
+    
     const data = props.data;
+    const isFigure = computed(() => {
+        return !!data.caption;
+    });
     const cls = props.cls ? props.cls : data.cls ?? [];
     //console.log('Figure data:', data);
 </script>
