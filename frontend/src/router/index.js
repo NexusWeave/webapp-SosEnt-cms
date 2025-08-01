@@ -32,7 +32,7 @@ const router = createRouter({
         const organization = organizationStore();
         await organization.fetchOrganization();
 
-        news.isLoaded && members.isLoaded && partners.isLoaded && organization.isLoaded ? next() : next();
+        !!news.article && !!members.members && !!partners.partners && !!organization.team ? next() : next();
       }
     },
     {
