@@ -9,6 +9,9 @@
                     <td v-else>
                     {{ member.label }}
                     </td>
+                    <td v-if="member.description">
+                        {{ member.description }}
+                    </td>
                 </tr>
             </tbody>
         </table>
