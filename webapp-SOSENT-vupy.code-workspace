@@ -9,9 +9,11 @@
 			{
 				"format": "expanded",
 				"extensionName": ".css",
-				"savePath": "/Prototype/static/css"
+				"savePath": "/frontend/src/assets"
 			}
 		],
+		"liveSassCompile.settings.includePaths": [
+    		"./src/assets/sass", // Legg denne til hvis den ikke er der
+  		],
 	},
-
 }

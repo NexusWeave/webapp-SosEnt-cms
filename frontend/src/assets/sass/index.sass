@@ -1,0 +1,78 @@
+//  Importing Sass files for the main styles
+@use './misc'
+@use './flexbox'
+@use './utils/mixins' as mix
+@use './utils/colors' as color
+@use './media-queries/mediaIndex'
+
+@use './footer.sass'
+@use './main/article.sass'
+@use './main/section.sass'
+@import '../../../node_modules/bootstrap/scss/bootstrap'
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css")
+
+
+*, *::before,
+*::after    
+    margin: 0   
+    font-weight: normal
+    box-sizing: border-box
+    writing-mode: horizontal-tb
+
+body 
+    font-size: 1em
+    line-height: 1.6
+    min-height: 100vh
+    -moz-osx-font-smoothing: grayscale
+    text-rendering: optimizeLegibility
+    -webkit-font-smoothing: antialiased
+    transition: color 0.5s, background-color 0.5s
+    @include mix.apply-theme-colors(color.$antique-white, color.$Groovy-orange, color.$Groovy-brown)
+    font-family: 'Nunito', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
+
+header
+    nav
+        text-align: center
+        min-inline-size: 15em
+        padding-block: 3em 3em
+
+    @import './header.sass'
+
+main
+    margin-block: 1em
+    min-block-size: 38vh
+
+    section
+        display: block
+        margin-block: 2em
+
+        div
+            margin-block: 1em
+
+footer, header
+    .component-theme
+        border-radius: 0
+        padding: 2em
+
+table
+    td, th
+        padding: 0.5em 2em
+        text-align: center
+        vertical-align: middle
+
+nav
+    font-size: 1em
+
+button[disabled]
+    opacity: 0.3
+    cursor: not-allowed
+
+.button
+    margin: 0.5em
+    font-size: 1em
+    font-weight: bold
+    padding: 0.5em 1em
+    border-radius: 0.5em
+    border: 1px solid color.$Groovy-brown
+    @include mix.background-color(color.$Groovy-orange, color.$soft-white)
+        

@@ -1,0 +1,25 @@
+Rune J. Kvarme
+CEO og General sekretær
+rune@sosent.no
++47 41540353
+
+Helle V. Rødahl
+Styre leder
+helle@sosent.no
++47 41454500
+
+
+
+
+
+----
+Rullerende news
+
+
+--
+Tekst, link, button:hover og linker
+#FF5F19
+
+Background-button - elements
+#37282D
+- color - fefefe

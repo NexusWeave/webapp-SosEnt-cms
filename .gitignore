@@ -1,0 +1,24 @@
+# Logs
+*.log
+*.local
+.DS_Store
+
+# Editor directories and files
+*.suo
+*.sln
+*.sw?
+*.css*
+*.ntvs*
+*.njsproj
+*.tsbuildinfo
+
+# Folders
+logs
+dist
+.idea
+dist-ssr
+coverage
+node_modules
+
+/cypress/videos/
+/cypress/screenshots/

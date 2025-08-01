@@ -1,0 +1,27 @@
+@use '../utils/colors' as color
+.container-grid
+    gap: 1em
+    padding: 1em
+    display: grid
+    grid-auto-flow: row
+    grid-template-rows: minmax(0, 1fr)
+    grid-template-columns: minmax(0, 1fr) 2fr 1fr
+    grid-template-areas: "Start middle end"
+
+    .main-grid, .aside-grid, .figure-grid
+        padding: 1em
+        //box-shadow: 0 0 10px rgba(color.$Groovy-brown, .2)
+
+    .main-grid
+        grid-area: middle
+        inline-size: 100%
+
+    .aside-grid
+        block-size: 0
+        grid-row: auto
+        grid-area: end
+        max-inline-size: 24em
+    
+    .figure-grid
+        grid-row: auto
+        grid-area: start

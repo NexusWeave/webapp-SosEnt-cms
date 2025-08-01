@@ -1,0 +1,20 @@
+@use './colors' as color;
+
+$icon-types: (
+  "pdf": ( icon: "\F63D", text-color:color.$icon-pdf),
+  "dot": ( icon: "\F309", text-color:color.$icon-white),
+  "email": ( icon: "\F84B", text-color:color.$icon-white),
+  "default": ( icon: "\F82E", text-color:color.$icon-white),
+  "calendar": ( icon: "\F1F6", text-color:color.$icon-white),
+  "telephone": ( icon: "\F5C1", text-color:color.$icon-white),
+  "external-link": ( icon: "\F35D", text-color:color.$icon-white),
+
+);
+
+$tags: (
+'news-tag': ( icon: "\F1F6", bg-color:rgba(color.$Groovy-orange, 1), txt-color: color.$soft-white, link-color: color.$soft-white, ),
+'event-tag': ( icon: "\F1F6", bg-color:rgba(color.$Groovy-orange, 1), txt-color: color.$soft-white, link-color: color.$soft-white, ),
+'blog-tag': ( icon: "\F1F6", bg-color:rgba(color.$Groovy-orange, 1), txt-color: color.$soft-white, link-color: color.$soft-white, ),
+'info-tag': ( icon: "\F1F6", bg-color:rgba(color.$Groovy-orange, 1), txt-color: color.$soft-white, link-color: color.$soft-white, ),
+'other-tag': ( icon: "\F1F6", bg-color:rgba(color.$Groovy-orange, 1), txt-color: color.$soft-white, link-color: color.$soft-white, )
+);
