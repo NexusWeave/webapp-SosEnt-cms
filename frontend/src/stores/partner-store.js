@@ -27,10 +27,10 @@ export const partnerStore = defineStore('partnerData',
                             href: partner.anchor.href ?? null,
                             img:
                             {
-                                type: 'png',
                                 alt: image,
+                                type: 'png',
                                 src: path + image,
-                                cls : ['partner-figure','partner-img'],
+                                cls : ['partner-figure', 'partner-img'],
                             },
                         }
 
