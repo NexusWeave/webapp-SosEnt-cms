@@ -65,21 +65,20 @@ article
         padding: 1em
         margin: 0 auto
         inline-size: 100%
-        @include mix.media-query($breakpoint: 'M')
-            text-align: justify
 
         section
-            margin-block: 0em
+            margin-block: 1em
         
             .article-section
-                margin: 0
+                margin: auto
+
+                .title-h4, .title-h2, .title-h3
+                    font-weight: bold
 
             .article-section-content
-                margin: auto
-                max-inline-size: 40em
+                max-inline-size: 55em
 
-                h4.title-h4
-                    font-weight: bold
+                
 
                 p
                     margin-block: 1em
@@ -95,11 +94,11 @@ article
 
                 .cta-section-content
                     h4.title-h4
-                        font-size: 1.2em
                         padding-block: 0
                         font-weight: bold
                         padding-inline: 0
-                        
+                        @include mix.media-query($breakpoint: '3XL')
+                            font-size: 1.2em
                     span
                         max-inline-size: 19em
 
