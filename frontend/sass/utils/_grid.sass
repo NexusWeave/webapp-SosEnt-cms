@@ -1,32 +1,22 @@
 @use '../utils/mixins' as mix
 @use '../utils/colors' as color
-
-.container-grid
-    
+.grid-container
     display: grid
-    grid-template-areas: "Start middle end"
-    grid-template-columns: minmax(0, 1fr) 1fr 1fr
-    @include mix.media-query($breakpoint: 'M')
-        gap: 1em
-        padding: 1em
-        grid-auto-flow: row
-        grid-template-rows: minmax(0, 1fr)
-        grid-template-columns: minmax(0, 1fr) 2fr 1fr
 
-    .main-grid, .aside-grid, .figure-grid
-        @include mix.media-query($breakpoint: 'L')
-            padding: 1em
-            //box-shadow: 0 0 10px rgba(color.$Groovy-brown, .2)
+.grid-container-image
+    @include mix.grid-layout()
 
-    .main-grid
-        grid-area: middle
-
-    .aside-grid
-        block-size: 0
-        grid-row: auto
-        grid-area: end
-        max-inline-size: 24em
+    @include mix.media-query($breakpoint: 'L')
+        grid-template-areas: "image content"
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr)
+.grid-container-cta
     
-    .figure-grid
-        grid-row: auto
-        grid-area: start
+    @include mix.grid-layout()
+    @include mix.media-query($breakpoint: 'L')
+        display: grid
+        grid-template-areas: "content cta"
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr)
+
+.grid-container-content
+    @include mix.grid-layout()
+
