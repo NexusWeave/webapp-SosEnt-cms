@@ -16,19 +16,6 @@
                     <Anchor :data="item.anchor" :Cls="item.cls"/>
                 </li>
         </template>
-        <template v-else>
-            <li v-for="item in data" :key="item.id"
-                :class="cls[2]">
-                <Anchor :data="item.anchor" :Cls="item.cls"/>
-            </li>
-            <span :class="cls[1]"> 
-                {{ activePage > 0 ?  activePage + ' / ' + totalPages : '' }}
-            </span>
-            <li v-for="item in data" :key="item.id"
-                :class="cls[2]">
-                <Anchor :data="item.anchor" :Cls="item.cls"/>
-            </li>
-        </template>
         </ul>
     </nav>
 </template>
