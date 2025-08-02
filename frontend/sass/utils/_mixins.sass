@@ -2,6 +2,44 @@
 @use './colors.sass' as color
 @use './mapping.scss' as mapping
 
+@mixin grid-layout()
+    grid-template-rows: 100%
+    grid-template-columns: 1fr
+    grid-template-areas: "content"
+
+    @include media-query($breakpoint: 'M')
+        font-size: 1.3em
+
+    @include media-query($breakpoint: 'L')
+        gap: 1em
+        display: grid
+        grid-template-areas: "content cta"
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr)
+
+    @include media-query($breakpoint: 'XL')
+        grid-template-areas: "image content cta"
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr)
+        //box-shadow: 0 0 10px rgba(color.$Groovy-brown, .2)
+    
+    .main-grid
+        grid-area: content
+
+    .main-grid, .aside-grid
+        @include media-query($breakpoint: 'XXL')
+            text-align: justify
+    
+    .aside-grid
+        overflow: hidden
+        @include media-query($breakpoint: 'L')
+            block-size: 0
+            grid-area: cta
+            overflow: visible
+            max-inline-size: 24em
+
+    .figure-grid
+        grid-row: auto
+        grid-area: image
+
 @mixin media-query($breakpoint)
     $size: map.get(mapping.$breakpoints, $breakpoint)
 
@@ -50,6 +88,7 @@
         padding-block-start: $padding-block
     
     h1, h2, h3, h4, h5, h6
+        font-weight: bold
         color: rgba($color-text, 1)
         padding-block-start: $padding-block
 
