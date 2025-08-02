@@ -14,12 +14,14 @@
         </template>
 
         <template v-else-if="isMedia() == cls[cls.length - 1]">
-                <span :class="cls[cls.length - 1]" :aria-label="data.label"></span> 
+            <span :class="cls[0]">
+            <i :class="cls[cls.length - 1]" :aria-label="data.label"></i> 
                 {{ data.label }}
+            </span>
         </template>
 
         <template v-else>
-            {{ data.label }}
+                {{ data.label }}
         </template>
         
     </a>
@@ -81,12 +83,12 @@
 
         if (!data.type && !img) return false;
 
-        const search = data.type ? data.type[0] : img.type ?? null
-        
-        const files = media.files.includes(search);
-        const images = media.images.includes(search);
-        const contact = media.contact.includes(search);
-        const download = media.downloadFiles.includes(search);
+        const search = !!Array.isArray(data.type) ? data.type[0] : !!data.type ? data.type : img.type ?? null
+
+        const files = media.files.find(item => item === search);
+        const images = media.images.find(item => item === search);
+        const contact = media.contact.find(item => item === search);
+        const download = media.downloadFiles.find(item => item === search);
         console.log("Search type:", search, "Data type:", data.type, "Image type:", img ? img.type : 'No image');
         
         switch (search)
