@@ -1,11 +1,12 @@
 <template>
     <a
-        :href="data.href"
         :class="cls[0]"
+        :href="data.href"
+        :aria-disabled="!!isDisabled()"
+        :data-external-link="!!isExternal()"
         :target="isExternal() ? '_blank' : '_self'"
         :rel="isExternal() ? 'noopener noreferrer' : null"
-        :data-external-link="isExternal()? 'true' : 'false' "
-        :download="isMedia() === 'download' ? data.label + '.' + data.type[0] : null"
+        :download="!!isMedia() === 'download' ? data.label + '.' + data.type[0] : null"
         >
 
         <template v-if="isMedia() === 'img'">
@@ -13,10 +14,8 @@
         </template>
 
         <template v-else-if="isMedia() == cls[cls.length - 1]">
-            <h4 v-if="!!data.label" :class="cls[1]">
                 <span :class="cls[cls.length - 1]" :aria-label="data.label"></span> 
                 {{ data.label }}
-            </h4>
         </template>
 
         <template v-else>
@@ -57,10 +56,9 @@
     }
 
     const data = props.data;
-    const img = data.img ?? null;
-    
-    const classList = () => {
+    const img = !!data.img ? data.img : null;
 
+    const classList = () => {
         const cls = props.Cls ? props.Cls : (Array.isArray(data.cls) ? data.cls : [data.cls]);
         cls.push('icon');
 
@@ -70,13 +68,13 @@
     const cls = classList();
     
     const isExternal = () => {
-        if (Array.isArray(data.type)) {
-            return data.type.find(type => type === 'external');
-            
-        }
-        else {
-            return data.type === 'external';
-        }
+        if (!data.type) return false;
+        return !!Array.isArray(data.type) ? data.type.includes('external') : !!data.type === 'external';
+    };
+
+    const isDisabled = () => {
+        if (!data.type) return false;
+        return !!Array.isArray(data.type) ? data.type.includes('disabled') : !!data.type === 'disabled';
     };
 
     const isMedia = () => {
@@ -84,13 +82,13 @@
         if (!data.type && !img) return false;
 
         const search = data.type ? data.type[0] : img.type ?? null
+        
+        const files = media.files.includes(search);
+        const images = media.images.includes(search);
+        const contact = media.contact.includes(search);
+        const download = media.downloadFiles.includes(search);
         console.log("Search type:", search, "Data type:", data.type, "Image type:", img ? img.type : 'No image');
-
-        const files = media.files.find(type => type === search);
-        const images = media.images.find(type => type === search);
-        const contact = media.contact.find(type => type === search);
-        const download = media.downloadFiles.find(type => type === search);
-
+        
         switch (search)
         {
             case files || contact:
