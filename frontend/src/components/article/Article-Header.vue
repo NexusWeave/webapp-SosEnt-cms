@@ -16,8 +16,8 @@
                 </span>
             </p>
             <p>{{ article.ingress.content }}</p>
-            <Anchor v-if="!isArticlePage && article.section"
-                :data="anchor"/>
+            <Menu v-if="!isArticlePage && article.section"
+                :data="[anchor]"/>
 
             <Figure  v-if="isArticlePage" :data="article.img" :cls="article.img.cls"/>
         </section>
@@ -37,6 +37,7 @@
     
     import Figure from '@/components/media/Figure.vue';
     import Btn from '@/components/navigation/Button.vue';
+    import Menu from '@/components/navigation/NavMenu.vue';
     import Anchor from '@/components/navigation/Anchor.vue';
 
     const props = defineProps({
@@ -68,7 +69,7 @@
             cls: ['button', 'read-more'],
             label: 'Gå tilbake',
             action: () => { window.history.back() }
-        } : article.anchor;
+        } : { type: 'anchor', anchor: article.anchor };
     });
 
     //console.log("Article Header Component :", article, isNewsPage, isArticlePage);
