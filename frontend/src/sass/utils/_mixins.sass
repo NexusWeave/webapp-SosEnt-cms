@@ -19,21 +19,15 @@
             font-size: 1.5em
             font-weight: bold
 
-@mixin light-component-theme($color, $padding-inline: null, $padding-start: null)
+@mixin light-component-theme($color, $padding-block: 1.5em)
 
     $color-text: color.$soft-white
     $color-link: rgba($color, 0.6)
     $color-border: rgba($color, 0.2)
     $bg-color: rgba($color, 0.1)
 
-    @if $padding-inline == null
-        $padding-inline: 1.5em
-    
-    @if $padding-start == null
-        $padding-start: .7em
 
     @if  $color == color.$Groovy-brown
-
         $bg-color: rgba($color, 1)
         $color-link: color.$Groovy-yellow
         $color-text: rgba(color.$soft-white, 0.8)
@@ -41,16 +35,14 @@
         
 
     p
-        padding-block-start: $padding-start
+        padding-block-start: $padding-block
 
     img
-        padding-inline: $padding-inline
-        padding-block-start: $padding-start
+        padding-block-start: $padding-block
     
     h1, h2, h3, h4, h5, h6
         color: rgba($color-text, 1)
-        padding-inline: $padding-inline
-        padding-block-start: $padding-start
+        padding-block-start: $padding-block
 
     border-radius: 0.5em
     @include background-color($bg-color, $color-text, $color-link)
