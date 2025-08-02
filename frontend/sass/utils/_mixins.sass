@@ -1,4 +1,11 @@
+@use 'sass:map';
 @use './colors.sass' as color
+@use './mapping.scss' as mapping
+@mixin media-query($breakpoint)
+    $size: map.get(mapping.$breakpoints, $breakpoint)
+
+    @media (min-width: $size)
+        @content
 
 @mixin apply-theme-colors($bg-color, $border, $text-color)
 
@@ -8,18 +15,19 @@
     border-radius: 0.5em
     background-color: $bg-color
 
-    h1 
-        font-size: 4em
+    h1, h2
         font-weight: 600
     
-    h2 
-        font-weight: 600
+    h1
+        @include media-query($breakpoint: 'M')
+            font-size: 4em
 
-    a > h3 
+    h3 > a
             font-size: 1.5em
             font-weight: bold
+    
 
-@mixin light-component-theme($color, $padding-block: 1.5em)
+@mixin light-component-theme($color, $padding-block: .5em)
 
     $color-text: color.$soft-white
     $color-link: rgba($color, 0.6)

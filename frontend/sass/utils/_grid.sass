@@ -1,0 +1,33 @@
+@use '../utils/mixins' as mix
+@use '../utils/colors' as color
+
+.container-grid
+    
+    display: grid
+    grid-template-areas: "Start middle end"
+    grid-template-columns: minmax(0, 1fr) 1fr 1fr
+    @include mix.media-query($breakpoint: 'M')
+        gap: 1em
+        padding: 1em
+        grid-auto-flow: row
+        grid-template-rows: minmax(0, 1fr)
+        grid-template-columns: minmax(0, 1fr) 2fr 1fr
+
+    .main-grid, .aside-grid, .figure-grid
+        @include mix.media-query($breakpoint: 'L')
+            padding: 1em
+            //box-shadow: 0 0 10px rgba(color.$Groovy-brown, .2)
+
+    .main-grid
+        grid-area: middle
+        inline-size: 100%
+
+    .aside-grid
+        block-size: 0
+        grid-row: auto
+        grid-area: end
+        max-inline-size: 24em
+    
+    .figure-grid
+        grid-row: auto
+        grid-area: start

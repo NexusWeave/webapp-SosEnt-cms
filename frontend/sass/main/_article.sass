@@ -5,7 +5,8 @@ article.news-card
     margin-block: 0
     border-radius: 0.5em
     max-inline-size: 29em
-    box-shadow: 12px 13px 47px 17px rgba(89, 61, 43, 0.2)
+    @include mix.media-query($breakpoint: 'M')
+        box-shadow: 12px 13px 47px 17px rgba(89, 61, 43, 0.2)
 
     header
         span.article-date
@@ -22,10 +23,10 @@ article.news-card
                 color: color.$Groovy-brown
 
             p
-                padding-inline: 1em
                 font-size: 1em
-                inline-size: 100%
-                text-align: justify
+                @include mix.media-query($breakpoint: 'M')
+                    text-align: justify
+                    padding-inline: 1em
 
     &:nth-child(odd)
         margin-block: 1em
@@ -56,14 +57,16 @@ article
             margin-block: 0.5em
 
             p
-                font-size: 1.3em
                 margin-block: 1em
-                text-align: justify
+                @include mix.media-query($breakpoint: 'M')
+                    font-size: 1.3em
+                    text-align: justify
     main
         padding: 1em
         margin: 0 auto
         inline-size: 100%
-        text-align: justify
+        @include mix.media-query($breakpoint: 'M')
+            text-align: justify
 
         section
             margin-block: 0em
@@ -73,14 +76,16 @@ article
 
             .article-section-content
                 margin: auto
-                inline-size: 40em
+                max-inline-size: 40em
 
                 h4.title-h4
                     font-weight: bold
+
                 p
-                    font-size: 1.3em
                     margin-block: 1em
-                    text-align: justify
+                    @include mix.media-query($breakpoint: 'M')
+                        font-size: 1.3em
+                        text-align: justify
                 
                 li
                     font-size: 1.2em
