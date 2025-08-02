@@ -1,10 +1,11 @@
 <template>
+    <Anchor  v-if="isArticlePage" :data="anchor"/>
     <section :class="cls[0]">
         <section :class="cls[1]">
             <Figure  v-if="!isArticlePage && !isNewsPage ||  article.archived"
                 :data="article.img" :cls="article.img.cls" />
             
-                <Anchor  v-if="isArticlePage" :data="anchor"/>
+                
             <h2 :class="cls[2]"> {{ article.title }}</h2>
             <p>
                 <Date :data="article.date" :Cls="['article-date', 'calendar']" />
