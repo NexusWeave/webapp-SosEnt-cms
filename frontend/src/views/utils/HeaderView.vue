@@ -1,7 +1,7 @@
 <template>
     <div :class="cls[0]">
         <div :class="cls[1]">
-            <Menu :data="logo" />
+            <Menu :data="logo" :cls="['logo-container']"/>
         </div>
         
             <Menu :data="menu"/>
