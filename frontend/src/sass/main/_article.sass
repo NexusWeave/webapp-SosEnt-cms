@@ -2,11 +2,10 @@
 @use '../utils/mixins' as mix
 @forward '../utils/grid'
 article.news-card
-    margin-block: 1em
+    margin-block: 0
     border-radius: 0.5em
-    padding-inline: 1.5em
     max-inline-size: 29em
-    box-shadow: 0 0 10px rgba(color.$Groovy-brown, .2)
+    box-shadow: 12px 13px 47px 17px rgba(89, 61, 43, 0.2)
 
     header
         span.article-date
@@ -15,18 +14,22 @@ article.news-card
             text-align: center
 
         .article-section
-            margin-block: 1em
+            margin-block: 0em
 
             h2
+                text-align: center
                 margin-block-end: .1em
                 color: color.$Groovy-brown
 
             p
+                padding-inline: 1em
                 font-size: 1em
                 inline-size: 100%
                 text-align: justify
 
     &:nth-child(odd)
+        margin-block: 1em
+        padding-block-end: 1em
         @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$antique-soft)
 
     &:nth-child(even)
