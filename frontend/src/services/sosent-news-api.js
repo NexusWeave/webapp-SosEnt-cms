@@ -147,20 +147,7 @@ const articles = reactive(
                         opp mot ulike myndigheter og i samfunnsdebatten
                         generelt.`
                     ],
-                    },
-
-                    {
-                        id: 1,
-                        title: 'Hva er SosEnt Norge?',
-                        content: 
-                        [ `I denne bransjen er det mange dyktige og sterke
-                        fagmiljøer. Ved å komme sammen og dele erfaringer,
-                        tror vi også det er et potensial for at de kan
-                        spille hverandre enda bedre. Som kjent kan det være
-                        mye å lære av andre.`,
-                        ],
-                        
-                        cta:
+                    cta:
                         [
                             {
                                 id: generateHexID(),
@@ -205,6 +192,18 @@ const articles = reactive(
                                     }
                                 ]
                             },
+                        ],
+                    },
+
+                    {
+                        id: 1,
+                        title: 'Hva er SosEnt Norge?',
+                        content: 
+                        [ `I denne bransjen er det mange dyktige og sterke
+                        fagmiljøer. Ved å komme sammen og dele erfaringer,
+                        tror vi også det er et potensial for at de kan
+                        spille hverandre enda bedre. Som kjent kan det være
+                        mye å lære av andre.`,
                         ],
                     },
                     {
