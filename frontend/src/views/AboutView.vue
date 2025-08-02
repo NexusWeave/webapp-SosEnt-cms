@@ -26,11 +26,9 @@
                     <Figure v-if="person.img" :data="person.img" />
                     <h2>{{ person.name }}</h2>
                     <h3>{{ person.title }}</h3>
-                    <p>
-
-                        <Anchor v-for="contact in person.contactInfo" :key="contact.id" 
-                        :data="contact.anchor" :Cls="[contact.anchor.type[0], 'title-h4']" />
-                    </p>
+                        <p v-for="contact in person.contactInfo" :key="contact.id">
+                            <Anchor :data="contact.anchor" :Cls="[contact.anchor.type[0], 'title-h4']"/>
+                        </p>
                 </div>
             </section>
         </section>
