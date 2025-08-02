@@ -22,7 +22,7 @@ export const newsStore = defineStore('newsData',
                     article.archived = false;
 
                     article.cls = 
-                    ['article-title-h2', 'tags'];
+                    ['title-h2', 'tags'];
 
                     if (article.tags)
                     {
@@ -34,6 +34,7 @@ export const newsStore = defineStore('newsData',
 
                     article.anchor = 
                     {
+                        type: ['anchor'],
                         label: 'Les mer',
                         cls: ['button','read-more'],
                         href: '#/aktuelt/artikkel/' + article.id
