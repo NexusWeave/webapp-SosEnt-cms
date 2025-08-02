@@ -2,8 +2,10 @@
     <section :class="[cls[0], cls[1]]" :data-filetype="media.type">
         <section v-for="media in media" :key="media.id"
             :class="cls[2]">
-            <Anchor :data="media.anchor"
-                :Cls="[media.type, 'title-h4']" />
+            <h4 class="title-h4">
+                <Anchor :data="media.anchor"
+                    :Cls="[media.type]" />
+            </h4>
             <p>
                 <Date :data="media.date" :Cls="['meta-date', 'calendar']" />
                 <span>
