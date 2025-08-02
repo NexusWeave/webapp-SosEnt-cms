@@ -1,6 +1,7 @@
 @use 'sass:map';
 @use './colors.sass' as color
 @use './mapping.scss' as mapping
+
 @mixin media-query($breakpoint)
     $size: map.get(mapping.$breakpoints, $breakpoint)
 
