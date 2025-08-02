@@ -1,5 +1,5 @@
 <template>
-    <Anchor  v-if="isArticlePage" :data="anchor"/>
+    <Btn  v-if="isArticlePage" :data="anchor"/>
     <section :class="cls[0]">
         <section :class="cls[1]">
             <Figure  v-if="!isArticlePage && !isNewsPage ||  article.archived"
@@ -34,7 +34,9 @@
     
     import Tags from '@/components/utils/Tags.vue';
     import Date from '@/components/utils/Date.vue';
+    
     import Figure from '@/components/media/Figure.vue';
+    import Btn from '@/components/navigation/Button.vue';
     import Anchor from '@/components/navigation/Anchor.vue';
 
     const props = defineProps({
@@ -65,7 +67,7 @@
         return isArticlePage ? {
             cls: ['button', 'read-more'],
             label: 'Gå tilbake',
-            href: () => { window.history.back() }
+            action: () => { window.history.back() }
         } : article.anchor;
     });
 
