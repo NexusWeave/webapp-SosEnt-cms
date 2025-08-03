@@ -6,7 +6,7 @@
         :data-external-link="!!isExternal()"
         :target="isExternal() ? '_blank' : '_self'"
         :rel="isExternal() ? 'noopener noreferrer' : null"
-        :download="!!isMedia() === 'download' ? data.label + '.' + data.type[0] : null"
+        :download="isMedia() === 'download' ? data.label + '.' + data.type[0] : null"
         >
 
         <template v-if="isMedia() === 'img'">
