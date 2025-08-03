@@ -83,7 +83,7 @@
 
         if (!data.type && !img) return false;
 
-        const search = !!Array.isArray(data.type) ? data.type[0] : !!data.type ? data.type : img.type ?? null
+        const search = Array.isArray(data.type) ? data.type[0] : data.type ? data.type : img.type ?? null
 
         const files = media.files.find(item => item === search);
         const images = media.images.find(item => item === search);
