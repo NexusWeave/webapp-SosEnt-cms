@@ -71,7 +71,7 @@
     
     const isExternal = () => {
         if (!data.type) return false;
-        return !!Array.isArray(data.type) ? data.type.includes('external') : !!data.type === 'external';
+        return Array.isArray(data.type) ? data.type.includes('external') : data.type === 'external';
     };
 
     const isDisabled = () => {
