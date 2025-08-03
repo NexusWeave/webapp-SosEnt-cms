@@ -1,10 +1,11 @@
 <template>
+    <Btn  v-if="isArticlePage" :data="anchor"/>
     <section :class="cls[0]">
         <section :class="cls[1]">
             <Figure  v-if="!isArticlePage && !isNewsPage ||  article.archived"
                 :data="article.img" :cls="article.img.cls" />
             
-                <Anchor  v-if="isArticlePage" :data="anchor"/>
+                
             <h2 :class="cls[2]"> {{ article.title }}</h2>
             <p>
                 <Date :data="article.date" :Cls="['article-date', 'calendar']" />
@@ -15,8 +16,8 @@
                 </span>
             </p>
             <p>{{ article.ingress.content }}</p>
-            <Anchor v-if="!isArticlePage && article.section"
-                :data="anchor"/>
+            <Menu v-if="!isArticlePage && article.section"
+                :data="[anchor]"/>
 
             <Figure  v-if="isArticlePage" :data="article.img" :cls="article.img.cls"/>
         </section>
@@ -33,7 +34,10 @@
     
     import Tags from '@/components/utils/Tags.vue';
     import Date from '@/components/utils/Date.vue';
+    
     import Figure from '@/components/media/Figure.vue';
+    import Btn from '@/components/navigation/Button.vue';
+    import Menu from '@/components/navigation/NavMenu.vue';
     import Anchor from '@/components/navigation/Anchor.vue';
 
     const props = defineProps({
@@ -64,8 +68,8 @@
         return isArticlePage ? {
             cls: ['button', 'read-more'],
             label: 'Gå tilbake',
-            href: () => { window.history.back() }
-        } : article.anchor;
+            action: () => { window.history.back() }
+        } : { type: 'anchor', anchor: article.anchor };
     });
 
     //console.log("Article Header Component :", article, isNewsPage, isArticlePage);

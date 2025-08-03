@@ -3,26 +3,25 @@
 @use './flexbox'
 @use './utils/mixins' as mix
 @use './utils/colors' as color
-@use './media-queries/mediaIndex'
 
 @use './footer.sass'
 @use './main/article.sass'
 @use './main/section.sass'
-@import '../../node_modules/bootstrap/scss/bootstrap'
+//@use '../node_modules/bootstrap/scss/bootstrap'
+//@use '../node_modules/bootstrap-icons/font/bootstrap-icons.css'
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css")
 
 
 *, *::before,
 *::after    
     margin: 0   
-    font-weight: normal
     box-sizing: border-box
     writing-mode: horizontal-tb
 
 body 
     font-size: 1em
     line-height: 1.6
-    min-height: 100vh
+    min-block-size: 100vh
     -moz-osx-font-smoothing: grayscale
     text-rendering: optimizeLegibility
     -webkit-font-smoothing: antialiased
@@ -30,11 +29,9 @@ body
     @include mix.apply-theme-colors(color.$antique-white, color.$Groovy-orange, color.$Groovy-brown)
     font-family: 'Nunito', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
 
-header
-    nav
-        text-align: center
-        min-inline-size: 15em
-        padding-block: 3em 3em
+nav
+    text-align: center
+        
 
     @import './header.sass'
 
@@ -52,7 +49,7 @@ main
 footer, header
     .component-theme
         border-radius: 0
-        padding: 2em
+        
 
 table
     td, th

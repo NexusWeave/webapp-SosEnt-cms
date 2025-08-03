@@ -1,9 +1,9 @@
 <template>
-    <nav :class="['nav-bar', 'flex-wrap-row-justify-space-between']">
-        <ul :class="['nav-list', 'flex-row-align-items-center']">
+    <nav :class="cls[0]">
+        <ul :class="cls[1]">
         <template v-if="!!isRouterLink">
             <li v-for="item in data" :key="item.id"
-                :class="['nav-item']">
+                :class="cls[2]">
                 <RouterLink :to="item.href" :class="item.cls">
                     {{ item.label }}
                 </RouterLink>
@@ -12,7 +12,7 @@
 
         <template v-else-if="!!isAnchor">
                 <li v-for="item in data" :key="item.id"
-                    :class="['nav-item']">
+                    :class="cls[2]">
                     <Anchor :data="item.anchor" :Cls="item.cls"/>
                 </li>
         </template>
@@ -34,6 +34,7 @@
         cls: {
             type: Array,
             required: false,
+            default: () => [['nav-bar', 'flex-wrap-row-justify-space-between'], ['nav-list', 'flex-row-align-items-center'], ['nav-item'], ['anchor-item']]
         }
     });
     const data = props.data;

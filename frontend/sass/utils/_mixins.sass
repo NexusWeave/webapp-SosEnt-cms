@@ -1,4 +1,50 @@
+@use 'sass:map';
 @use './colors.sass' as color
+@use './mapping.scss' as mapping
+
+@mixin grid-layout()
+    grid-template-rows: 100%
+    grid-template-columns: 1fr
+    grid-template-areas: "content"
+
+    @include media-query($breakpoint: 'M')
+        font-size: 1.3em
+
+    @include media-query($breakpoint: 'L')
+        gap: 1em
+        display: grid
+        grid-template-areas: "content cta"
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr)
+
+    @include media-query($breakpoint: 'XXL')
+        grid-template-areas: "image content cta"
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr)
+        //box-shadow: 0 0 10px rgba(color.$Groovy-brown, .2)
+    
+    .main-grid
+        grid-area: content
+
+    .main-grid, .aside-grid
+        @include media-query($breakpoint: 'XXL')
+            text-align: justify
+    
+    .aside-grid
+        overflow: hidden
+        @include media-query($breakpoint: 'L')
+            block-size: 0
+            grid-area: cta
+            overflow: visible
+            max-inline-size: 24em
+
+    .figure-grid
+        grid-row: auto
+        grid-area: image
+
+@mixin media-query($breakpoint)
+    $size: map.get(mapping.$breakpoints, $breakpoint)
+
+    @media (min-width: $size)
+        @content
 
 @mixin apply-theme-colors($bg-color, $border, $text-color)
 
@@ -8,32 +54,27 @@
     border-radius: 0.5em
     background-color: $bg-color
 
-    h1 
-        font-size: 4em
+    h1, h2
         font-weight: 600
     
-    h2 
-        font-weight: 600
+    h1
+        @include media-query($breakpoint: 'M')
+            font-size: 4em
 
-    a > h3 
+    h3 > a
             font-size: 1.5em
             font-weight: bold
+    
 
-@mixin light-component-theme($color, $padding-inline: null, $padding-start: null)
+@mixin light-component-theme($color, $padding-block: .5em)
 
     $color-text: color.$soft-white
     $color-link: rgba($color, 0.6)
     $color-border: rgba($color, 0.2)
     $bg-color: rgba($color, 0.1)
 
-    @if $padding-inline == null
-        $padding-inline: 1.5em
-    
-    @if $padding-start == null
-        $padding-start: .7em
 
     @if  $color == color.$Groovy-brown
-
         $bg-color: rgba($color, 1)
         $color-link: color.$Groovy-yellow
         $color-text: rgba(color.$soft-white, 0.8)
@@ -41,16 +82,15 @@
         
 
     p
-        padding-block-start: $padding-start
+        padding-block-start: $padding-block
 
     img
-        padding-inline: $padding-inline
-        padding-block-start: $padding-start
+        padding-block-start: $padding-block
     
     h1, h2, h3, h4, h5, h6
+        font-weight: bold
         color: rgba($color-text, 1)
-        padding-inline: $padding-inline
-        padding-block-start: $padding-start
+        padding-block-start: $padding-block
 
     border-radius: 0.5em
     @include background-color($bg-color, $color-text, $color-link)
@@ -58,6 +98,12 @@
 @mixin link-color($color, $font-size, $color-hover, $color-active, $color-visited)
 
     $color: rgba($color, 1)
+    a[aria-disabled="true"]
+        color: #a0a0a0
+        cursor: not-allowed
+        pointer-events: none
+        text-decoration: none
+
     a
         color: $color
         font-size: $font-size

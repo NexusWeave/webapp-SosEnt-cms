@@ -2,11 +2,11 @@
 @use '../utils/mixins' as mix
 @forward '../utils/grid'
 article.news-card
-    margin-block: 1em
+    margin-block: 0
     border-radius: 0.5em
-    padding-inline: 1.5em
     max-inline-size: 29em
-    box-shadow: 0 0 10px rgba(color.$Groovy-brown, .2)
+    @include mix.media-query($breakpoint: 'M')
+        box-shadow: 12px 13px 47px 17px rgba(89, 61, 43, 0.2)
 
     header
         span.article-date
@@ -15,18 +15,22 @@ article.news-card
             text-align: center
 
         .article-section
-            margin-block: 1em
+            margin-block: 0em
 
             h2
+                text-align: center
                 margin-block-end: .1em
                 color: color.$Groovy-brown
 
             p
                 font-size: 1em
-                inline-size: 100%
-                text-align: justify
+                @include mix.media-query($breakpoint: 'M')
+                    text-align: justify
+                    padding-inline: 1em
 
     &:nth-child(odd)
+        margin-block: 1em
+        padding-block-end: 1em
         @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$antique-soft)
 
     &:nth-child(even)
@@ -34,7 +38,7 @@ article.news-card
 
 article
     img
-        inline-size: 100%
+        max-inline-size: 100%
         border-radius: 0.5em
 
     figure.article-figure, .content-figure
@@ -49,35 +53,39 @@ article
 
     header
         section.article-ingress, .article-section-content
-            inline-size: 52em
+            max-inline-size: 52em
             margin-block: 0.5em
 
             p
-                font-size: 1.3em
                 margin-block: 1em
-                text-align: justify
+                @include mix.media-query($breakpoint: 'M')
+                    font-size: 1.3em
+                    text-align: justify
     main
         padding: 1em
         margin: 0 auto
         inline-size: 100%
-        text-align: justify
 
         section
-            margin-block: 0em
+            margin-block: 1em
         
             .article-section
-                margin: 0
+                margin-inline: auto
+                margin-block: .5em
+
+                .title-h4, .title-h2, .title-h3
+                    font-weight: bold
 
             .article-section-content
-                margin: auto
-                inline-size: 40em
+                max-inline-size: 55em
 
-                h4.title-h4
-                    font-weight: bold
+                
+
                 p
-                    font-size: 1.3em
                     margin-block: 1em
-                    text-align: justify
+                    @include mix.media-query($breakpoint: 'M')
+                        font-size: 1.3em
+                        text-align: justify
                 
                 li
                     font-size: 1.2em
@@ -87,11 +95,11 @@ article
 
                 .cta-section-content
                     h4.title-h4
-                        font-size: 1.2em
                         padding-block: 0
                         font-weight: bold
                         padding-inline: 0
-                        
+                        @include mix.media-query($breakpoint: '3XL')
+                            font-size: 1.2em
                     span
                         max-inline-size: 19em
 

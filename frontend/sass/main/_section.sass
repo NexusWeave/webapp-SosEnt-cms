@@ -13,8 +13,9 @@
 
     .media-content
         margin: .5em
-        inline-size: 23em
-        padding-block-end: 1em
+        padding: 1em
+        max-inline-size: 23em
+        
         
         h2, h3
             padding-inline: 0
@@ -35,7 +36,7 @@
         display: inline-block
 
 .partner-container
-    inline-size: 100%
+    max-inline-size: 100%
 
     .partner-img
         inline-size: 10em
@@ -74,11 +75,19 @@
 .connection-container
     inline-size: 100%
 
+.section-content
+    max-inline-size: 49em
+
+    p
+        font-size: .8em
+        @include mix.media-query($breakpoint: 'M')
+            font-size: 1.2em
+            line-height: 1.5em
+            text-align: justify
 .p-content
     text-align: justify
     max-inline-size: 31em
     @include mix.font(1.3em, 'Inter, sans-serif')
 
 .member-container
-
     @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$Groovy-orange)

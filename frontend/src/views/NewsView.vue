@@ -32,7 +32,7 @@
     import { computed, reactive, onMounted } from 'vue';
 
     import Articles from '@/components/article/Article.vue';
-    import Pagnition from '@/components/utils/Pagnition.vue';
+    import Pagnition from '@/components/navigation/Pagnition.vue';
     
     const news = newsStore();
 
