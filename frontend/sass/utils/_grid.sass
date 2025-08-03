@@ -7,15 +7,16 @@
     @include mix.grid-layout()
 
     @include mix.media-query($breakpoint: 'L')
-        grid-template-areas: "image content"
-        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr)
+        grid-template-areas: "image content cta"
+        grid-template-columns: 1fr minmax(0, 2fr) minmax(0, 1fr)
+
 .grid-container-cta
     
     @include mix.grid-layout()
     @include mix.media-query($breakpoint: 'L')
         display: grid
-        grid-template-areas: "content cta"
-        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr)
+        grid-template-areas: "image content cta"
+        grid-template-columns: 1fr minmax(0, 2fr) minmax(0, 1fr)
 
 .grid-container-content
     @include mix.grid-layout()
