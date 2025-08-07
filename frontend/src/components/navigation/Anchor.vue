@@ -103,7 +103,7 @@
                 return 'img';
 
             default:
-                console.warn('Data type is illegal:', search, data);
+                //console.warn('Data type is illegal:', search, data);
                 return false;
         }
     };

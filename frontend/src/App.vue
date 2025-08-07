@@ -33,7 +33,7 @@
 
   const media = mediaStore();
   const isMedia = computed(() => {return !!media.isLoaded});
-  console.warn("Media store loaded: ", isMedia.value);
+  //console.warn("Media store loaded: ", isMedia.value);
   const personvern = computed(() => {
     return {
 
