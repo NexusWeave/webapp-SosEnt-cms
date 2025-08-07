@@ -89,7 +89,7 @@
         const images = media.images.find(item => item === search);
         const contact = media.contact.find(item => item === search);
         const download = media.downloadFiles.find(item => item === search);
-        console.log("Search type:", search, "Data type:", data.type, "Image type:", img ? img.type : 'No image');
+        //console.log("Search type:", search, "Data type:", data.type, "Image type:", img ? img.type : 'No image');
         
         switch (search)
         {

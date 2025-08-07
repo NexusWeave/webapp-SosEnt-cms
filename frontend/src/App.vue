@@ -135,5 +135,5 @@
         organization.value,
       ],
     }});
-  console.warn("App loaded with data: ", media, personvern.value);
+  //console.warn("App loaded with data: ", media, personvern.value);
 </script>
