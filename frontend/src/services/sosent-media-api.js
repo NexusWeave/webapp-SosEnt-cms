@@ -28,7 +28,7 @@ const mediaContent = {
             date: {published: '2025-02-28'},
             name: 'SosEnt-Norge-GrunnlagsDokument',
             description: 'Grunnlags Dokument for foreningen.',
-
+            
             tag: 
             [
                 'organisasjonen', 'dokumenter', 'medlemskap', 'pdf',
