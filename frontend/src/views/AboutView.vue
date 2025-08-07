@@ -18,7 +18,7 @@
             :class="['flex-column-align-content-center', 'card-container']">
             <h2 class="title-h2"> {{ organization.team.title }}</h2>
 
-            <section v-if="organization.team.isLoaded" 
+            <section v-if="organization.team.isLoaded"
                 class="flex-wrap-row-justify-space-evenly card-container">
 
                 <div v-for="person in organization.team.team" 
