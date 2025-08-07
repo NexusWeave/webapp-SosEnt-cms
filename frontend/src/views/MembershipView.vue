@@ -1,6 +1,7 @@
 <template>
     <section class="flex-column-align-items-center">
         <h2>{{ membership.title }}</h2>
+        
         <section class="flex-wrap-row-justify-space-evenly">
             <section class="flex-column">
                 <section v-for="content in membership.content" :key="content.id"
@@ -10,6 +11,7 @@
                         {{ content.content }}
                         <Anchor v-if="content.anchor" :data="content.anchor" />
                     </p>
+
                     <List v-if="content.list" :data=" content" :cls="[]"/>
 
                     <Partners v-if ="isPartners && !!content.partners" :data="content.partners.value"
@@ -100,7 +102,7 @@
                     ],
                 },
             },
-            {
+            /*{
                 id: 1,
                 title: 'Våre Partnere',
                 partners: computed(() => 
@@ -138,7 +140,7 @@
                         media: !! membersDocs,
                     };
                 }),
-            },
+            },*/
             {
                 id: 4,
                 title: 'Meld interesse',
