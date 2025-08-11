@@ -1,10 +1,13 @@
 # frontend
-
+Forklare litt denne delen av prosjektet
 This template should help get you started developing with Vue 3 in Vite.
 
+## Directories
+Litt om mapping av treet
 ## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+* [VSCode](https://code.visualstudio.com/)
+* [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
 ## Customize configuration
 
