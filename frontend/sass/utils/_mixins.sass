@@ -225,6 +225,9 @@
     @each $icon, $props in icon.$icons
         .#{$icon}
             .icon
+                font-size: 1em
+                display: inline-block
+                font-family: "Bootstrap-icons"
                 content: map.get($props, icon)
                 color : map.get($props, icon-color)
 
