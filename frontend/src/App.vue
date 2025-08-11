@@ -1,11 +1,12 @@
-<template>  
-  <header>
+<template>
+<header>
     <Header :data="data.header"
       :cls="[['flex-wrap-row-align-items-end','component-theme'],
       'logo-container', ['nav-bar', 
       'flex-wrap-row-align-items-center-justify-space-evenly'],
       'flex-column-align-items-center']" />
   </header>
+
   <main>
     <router-view></router-view>
   </main>
@@ -32,16 +33,17 @@
 
   const media = mediaStore();
   const isMedia = computed(() => {return !!media.isLoaded});
-  console.warn("Media store loaded: ", isMedia.value);
+  //console.warn("Media store loaded: ", isMedia.value);
   const personvern = computed(() => {
     return {
+
       type: 'anchor',
-      id: generateHexID(),
       anchor:
       {
-        label: 'Personvern',
         type: ['external'],
-        href: 'https://sosent.no/personvern',
+        label: "Personvern",
+        href: '/media/files/documents/SosEnT-Norge-Personvern.pdf',
+        id: generateHexID(),
       },
     };
   });
@@ -133,5 +135,5 @@
         organization.value,
       ],
     }});
-  console.warn("App loaded with data: ", media, personvern.value);
+  //console.warn("App loaded with data: ", media, personvern.value);
 </script>

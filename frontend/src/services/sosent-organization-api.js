@@ -5,54 +5,26 @@ import { generateHexID } from '@/utils/utils';
 
 const organization = reactive(
     {
-        media:
-        [
-            {
-                type: 'pdf',
-                id: generateHexID(),
-                date: {published: '01.04-2025'},
-                description: 'Organisasjonskart over styret i SosEnt Norge.',
-                anchor:
-                {
-                    type: ['pdf', 'external'],
-                    label: 'Organisasjonskart',
-                    href: '/media/files/documents/SosEnt-Norge-organisajonskart.pdf',
-                },
-            },
-            {
-                type: 'pdf',
-                id: generateHexID(),
-                date: {published: '01.04-2025'},
-                description: 'Vedtekter for medlemmene i SosEnt Norge.',
-                anchor:
-                {
-                    type: ['pdf', 'external'],
-                    label: 'Vedtekter',
-                    href: '/media/files/documents/SosEnt-Norge-vedtekter.pdf',
-                },
-            },
-        ],
         team:
         [
-            {
-                id: generateHexID(),
-                title: 'Styreleder',
-                name: 'Helle V. Rødahl',
-            // Make the email and phone numbers bot protected
+        {
+            id: generateHexID(),
+            title: 'Styreleder',
+            name: 'Helle V. Rødahl',
             contactInfo:
             [
                 {
                     id: 0,
                     anchor:
                     {
-                        href: 'mailto:' + 'demo' +'@' + 'example.com',
+                        href: 'mailto:' + 'helle.' + 'rodahl' +'@' + 'bsn.oslo.kommune.no',
                     },
                 },
                 {
                     id: 1,
                     anchor:
                     {
-                        href : 'tel:' + '+47' + '12' + '34' + '56' + '78',
+                        href : 'tel:' + '+47' + '41' + '45' + '45' + '00',
                     },
                 },
             ],
@@ -83,7 +55,7 @@ const organization = reactive(
                     id: 1,
                     anchor:
                     {
-                        href : 'tel:' + '+47' + '12' + '34' + '56' + '78',    
+                        href : 'tel:' + '+47' + '41' + '54' + '03' + '53',
                     },
                     
                 },

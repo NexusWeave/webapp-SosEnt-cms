@@ -18,7 +18,7 @@
             :class="['flex-column-align-content-center', 'card-container']">
             <h2 class="title-h2"> {{ organization.team.title }}</h2>
 
-            <section v-if="organization.team.isLoaded" 
+            <section v-if="organization.team.isLoaded"
                 class="flex-wrap-row-justify-space-evenly card-container">
 
                 <div v-for="person in organization.team.team" 
@@ -37,12 +37,8 @@
 </template>
 
 <script setup>
-    import { reactive, computed } from 'vue';
     
     import { newsStore } from '@/stores/news-store.js';
-    import { mediaStore } from '@/stores/media-store.js';
-    import { partnerStore } from '@/stores/partner-store';
-    import { memberStore } from '@/stores/member-store.js';
     import { organizationStore } from '@/stores/organization-store.js';
     
     import Figure from '@/components/media/Figure.vue';
@@ -50,26 +46,7 @@
     import NewsCard from '@/components/article/Article.vue';
 
     const news = newsStore();
-    const media = mediaStore();
-    const members = memberStore();
-    const partners = partnerStore();
-
-    const isMedia = computed(() => media.isLoaded);
-    const isMembers = computed(() => members.isLoaded);
-    const isPartners = computed(() => partners.isLoaded);
-    const data = reactive(
-        {
-            cls: []
-        }
-    );
     const organization = organizationStore();
-    const connectionData = reactive(
-        {
-            title: 'Medlemmer og samarbeids-partnere',
-            cls: [  'flex-column-align-content-center','connections-h2',
-                    'flex-wrap-row-justify-space-evenly'],
-        }
-    );
 
     //console.log("AboutView loaded with data: ", );
 </script>

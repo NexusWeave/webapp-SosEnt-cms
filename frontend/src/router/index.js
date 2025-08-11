@@ -19,20 +19,14 @@ const router = createRouter({
 
         const news = newsStore();
         await news.fetchNews();
-
-        const members = memberStore();
-        await members.fetchMembers();
         
         const media = mediaStore();
         await media.fetchMedia();
 
-        const partners = partnerStore();
-        await partners.fetchPartners();
-
         const organization = organizationStore();
         await organization.fetchOrganization();
 
-        !!news.article && !!members.members && !!partners.partners && !!organization.team ? next() : next();
+        !!news.article && !!organization.team && media.media ? next() : next();
       }
     },
     {

@@ -1,0 +1,9 @@
+{
+    "profiles":
+    {
+        "C-sharp":
+        {
+            "commandName": "Project",
+        }
+    }
+}

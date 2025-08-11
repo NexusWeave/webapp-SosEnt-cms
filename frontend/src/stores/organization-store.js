@@ -50,25 +50,10 @@ export const organizationStore = defineStore('organizationData',
                         isLoaded: false,
                         title: 'Kontakt oss',
                     },
-                    
-                    media:
-                    {
-                        media: [],
-                        isLoaded: false,
-                        title: 'Dokumenter',
-                    },
                 }
             }),
         actions:
         {
-            addMedia(media)
-            {
-                media.forEach(file => {
-                    this.data.media.media.push(file);
-                });
-                this.data.media.isLoaded = true;
-            },
-
             addOrganization(team)
             {
 
@@ -97,7 +82,6 @@ export const organizationStore = defineStore('organizationData',
                 fetchData().then((data) =>
                     {
                         this.data.isLoaded = true;
-                        this.addMedia(data.media);
                         this.addOrganization(data.team);
 
                     }).catch((error) =>
@@ -114,7 +98,6 @@ export const organizationStore = defineStore('organizationData',
             isLoaded: (state) => {return state.data.isLoaded;},
 
             team: (state) => {return state.data.team;},     
-            media: (state) => {return state.data.media;},
             organizationMembers: (state) => {return state.data.team.team;},
             
         },

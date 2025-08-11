@@ -49,5 +49,5 @@
         return !!routerData.length;
     });
 
-    console.log("NavigationMenu loaded with data: ", data, isAnchor.value, isRouterLink.value);
+    //console.log("NavigationMenu loaded with data: ", data, isAnchor.value, isRouterLink.value);
 </script>

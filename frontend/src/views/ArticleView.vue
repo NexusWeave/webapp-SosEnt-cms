@@ -45,7 +45,7 @@
                             
                             return mediaItem;
                         });
-                        console.log("CTA media item processed: ", ctaMedia);
+                        //console.log("CTA media item processed: ", ctaMedia);
                     }
                 }
             });
@@ -68,8 +68,8 @@
         article = computed(() => news.fetchArticle(ID));
         if (data.isLoaded) {
             
-            console.log("ArticleView updated with new ID: ", ID, article);
+            //console.log("ArticleView updated with new ID: ", ID, article);
         }
     });
-    console.log("ArticleView loaded with data: ",  article, route.params.id, cls);
+    //console.log("ArticleView loaded with data: ",  article, route.params.id, cls);
 </script>

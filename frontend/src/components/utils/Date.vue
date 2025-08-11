@@ -75,5 +75,5 @@
 
     }
 
-    console.log("Date Component loaded with data: ", data);
+    //console.log("Date Component loaded with data: ", data);
 </script>

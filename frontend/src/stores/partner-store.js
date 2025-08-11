@@ -35,7 +35,7 @@ export const partnerStore = defineStore('partnerData',
                         }
 
                         this.data.partners.push(partner);
-                        console.log("Partner added: ", partner);
+                        //console.log("Partner added: ", partner);
                     }); 
                     
             },

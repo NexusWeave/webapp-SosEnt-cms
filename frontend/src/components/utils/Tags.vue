@@ -36,5 +36,5 @@
 
     const cls = props.cls ?? [];
 
-    console.log("Tag Component loaded with data: ", data);
+    //console.log("Tag Component loaded with data: ", data);
 </script>
