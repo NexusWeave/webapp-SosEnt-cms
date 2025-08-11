@@ -1,19 +1,19 @@
 @use '../utils/mixins' as mix
-@use '../utils/colors' as color
+@use '../colors/colors' as color
 .grid-container
     display: grid
 
 .grid-container-image
     @include mix.grid-layout()
 
-    @include mix.media-query($breakpoint: 'L')
+    @include mix.media-queries($breakpoint: 'L')
         grid-template-areas: "image content cta"
         grid-template-columns: 1fr minmax(0, 2fr) minmax(0, 1fr)
 
 .grid-container-cta
     
     @include mix.grid-layout()
-    @include mix.media-query($breakpoint: 'L')
+    @include mix.media-queries($breakpoint: 'L')
         display: grid
         grid-template-areas: "image content cta"
         grid-template-columns: 1fr minmax(0, 2fr) minmax(0, 1fr)

@@ -1,22 +1,26 @@
 @use 'sass:map';
-@use './colors.sass' as color
-@use './mapping.scss' as mapping
+@use '../colors/colors' as color
+
+@use '../mappings/tags' as tags
+@use '../mappings/icons' as icon
+@use '../mappings/flexbox' as flexbox-mapping
+@use '../mappings/devices-breakpoints' as devices
 
 @mixin grid-layout()
     grid-template-rows: 100%
     grid-template-columns: 1fr
     grid-template-areas: "content"
 
-    @include media-query($breakpoint: 'M')
+    @include media-queries($breakpoint: 'M')
         font-size: 1.3em
 
-    @include media-query($breakpoint: 'L')
+    @include media-queries($breakpoint: 'L')
         gap: 1em
         display: grid
         grid-template-areas: "content cta"
         grid-template-columns: minmax(0, 2fr) minmax(0, 1fr)
 
-    @include media-query($breakpoint: 'XXL')
+    @include media-queries($breakpoint: 'XXL')
         grid-template-areas: "image content cta"
         grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr)
         //box-shadow: 0 0 10px rgba(color.$Groovy-brown, .2)
@@ -25,12 +29,12 @@
         grid-area: content
 
     .main-grid, .aside-grid
-        @include media-query($breakpoint: 'XXL')
+        @include media-queries($breakpoint: 'XXL')
             text-align: justify
     
     .aside-grid
         overflow: hidden
-        @include media-query($breakpoint: 'L')
+        @include media-queries($breakpoint: 'L')
             block-size: 0
             grid-area: cta
             overflow: visible
@@ -40,11 +44,30 @@
         grid-row: auto
         grid-area: image
 
-@mixin media-query($breakpoint)
-    $size: map.get(mapping.$breakpoints, $breakpoint)
+@mixin media-queries ($size: null, $breakpoint: null)
 
-    @media (min-width: $size)
-        @content
+    @if $breakpoint == 'prefers-color-scheme' and $size == null
+        @media (prefers-color-scheme: dark)
+            @content
+
+    @else if $breakpoint == 'S' or $breakpoint == 'M' or $breakpoint == 'L' or $breakpoint == 'XL' or $breakpoint == '2XL' or $breakpoint == '3XL'
+        $size: map.get(devices.$breakpoints, $breakpoint)
+        @media screen and (min-width: $size)
+            @content
+
+    @else if $size == null and $breakpoint != null
+        $block-size: map.get(devices.$devices, $breakpoint, 'block-size')
+        $inline-size: map.get(devices.$devices, $breakpoint, 'inline-size')
+
+        @media screen and ($inline-size <= width <= $inline-size + 50px ) and (min-height: $block-size) and (orientation: portrait)
+            @content
+
+        @media screen and ($block-size <= height <= $block-size + 50px) and (min-width: $inline-size) and (orientation: landscape)
+            @content
+
+    @if $size != null and $breakpoint == null
+        @media screen and (min-width: $size)
+            @content
 
 @mixin apply-theme-colors($bg-color, $border, $text-color)
 
@@ -58,14 +81,13 @@
         font-weight: 600
     
     h1
-        @include media-query($breakpoint: 'M')
+        @include media-queries($breakpoint: 'M')
             font-size: 4em
 
     h3 > a
             font-size: 1.5em
             font-weight: bold
     
-
 @mixin light-component-theme($color, $padding-block: .5em)
 
     $color-text: color.$soft-white
@@ -159,7 +181,6 @@
 
     @include link-color($link-color, $font-size, $color-hover, $color-active, $color-visited)
 
-
 @mixin font($size, $font-family: 'Nunito', $line-height: null)
 
     @if $line-height == null
@@ -172,3 +193,60 @@
     font-size: $size
     font-family: $font-family
     line-height: $line-height
+
+@mixin transitions($property: null, $duration: null, $timing-function: null)
+
+    @if $property == null
+        $property: all
+    
+    @if $timing-function == null
+        $timing-function: ease-in-out
+
+    @if $duration == null
+        $duration: 0.3s
+
+    transition: $property $duration $timing-function
+    -o-transition: $property $duration $timing-function
+    -moz-transition: $property $duration $timing-function
+    -webkit-transition: $property $duration $timing-function
+
+@mixin flexbox-generator($flexbox-type)
+    
+    $props: map.get(flexbox-mapping.$flexbox, $flexbox-type)
+
+    @if $props
+        @each $property, $value in $props
+            #{$property}: $value
+    @else
+        @error '"#{$flexbox-type}" not found in flexbox mapping.'
+
+@mixin icon-generator()
+
+    @each $icon, $props in icon.$icons
+        .#{$icon}
+            font-family: "Bootstrap-icons"
+            .icon
+                font-size: 1em
+                display: inline-block
+                
+                content: map.get($props, icon)
+                color : map.get($props, icon-color)
+
+                &::before
+                    padding: 0.5em
+                    content: map.get($props, icon)
+                    color : map.get($props, icon-color)
+
+@mixin tag-generator()
+
+    @each $tag, $props in tags.$tags
+        .#{$tag}
+            margin-inline: 1em
+            padding: 0.5em 0.5em
+            border-radius: 0.5em
+            display: inline-block
+            @include background-color(map.get($props, bg-color), map.get($props, txt-color), map.get($props, link-color))
+
+        span.tags
+            font-size: 0.7em
+            font-weight: bold
