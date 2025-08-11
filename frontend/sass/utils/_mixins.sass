@@ -210,13 +210,15 @@
     -moz-transition: $property $duration $timing-function
     -webkit-transition: $property $duration $timing-function
 
-@mixin flexbox-generator()
+@mixin flexbox-generator($flexbox-type)
     
-    @each $flexbox-type, $props in flexbox-mapping.$flexbox
+    $props: map.get(flexbox-mapping.$flexbox, $flexbox-type)
 
-        .#{$flexbox-type}
-            @each $property, $value in $props
-                #{$property}: $value
+    @if $props
+        @each $property, $value in $props
+            #{$property}: $value
+    @else
+        @error '"#{$flexbox-type}" not found in flexbox mapping.'
 
 @mixin icon-generator()
 
