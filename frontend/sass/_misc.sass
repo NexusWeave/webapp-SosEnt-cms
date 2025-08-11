@@ -1,9 +1,7 @@
 //  Miscellaneous SASS mixins and themes
 @use 'sass:map'
 @use './utils/mixins' as mix
-@use './utils/colors' as color
-@use './utils/mapping' as mapping
-@use './utils/functions' as functions
+@use './colors/colors' as color
 
 .component-theme
     padding-block: 1em
@@ -15,11 +13,6 @@
 #app
     margin: 0 auto
     font-weight: normal
-
-.icon
-    font-size: 1em
-    display: inline-block
-    font-family: "Bootstrap-icons"
     
 .nav-bar
     min-inline-size: 10em
@@ -30,7 +23,7 @@
         padding: 0
         max-inline-size: 100%
 
-        @include mix.media-query($breakpoint: 'M')
+        @include mix.media-queries($breakpoint: 'M')
             padding-inline-start: 1em
 
     .nav-item
@@ -42,42 +35,14 @@
 
     ul
         padding: 0
-        @include mix.media-query($breakpoint: 'M')
+        @include mix.media-queries($breakpoint: 'M')
             padding-inline-start: 1em
     li
         list-style: none
         max-inline-size: 15em
 
-    
-
     .logo-img
         max-inline-size: 100%
-@each $icon-type, $props in mapping.$icon-types
 
-    $file-style: functions.icon-types($icon-type)
-
-    .#{$icon-type}
-        .icon
-            
-            content: map.get($file-style, icon)
-            color: map.get($file-style, text-color)
-
-            &::before
-                padding: 0.5em
-                content: map.get($file-style, icon)
-
-@each $tags, $props in mapping.$tags
-
-    $tag-style: functions.tags($tags)
-
-    span.tags
-        font-size: .7em
-        font-weight: bold
-
-        .#{$tags}
-            padding: .5em .5em
-            margin-inline: 1em
-            border-radius: .5em
-            text-decoration: none
-            display: inline-block
-            @include mix.background-color(map.get($tag-style, bg-color), map.get($tag-style, txt-color), map.get($tag-style, link-color))
+@include mix.tag-generator()
+@include mix.icon-generator()
