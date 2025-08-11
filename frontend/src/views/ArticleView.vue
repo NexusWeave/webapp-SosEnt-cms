@@ -17,7 +17,7 @@
 
     const orgArticle = computed(() => news.articles.find(article => article.id === route.params.id.toString()));
 
-    const article = computed(() => {
+    let article = computed(() => {
 
         const article = JSON.parse(JSON.stringify(orgArticle.value));
         if (!article) return null;
@@ -25,6 +25,7 @@
         //console.log("Article found: ", article);
         
         let content = article.section.contents.find(content => content.cta?.length > 0);
+        
         if (!!content){
             content.cta.forEach(element => {
                 if (!!element.media)
