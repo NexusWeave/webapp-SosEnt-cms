@@ -61,12 +61,20 @@
                 :v-model="formData[data.outputs.name]">
             </output>
         </section>
+        <section v-if="!!data.btn" class="flex-row-justify-space-evenly">
+            <Button v-for="btn in data.btn" :key="btn.id"
+            :data="btn"
+            :cls="btn.cls" />
+        </section>
     </form>
 </template>
 <script setup>
 
     import { defineProps } from 'vue';
+    
     import Inputs from './inputs.vue';
+    import Button from '@/components/navigation/Button.vue';
+    
 
     const props = defineProps({
         data: {
