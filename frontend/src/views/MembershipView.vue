@@ -14,6 +14,7 @@
 
                     <List v-if="content.list" :data=" content" :cls="[]"/>
 
+
                     <Partners v-if ="isPartners && !!content.partners" :data="content.partners.value"
                     :cls="[['flex-wrap-row-justify-space-evenly',
                     'partner-container'], 'partner-content']" />
@@ -26,14 +27,13 @@
                         :cls="['media-container',
                         'flex-wrap-row-justify-space-evenly',
                         ['media-content', 'flex-column', 'component-theme']]"/>
-                </section>                    
-                    
+                </section>
                 </section>
         </section>
         
         <section v-if="membership.schema">
                 <h3>{{ membership.schema.title }}</h3>
-                <Form :schema="membership.schema" />
+                <Form :data="membership.schema" />
         </section>    
     </section>
 </template>
@@ -41,19 +41,20 @@
 <script setup>
 
     import { computed } from 'vue';
-
+    import { generateHexID } from '@/utils/utils';
+    
     import { mediaStore } from '@/stores/media-store';
     import { memberStore } from '@/stores/member-store';
     import { partnerStore } from '@/stores/partner-store.js';
 
     import List from '@/components/utils/List.vue';
+    import Form from '@/components/form/Form.vue';
     import Media from '@/components/media/Media.vue';
     import Partners from '@/components/utils/Partners.vue';
     import Anchor from '@/components/navigation/Anchor.vue';
     
     const media = mediaStore();
     const isMedia = computed(() => media.isLoaded);
-    const membersDocs = computed(() => media.filter('medlemskap'));
 
     const members = memberStore();
     const partners = partnerStore();
@@ -162,41 +163,43 @@
 
         ],
         
-
-        /*schema: {
+        schema: {
+            name: 'membershipForm',
             title:'Meld Interesse',
             description: 'Bli medlem i SoSEnT Norge',
-            form: 
-            {
-                name: 'membershipForm',
-                fields: [
-                    {
-                        type: 'text',
-                        name: 'name',
-                        label: 'Navn',
-                        required: true
-                    },
-                    {
-                        type: 'email',
-                        name: 'email',
-                        label: 'E-post',
-                        required: true
-                    },
-                    {
-                        type: 'checkbox',
-                        name: 'terms',
-                        label: 'Jeg godtar vilkårene for medlemskap',
-                        required: true
-                    }
-                ],
-                btn:
+            action: 'submitMembershipForm',
+            fields: 
+            [
+                {
+                    type: 'text',
+                    name: 'name',
+                    label: 'Navn',
+                    required: true,
+                    id: generateHexID(),
+                },
+                {
+                    type: 'email',
+                    name: 'email',
+                    required: true,
+                    label: 'E-post',
+                    id: generateHexID(),
+                },
+                {
+                    name: 'terms',
+                    required: true,
+                    type: 'checkbox',
+                    id: generateHexID(),
+                    label: 'Jeg godtar at Sosent bruker kontakt informasjonen min for å kontakte meg',
+
+                }
+            ],
+            btn:
             {
                 type: 'submit',
                 label: 'Bli medlem',
                 class: 'btn btn-primary',
                 action: 'submitMembershipForm'
             },
-            }
-        }*/
+        }
     };
 </script>
