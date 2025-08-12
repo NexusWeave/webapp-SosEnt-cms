@@ -54,6 +54,12 @@ const router = createRouter({
       name: 'program',
       path: '/fordeler',
       component: () => import('../views/ProgramView.vue'),
+
+      beforeEnter: async (to, from, next) => {
+      const media = mediaStore();
+      await media.fetchMedia();
+      media.isLoaded ? next() : next('/404');
+      }
     },
     {
       name: 'membership',
