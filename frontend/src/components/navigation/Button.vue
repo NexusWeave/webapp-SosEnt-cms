@@ -10,8 +10,7 @@
 
         <template v-else>
             {{ btn.label }}
-        </template>    
-            
+        </template>
     </button>
 </template>
 
