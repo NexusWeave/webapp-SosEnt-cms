@@ -3,38 +3,22 @@
         method="post"     
         :name="data.name"
         :action="data.action"
-        :rel="data.rel? data.rel : 'noopener'"
-        :target="data.target? data.target : '_self'"
-        :novalidate="data.novalidate? data.novalidate : false"
-        v-on:encrypted="data.encrypted? data.encrypted : false"
-        :autocomplete="data.autocomplete? data.autocomplete : 'off'"
-        :acceptcharset="data.acceptcharset? data.acceptcharset : 'UTF-8'">
+        :rel="!!data.rel? data.rel : 'noopener'"
+        :target="!!data.target? data.target : '_self'"
+        :novalidate="!!data.novalidate? data.novalidate : false"
+        v-on:encrypted="!!data.encrypted? data.encrypted : false"
+        :autocomplete="!!data.autocomplete? data.autocomplete : 'off'"
+        :acceptcharset="!!data.acceptcharset? data.acceptcharset : 'UTF-8'">
         <legend class="section-title">
             <h1>{{ data.title }}</h1>
         </legend>
-        <section v-for="field in data.fields" :key="field.id">
-            <label :for="field.name">{{ field.label }}</label>
-            <input 
-                :id="field.id"
-                :type="field.type ? field.type : 'text'"
-                v-model="formData[field.name]" 
-                :placeholder="field.placeholder"
-                :size="field.size ? field.size : '30'"
-                :width="field.width ? field.width : ''"
-                :height="field.height ? field.height : ''"
-                :pattern="field.pattern ? field.pattern : ''"
-                :readonly="field.readonly ? field.readonly : false"
-                :required="field.required ? field.required : false"
-                :disabled="field.disabled ? field.disabled : false"
-                :maxlength="field.maxlength ? field.maxlength : ''"
-                :minlength="field.minlength ? field.minlength : ''"
-                :autofocus="field.autofocus ? field.autofocus : false"
-                :multiple="field.multiple && field.type == 'file' ? field.multiple : false"
 
-                
-                />
+        <section class="flex-column">
+            <Inputs v-for="field in data.fields" :key="field.id"
+            :data="field" :cls="!!field.cls ? field.cls : []"/>
+
         </section>
-        <section v-if="data.selections" v-for="selection in data.selections" :key="selection.id">
+        <section v-if="!!data.selections" v-for="selection in data.selections" :key="selection.id">
             <label :for="selection.label">{{ selection.label }}</label>
             <select v-model="formData.selectedOption" 
                     :multiple="selection.multiple ? selection.multiple : false">
@@ -43,7 +27,7 @@
                 </option>
             </select>
         </section>
-        <section v-if="data.textarea">
+        <section v-if="!!data.textarea">
             <label :for="data.textarea.name">{{ data.textarea.label }}</label>
             <textarea 
                 :id="data.textarea.id"
@@ -55,7 +39,7 @@
                 :required="data.textarea.required ? data.textarea.required : false">
             </textarea>
         </section>
-        <section v-if="data.dataList">
+        <section v-if="!!data.dataList">
             <label :for="data.dataList.name">{{ data.dataList.label }}</label>
             <input 
                 :id="data.dataList.id"
@@ -69,7 +53,7 @@
                 </option>
             </datalist>
         </section>
-        <section v-if="data.outputs">
+        <section v-if="!!data.outputs">
             <label :for="data.outputs.name">{{ data.outputs.label }}</label>
             <output 
                 :id="data.outputs.id"
@@ -82,11 +66,20 @@
 <script setup>
 
     import { defineProps } from 'vue';
+    import Inputs from './inputs.vue';
 
     const props = defineProps({
         data: {
             type: Object,
             required: true
+        },
+        cls: {
+            type: Array,
+            required: false
         }
     });
+    const cls = props.cls;
+    const data = props.data;
+
+    console.warn(data);
 </script>
