@@ -28,12 +28,12 @@
                         'flex-wrap-row-justify-space-evenly',
                         ['media-content', 'flex-column', 'component-theme']]"/>
                 </section>
-                </section>
-        </section>
+            </section>
         
-        <section v-if="membership.schema">
+        <section v-if="!!membership.schema">
                 <h3>{{ membership.schema.title }}</h3>
                 <Form :data="membership.schema" />
+        </section>
         </section>    
     </section>
 </template>
@@ -42,7 +42,7 @@
 
     import { computed } from 'vue';
     import { generateHexID } from '@/utils/utils';
-    
+
     import { mediaStore } from '@/stores/media-store';
     import { memberStore } from '@/stores/member-store';
     import { partnerStore } from '@/stores/partner-store.js';
@@ -176,30 +176,54 @@
                     label: 'Navn',
                     required: true,
                     id: generateHexID(),
+                    placeholder: 'Ole Nordmann',
                 },
                 {
-                    type: 'email',
+                    type: 'text',
                     name: 'email',
                     required: true,
                     label: 'E-post',
                     id: generateHexID(),
+                    placeholder: 'ole.nordmann@example.com',
+                },
+                {
+                    type: 'text',
+                    name: 'phone',
+                    required: true,
+                    label: 'Telefon',
+                    id: generateHexID(),
+                    placeholder: '+47 12 34 56 78',
                 },
                 {
                     name: 'terms',
                     required: true,
                     type: 'checkbox',
                     id: generateHexID(),
-                    label: 'Jeg godtar at Sosent bruker kontakt informasjonen min for å kontakte meg',
-
+                    label: 'Jeg ønsker å melde meg inn i Sosent',
+                },
+                {
+                    name: 'terms',
+                    required: true,
+                    type: 'checkbox',
+                    id: generateHexID(),
+                    label: 'Jeg ønsker å bli kontaktet av sosent',
                 }
             ],
             btn:
-            {
-                type: 'submit',
-                label: 'Bli medlem',
-                class: 'btn btn-primary',
-                action: 'submitMembershipForm'
-            },
+            [
+                {
+                    type: 'submit',
+                    label: 'Send inn',
+                    class: 'btn btn-primary',
+                    action: () => {}
+                },
+                {
+                    type: 'reset',
+                    label: 'Reset skjemaet',
+                    class: 'btn btn-primary',
+                    action: () => {}
+                }
+            ]
         }
     };
 </script>
