@@ -106,13 +106,13 @@
               cls: ['nav-link'],
               id: generateHexID(),
         },
-        /*{
+        {
 
           type: 'router',
           href: '/fordeler',
           id: generateHexID(),
           label: 'Medlemsfordeler',
-        },*/
+        },
         {
           type: 'router',
           id: generateHexID(),
