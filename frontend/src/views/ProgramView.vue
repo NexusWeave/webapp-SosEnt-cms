@@ -1,8 +1,8 @@
 <template>
-    <section>
+    <section v-if="!! !isLoggedIn">
         <Form :data="schema" />
     </section>
-    <section v-if="isLoggedIn">
+    <section v-if="!isLoggedIn">
         <section>
             <Btn v-for="btn in buttons" :key="btn.id" :data="btn" />
         </section>
@@ -35,8 +35,8 @@
     const schema = {
         name: 'membershipForm',
         title:'Medlemsfordeler',
-        description: 'Bli medlem i SoSEnT Norge',
         action: 'submitMembershipForm',
+        description: 'Bli medlem i SoSEnT Norge',
         fields:
         [
             {
@@ -46,11 +46,21 @@
                 placeholder: "Skriv inn passord",
                 required: true
             }
+        ],
+        btn:
+        [
+            {
+                type: 'submit',
+                label: 'logg deg inn',
+                class: 'btn btn-primary',
+                action: () => {}
+            },
         ]
     };
     const isLoggedIn = computed(() => {
         // Logic to determine if the user is logged in
-        return true; // Placeholder, replace with actual logic
+        //if (formModel.password === 'sosent2025') return true;
+        return false; // Placeholder, replace with actual logic
     });
     const test = false
     const buttons =
