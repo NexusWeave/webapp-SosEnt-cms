@@ -1,6 +1,6 @@
 <template>
-    <label v-if="!!data.label":for="data.name" :class="cls[0]">{{ !!data.label ? data.label : data.name }}</label>
-    <input 
+    <label v-if="!!data.label":for="data.id" :class="cls[0]">{{ !!data.label ? data.label : data.name }}</label>
+    <input
         :id="data.id"
         :class="cls[1]"
         :name="data.name"

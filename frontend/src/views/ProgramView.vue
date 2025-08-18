@@ -1,5 +1,6 @@
 <template>
-    <section v-if="!! !isLoggedIn">
+    <section v-if="!! !isLoggedIn"
+        :class="['login-container', 'flex-wrap-column-align-center-justify-space-evenly']">
         <Form 
         :data="schema"
         :cls="['', '', '', '', '', '', '']"
@@ -43,6 +44,7 @@
         inputs:
         [
             {
+                
                 value:'',
                 required: true,
                 name: 'password',
@@ -50,6 +52,7 @@
                 type: 'password',
                 id: generateHexID(),
                 placeholder: "Skriv inn passord",
+                cls: ['login-label', 'login-input'],
                 
             },
         ],
