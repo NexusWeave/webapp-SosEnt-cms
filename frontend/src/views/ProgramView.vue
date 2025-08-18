@@ -8,16 +8,18 @@
     />
     </section>
     <section v-if="isLoggedIn">
-        <section>
+        <section class="flex-wrap-row-justify-center" >
             <Btn v-for="btn in buttons" :key="btn.id" :data="btn" />
         </section>
-        <section>
-            <h2>Medlemsfordeler</h2>
+        <section v-show="!!program">
+            <h2 class="title-h2">Medlemsfordeler</h2>
+            <section class="flex-wrap-column-align-center-justify-space-evenly">
             <p>Some text about the program</p>
+            </section>
         </section>
 
-        <section v-if="!!isMedia" v-show="test">
-            <h2>Sosent Dokument Arkiv</h2>
+        <section v-if="!!isMedia" v-show="!!archieve">
+            <h2 class="title-h2">Dokument Arkiv</h2>
             <Media v-if="!!media" :data="media"
                 filter="dokumenter"
                 :cls="['media-container',
@@ -37,6 +39,9 @@
     import Media from '@/components/media/Media.vue';
     import Btn from '@/components/navigation/Button.vue';
 
+    const media = mediaStore();
+    const isMedia = computed(() => media.isLoaded);
+
     const schema = {
         name: 'programs',
         title:'Medlemsfordeler',
@@ -50,7 +55,7 @@
                 name: 'password',
                 label: "Passord",
                 type: 'password',
-                id: generateHexID(),
+                id: 'password-field',
                 placeholder: "Skriv inn passord",
                 cls: ['login-label', 'login-input'],
                 
@@ -65,7 +70,11 @@
             },
         ]
     };
+    
+    const program = ref(true);
+    const archieve = ref(false);
     const isLoggedIn = ref(false);
+
     const handleSubmit = (inputs) => {
         const value = inputs.filter(input => input.name === 'password')?.[0]?.value;
         console.warn("Form retrived with data: ", inputs, value);
@@ -78,18 +87,26 @@
     const buttons =
     [
         {
-            label: 'Fordeler',
-            action: () => {},
             cls: ['button'],
+            label: 'Fordeler',
             id: generateHexID(),
+
+            action: () => {
+                console.log("Fordeler clicked");
+                program.value = !program.value;
+                archieve.value = false;
+            },
         },
         {
             label: 'Arkiv',
-            action: () => {},
             cls: ['button'],
             id: generateHexID(),
+            action: () => {
+                program.value = false;
+                archieve.value = !archieve.value;
+            },
         },
     ];
-    const media = mediaStore();
-    const isMedia = computed(() => media.isLoaded);
+
+    
 </script>
