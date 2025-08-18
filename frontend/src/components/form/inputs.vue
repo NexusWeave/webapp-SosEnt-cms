@@ -6,27 +6,26 @@
         :name="data.name"
         :placeholder="!!data.placeholder ? data.placeholder : ''"
         :min="data.type =='range' ? !!data.rangeMin? data.rangeMin : 0 : ''"
-        :step="data.type =='range' ? 1 : 0"
+        :step="data.type =='range' ? 1 : ''"
         :max="data.type =='range' ? !!data.rangeMax? data.rangeMax : 100 : ''"
-        :value="data.value ? data.value : ''"
+        :value="data.value ?? data.value"
         :type="data.type ? data.type : 'text'"
         :size="!!data.size ? data.size : '30'"
         :width="!!data.width ? data.width : ''"
         :height="!!data.height ? data.height : ''"
-        :pattern="!!data.pattern ? data.pattern : ''"
         :readonly="!!data.readonly ? data.readonly : false"
         :required="!!data.required ? data.required : false"
         :disabled="!!data.disabled ? data.disabled : false"
-        :maxlength="!!data.maxlength ? data.maxlength : ''"
-        :minlength="!!data.minlength ? data.minlength : ''"
+        :maxlength="!!data.maxlength ?? data.maxlength"
+        :minlength="!!data.minlength ?? data.minlength"
         :autofocus="!!data.autofocus ? data.autofocus : false"
         :multiple="!!data.multiple && data.type == 'file' ? data.multiple : false"
-        @input="emit('update:modelValue', $event.target.value)"
+        @input="handleInput"
     />
 </template>
 <script setup>
 
-    import { defineEmits, defineProps} from 'vue';
+    import { defineEmits, defineProps, reactive} from 'vue';
 
     const props = defineProps({
         data: {
@@ -44,7 +43,12 @@
     });
     const cls = props.cls;
     const data = props.data;
-    const emit = defineEmits(['update:modelValue']);
+    const emit = defineEmits(['inputs']);
 
+    const handleInput = (event) => {
+        const input = reactive(data);
+        input.value = event.target.value;
+        emit('inputs', input);
+    };
     //console.warn("Inputs.vue : ", data);
 </script>

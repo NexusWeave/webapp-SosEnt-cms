@@ -1,5 +1,5 @@
 <template>
-    <form
+    <form @submit.prevent="handleInput"
         :class="cls[0]"
         method="post"     
         :name="data.name"
@@ -28,12 +28,14 @@
                 :cls="!!selection.cls ? selection.cls : []" 
                 />
         </section>
+
         <section v-if="!!data.textarea">
             <Textarea v-for="area in data.textarea" :key="area.id"
             v-model="formData[area.name]" 
             :data="area" 
             />
         </section>
+
         <section v-if="!!data.dataList">
             <DataList v-for="list in data.dataList" :key="list.id"
                 v-model:[list.type]="list.value"
@@ -41,6 +43,7 @@
                 :cls="!!list.cls ? list.cls : []" />
 
         </section>
+
         <section v-if="!!data.outputs">
             <Outputs v-for="output in data.outputs" :key="output.id"
                 v-model:[output.type]="output.value"
@@ -49,9 +52,10 @@
         </section>
 
         <section v-if="!!data.btn" class="flex-row-justify-space-evenly">
-            <Button v-for="btn in data.btn" :key="btn.id"
+            <Inputs v-for="btn in data.btn" :key="btn.id"
             :data="btn"
-            :cls="btn.cls" />
+            :cls="[btn.cls]"/>
+
         </section>
     </form>
 </template>
@@ -61,7 +65,6 @@
     
     import Inputs from './inputs.vue';
     import Select from './Select.vue';
-    import Button from '@/components/navigation/Button.vue';
     
 
     const props = defineProps({
@@ -77,11 +80,17 @@
 
     const cls = props.cls;
     const data = props.data;
-    const emits = defineEmits(['toggleVisibility']);
+    const emits = defineEmits(['formModel', 'formData']);
 
-    emits('toggleVisibility', data);
+    emits('formModel', data);
 
+    const handleInput = (event) => {
+        event.preventDefault();
+        console.log(data, event)
+        const inputs = data.inputs
+        emits('formData', inputs);
+        //console.warn("Form submitted with data: ", inputs);
+    };
 
-
-    console.warn(data);
+    //console.warn(data.inputs);
 </script>

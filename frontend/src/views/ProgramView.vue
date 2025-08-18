@@ -1,8 +1,12 @@
 <template>
     <section v-if="!! !isLoggedIn">
-        <Form :data="schema" />
+        <Form 
+        :data="schema"
+        :cls="['', '', '', '', '', '', '']"
+        @formData="handleSubmit"
+    />
     </section>
-    <section v-if="!isLoggedIn">
+    <section v-if="isLoggedIn">
         <section>
             <Btn v-for="btn in buttons" :key="btn.id" :data="btn" />
         </section>
@@ -24,7 +28,7 @@
 
 <script setup>
 
-    import { computed } from 'vue';
+    import { computed, ref } from 'vue';
     import { generateHexID } from '@/utils/utils';
     import { mediaStore } from '@/stores/media-store.js';
 
@@ -33,35 +37,40 @@
     import Btn from '@/components/navigation/Button.vue';
 
     const schema = {
-        name: 'membershipForm',
+        name: 'programs',
         title:'Medlemsfordeler',
-        action: 'submitMembershipForm',
         description: 'Bli medlem i SoSEnT Norge',
-        fields:
+        inputs:
         [
             {
+                value:'',
+                required: true,
+                name: 'password',
+                label: "Passord",
                 type: 'password',
                 id: generateHexID(),
-                label: "Login for å se fordeler og dokument arkiv",
                 placeholder: "Skriv inn passord",
-                required: true
-            }
+                
+            },
         ],
         btn:
         [
             {
                 type: 'submit',
                 label: 'logg deg inn',
-                class: 'btn btn-primary',
-                action: () => {}
+                class: ['btn','btn-primary'],
             },
         ]
     };
-    const isLoggedIn = computed(() => {
-        // Logic to determine if the user is logged in
-        //if (formModel.password === 'sosent2025') return true;
-        return false; // Placeholder, replace with actual logic
-    });
+    const isLoggedIn = ref(false);
+    const handleSubmit = (inputs) => {
+        const value = inputs.filter(input => input.name === 'password')?.[0]?.value;
+        console.warn("Form retrived with data: ", inputs, value);
+
+        if (value === "x") isLoggedIn.value = !isLoggedIn.value;
+
+    };
+
     const test = false
     const buttons =
     [
