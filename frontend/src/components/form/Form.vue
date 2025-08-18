@@ -10,8 +10,10 @@
         v-on:encrypted="!!data.encrypted? data.encrypted : false"
         :autocomplete="!!data.autocomplete? data.autocomplete : 'off'"
         :acceptcharset="!!data.acceptcharset? data.acceptcharset : 'UTF-8'">
-        <legend :class="cls[1]">
-            <h2>{{ data.title }}</h2>
+        
+        <legend>
+            <h3 :class="cls[1]">
+            {{ data.title }}</h3>
         </legend>
 
         <section :class="cls[2]">
@@ -22,21 +24,21 @@
             />
         </section>
 
-        <section v-if="!!data.selections">
+        <section v-if="!!data.selections" :class="cls[3]">
             <Select v-for="selection in data.selections" :key="selection.id"
                 v-model:[selection.type]="selection.value"
                 :cls="!!selection.cls ? selection.cls : []" 
                 />
         </section>
 
-        <section v-if="!!data.textarea">
+        <section v-if="!!data.textarea" :class="cls[4]">
             <Textarea v-for="area in data.textarea" :key="area.id"
             v-model="formData[area.name]" 
             :data="area" 
             />
         </section>
 
-        <section v-if="!!data.dataList">
+        <section v-if="!!data.dataList" :class="cls[5]">
             <DataList v-for="list in data.dataList" :key="list.id"
                 v-model:[list.type]="list.value"
                 :data="list" 
@@ -44,7 +46,7 @@
 
         </section>
 
-        <section v-if="!!data.outputs">
+        <section v-if="!!data.outputs" :class="cls[6]">
             <Outputs v-for="output in data.outputs" :key="output.id"
                 v-model:[output.type]="output.value"
                 :data="output"
@@ -74,7 +76,8 @@
         },
         cls: {
             type: Array,
-            required: false
+            required: false,
+            default: () => ['', '', '', '', '', '', '']
         }
     });
 
