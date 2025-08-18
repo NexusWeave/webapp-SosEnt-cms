@@ -1,6 +1,8 @@
 <template>
-    <label v-if="!!data.label":for="data.id" :class="cls[0]">{{ !!data.label ? data.label : data.name }}</label>
+    <Label v-if="!!data.id" :for="data.id" 
+    :data="data.label" :cls="cls" />
     <input
+        :autocomplete="!!data.autocomplete ? 'off':'on'"
         :id="data.id"
         :class="cls[1]"
         :name="data.name"
@@ -26,6 +28,7 @@
 <script setup>
 
     import { defineEmits, defineProps, reactive} from 'vue';
+import Label from './Label.vue';
 
     const props = defineProps({
         data: {
