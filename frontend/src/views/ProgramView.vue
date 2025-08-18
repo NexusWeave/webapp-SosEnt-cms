@@ -1,9 +1,9 @@
 <template>
+    <h2 class="title-h2"> Medlemsfordeler</h2>
     <section v-if="!! !isLoggedIn"
         :class="['login-container', 'flex-wrap-column-align-center-justify-space-evenly']">
         <Form 
         :data="schema"
-        :cls="['', '', '', '', '', '', '']"
         @formData="handleSubmit"
     />
     </section>
@@ -12,7 +12,7 @@
             <Btn v-for="btn in buttons" :key="btn.id" :data="btn" />
         </section>
         <section v-show="!!program">
-            <h2 class="title-h2">Medlemsfordeler</h2>
+            <h2 class="title-h2">Fordeler</h2>
             <section class="flex-wrap-column-align-center-justify-space-evenly">
             <p>Some text about the program</p>
             </section>
@@ -44,8 +44,9 @@
 
     const schema = {
         name: 'programs',
-        title:'Medlemsfordeler',
+        title:'Innloggins skjema',
         description: 'Bli medlem i SoSEnT Norge',
+
         inputs:
         [
             {
