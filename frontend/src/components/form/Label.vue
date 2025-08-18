@@ -1,5 +1,5 @@
 <template>
-    <label :class="cls[0]">{{ data }}</label>
+    <label>{{ data }}</label>
 </template>
 <script setup>
 import { defineProps } from 'vue';
@@ -9,9 +9,7 @@ const props = defineProps({
         type: Object,
         required: true
     },
-    cls: {
-        type: Array,
-        required: false
-    }
 });
+const data = props.data;
+
 </script>
