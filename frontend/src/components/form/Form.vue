@@ -1,5 +1,6 @@
 <template>
-    <form 
+    <form
+        :class="cls[0]"
         method="post"     
         :name="data.name"
         :action="data.action"
@@ -9,58 +10,44 @@
         v-on:encrypted="!!data.encrypted? data.encrypted : false"
         :autocomplete="!!data.autocomplete? data.autocomplete : 'off'"
         :acceptcharset="!!data.acceptcharset? data.acceptcharset : 'UTF-8'">
-        <legend class="section-title">
-            <h1>{{ data.title }}</h1>
+        <legend :class="cls[1]">
+            <h2>{{ data.title }}</h2>
         </legend>
 
-        <section class="flex-column">
-            <Inputs v-for="field in data.fields" :key="field.id"
-            :data="field" :cls="!!field.cls ? field.cls : []"/>
-
+        <section :class="cls[2]">
+            <Inputs v-for="input in data.inputs" :key="input.id"
+                :data="input" 
+                v-model:[input.type]="input.value"
+                :cls="!!input.cls ? input.cls : []"
+            />
         </section>
-        <section v-if="!!data.selections" v-for="selection in data.selections" :key="selection.id">
-            <label :for="selection.label">{{ selection.label }}</label>
-            <select v-model="formData.selectedOption" 
-                    :multiple="selection.multiple ? selection.multiple : false">
-                <option v-for="option in data.selectOptions" :key="option.id" :value="option.value">
-                    {{ option.label }}
-                </option>
-            </select>
+
+        <section v-if="!!data.selections">
+            <Select v-for="selection in data.selections" :key="selection.id"
+                v-model:[selection.type]="selection.value"
+                :cls="!!selection.cls ? selection.cls : []" 
+                />
         </section>
         <section v-if="!!data.textarea">
-            <label :for="data.textarea.name">{{ data.textarea.label }}</label>
-            <textarea 
-                :id="data.textarea.id"
-                v-model="formData[data.textarea.name]"
-                :placeholder="data.textarea.placeholder"
-                :rows="data.textarea.rows ? data.textarea.rows : 4"
-                :cols="data.textarea.cols ? data.textarea.cols : 50"
-                :maxlength="data.textarea.maxlength ? data.textarea.maxlength : ''"
-                :required="data.textarea.required ? data.textarea.required : false">
-            </textarea>
+            <Textarea v-for="area in data.textarea" :key="area.id"
+            v-model="formData[area.name]" 
+            :data="area" 
+            />
         </section>
         <section v-if="!!data.dataList">
-            <label :for="data.dataList.name">{{ data.dataList.label }}</label>
-            <input 
-                :id="data.dataList.id"
-                v-model="formData[data.dataList.name]"
-                :list="data.dataList.list"
-                :placeholder="data.dataList.placeholder"
-                :required="data.dataList.required ? data.dataList.required : false" />
-            <datalist :id="data.dataList.list">
-                <option v-for="option in data.dataList.options" :key="option.id" :value="option.value">
-                    {{ option.label }}
-                </option>
-            </datalist>
+            <DataList v-for="list in data.dataList" :key="list.id"
+                v-model:[list.type]="list.value"
+                :data="list" 
+                :cls="!!list.cls ? list.cls : []" />
+
         </section>
         <section v-if="!!data.outputs">
-            <label :for="data.outputs.name">{{ data.outputs.label }}</label>
-            <output 
-                :id="data.outputs.id"
-                :for="data.outputs.for"
-                :v-model="formData[data.outputs.name]">
-            </output>
+            <Outputs v-for="output in data.outputs" :key="output.id"
+                v-model:[output.type]="output.value"
+                :data="output"
+                :cls="!!output.cls ? output.cls : []" />
         </section>
+
         <section v-if="!!data.btn" class="flex-row-justify-space-evenly">
             <Button v-for="btn in data.btn" :key="btn.id"
             :data="btn"
@@ -70,9 +57,10 @@
 </template>
 <script setup>
 
-    import { defineProps } from 'vue';
+    import { defineProps, defineEmits } from 'vue';
     
     import Inputs from './inputs.vue';
+    import Select from './Select.vue';
     import Button from '@/components/navigation/Button.vue';
     
 
@@ -86,8 +74,14 @@
             required: false
         }
     });
+
     const cls = props.cls;
     const data = props.data;
+    const emits = defineEmits(['toggleVisibility']);
+
+    emits('toggleVisibility', data);
+
+
 
     console.warn(data);
 </script>
