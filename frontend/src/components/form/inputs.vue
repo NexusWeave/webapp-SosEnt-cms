@@ -1,6 +1,6 @@
 <template>
     <Label v-if="!!data.id" :for="data.id" 
-    :data="data.label" :cls="cls" />
+    :data="data.label"/>
     <input
         :autocomplete="!!data.autocomplete ? 'off':'on'"
         :id="data.id"
@@ -37,7 +37,7 @@ import Label from './Label.vue';
         },
         cls: {
             type: Array,
-            required: false
+            required: false,
         },
         modelValue: {
             type: [String, Number, Boolean],
