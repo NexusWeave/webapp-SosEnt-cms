@@ -1,5 +1,6 @@
 <template>
-    <label :for="data.textarea.name">{{ data.textarea.label }}</label>
+    <Label v-if="!!data.id" :for="data.id" 
+    :data="data.label" :cls="cls" />
     <textarea 
         :id="data.textarea.id"
         v-model="formData[data.textarea.name]"
