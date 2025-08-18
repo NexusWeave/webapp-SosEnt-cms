@@ -77,7 +77,7 @@
         cls: {
             type: Array,
             required: false,
-            default: () => ['', '', '', '', '', '', '']
+            default: () => [['form-container', 'flex-column'], 'title-h3', ['input-group', 'flex-wrap-row-justify-space-evenly']]
         }
     });
 
