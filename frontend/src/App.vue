@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-  import { reactive, computed, onMounted} from 'vue';
+  import { reactive, computed} from 'vue';
   import { RouterView } from 'vue-router';
 
   import Header from './views/utils/HeaderView.vue';
