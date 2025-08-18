@@ -1,7 +1,6 @@
 <template>
     <section class="flex-column-align-items-center">
         <h2>{{ membership.title }}</h2>
-        
         <section class="flex-wrap-row-justify-space-evenly">
             <section class="flex-column">
                 <section v-for="content in membership.content" :key="content.id"
@@ -29,11 +28,7 @@
                         ['media-content', 'flex-column', 'component-theme']]"/>
                 </section>
             </section>
-        
-        <section v-if="!!membership.schema">
-                <h3>{{ membership.schema.title }}</h3>
-                <Form :data="membership.schema" />
-        </section>
+            <Form v-if="!!membership.schema" :data="membership.schema" :cls="membership.schema.cls"/>
         </section>    
     </section>
 </template>
@@ -164,18 +159,20 @@
         ],
         
         schema: {
+            
             name: 'membershipForm',
             title:'Meld Interesse',
-            description: 'Bli medlem i SoSEnT Norge',
             action: 'submitMembershipForm',
-            fields: 
+            description: 'Bli medlem i SoSEnT Norge',
+            cls: [['form-container', 'flex-column'], 'title-h3', 'input-group'],
+
+            inputs: 
             [
                 {
                     type: 'text',
-                    name: 'name',
                     label: 'Navn',
                     required: true,
-                    id: generateHexID(),
+                    id: 'name-field',
                     placeholder: 'Ole Nordmann',
                 },
                 {
@@ -183,7 +180,7 @@
                     name: 'email',
                     required: true,
                     label: 'E-post',
-                    id: generateHexID(),
+                    id: 'email-field',
                     placeholder: 'ole.nordmann@example.com',
                 },
                 {
@@ -191,22 +188,24 @@
                     name: 'phone',
                     required: true,
                     label: 'Telefon',
-                    id: generateHexID(),
+                    id: 'telephone-field',
                     placeholder: '+47 12 34 56 78',
                 },
                 {
-                    name: 'terms',
+                    type: 'radio',
+                    name: 'member',
                     required: true,
-                    type: 'checkbox',
-                    id: generateHexID(),
-                    label: 'Jeg ønsker å melde meg inn i Sosent',
+                    id: 'member-radio',
+                    value:"become_member",
+                    label: 'Meld meg inn i SosEnT !',
                 },
                 {
-                    name: 'terms',
                     required: true,
-                    type: 'checkbox',
-                    id: generateHexID(),
-                    label: 'Jeg ønsker å bli kontaktet av sosent',
+                    name: 'contact',
+                    type: 'radio',
+                    value:"contact_me",
+                    id: 'contact-radio',
+                    label: 'Kontakt meg :)',
                 }
             ],
             btn:
