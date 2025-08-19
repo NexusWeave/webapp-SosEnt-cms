@@ -17,7 +17,8 @@
 
     const orgArticle = computed(() => news.articles.find(article => article.id === route.params.id.toString()));
 
-    let article = computed(() => {
+    let article = computed(() => 
+    {
 
         const article = JSON.parse(JSON.stringify(orgArticle.value));
         if (!article) return null;
@@ -52,10 +53,9 @@
         }
         //console.log("CTA found: ", content.cta);
         return article;
-        });
+    });
 
-
-    const cls = ['flex-column-align-items-center', ['article-ingress'], 
+    const cls = ['flex-column-align-items-center', ['article-ingress'],
     'title-h2', 'tags',// End of Header classes
     'flex-column-align-items-center', 'title-h3', [ 'article-section-content'],
     'title-h4', 'aside-grid', ['component-theme', 'cta-section'],
