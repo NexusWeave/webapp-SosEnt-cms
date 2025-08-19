@@ -82,8 +82,6 @@
     const cls = props.Cls;
     
     const section = props.data ? props.data : props.Section;
-    
-
 
     //console.log("Article Main Component loaded with data: ", section);
 </script>
