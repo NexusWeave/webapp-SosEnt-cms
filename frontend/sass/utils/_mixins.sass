@@ -71,7 +71,6 @@
 
 @mixin apply-theme-colors($bg-color, $border, $text-color)
 
-    $color-border: $border
     border: $border
     color: $text-color
     border-radius: 0.5em
@@ -87,39 +86,53 @@
     h3 > a
             font-size: 1.5em
             font-weight: bold
-    
-@mixin light-component-theme($color, $padding-block: .5em)
 
-    $color-text: color.$soft-white
-    $color-link: rgba($color, 0.6)
-    $color-border: rgba($color, 0.2)
-    $bg-color: rgba($color, 0.1)
+@mixin component-theme($bg-color, $color, $link-color, $link-visited, $pad-block: null, $padding-block: null,  $border-color: null)
 
+    @if $pad-block == null
+        $pad-block: .3em
 
-    @if  $color == color.$Groovy-brown
-        $bg-color: rgba($color, 1)
-        $color-link: color.$Groovy-yellow
-        $color-text: rgba(color.$soft-white, 0.8)
-        $color-border: rgba(color.$Groovy-orange, 0.2)
-        
+    @if $border-color == null
+        $border-color: rgba($color, 0.2)
+
+    @if $bg-color == null
+        $bg-color: rgba($color, 0.1)
+
+    @if $bg-color== color.$Groovy-brown
+        $border-color: rgba(color.$Groovy-orange, 0.2)
 
     p
-        padding-block-start: $padding-block
+        color: $color
+        padding-block-start: $pad-block
 
     img
-        padding-block-start: $padding-block
+        padding-block-start: $pad-block
     
     h1, h2, h3, h4, h5, h6
+        color: $color
         font-weight: bold
-        color: rgba($color-text, 1)
-        padding-block-start: $padding-block
+        padding-block-start: $pad-block
 
     border-radius: 0.5em
-    @include background-color($bg-color, $color-text, $color-link)
+    @include background-color($bg-color,$color)
+    @include link-color($color: $link-color, $color-hover: $link-color, $color-active: $link-color, $color-visited: $link-visited)
 
-@mixin link-color($color, $font-size, $color-hover, $color-active, $color-visited)
+@mixin link-color($color, $color-hover: null, $color-active: null, $color-visited: null, $font-size: null)
 
-    $color: rgba($color, 1)
+    @if $font-size == null
+        $font-size: 1.3em
+
+    @if $color-hover == null
+        $color-hover: rgba($color, 0.8)
+
+    @if $color-active == null
+        $color-active: rgba($color, 0.9)
+    
+    @if $color-visited == null
+        $color-visited: rgba($color, 0.6)
+
+    
+
     a[aria-disabled="true"]
         color: #a0a0a0
         cursor: not-allowed
@@ -147,39 +160,19 @@
             color: $color !important
 
         .read-more
-            padding: 0.1em
+            margin: 0.5em
+            font-size: 1em
+            font-weight: bold
+            padding: 0.5em 1em
+            border-radius: 0.5em
             display: inline-block
+            border: 1px solid color.$Groovy-brown
+            @include background-color(color.$Groovy-orange, color.$soft-white)
 
-@mixin background-color($bg-color, $text-color, $link-color:null, $font-size: null, $color-hover: null, $color-active: null, $color-visited: null)
-
-    @if $font-size == null
-        $font-size: 1.3em
-
-    @if not $link-color
-        $link-color: $text-color
-
-    @if $link-color == color.$Groovy-yellow
-        $color-active: rgba(color.$Groovy-green, 1) !important
-        $color-hover: rgba(color.$Groovy-green, 0.8) !important
-        $color-visited: rgba(color.$Groovy-orange, 0.3) !important
-
-    @else if $link-color == color.$Groovy-orange
-        $color-active: rgba(color.$Groovy-green, 1) !important
-        $color-hover: rgba(color.$Groovy-green, 0.8) !important
-        $color-visited: rgba(color.$Groovy-orange, 0.3) !important
-
-    @if $color-hover == null
-        $color-hover: rgba($link-color, 0.8)
-    @if $color-active == null
-        $color-active: rgba($link-color, 1)
-    @if $color-visited == null
-        $color-visited: rgba($link-color, 0.3)
+@mixin background-color($bg-color, $text-color)
 
     color: rgba($text-color, 1)
     background-color: rgba($bg-color, 1)
-
-
-    @include link-color($link-color, $font-size, $color-hover, $color-active, $color-visited)
 
 @mixin font($size, $font-family: 'Nunito', $line-height: null)
 
@@ -245,7 +238,8 @@
             padding: 0.5em 0.5em
             border-radius: 0.5em
             display: inline-block
-            @include background-color(map.get($props, bg-color), map.get($props, txt-color), map.get($props, link-color))
+            @include background-color(map.get($props, bg-color), map.get($props, txt-color))
+            @include link-color( map.get($props, link-color))
 
         span.tags
             font-size: 0.7em
