@@ -66,7 +66,7 @@
 
     const anchor = computed(() => {
         return isArticlePage ? {
-            cls: ['button', 'read-more'],
+            cls: ['read-more'],
             label: 'Gå tilbake',
             action: () => { window.history.back() }
         } : { type: 'anchor', anchor: article.anchor };
