@@ -84,7 +84,6 @@
 
     };
 
-    const test = false
     const buttons =
     [
         {
@@ -94,7 +93,7 @@
 
             action: () => {
                 console.log("Fordeler clicked");
-                program.value = !program.value;
+                program.value = true;
                 archieve.value = false;
             },
         },
@@ -104,7 +103,7 @@
             id: generateHexID(),
             action: () => {
                 program.value = false;
-                archieve.value = !archieve.value;
+                archieve.value = true;
             },
         },
     ];
