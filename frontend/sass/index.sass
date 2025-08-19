@@ -4,10 +4,12 @@
 @use './colors/colors' as color
 
 @forward './misc'
+
+@forward './header'
+@forward './footer'
 @forward './flexbox'
-@forward './header.sass'
 @forward './utils/inputs'
-@forward './footer.sass'
+@forward './utils/buttons'
 @forward './main/article.sass'
 @forward './main/section.sass'
 @forward '../node_modules/bootstrap-icons/font/bootstrap-icons'
@@ -34,7 +36,6 @@ body
     @include mix.apply-theme-colors(color.$antique-white, color.$Groovy-orange, color.$Groovy-brown)
     @include mix.link-color(color.$Groovy-brown, 1.3em, rgba(color.$Groovy-brown, 0.8), color.$Groovy-brown, rgba(color.$Groovy-brown, 0.3))
     font-family: 'Nunito', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
-    
 
 nav
     text-align: center
