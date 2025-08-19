@@ -5,8 +5,6 @@ article.news-card
     margin-block: 0
     border-radius: 0.5em
     max-inline-size: 29em
-    @include mix.media-queries($breakpoint: 'M')
-        box-shadow: 12px 13px 47px 17px rgba(89, 61, 43, 0.2)
 
     header
         span.article-date
@@ -35,6 +33,8 @@ article.news-card
 
     &:nth-child(even)
         @include mix.background-color(color.$soft-white, color.$Groovy-brown)
+    
+
 
 article
     img
@@ -61,6 +61,7 @@ article
                 @include mix.media-queries($breakpoint: 'M')
                     font-size: 1.3em
                     text-align: justify
+
     main
         padding: 1em
         margin: 0 auto
