@@ -159,16 +159,6 @@
         h1, h2, h3, h4, h5, h6
             color: $color !important
 
-        .read-more
-            margin: 0.5em
-            font-size: 1em
-            font-weight: bold
-            padding: 0.5em 1em
-            border-radius: 0.5em
-            display: inline-block
-            border: 1px solid color.$Groovy-brown
-            @include background-color(color.$Groovy-orange, color.$soft-white)
-
 @mixin background-color($bg-color, $text-color)
 
     color: rgba($text-color, 1)
@@ -244,3 +234,14 @@
         span.tags
             font-size: 0.7em
             font-weight: bold
+
+@mixin button-pallette($bg-color, $text-color, $border-color)
+    margin: 0.5em
+    font-size: 1em
+    cursor: pointer
+    font-weight: bold
+    padding: 0.5em 1em
+    border-radius: 0.5em
+    display: inline-block
+    border: 1px solid $border-color
+    @include background-color($bg-color, $text-color)
