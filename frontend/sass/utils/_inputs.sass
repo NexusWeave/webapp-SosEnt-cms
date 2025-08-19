@@ -1,2 +1,12 @@
+@use '../colors/colors' as color
 form.form-container
     inline-size: 16em
+
+input:not([type = 'submit'], [type = 'reset'])
+    block-size: 2em
+    border-radius: 0.5em
+    border: 1px solid color.$Groovy-orange
+    
+
+    &:focus-visible
+        outline-color: color.$Groovy-orange
