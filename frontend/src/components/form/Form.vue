@@ -54,9 +54,9 @@
         </section>
 
         <section v-if="!!data.btn" class="flex-row-justify-space-evenly">
-            <Inputs v-for="btn in data.btn" :key="btn.id"
+            <Btn v-for="btn in data.btn" :key="btn.id"
             :data="btn"
-            :cls="[btn.cls]"/>
+            :cls="['btn', 'orange-btn']"/>
 
         </section>
     </form>
@@ -67,7 +67,10 @@
     
     import Inputs from './inputs.vue';
     import Select from './Select.vue';
-    
+    import Outputs from './Outputs.vue';
+    import Textarea from './Textarea.vue';
+    import Datalist from './Datalist.vue';
+    import Btn from '../navigation/Button.vue';
 
     const props = defineProps({
         data: {
