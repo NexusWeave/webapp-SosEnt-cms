@@ -56,7 +56,9 @@
         margin-block: 0.5em
         max-inline-size: 100%
         box-shadow: 0 0 1em rgba(0, 0, 0, 0.1)
-        @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$Groovy-orange)
+        @include mix.link-color(color.$Groovy-orange)
+        @include mix.background-color(color.$soft-white, color.$Groovy-brown)
+        
     .card-content
         padding: 2em 1em
         inline-size: 26em
@@ -90,4 +92,5 @@
     @include mix.font(1.3em, 'Inter, sans-serif')
 
 .member-container
-    @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$Groovy-orange)
+    @include mix.link-color(color.$Groovy-yellow, color.$Groovy-green)
+    @include mix.background-color(color.$Groovy-brown,color.$soft-white)
