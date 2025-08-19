@@ -9,7 +9,7 @@
     </section>
     <section v-if="isLoggedIn">
         <section class="flex-wrap-row-justify-center" >
-            <Btn v-for="btn in buttons" :key="btn.id" :data="btn" />
+            <Btn v-for="btn in buttons" :key="btn.id" :data="btn" :cls="['btn', 'orange-btn']" />
         </section>
         <section v-show="!!program">
             <h2 class="title-h2">Fordeler</h2>
@@ -67,7 +67,7 @@
             {
                 type: 'submit',
                 label: 'logg deg inn',
-                class: ['btn','btn-primary'],
+                class: ['btn','orange-btn'],
             },
         ]
     };
@@ -87,7 +87,6 @@
     const buttons =
     [
         {
-            cls: ['button', 'orange-btn'],
             label: 'Fordeler',
             id: generateHexID(),
 
@@ -99,7 +98,6 @@
         },
         {
             label: 'Arkiv',
-            cls: ['button','orange-btn'],
             id: generateHexID(),
             action: () => {
                 program.value = false;
