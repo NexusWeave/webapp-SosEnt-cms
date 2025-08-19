@@ -37,7 +37,7 @@ export const newsStore = defineStore('newsData',
                         type: ['anchor'],
                         label: 'Les mer',
                         cls: ['button','read-more'],
-                        href: '#/aktuelt/artikkel/' + article.id
+                        href: '/aktuelt/artikkel/' + article.id
                     };  
 
                     const date = article.date;
