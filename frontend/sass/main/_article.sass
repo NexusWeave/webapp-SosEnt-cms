@@ -31,10 +31,10 @@ article.news-card
     &:nth-child(odd)
         margin-block: 1em
         padding-block-end: 1em
-        @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$antique-soft)
+        @include mix.background-color(color.$soft-white, color.$Groovy-brown)
 
     &:nth-child(even)
-        @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$antique-soft)
+        @include mix.background-color(color.$soft-white, color.$Groovy-brown)
 
 article
     img
@@ -108,9 +108,7 @@ article
                 .media-link
                     .icon::before
                         padding: 0.2em
-                
-    &:nth-child(odd)
-        @include mix.background-color(color.$antique-soft, color.$Groovy-brown, color.$soft-white, $font-size: 1.1em)
 
-    &:nth-child(even)
-        @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$antique-soft, $font-size: 1.1em)
+        @include mix.background-color(color.$Groovy-brown,color.$antique-soft)
+        @include mix.link-color(color.$Groovy-yellow, color.$Groovy-green)
+
