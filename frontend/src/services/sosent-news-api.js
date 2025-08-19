@@ -161,7 +161,7 @@ const articles = reactive(
                                 [
                                     {
                                         id: generateHexID(),
-                                        href: '#/medlemskap',
+                                        href: '/medlemskap',
                                         label: 'MELD DIN INTERESSE',
                                     },
                                 ],
@@ -274,7 +274,7 @@ const articles = reactive(
                         anchor:
                         {
                             cls: ['read-more'],
-                            href: '#/aktuelt/artikkel/1',
+                            href: '/aktuelt/artikkel/1',
                             label: 'samle de ulike sosiale entreprenørene ',
                         },
                     },
