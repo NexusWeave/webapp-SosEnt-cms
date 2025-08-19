@@ -66,7 +66,7 @@
 
     const anchor = computed(() => {
         return isArticlePage ? {
-            cls: ['read-more'],
+            cls: ['orange-btn'],
             label: 'Gå tilbake',
             action: () => { window.history.back() }
         } : { type: 'anchor', anchor: article.anchor };
