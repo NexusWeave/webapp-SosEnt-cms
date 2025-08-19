@@ -38,7 +38,6 @@
     import Figure from '@/components/media/Figure.vue';
     import Btn from '@/components/navigation/Button.vue';
     import Menu from '@/components/navigation/NavMenu.vue';
-    import Anchor from '@/components/navigation/Anchor.vue';
 
     const props = defineProps({
         article: {
