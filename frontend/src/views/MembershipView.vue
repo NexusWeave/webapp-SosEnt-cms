@@ -213,14 +213,12 @@
                 {
                     type: 'submit',
                     label: 'Send inn',
-                    class: 'btn btn-primary',
-                    action: () => {}
+                    id: generateHexID(),
                 },
                 {
                     type: 'reset',
-                    label: 'Reset skjemaet',
-                    class: 'btn btn-primary',
-                    action: () => {}
+                    id: generateHexID(),
+                    label: 'Start på nytt',
                 }
             ]
         }
