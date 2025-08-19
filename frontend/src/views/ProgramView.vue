@@ -87,7 +87,7 @@
     const buttons =
     [
         {
-            cls: ['button'],
+            cls: ['button', 'orange-btn'],
             label: 'Fordeler',
             id: generateHexID(),
 
@@ -99,7 +99,7 @@
         },
         {
             label: 'Arkiv',
-            cls: ['button'],
+            cls: ['button','orange-btn'],
             id: generateHexID(),
             action: () => {
                 program.value = false;
