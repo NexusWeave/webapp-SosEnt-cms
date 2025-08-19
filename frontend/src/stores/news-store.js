@@ -36,7 +36,7 @@ export const newsStore = defineStore('newsData',
                     {
                         type: ['anchor'],
                         label: 'Les mer',
-                        cls: ['button','read-more'],
+                        cls: ['read-more'],
                         href: '/aktuelt/artikkel/' + article.id
                     };  
 
