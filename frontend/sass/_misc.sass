@@ -5,10 +5,11 @@
 
 .component-theme
     padding-block: 1em
-    @include mix.light-component-theme(color.$Groovy-brown)
+    @include mix.component-theme(color.$Groovy-brown, color.$antique-soft, color.$Groovy-yellow, color.$Groovy-green)
 
 .section-theme
-    @include mix.background-color(color.$antique-soft, color.$Groovy-brown, color.$Groovy-orange)    
+    @include mix.background-color(color.$antique-soft, color.$Groovy-brown)
+    @include mix.link-color(color.$Groovy-orange)
 
 #app
     margin: 0 auto
