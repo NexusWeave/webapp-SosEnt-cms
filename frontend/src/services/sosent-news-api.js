@@ -3,7 +3,7 @@ import {reactive } from 'vue';
 import { generateHexID } from '@/utils/utils.js';
 
 // API simulation
-const articles = reactive(
+export const newsData = reactive(
     [
         {
             id: '0',
@@ -313,11 +313,3 @@ const articles = reactive(
             },
         },
     ]);
-
-// API simulation
-export const fetchNews = async () =>
-{
-    return new Promise(resolve => {
-        setTimeout(() => {resolve(articles);}, 10);
-    })
-}

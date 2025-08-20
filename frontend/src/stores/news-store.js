@@ -1,7 +1,8 @@
 //  This file is a part of the SoSEnT web application project.
 import { reactive } from 'vue';
 import { defineStore } from 'pinia';
-import { fetchNews } from '@/services/sosent-news-api.js';
+import { fetchApi } from '@/utils/utils.js';
+import { newsData } from '@/services/sosent-news-api.js';
 
 export const newsStore = defineStore('newsData', 
     {
@@ -15,75 +16,72 @@ export const newsStore = defineStore('newsData',
         }),
         actions:
         {
-            addArticle(articles)
+            addArticle(article)
             {
-                articles.forEach(article => {
+                article.archived = false;
 
-                    article.archived = false;
+                article.cls = ['title-h2', 'tags'];
 
-                    article.cls = 
-                    ['title-h2', 'tags'];
+                if (article.tags)
+                {
+                    article.tags.forEach(tag => {
+                        tag.cls = ['news-tag'];
+                        tag.anchor = { href: '#' };
+                    });
+                }
 
-                    if (article.tags)
+                article.anchor = 
+                {
+                    type: ['anchor'],
+                    label: 'Les mer',
+                    cls: ['read-more'],
+                    href: '/aktuelt/artikkel/' + article.id
+                };  
+
+                const date = article.date;
+                date.type = 'news';
+
+                const contents = article.section.contents;
+                contents.forEach((content) => {
+                    const figure = content.img;
+                    if (figure)
                     {
-                        article.tags.forEach(tag => {
-                            tag.cls = ['news-tag'];
-                            tag.anchor = { href: '#' };
-                        });
+                        figure.cls = ['grid-figure', 'article-figure'];
                     }
 
-                    article.anchor = 
+                    const cta = content.cta;
+                    if (cta)
                     {
-                        type: ['anchor'],
-                        label: 'Les mer',
-                        cls: ['read-more'],
-                        href: '/aktuelt/artikkel/' + article.id
-                    };  
-
-                    const date = article.date;
-                    date.type = 'news';
-
-                    const contents = article.section.contents;
-                    contents.forEach((content) => {
-                        const figure = content.img;
-                        if (figure)
+                        cta.forEach((item, i) =>
                         {
-                            figure.cls = ['grid-figure', 'article-figure'];
-                        }
-                    
-                        const cta = content.cta;
-                        if (cta)
-                        {
-                            cta.forEach((item, i) =>
+                            if (item.anchor > 0)
                             {
-                                if (item.anchor > 0)
-                                {
-                                    const anchor = item.anchor;
-                                    anchor.forEach((anchorItem, j) => {
-                                        anchorItem.href.startsWith('/media/documents/') ?
-                                        anchorItem.cls = [['pdf', 'article-title-h4'], 'nav-link'] :
-                                        anchorItem.cls = ['nav-link', 'cta-content'];
-                                    });
+                                const anchor = item.anchor;
+                                anchor.forEach((anchorItem, j) => {
+                                    anchorItem.href.startsWith('/media/documents/') ?
+                                    anchorItem.cls = [['pdf', 'article-title-h4'], 'nav-link'] :
+                                    anchorItem.cls = ['nav-link', 'cta-content'];
+                                });
 
-                                    if(cta.media)
-                                    {
-                                        const media = cta.media;
-                                        media.forEach((mediaItem, k) => {
-                                            mediaItem.href.startsWith('/media/documents/') ?
-                                            mediaItem.cls =['media-container', 'pdf'] :
-                                            mediaItem.cls = ['media-container'];
-                                        });
-                                    }
-                                    
+                                if(cta.media)
+                                {
+                                    const media = cta.media;
+                                    media.forEach((mediaItem, k) => {
+                                        mediaItem.href.startsWith('/media/documents/') ?
+                                        mediaItem.cls =['media-container', 'pdf'] :
+                                        mediaItem.cls = ['media-container'];
+                                    });
                                 }
-                            });
-                        }
-                    });
-                    this.data.articles.push(article);
-                    //console.log("Adding article: ", article);
+                                
+                            }
+                        });
+                    }
                 });
 
-            this.sortArticlesByDate();
+                this.data.articles.push(article);
+                //console.log("Adding article: ", article);
+
+                this.sortArticlesByDate();
             },
 
             sortArticlesByDate()
@@ -112,14 +110,20 @@ export const newsStore = defineStore('newsData',
             },
             fetchNews()
             {
-                if (this.data.isLoaded) return;
+                const isLoaded = this.data.isLoaded;
+                if (isLoaded) return;
 
-                fetchNews().then((articles) => {
-                    this.addArticle(articles);
-                    this.data.isLoaded = true;
-                    
-                }).catch((error) => {
-                    console.error("Error fetching news data: ", error);
+                fetchApi(newsData).then((articles) => 
+                    {
+                        articles.forEach(article => {
+                            this.addArticle(article);
+                        });
+                        isLoaded = true;
+
+                    }).catch((error) => 
+                        {
+                            isLoaded = false;
+                            console.error("Error fetching news data: ", error);
                 });
             },
         },
