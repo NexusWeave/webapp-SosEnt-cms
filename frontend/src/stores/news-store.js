@@ -1,6 +1,7 @@
 //  This file is a part of the SoSEnT web application project.
-import { reactive } from 'vue';
+
 import { defineStore } from 'pinia';
+import { reactive, computed } from 'vue';
 import { fetchApi } from '@/utils/utils.js';
 import { newsData } from '@/services/sosent-news-api.js';
 
@@ -108,23 +109,26 @@ export const newsStore = defineStore('newsData',
                     //console.log("Archiving article: ", articles[i].cls);
                 }
             },
+
             fetchNews()
             {
-                const isLoaded = this.data.isLoaded;
-                if (isLoaded) return;
+                if (this.data.isLoaded) return;
 
                 fetchApi(newsData).then((articles) => 
                     {
                         articles.forEach(article => {
                             this.addArticle(article);
                         });
-                        isLoaded = true;
-
+                        this.data.isLoaded = true;
                     }).catch((error) => 
                         {
-                            isLoaded = false;
+                            this.data.isLoaded = false;
                             console.error("Error fetching news data: ", error);
+                            return;
                 });
+                console.warn("News articles added: ", this.data.isLoaded);
+                
+                
             },
         },
         getters:
