@@ -16,15 +16,24 @@
             {{ data.title }}</h3>
         </legend>
 
-        <section :class="cls[2]">
-            <Inputs v-for="input in data.inputs" :key="input.id"
+        <section v-if="!!data.inputControl" :class="cls[2]">
+            <Inputs v-for="input in data.inputControl" :key="input.id"
                 :data="input" 
                 v-model:[input.type]="input.value"
                 :cls="!!input.cls ? input.cls : []"
             />
         </section>
 
-        <section v-if="!!data.selections" :class="cls[3]">
+        <section v-if="!!data.booleanControl" class="flex-wrap-row">
+            <Inputs v-for="input in data.booleanControl" :key="input.id"
+                :data="input" 
+                v-model:[input.type]="input.value"
+                :cls="!!input.cls ? input.cls : []"
+            />
+        </section>
+
+
+        <section v-if="!!data.selectionControl" :class="cls[3]">
             <Select v-for="selection in data.selections" :key="selection.id"
                 v-model:[selection.type]="selection.value"
                 :cls="!!selection.cls ? selection.cls : []" 
@@ -80,7 +89,7 @@
         cls: {
             type: Array,
             required: false,
-            default: () => [['form-container', 'flex-column'], 'title-h3', ['input-group', 'flex-wrap-row-justify-space-evenly']]
+            default: () => [['form-container', 'flex-column'], 'title-h3', ['input-group', 'flex-wrap-row']]
         }
     });
 
@@ -92,9 +101,14 @@
 
     const handleInput = (event) => {
         event.preventDefault();
-        console.log(data, event)
-        const inputs = data.inputs
-        emits('formData', inputs);
+
+        if (!!data.outputs) emits('formData', data.outputs);
+        if (!!data.dataList) emits('formData', data.dataList);
+        if (!!data.textarea) emits('formData', data.textarea);
+        if (!!data.selections) emits('formData', data.selections);
+        if (!!data.inputControl)emits('formData', data.inputControl);
+        if (!!data.booleanControl) emits('formData', data.booleanControl);
+
         //console.warn("Form submitted with data: ", inputs);
     };
 
