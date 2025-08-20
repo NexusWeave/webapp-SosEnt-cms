@@ -1,5 +1,5 @@
 <template>
-    <template v-if="isMembers">
+    <template v-if="!!data.members">
         <ul class ="card-container flex-wrap-row-align-content-start-justify-space-evenly">
             <li v-for="member in data.members" :key="member.id"
             :class="['card-item']">
@@ -32,7 +32,7 @@
 
     const props = defineProps({
         data: {
-            type: Object,
+            type: Array,
             required: true
         },
         cls: {
@@ -44,9 +44,6 @@
     const data = props.data;
     const list = computed(() => {
         return !!data.list ? data.list : [];
-    });
-    const isMembers = computed(() => {
-        return !!data.isMembers && data.members.length > 0;
     });
     //console.warn('List Component loaded with data: ', data);
 </script>
