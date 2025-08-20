@@ -1,57 +1,17 @@
-@use '../colors/colors' as color
+
 @use '../utils/mixins' as mix
-//@forward '/utils/media'
-
-.media-container
-    max-inline-size: 100%
-
-    h2
-        text-align: center
-
-    .connections-h2
-        inline-size: calc(100% - 24em)
-
-    .media-content
-        margin: .5em
-        padding: 1em
-        max-inline-size: 23em
-        
-        
-        h2, h3
-            padding-inline: 0
-            padding-block: 0.5em
-
-        h4.title-h4, h2.title-h2
-            text-align: center
-        
-        p
-            text-align: center
-
-    .meta-date
-        display: block
-        font-size: .8em
-        text-align: center
-
-    .media-link
-        display: inline-block
-
-.partner-container
-    max-inline-size: 100%
-
-    .partner-img
-        inline-size: 10em
-
-        img
-            inline-size: 100%
-            object-fit: cover
+@use '../colors/colors' as color
+@forward './media'
+@forward './members'
+@forward './partners'
 
 .card-container
     padding: 0
-    inline-size: 100%
-    
+    margin: auto
+    max-inline-size: 39em
 
     .card-item
-        padding: 1em
+        padding: .9em
         list-style: none
         margin-block: 0.5em
         max-inline-size: 100%
@@ -70,6 +30,7 @@
     .card-data
         text-align: center
         padding-block: .5em
+
 
 .stakeholder-container
     inline-size: 100%
@@ -91,6 +52,4 @@
     max-inline-size: 31em
     @include mix.font(1.3em, 'Inter, sans-serif')
 
-.member-container
-    @include mix.link-color(color.$Groovy-yellow, color.$Groovy-green)
-    @include mix.background-color(color.$Groovy-brown,color.$soft-white)
+

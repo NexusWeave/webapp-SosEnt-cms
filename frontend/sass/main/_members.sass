@@ -1,0 +1,8 @@
+@use '../utils/mixins' as mix
+@use '../colors/colors' as color
+
+.member-container
+    margin: auto
+    max-inline-size: 42em
+    @include mix.link-color(color.$Groovy-yellow, color.$Groovy-green)
+    @include mix.background-color(color.$Groovy-brown,color.$soft-white)
