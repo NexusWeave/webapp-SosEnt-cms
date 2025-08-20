@@ -1,6 +1,31 @@
 <template>
     <section class="flex-column-align-items-center">
         <h2>{{ membership.title }}</h2>
+        <section class="flex-column">
+            <h3 v-if="isPartners">Partnere</h3>
+            <section v-if ="isPartners"
+                :class="['flex-wrap-row-justify-space-evenly','partner-container']">
+                <Anchor v-for="partner in partners.partners" :key="partner.id"
+                    :data="partner.anchor"
+                    :cls="['partner-content']"/>
+            </section>
+            
+            <h3 v-if ="isMembers">Medlemmer</h3>
+            <section v-if ="isMembers">
+                <List
+                    :data="members"
+                    :cls="['flex-column', 'connection-container']"
+                    />
+            </section>
+            <h3 v-if ="isMedia">Foreningens dokumenter</h3>
+            <section v-if ="isMedia">
+                <Media
+                    :data="media"
+                    filter="medlemskap"
+                    />
+            </section>
+
+        </section>
         <section class="flex-wrap-row-justify-space-evenly">
             <section class="flex-column">
                 <section v-for="content in membership.content" :key="content.id"
@@ -11,24 +36,18 @@
                         <Anchor v-if="content.anchor" :data="content.anchor" />
                     </p>
 
-                    <List v-if="content.list" :data=" content" :cls="[]"/>
+                    <List v-if="content.list" 
+                    v-for="(bullet, i) in content.list" :key="i"
+                    :data=" bullet" 
+                    :cls="[]"/>
 
-
-                    <Partners v-if ="isPartners && !!content.partners" :data="content.partners.value"
-                    :cls="[['flex-wrap-row-justify-space-evenly',
-                    'partner-container'], 'partner-content']" />
-
-                    <List v-if="isMembers && !!content.members" :data="content.members.value"
-                    :cls="['flex-column', 'connection-container']"/>
-
-                    <Media v-if="isMedia && !!content.media" :data="media"
-                        filter="medlemskap"
-                        :cls="['media-container',
-                        'flex-wrap-row-justify-space-evenly',
-                        ['media-content', 'flex-column', 'component-theme']]"/>
                 </section>
             </section>
-            <Form v-if="!!membership.schema" :data="membership.schema" :cls="membership.schema.cls"/>
+            <Form v-if="!!membership.schema"
+                @formData="handleSubmit"
+                :data="membership.schema"
+                :cls="membership.schema.cls"
+            />
         </section>    
     </section>
 </template>
@@ -45,7 +64,6 @@
     import List from '@/components/utils/List.vue';
     import Form from '@/components/form/Form.vue';
     import Media from '@/components/media/Media.vue';
-    import Partners from '@/components/utils/Partners.vue';
     import Anchor from '@/components/navigation/Anchor.vue';
     
     const media = mediaStore();
@@ -98,45 +116,6 @@
                     ],
                 },
             },
-            /*{
-                id: 1,
-                title: 'Våre Partnere',
-                partners: computed(() => 
-                {
-                    if (!isPartners.value) return false;
-                    return {
-                        partners: partners.partners,
-                        isPartners: isPartners.value,
-                    };
-                }),
-                
-            },
-            {
-                id: 2,
-                title: 'Våre Medlemmer',
-                members: computed(() => 
-                {
-                    if (!isMembers.value) return false; 
-
-                    return {
-                        members: members.members,
-                        isMembers: members.isLoaded,
-                        };
-
-                }),
-            },
-            {
-                id: 3,
-                title: 'Foreningens dokumenter',
-                media: computed(() => 
-                {
-                    if (!isMedia.value) return false;
-                    return {
-                        title: 'Medlemskap',
-                        media: !! membersDocs,
-                    };
-                }),
-            },*/
             {
                 id: 4,
                 title: 'Meld interesse',
@@ -229,4 +208,19 @@
             ]
         }
     };
+
+    const handleSubmit = (inputs) => {
+
+        const inputData = 
+        {
+            name: inputs.name.value,
+            email: inputs.email,
+            phone: inputs.phone,
+            member: inputs.member,
+            contact: inputs.contact
+        };
+        
+        // Handle form submission logic here
+    };
+    console.warn("Membership View: ", isMembers.value, isMedia.value, isPartners.value);
 </script>
