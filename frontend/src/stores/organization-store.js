@@ -1,7 +1,8 @@
 //  This file is a part of the SoSEnT web application project.
+import { computed } from 'vue';
 import { defineStore } from 'pinia';
-import { fetchData } from '@/services/sosent-organization-api.js';
-import { generateHexID } from '@/utils/utils';
+import { fetchApi } from '@/utils/utils';
+import { organizationData } from '@/services/sosent-organization-api.js';
 
 export const organizationStore = defineStore('organizationData',
     {
@@ -9,7 +10,6 @@ export const organizationStore = defineStore('organizationData',
             {
                 data:
                 {
-                    isLoaded: false,
                     title: 'Om SosEnt Norge',
                     content:
                     [ `SosEnt Norge – Landsforeningen for sosiale
@@ -54,41 +54,39 @@ export const organizationStore = defineStore('organizationData',
             }),
         actions:
         {
-            addOrganization(team)
+            addToTeam(member)
             {
 
-                team.forEach(member => {
+                const contactInfo = member.contactInfo;
+                contactInfo.forEach((card) =>
+                    {
+                        const anchor = card.anchor;
+                        const label = anchor.href.split(':');
 
-                    const contactInfo = member.contactInfo;
-                    contactInfo.forEach((card) =>
-                        {   
-                            const anchor = card.anchor;
-                            const label = anchor.href.split(':');
-
-                            card.id % 2 === 0 ? anchor.label = 'Send en Epost' : anchor.label = label[1];
-                            card.id % 2 === 0 ? anchor.type = ['email', 'external'] : anchor.type = ['telephone', 'external'];
-                            anchor.cls = anchor.type[0];
-                        });
-                        this.data.team.team.push(member);
+                        card.id % 2 === 0 ? anchor.label = 'Send en Epost' : anchor.label = label[1];
+                        card.id % 2 === 0 ? anchor.type = ['email', 'external'] : anchor.type = ['telephone', 'external'];
+                        anchor.cls = anchor.type[0];
                     });
-                    this.data.team.isLoaded = true;
                 
-                //console.warn("Organization added: ", organization);
+                this.data.team.team.push(member);
             },
             fetchOrganization()
             {
                 if (this.data.isLoaded) return;
 
-                fetchData().then((data) =>
+                fetchApi(organizationData).then((members) =>
                     {
-                        this.data.isLoaded = true;
-                        this.addOrganization(data.team);
+                        members.forEach(member => {
+                            this.addToTeam(member);
+                        });
+                        this.data.team.isLoaded = true;
 
                     }).catch((error) =>
                     {
                         this.data.isLoaded = false;
                         console.error("Error fetching organization: ", error);
                     });
+                    console.warn("Organization data loaded: ", this.data.isLoaded, this.data);
             }
         },
         getters:

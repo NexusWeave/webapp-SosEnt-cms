@@ -5,10 +5,9 @@
             :Cls="[['flex-column-align-items-center', 'article-section'],
             'article-section', 'article-title-h2', 'tags', 'news-card']"/>
     </section>
-
+    {{ organization.isLoaded }}
     <section class="flex-column-align-items-center">
-        <section v-if="organization.isLoaded"
-                class="section-content">
+        <section class="section-content">
                 <h2 class="title-h2"> {{ organization.title }}</h2>
                 <p v-for="paragraph in organization.content"
                     :key="paragraph.id">{{ paragraph }}</p>
