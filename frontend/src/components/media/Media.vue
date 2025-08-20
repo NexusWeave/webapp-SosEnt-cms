@@ -28,7 +28,9 @@
         },
             cls: {
                 type: Array,
-                required: false
+                required: false,
+                default: () => [['media-container', 'flex-column'], 'title-h4',
+                ['media-content', 'flex-column', 'component-theme']]
             },
             filter: {
                 type: String,
@@ -39,7 +41,6 @@
     const data = props.data;
     const mediaFilter = props.filter;
     const cls = props.cls ?? null;
-    
 
     const media = computed(() => 
     {
