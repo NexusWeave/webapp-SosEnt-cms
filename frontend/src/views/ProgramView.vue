@@ -47,7 +47,7 @@
         title:'Innloggins skjema',
         description: 'Bli medlem i SoSEnT Norge',
 
-        inputs:
+        inputControl:
         [
             {
                 
