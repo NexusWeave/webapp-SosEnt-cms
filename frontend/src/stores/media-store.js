@@ -1,6 +1,7 @@
 //  This file is a part of the SoSEnT web application project.
 import { defineStore } from 'pinia';
-import { fetchMedia } from '@/services/sosent-media-api.js';
+import { fetchApi } from '@/utils/utils.js';
+import { mediaContent } from '@/services/sosent-media-api.js';
 
 export const mediaStore = defineStore('mediaData',
     {
@@ -47,18 +48,18 @@ export const mediaStore = defineStore('mediaData',
                 const media = this.data;
                 if (media.isLoaded) return;
 
-                fetchMedia().then((data) =>
-                    {
-                        data.forEach((item) => {
-                            this.addMedia(item);
-                            
-                        });
-                        media.isLoaded = true;
-                    }).catch((error) =>
-                    {
-                        this.data.isLoaded = false;
-                        console.error("Error fetching media: ", error);
+                fetchApi(mediaContent).then((data) =>
+                {
+                     data.forEach((item) => {
+                        this.addMedia(item);
                     });
+                    media.isLoaded = true;
+
+                }).catch((error) =>
+                {
+                    console.error("Error fetching media: ", error);
+                    this.data.isLoaded = false;
+                });
             },
 
         },
