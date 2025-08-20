@@ -166,46 +166,52 @@
             description: 'Bli medlem i SoSEnT Norge',
             cls: [['form-container', 'flex-column'], 'title-h3', 'input-group'],
 
-            inputs: 
+            inputControl:
             [
                 {
                     type: 'text',
                     label: 'Navn',
                     required: true,
                     id: 'name-field',
-                    placeholder: 'Ole Nordmann',
+                    placeholder: 'E.G Ole Nordmann',
                 },
                 {
-                    type: 'text',
+                    type: 'email',
                     name: 'email',
                     required: true,
                     label: 'E-post',
                     id: 'email-field',
-                    placeholder: 'ole.nordmann@example.com',
+                    placeholder: 'E.G ole.nordmann@example.com',
                 },
                 {
-                    type: 'text',
+                    type: 'tel',
                     name: 'phone',
                     required: true,
                     label: 'Telefon',
                     id: 'telephone-field',
-                    placeholder: '+47 12 34 56 78',
+                    placeholder: 'E.G +47 12 34 56 78',
                 },
+            ],
+            booleanControl: 
+            [
                 {
+                    value: false,
                     type: 'radio',
                     name: 'member',
-                    required: true,
                     id: 'member-radio',
                     value:"become_member",
                     label: 'Meld meg inn i SosEnT !',
+
+                    cls: ['flex-wrap-row-start', 'radio-btn'],
                 },
                 {
-                    required: true,
-                    name: 'contact',
+                    value: false,
                     type: 'radio',
-                    value:"contact_me",
+                    name: 'contact',
                     id: 'contact-radio',
                     label: 'Kontakt meg :)',
+
+                    cls: ['flex-wrap-row-start', 'radio-btn'],
                 }
             ],
             btn:
