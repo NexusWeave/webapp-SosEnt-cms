@@ -1,4 +1,4 @@
-
+//  Utility functions for the application
 
 export function generateHexID()
 {    
@@ -12,4 +12,11 @@ export function generateHexID()
         result += ch.charAt(Math.floor(Math.random() * n));
     }
     return result;
+}
+
+export function fetchApi(data, delay = 10)
+{
+    return new Promise(resolve => {
+        setTimeout(() => {resolve(data);}, delay);
+    });
 }
