@@ -2,19 +2,17 @@
 import { generateHexID } from '@/utils/utils.js';
 
 // API simulation
-const mediaContent = {
-    media:
-    [
-        {
-            
-            type: 'pdf',
-            isFiltered: false,
-            id: generateHexID(),
+export const mediaContent = 
+[
+    {
+        type: 'pdf',
+        isFiltered: false,
+        id: generateHexID(),
             label: 'Personvern',
             date: {published: '2025-06-28'},
             name: 'SosEnt-Norge-Personvern',
             description: 'Personverns ærklering for nettstedet.',
-            
+
             tag: 
             [
                 'dokumenter', 'personvern', 'pdf',
@@ -28,16 +26,15 @@ const mediaContent = {
             date: {published: '2025-02-28'},
             name: 'SosEnt-Norge-GrunnlagsDokument',
             description: 'Grunnlags Dokument for foreningen.',
-            
+
             tag: 
             [
                 'organisasjonen', 'dokumenter', 'medlemskap', 'pdf',
                 'grunnlags-dokument'
-            ],
+        ],
 
-        },
-    ],
-}
+    },
+];
 
 export const fetchMedia = async () =>
 {
