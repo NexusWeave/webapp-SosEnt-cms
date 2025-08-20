@@ -3,7 +3,7 @@ import {reactive } from 'vue';
 
 import { generateHexID } from '@/utils/utils.js';
 
-const partnerData = reactive(
+export const partnerData = reactive(
     [
         {
             id: generateHexID(),
@@ -48,10 +48,3 @@ const partnerData = reactive(
             }
         },
     ]);
-
-export const fetchPartners = async () =>
-{
-    return new Promise(resolve => {
-        setTimeout(() => {resolve(partnerData);}, 10);
-    })
-}

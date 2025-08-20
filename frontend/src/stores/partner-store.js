@@ -1,6 +1,8 @@
 //  This file is a part of the SoSEnT web application project.
+import { computed } from 'vue';
 import { defineStore } from 'pinia';
-import { fetchPartners } from '@/services/sosent-partners-api.js';
+import { fetchApi } from '@/utils/utils.js';
+import { partnerData } from '@/services/sosent-partners-api.js';
 
 export const partnerStore = defineStore('partnerData',
     {
@@ -14,46 +16,45 @@ export const partnerStore = defineStore('partnerData',
         }),
         actions:
         {
-            addPartner(partners)
+            addPartner(partner)
             {
-                partners.forEach(partner =>
+                const image = 'SosEnT-favicon.png';
+                const path = '/media/images/partners/';
+
+                partner.anchor =
+                {
+                    type: ['png', 'external'],
+                    href: partner.anchor.href ?? null,
+                    img:
                     {
-                        const image = 'SosEnT-favicon.png';
-                        const path = '/media/images/partners/';
+                        alt: image,
+                        type: 'png',
+                        src: path + image,
+                        cls : ['partner-figure', 'partner-img'],
+                    },
+                }
 
-                        partner.anchor =
-                        {
-                            type: ['png', 'external'],
-                            href: partner.anchor.href ?? null,
-                            img:
-                            {
-                                alt: image,
-                                type: 'png',
-                                src: path + image,
-                                cls : ['partner-figure', 'partner-img'],
-                            },
-                        }
-
-                        this.data.partners.push(partner);
-                        //console.log("Partner added: ", partner);
-                    }); 
+                this.data.partners.push(partner);
+                //console.log("Partner added: ", partner);
                     
             },
             fetchPartners()
             {
                 if (this.data.isLoaded)  return;
 
-                fetchPartners().then((partners) =>
+                fetchApi(partnerData).then((partners) =>
                     {
+                        partners.forEach(partner => {
+                            this.addPartner(partner);
+                        });
                         this.data.isLoaded = true;
-                        this.addPartner(partners);
-
                     }). catch((error) =>
                     {
                         this.data.isLoaded = false;
                         console.warn("Partners Not found:", error);
                         
                     });
+
             }
         },
         getters:
