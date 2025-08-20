@@ -1,34 +1,49 @@
 <template>
-    <Label v-if="!!data.id" :for="data.id" 
-    :data="data.label"/>
-    <input
-        :autocomplete="!!data.autocomplete ? 'off':'on'"
-        :id="data.id"
-        :class="cls[1]"
-        :name="data.name"
-        :placeholder="!!data.placeholder ? data.placeholder : ''"
-        :min="data.type =='range' ? !!data.rangeMin? data.rangeMin : 0 : ''"
-        :step="data.type =='range' ? 1 : ''"
-        :max="data.type =='range' ? !!data.rangeMax? data.rangeMax : 100 : ''"
-        :value="data.value ?? data.value"
-        :type="data.type ? data.type : 'text'"
-        :size="!!data.size ? data.size : '30'"
-        :width="!!data.width ? data.width : ''"
-        :height="!!data.height ? data.height : ''"
-        :readonly="!!data.readonly ? data.readonly : false"
-        :required="!!data.required ? data.required : false"
-        :disabled="!!data.disabled ? data.disabled : false"
-        :maxlength="!!data.maxlength ?? data.maxlength"
-        :minlength="!!data.minlength ?? data.minlength"
-        :autofocus="!!data.autofocus ? data.autofocus : false"
-        :multiple="!!data.multiple && data.type == 'file' ? data.multiple : false"
-        @input="handleInput"
-    />
+    <template v-if="!!inputControls.includes(data.type)">
+        <Label v-if="!!data.id" :for="data.id" 
+        :data="data.label"/>
+        <input
+            :id="data.id"
+            :class="cls[1]"
+            :name="data.name"
+            :value="data.value ?? data.value"
+            :type="data.type ? data.type : 'text'"
+            :size="!!data.size ? data.size : '30'"
+            :width="!!data.width ? data.width : ''"
+            :height="!!data.height ? data.height : ''"
+            :maxlength="!!data.maxlength ?? data.maxlength"
+            :minlength="!!data.minlength ?? data.minlength"
+            :autocomplete="!!data.autocomplete ? 'off':'on'"
+            :readonly="!!data.readonly ? data.readonly : false"
+            :required="!!data.required ? data.required : false"
+            :disabled="!!data.disabled ? data.disabled : false"
+            :autofocus="!!data.autofocus ? data.autofocus : false"
+            :placeholder="!!data.placeholder ? data.placeholder : ''"
+            :multiple="!!data.multiple && data.type == 'file' ? data.multiple : false"
+            @input="handleInput"
+        />
+    </template>
+    <template v-if="!!booleanControls.includes(data.type)">
+        
+        <input
+            :id="data.id"
+            :class="cls[1]"
+            :name="data.name"
+            :type="data.type ?? data.type"
+            :required="!!data.required ? data.required : false"
+            :disabled="!!data.disabled ? data.disabled : false"
+            :autofocus="!!data.autofocus ? data.autofocus : false"
+            @input="handleInput"
+        />
+        <Label v-if="!!data.id" :for="data.id" 
+        :data="data.label"/>
+    </template>
+
 </template>
 <script setup>
 
-    import { defineEmits, defineProps, reactive} from 'vue';
-import Label from './Label.vue';
+    import { computed, defineEmits, defineProps, reactive} from 'vue';
+    import Label from './Label.vue';
 
     const props = defineProps({
         data: {
@@ -53,5 +68,10 @@ import Label from './Label.vue';
         input.value = event.target.value;
         emit('inputs', input);
     };
-    //console.warn("Inputs.vue : ", data);
+    const booleanControls = ['checkbox', 'radio'];
+    const utilityControls = ['hidden', 'range', 'color'];
+    const btnControls = ['submit', 'reset', 'button', 'file'];
+    const datetimeControls = ['date', 'datetime-local', 'time', 'week', 'month'];
+    const inputControls = ['text', 'password', 'email', 'number', 'tel', 'url', 'search'];
+    console.warn("Inputs.vue : ", inputControls.value);
 </script>
