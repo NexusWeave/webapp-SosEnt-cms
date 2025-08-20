@@ -73,5 +73,5 @@
     const btnControls = ['submit', 'reset', 'button', 'file'];
     const datetimeControls = ['date', 'datetime-local', 'time', 'week', 'month'];
     const inputControls = ['text', 'password', 'email', 'number', 'tel', 'url', 'search'];
-    console.warn("Inputs.vue : ", inputControls.value);
+    //console.warn("Inputs.vue : ", inputControls.value);
 </script>
