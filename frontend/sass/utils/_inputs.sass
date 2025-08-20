@@ -1,8 +1,12 @@
 @use '../colors/colors' as color
 form.form-container
-    inline-size: 16em
+    inline-size: 17em
 
-input:not([type = 'submit'], [type = 'reset'])
+input.radio-btn
+    block-size: 1em
+    inline-size: 7em
+
+input:not([type = 'submit'], [type = 'reset'], [type = 'radio'], [type = 'checkbox'])
     block-size: 2em
     border-radius: 0.5em
     border: 1px solid color.$Groovy-orange
