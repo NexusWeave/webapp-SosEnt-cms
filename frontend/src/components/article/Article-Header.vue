@@ -8,7 +8,7 @@
                 
             <h2 :class="cls[2]"> {{ article.title }}</h2>
             <p>
-                <Date :data="article.date" :Cls="['article-date', 'calendar']" />
+                <Date :data="article.date" :cls="['article-date', 'calendar']" />
                 
                 <span v-if="!!article.tags" :class="cls[3]" >
                     <Tags v-for="tag in article.tags"
@@ -52,13 +52,13 @@
             type: Boolean,
             required: false
         },
-        Cls: {
+        cls: {
             type: Array,
             default: () => []
         }
     });
     
-    const cls = props.Cls;
+    const cls = props.cls;
     const article = props.article;
     const isNewsPage = props.isNewsPage;
     const isArticlePage = props.isArticlePage;
