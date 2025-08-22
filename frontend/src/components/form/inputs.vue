@@ -1,7 +1,10 @@
 <template>
     <template v-if="!!inputControls.includes(data.type)">
-        <Label v-if="!!data.label.icon ?? false" :for="data.id" :data="data.label" :cls="[data.type]"/>
-        <Label v-else :for="data.id" :label="data.label" :cls="[data.type]"/>
+        <Label
+            :id="data.id"
+            :label="label" 
+            :cls="[data.type]" 
+            :isIcon="!!data.label.icon"/>
         <input
             :id="data.id"
             :class="cls[1]"
@@ -42,10 +45,9 @@
 </template>
 <script setup>
 
-    import { computed, defineEmits, defineProps, reactive} from 'vue';
+    import { defineEmits, defineProps, reactive } from 'vue';
 
     import Label from './Label.vue';
-    import Icon from '../media/Icon.vue';
 
     const props = defineProps({
         data: {
@@ -63,6 +65,7 @@
     });
     const cls = props.cls;
     const data = props.data;
+    const label = data.label.label ?? data.label
     const emit = defineEmits(['inputs']);
 
     const handleInput = (event) => {
