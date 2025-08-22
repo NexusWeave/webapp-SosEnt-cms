@@ -14,10 +14,8 @@
         </template>
 
         <template v-else-if="isMedia() == cls[cls.length - 1]">
-            <span :class="cls[0]">
-            <i :class="cls[cls.length - 1]" :aria-label="data.label"></i> 
-                {{ data.label }}
-            </span>
+            <Icon v-if="!!data.label" :label="data.label" :cls="[cls[0], cls[cls.length - 1]]"/>
+            <Icon v-else :cls="[cls[0], cls[cls.length - 1]]"/>
         </template>
 
         <template v-else>
@@ -32,6 +30,7 @@
 
     import { defineProps } from 'vue';
 
+    import Icon from '@/components/media/Icon.vue';
     import Figure from '@/components/media/Figure.vue';
 
     const props = defineProps({
