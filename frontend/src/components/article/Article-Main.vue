@@ -69,7 +69,7 @@
             type: Object,
             required: true
         },
-        Cls: {
+        cls: {
             type: Array,
             required: true
         },
@@ -79,7 +79,7 @@
         }
     });
 
-    const cls = props.Cls;
+    const cls = props.cls;
     
     const section = props.data ? props.data : props.Section;
 
