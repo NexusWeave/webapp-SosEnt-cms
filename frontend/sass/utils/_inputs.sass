@@ -1,4 +1,6 @@
+@use '../utils/mixins' as mix
 @use '../colors/colors' as color
+
 form.form-container
     inline-size: 17em
 
@@ -6,11 +8,4 @@ input.radio-btn
     block-size: 1em
     inline-size: 7em
 
-input:not([type = 'submit'], [type = 'reset'], [type = 'radio'], [type = 'checkbox'])
-    block-size: 2em
-    border-radius: 0.5em
-    border: 1px solid color.$Groovy-orange
-    
-
-    &:focus-visible
-        outline-color: color.$Groovy-orange
+@include mix.input-generator(color.$Groovy-orange)
