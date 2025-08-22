@@ -2,6 +2,7 @@
     <template v-if="!!inputControls.includes(data.type)">
         <Label v-if="!!data.id" :for="data.id" 
         :data="data.label"/>
+        <Icon :cls="[[data.type, 'absolute'], 'icon']"/>
         <input
             :id="data.id"
             :class="cls[1]"
@@ -43,7 +44,9 @@
 <script setup>
 
     import { computed, defineEmits, defineProps, reactive} from 'vue';
+
     import Label from './Label.vue';
+    import Icon from '../media/Icon.vue';
 
     const props = defineProps({
         data: {
