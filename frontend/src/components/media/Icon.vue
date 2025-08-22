@@ -1,17 +1,18 @@
 <template>
-    <template v-if ="!!inputIcon">
-        <span :class="cls[0]">
-            <i :class="[cls[cls.length - 1], 'relative']" :aria-label="data.label"></i> 
-            <label :for="data.id">{{ data.label }}</label>
-        </span>
-    </template>
     
-    <template v-else>
         <span :class="cls[0]">
-            <i :class="cls[cls.length - 1]" aria-label="icon"></i>
+            
+            <template v-if ="!!isInput">
+                <i :class="[cls[cls.length - 1], 'relative']"  :aria-label="cls[0] + ' ' + cls[1]"></i>
+            </template>
+            <template v-else>
+                <i :class="[cls[cls.length - 1]]" :aria-label="cls[0] + ' ' + cls[1]"></i>
+            </template>
             {{ label }}
+            
         </span>
-    </template>
+    
+
 
 </template>
 
@@ -34,16 +35,19 @@
             {
                 type: Array,
                 required: true
+            },
+            isInput:
+            {
+                type: Boolean,
+                default: false,
+                required: false,
+
             }
         });
 
-    const label = props.label;
+    const label = props.label ?? '';
     const cls = computed(() => {
         props.cls.push('icon');
         return !!props.cls ? props.cls : [];
-    });
-    const inputIcon = computed(() => {
-        if (!!props.data) return true;
-        return false;
     });
 </script>
