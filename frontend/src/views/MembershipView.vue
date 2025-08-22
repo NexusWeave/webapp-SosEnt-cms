@@ -144,45 +144,52 @@
             action: 'submitMembershipForm',
             description: 'Bli medlem i SoSEnT Norge',
             cls: [['form-container', 'flex-column'], 'title-h3', 'input-group'],
+            icon: true,
 
             inputControl:
             [
                 {
                     type: 'text',
-                    label: 'Navn',
                     required: true,
                     id: 'name-field',
                     placeholder: 'E.G Ole Nordmann',
+
+                    label:
+                    {
+                        icon: true,
+                        label: 'Navn'
+                    },
                 },
                 {
                     type: 'email',
-                    name: 'email',
                     required: true,
-                    label: 'E-post',
                     id: 'email-field',
                     placeholder: 'E.G ole.nordmann@example.com',
+
+                    label:
+                    {
+                        icon: true,
+                        label: 'E-post',
+                        id: 'email-field',
+                    },
                 },
                 {
                     type: 'tel',
                     name: 'phone',
                     required: true,
-                    label: 'Telefon',
                     id: 'telephone-field',
                     placeholder: 'E.G +47 12 34 56 78',
+
+                                        label:
+                    {
+                        icon: true,
+                        label: 'Telefon',
+                        id: 'telephone-field',
+                    },
                 },
             ],
             booleanControl: 
             [
-                {
-                    value: false,
-                    type: 'radio',
-                    name: 'member',
-                    id: 'member-radio',
-                    value:"become_member",
-                    label: 'Meld meg inn i SosEnT !',
-
-                    cls: ['flex-wrap-row-start', 'radio-btn'],
-                },
                 {
                     value: false,
                     type: 'radio',
