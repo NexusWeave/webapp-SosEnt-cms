@@ -170,7 +170,6 @@
                     {
                         icon: true,
                         label: 'E-post',
-                        id: 'email-field',
                     },
                 },
                 {
@@ -180,11 +179,10 @@
                     id: 'telephone-field',
                     placeholder: 'E.G +47 12 34 56 78',
 
-                                        label:
+                    label:
                     {
                         icon: true,
-                        label: 'Telefon',
-                        id: 'telephone-field',
+                        label: 'Telefon nummer',
                     },
                 },
             ],
