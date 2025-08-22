@@ -1,8 +1,7 @@
 <template>
     <template v-if="!!inputControls.includes(data.type)">
-        <Label v-if="!!data.id" :for="data.id" 
-        :data="data.label"/>
-        <Icon :cls="[[data.type, 'absolute'], 'icon']"/>
+        <Label v-if="!!data.label.icon ?? false" :for="data.id" :data="data.label" :cls="[data.type]"/>
+        <Label v-else :for="data.id" :label="data.label" :cls="[data.type]"/>
         <input
             :id="data.id"
             :class="cls[1]"
@@ -37,7 +36,7 @@
             @input="handleInput"
         />
         <Label v-if="!!data.id" :for="data.id" 
-        :data="data.label"/>
+        :label="data.label"/>
     </template>
 
 </template>
