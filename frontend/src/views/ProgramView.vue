@@ -38,6 +38,7 @@
     import Form from '@/components/form/Form.vue';
     import Media from '@/components/media/Media.vue';
     import Btn from '@/components/navigation/Button.vue';
+import Icon from '@/components/media/Icon.vue';
 
     const media = mediaStore();
     const isMedia = computed(() => media.isLoaded);
@@ -54,10 +55,16 @@
                 value:'',
                 required: true,
                 name: 'password',
-                label: "Passord",
                 type: 'password',
                 id: 'password-field',
                 placeholder: "Skriv inn passord",
+
+                label:
+                {
+                    icon:true,
+                    label: "Passord",
+                },
+
                 cls: ['login-label', 'login-input'],
                 
             },
