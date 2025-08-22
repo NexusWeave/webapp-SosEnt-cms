@@ -1,21 +1,17 @@
 <template>
     <nav :class="cls[0]">
         <ul :class="cls[1]">
-        <template v-if="!!isRouterLink">
             <li v-for="item in data" :key="item.id"
                 :class="cls[2]">
-                <RouterLink :to="item.href" :class="item.cls">
-                    {{ item.label }}
-                </RouterLink>
+                <template v-if="!!isRouterLink">
+                    <RouterLink :to="item.href" :class="item.cls">
+                        {{ item.label }}
+                    </RouterLink>
+                </template>
+                <template v-else-if="!!isAnchor">
+                    <Anchor :data="item.anchor" :cls="item.cls"/>
+                </template>
             </li>
-        </template>
-
-        <template v-else-if="!!isAnchor">
-                <li v-for="item in data" :key="item.id"
-                    :class="cls[2]">
-                    <Anchor :data="item.anchor" :Cls="item.cls"/>
-                </li>
-        </template>
         </ul>
     </nav>
 </template>
