@@ -112,6 +112,8 @@
         color: $color
         font-weight: bold
         padding-block-start: $pad-block
+    .icon
+        color: rgba(255, 248, 241, 0.7)
 
     border-radius: 0.5em
     @include background-color($bg-color,$color)
@@ -218,8 +220,6 @@
                         content: map.get($prop, icon)
                         color : map.get($prop, icon-color)
 
-
-
 @mixin tag-generator()
 
     @each $tag, $props in tags.$tags
@@ -242,7 +242,8 @@
             @each $input in $props
                 input[type="#{$input}"]
                     block-size: 2em
-                    padding: 1em
+                    padding-block: 1em
+                    padding-inline: 2em
                     border-radius: 0.5em
                     border: 1px solid $border-color
 
