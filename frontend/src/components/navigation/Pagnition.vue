@@ -27,7 +27,7 @@
             type: Number,
             required: false,
         },
-        Cls:
+        cls:
         {
             type: Array,
             required: false
@@ -35,7 +35,7 @@
     });
 
     const data = props.data;
-    const cls = props.Cls ? props.Cls : [];
+    const cls = props.cls ? props.cls : [];
 
     //  Watch for changes in the 'data' prop
     const activePage = ref(props.activePage);

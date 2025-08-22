@@ -38,7 +38,7 @@
             type: Object,
             required: true
         },
-        Cls: {
+        cls: {
             type: [String, Array],
             required: false,
         },
@@ -60,7 +60,7 @@
     const img = !!data.img ? data.img : null;
 
     const classList = () => {
-        const cls = props.Cls ? props.Cls : (Array.isArray(data.cls) ? data.cls : [data.cls]);
+        const cls = props.cls ? props.cls : (Array.isArray(data.cls) ? data.cls : [data.cls]);
         cls.push('icon');
 
         return cls;

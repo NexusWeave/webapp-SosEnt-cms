@@ -1,5 +1,5 @@
 <template v-if="news.isLoaded">
-    <Article  v-if="article" :data="article" :Cls="cls"/>
+    <Article  v-if="article" :data="article" :cls="cls"/>
 
 </template>
 
