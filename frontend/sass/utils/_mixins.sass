@@ -205,20 +205,20 @@
 
 @mixin icon-generator()
 
-    @each $icon, $props in icon.$icons
-        .#{$icon}
-            font-family: "Bootstrap-icons"
-            .icon
-                font-size: 1em
-                display: inline-block
-                
-                content: map.get($props, icon)
-                color : map.get($props, icon-color)
+    @each $name, $group in icon.$icons
+        @each $icon, $prop in $group
+            .#{$icon}
+                font-family: "Bootstrap-icons"
 
-                &::before
-                    padding: 0.5em
-                    content: map.get($props, icon)
-                    color : map.get($props, icon-color)
+                i
+                    font-style: normal
+
+                .icon
+                    &::before
+                        content: map.get($prop, icon)
+                        color : map.get($prop, icon-color)
+
+
 
 @mixin tag-generator()
 
@@ -235,7 +235,24 @@
             font-size: 0.7em
             font-weight: bold
 
-@mixin button-pallette($bg-color, $text-color, $border-color)
+@mixin input-generator($border-color)
+
+    @each $type, $props in icon.$inputs
+        @if $type == 'inputControls'
+            @each $input in $props
+                input[type="#{$input}"]
+                    block-size: 2em
+                    padding: 1em
+                    border-radius: 0.5em
+                    border: 1px solid $border-color
+
+@mixin button-pallette($bg-color, $text-color, $border-color: null)
+
+    @if $border-color == null
+        border: none
+    @else
+        border: 1px solid $border-color
+
     margin: 0.5em
     font-size: 1em
     cursor: pointer
@@ -243,5 +260,4 @@
     padding: 0.5em 1em
     border-radius: 0.5em
     display: inline-block
-    border: 1px solid $border-color
     @include background-color($bg-color, $text-color)
