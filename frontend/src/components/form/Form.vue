@@ -73,10 +73,12 @@
 <script setup>
 
     import { defineProps, defineEmits } from 'vue';
+
     
     import Inputs from './inputs.vue';
     import Select from './Select.vue';
     import Outputs from './Outputs.vue';
+    import Icon from '../media/Icon.vue';
     import Textarea from './Textarea.vue';
     import Datalist from './Datalist.vue';
     import Btn from '../navigation/Button.vue';
