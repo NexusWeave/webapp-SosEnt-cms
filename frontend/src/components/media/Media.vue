@@ -7,7 +7,7 @@
                     :cls="[media.type]" />
             </h4>
             <p>
-                <Date :data="media.date" :Cls="['meta-date', 'calendar']" />
+                <Date :data="media.date" :cls="['meta-date', 'calendar']" />
                 <span>
                     {{ media.description }}
                 </span>
