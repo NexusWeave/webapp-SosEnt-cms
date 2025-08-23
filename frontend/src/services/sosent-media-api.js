@@ -5,37 +5,6 @@ import { generateHexID } from '@/utils/utils.js';
 const mediaContent = {
     media:
     [
-        {
-            
-            type: 'pdf',
-            isFiltered: false,
-            id: generateHexID(),
-            label: 'Personvern',
-            date: {published: '2025-06-28'},
-            name: 'SosEnt-Norge-Personvern',
-            description: 'Personverns ærklering for nettstedet.',
-            
-            tag: 
-            [
-                'dokumenter', 'personvern', 'pdf',
-            ],
-        },
-        {
-            type: 'pdf',
-            isFiltered: false,
-            id: generateHexID(),
-            label: 'Grunnlags Dokument',
-            date: {published: '2025-02-28'},
-            name: 'SosEnt-Norge-GrunnlagsDokument',
-            description: 'Grunnlags Dokument for foreningen.',
-            
-            tag: 
-            [
-                'organisasjonen', 'dokumenter', 'medlemskap', 'pdf',
-                'grunnlags-dokument'
-            ],
-
-        },
     ],
 }
 
