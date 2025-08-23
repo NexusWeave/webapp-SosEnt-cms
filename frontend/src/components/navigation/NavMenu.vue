@@ -11,7 +11,21 @@
                 <template v-else-if="!!isAnchor">
                     <Anchor :data="item.anchor" :cls="item.cls"/>
                 </template>
+                <template v-else-if="!!isPagination">
+                    <Btn :data="btn[0]" :cls="['button', 'orange-btn']"/>
+                        <span :class="cls[1]"> {{ activePage > 0 ?  activePage + ' / ' + totalPages : '' }}</span>
+                    <Btn :data="btn[1]" :cls="['button', 'orange-btn']"/>
+                </template>
             </li>
+            <template v-if="!!isPagination">
+                <li>
+                    <Btn :data="btn[0]" :cls="['button', 'orange-btn']"/>
+                </li>
+                    <span :class="cls[1]"> {{ activePage > 0 ?  activePage + ' / ' + totalPages : '' }}</span>
+                <li>
+                    <Btn :data="btn[1]" :cls="['button', 'orange-btn']"/>
+                </li>
+            </template>
         </ul>
     </nav>
 </template>
@@ -38,11 +52,15 @@
     const isAnchor = computed(() => {
 
         const anchorData = data.filter(item => item.type === 'anchor');
-        return !!anchorData.length ;
+        return !!anchorData.length;
     });
     const isRouterLink = computed(() => {
         const routerData = data.filter(item => item.type === 'router');
         return !!routerData.length;
+    });
+    const isPagination = computed(() => {
+        const paginationData = data.filter(item => item.type === 'pagination');
+        return !!paginationData.length;
     });
 
     //console.log("NavigationMenu loaded with data: ", data, isAnchor.value, isRouterLink.value);
