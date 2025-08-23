@@ -21,11 +21,6 @@
 
     const props = defineProps(
         {
-            data:
-            {
-                type: Object,
-                required: true,
-            },
             label:
             {
                 type: String,
