@@ -1,6 +1,21 @@
 <template>
     <section class="flex-column-align-items-center">
         <h2>{{ membership.title }}</h2>
+
+        <section class="flex-column">
+            <section v-for="content in membership.content" :key="content.id"
+            class="section-content">
+                <h3>{{ content.title }}</h3>
+                <p>
+                    {{ content.content }}
+                    <Anchor v-if="content.anchor" :data="content.anchor" />
+                </p>
+                <List v-if="content.list" 
+                v-for="(bullet, i) in content.list" :key="i"
+                :data=" bullet" 
+                :cls="[]"/>
+            </section>
+        </section>
         <section class="flex-column">
             <h3 v-if="isPartners">Partnere</h3>
             <section v-if ="isPartners"
