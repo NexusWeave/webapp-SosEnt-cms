@@ -32,7 +32,7 @@ export const organizationData =
             type: 'jpg',
             cls: ['card-img'],
             alt: "JPG bilde av Helle V. Rødahl",
-            src: '/media/images/team/profil-helle-privat.jpg',
+            src: '/media/images/team/sosEnT-helle.jpg',
         },
     },
     {
