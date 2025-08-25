@@ -34,7 +34,7 @@ const organization = reactive(
                 type: 'jpg',
                 cls: ['card-img'],
                 alt: "JPG bilde av Helle V. Rødahl",
-                src: '/media/images/team/sosEnT-helle.jpg',
+                src: '/media/images/team/SosEnt-helle.jpg',
             },
         },
         {
