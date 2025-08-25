@@ -1,5 +1,5 @@
 <template>
-    <h2 class="title-h2"> Medlemsfordeler</h2>
+    <h2 class="title-h2"> Medlemsportal</h2>
     <section v-if="!! !isLoggedIn"
         :class="['login-container', 'flex-wrap-column-align-center-justify-space-evenly']">
         <Form 
@@ -38,7 +38,6 @@
     import Form from '@/components/form/Form.vue';
     import Media from '@/components/media/Media.vue';
     import Btn from '@/components/navigation/Button.vue';
-import Icon from '@/components/media/Icon.vue';
 
     const media = mediaStore();
     const isMedia = computed(() => media.isLoaded);
@@ -104,7 +103,7 @@ import Icon from '@/components/media/Icon.vue';
             },
         },
         {
-            label: 'Arkiv',
+            label: 'Dokumenter',
             id: generateHexID(),
             action: () => {
                 program.value = false;
