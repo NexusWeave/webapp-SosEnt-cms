@@ -48,7 +48,7 @@ export const organizationStore = defineStore('organizationData',
                     {
                         team: [],
                         isLoaded: false,
-                        title: 'Kontakt oss',
+                        title: 'styre / sekretariat',
                     },
                 }
             }),
