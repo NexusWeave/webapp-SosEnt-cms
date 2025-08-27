@@ -1,50 +1,84 @@
-//  This file is an Api simulation of the SoSEnT web application project.
-import {reactive } from 'vue';
-
-import { generateHexID } from '@/utils/utils.js';
-
-export const partnerData = reactive(
+{
+    "data":
     [
         {
-            id: generateHexID(),
-            anchor:
+            "anchor":
             {
-                href: 'https://www.example.com',
+                "href": "https://www.example.com",
+                "img":
+                {
+                    "alt": "Example Image",
+                    "src": "/media/images/partners/SosEnT-favicon.png"
+                }
+            }
+            
+        },
+        {
+            "anchor":
+            {
+                "href": "https://www.example2.com",
+                "img":
+                {
+                    "alt": "Example Image",
+                    "src": "/media/images/partners/SosEnT-favicon.png"
+                }
             }
         },
         {
-            id: generateHexID(),
-            anchor:
+            "anchor":
             {
-                href: 'https://www.example2.com',
+                "href": "https://www.example3.com",
+                "img":
+                {
+                    "alt": "Example Image",
+                    "src": "/media/images/partners/SosEnT-favicon.png"
+                }
             }
         },
         {
-            id: generateHexID(),
-            anchor:
+            "anchor":
             {
-                href: 'https://www.example3.com',
+                "href": "https://www.example4.com",
+                "img":
+                {
+                    "alt": "Example Image",
+                    "src": "/media/images/partners/SosEnT-favicon.png"
+                }
+            }
+
+        },
+        {
+            "anchor":
+            {
+                "href": "https://www.example4.com",
+                "img":
+                {
+                    "alt": "Example Image",
+                    "src": "/media/images/partners/SosEnT-favicon.png"
+                }
             }
         },
         {
-            id: generateHexID(),
-            anchor:
+            "anchor":
             {
-                href: 'https://www.example4.com',
+                "href": "https://www.example5.com",
+                "img":
+                {
+                    "alt": "Example Image",
+                    "src": "/media/images/partners/SosEnT-favicon.png"
+                }
             }
         },
         {
-            id: generateHexID(),
-            anchor:
+            "anchor":
             {
-                href: 'https://www.example5.com',
+                "href": "https://www.example6.com",
+                "img":
+                {
+                    "alt": "Example Image",
+                    "src": "/media/images/partners/SosEnT-favicon.png"
+                }
             }
-        },
-        {
-            id: generateHexID(),
-            anchor:
-            {
-                href: 'https://www.example6.com',
-            }
-        },
-    ]);
+        }
+    ]
+}
