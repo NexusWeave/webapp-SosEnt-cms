@@ -41,8 +41,7 @@
         });
 
     const label = props.label ?? '';
-    const cls = computed(() => {
-        props.cls.push('icon');
-        return !!props.cls ? props.cls : [];
-    });
+    const cls = !!props.cls ? props.cls : [];
+    cls.push('icon');
+
 </script>
