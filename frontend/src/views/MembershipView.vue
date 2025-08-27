@@ -12,8 +12,7 @@
                 </p>
                 <List v-if="content.list" 
                 v-for="(bullet, i) in content.list" :key="i"
-                :data=" bullet" 
-                :cls="[]"/>
+                :data=" bullet"/>
             </section>
         </section>
         <section class="flex-column">
@@ -22,14 +21,14 @@
                 :class="['flex-wrap-row-justify-space-evenly','partner-container']">
                 <Anchor v-for="partner in partners.partners" :key="partner.id"
                     :data="partner.anchor"
-                    :cls="['partner-content']"/>
+                    :cls="['partner-content', 'partner-img']"/>
             </section>
             
             <h3 v-if ="isMembers">Medlemmer</h3>
-            <section v-if ="isMembers">
+            <section v-if ="isMembers" class="member-container">
                 <List
                     :data="members"
-                    :cls="['flex-column', 'connection-container']"
+                    :cls="['member-list', 'list-item']"
                     />
             </section>
             <h3 v-if ="isMedia">Foreningens dokumenter</h3>
