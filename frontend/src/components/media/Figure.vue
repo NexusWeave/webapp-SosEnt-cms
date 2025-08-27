@@ -1,5 +1,5 @@
 <template >
-    <template v-if="!!isFigure.value">
+    <template v-if="!!isFigure">
         <figure :class="cls[0]">
             <img :src="data.src" :alt="data.alt" :class="cls[1]">
             <figcaption v-if="!!data.caption">{{ data.caption }}</figcaption>
@@ -7,7 +7,7 @@
 
     </template>
     <template v-else>
-        <img :src="data.src" :alt="data.alt" :class="cls[1]">
+        <img :src="data.src" :alt="data.alt" :class="cls[0]">
     </template>
 
 </template>
@@ -31,5 +31,5 @@
         return !!data.caption;
     });
     const cls = props.cls ? props.cls : data.cls ?? [];
-    //console.log('Figure data:', data);
+    console.log('Figure data:', data, cls);
 </script>
