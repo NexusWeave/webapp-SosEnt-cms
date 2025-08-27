@@ -9,7 +9,7 @@
                     </RouterLink>
                 </template>
                 <template v-else-if="!!isAnchor">
-                    <Anchor :data="item.anchor" :cls="item.cls"/>
+                    <Anchor :data="item.anchor" :cls="['',cls[3]]"/>
                 </template>
                 <template v-else-if="!!isPagination">
                     <Btn :data="btn[0]" :cls="['button', 'orange-btn']"/>
@@ -47,7 +47,10 @@
             default: () => [['nav-bar', 'flex-wrap-row-justify-space-between'], ['nav-list', 'flex-row-align-items-center'], ['nav-item'], ['anchor-item']]
         }
     });
+
+    const cls = props.cls;
     const data = props.data;
+    
 
     const isAnchor = computed(() => {
 
