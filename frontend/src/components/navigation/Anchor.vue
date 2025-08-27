@@ -10,12 +10,12 @@
         >
 
         <template v-if="isMedia() === 'img'">
-            <Figure :data="img" :cls="img.cls" />
+            <Figure :data="img" :cls="[cls[1]]" />
         </template>
 
         <template v-else-if="isMedia() == cls[cls.length - 1]">
-            <Icon v-if="!!data.label" :label="data.label" :cls="[cls[0], cls[cls.length - 1]]"/>
-            <Icon v-else :cls="[cls[0], cls[cls.length - 1]]"/>
+            <Icon v-if="!!data.label" :label="data.label" :cls="[cls[1], cls[cls.length - 1]]"/>
+            <Icon v-else :cls="[cls[1], cls[cls.length - 1]]"/>
         </template>
 
         <template v-else>
@@ -56,17 +56,16 @@
         downloadFiles: ['docx', 'xlsx', 'csv'],
     }
 
-    const data = props.data;
-    const img = !!data.img ? data.img : null;
-
     const classList = () => {
         const cls = props.cls ? props.cls : (Array.isArray(data.cls) ? data.cls : [data.cls]);
         cls.push('icon');
 
         return cls;
     };
-    
+
+    const data = props.data;
     const cls = classList();
+    const img = !!data.img ? data.img : null;
     
     const isExternal = () => {
         if (!data.type) return false;
