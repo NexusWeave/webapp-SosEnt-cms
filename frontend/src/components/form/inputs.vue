@@ -15,7 +15,7 @@
             :width="!!data.width ? data.width : ''"
             :height="!!data.height ? data.height : ''"
             :minlength="data.minlength"
-            :autocomplete="!!data.autocomplete ? 'off':'on'"
+            :autocomplete="!!data.autocomplete ? 'on':'off'"
             :readonly="!!data.readonly ? data.readonly : false"
             :required="!!data.required ? data.required : false"
             :disabled="!!data.disabled ? data.disabled : false"
