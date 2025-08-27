@@ -18,13 +18,10 @@ const router = createRouter({
       beforeEnter: async (to, from, next) => {
 
         const news = newsStore();
-        await news.fetchNews();
-        
-        const media = mediaStore();
-        await media.fetchMedia();
+        await news.fetchData();
 
         const organization = organizationStore();
-        await organization.fetchOrganization();
+        await organization.fetchData();
 
         !!news.article && !!organization.team && media.media ? next() : next();
       }
@@ -41,10 +38,10 @@ const router = createRouter({
       beforeEnter: async (to, from, next) => {
 
         const news = newsStore();
-        await news.fetchNews();
+        await news.fetchData();
 
         const media = mediaStore();
-        await media.fetchMedia();
+        await media.fetchData();
 
         news.articles ? next() : next('/404');
         
@@ -57,7 +54,7 @@ const router = createRouter({
 
       beforeEnter: async (to, from, next) => {
       const media = mediaStore();
-      await media.fetchMedia();
+      await media.fetchData();
       media.isLoaded ? next() : next('/404');
       }
     },
@@ -70,13 +67,13 @@ const router = createRouter({
       {
 
         const members = memberStore();
-        await members.fetchMembers();
+        await members.fetchData();
         
         const media = mediaStore();
-        await media.fetchMedia();
+        await media.fetchData();
 
         const partners = partnerStore();
-        await partners.fetchPartners();
+        await partners.fetchData();
 
         members.isLoaded && partners.isLoaded && media.isLoaded ? next() : next();
       }
