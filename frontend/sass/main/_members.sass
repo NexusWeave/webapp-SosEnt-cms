@@ -3,6 +3,13 @@
 
 .member-container
     margin: auto
-    max-inline-size: 42em
-    @include mix.link-color(color.$Groovy-yellow, color.$Groovy-green)
-    @include mix.background-color(color.$Groovy-brown,color.$soft-white)
+    max-inline-size: 100%
+    @include mix.link-color(color.$Groovy-orange, color.$Groovy-yellow)
+    @include mix.background-color(color.$soft-white, color.$Groovy-brown)
+
+    ul.member-list
+        padding: 0
+        max-inline-size: 45em
+
+        li.list-item
+            list-style: none
