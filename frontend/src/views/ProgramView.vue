@@ -1,6 +1,6 @@
 <template>
     <h2 class="title-h2"> Medlemsportal</h2>
-    <section v-if="!! !isLoggedIn"
+    <section v-if="!isLoggedIn"
         :class="['login-container', 'flex-wrap-column-align-center-justify-space-evenly']">
         <Form 
         :data="schema"
