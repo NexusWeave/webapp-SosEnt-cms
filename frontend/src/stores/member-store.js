@@ -2,7 +2,6 @@
 import { reactive } from 'vue';
 import { defineStore } from 'pinia';
 import { generateHexID } from '@/utils/utils.js';
-import { fetchMembers } from '@/services/sosent-member-api.js';
 
 export const memberStore = defineStore('memberData',
     {
@@ -16,15 +15,14 @@ export const memberStore = defineStore('memberData',
         }),
         actions:
         {
-            addMembers(members)
+            addMembers(member)
             {
-                members.forEach(member => 
-                    {
-                        this.data.members.push(member);
-                        //console.warn("Members added: ", member);
-                    });
+                member.id = generateHexID();
+                this.data.members.push(member);
+                //console.warn("Members added: ", member);
 
                 this.randomizeMembers();
+                
             },
             randomizeMembers()
             {
@@ -34,22 +32,26 @@ export const memberStore = defineStore('memberData',
                 this.data.members = membersData.sort(() => Math.random() - n);
                 //console.warn("Members randomized");
             },
-            fetchMembers()
-            {
-                if (this.data.isLoaded) return;
+            async fetchData()
+            { 
+                const media = this.data;
+                if (media.isLoaded) return;
 
-                fetchMembers().then((members) => 
-                    {
-                        this.addMembers(members);
-                        this.randomizeMembers();
-                        this.data.isLoaded = true;
-
-                    }).catch((error) =>
-                    {
-                        console.error("Error fetching members: ", error);
-                        this.data.isLoaded = false;
+                const path = '/apis/sosent-member-api.json';
+                await fetch(path).then((response) => response.json()).then((data) => {
+                    data.data.forEach((item) => {
+                        this.addMembers(item);
                     });
-            }
+                    media.isLoaded = true;
+                }).catch((error) =>
+                {
+
+                    this.data.isLoaded = false;
+                    console.error("Error fetching Members: ", error);
+
+                });
+            },
+
         },
         getters:
         {

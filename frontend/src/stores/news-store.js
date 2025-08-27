@@ -1,9 +1,8 @@
 //  This file is a part of the SoSEnT web application project.
 
 import { defineStore } from 'pinia';
-import { reactive, computed } from 'vue';
-import { fetchApi } from '@/utils/utils.js';
-import { newsData } from '@/services/sosent-news-api.js';
+import { reactive } from 'vue';
+import { generateHexID } from '@/utils/utils.js';
 
 export const newsStore = defineStore('newsData', 
     {
@@ -55,22 +54,19 @@ export const newsStore = defineStore('newsData',
                     {
                         cta.forEach((item, i) =>
                         {
+                            item.id = generateHexID();
                             if (item.anchor > 0)
                             {
                                 const anchor = item.anchor;
                                 anchor.forEach((anchorItem, j) => {
-                                    anchorItem.href.startsWith('/media/documents/') ?
-                                    anchorItem.cls = [['pdf', 'article-title-h4'], 'nav-link'] :
-                                    anchorItem.cls = ['nav-link', 'cta-content'];
+                                    anchorItem.id = generateHexID();
                                 });
 
                                 if(cta.media)
                                 {
                                     const media = cta.media;
                                     media.forEach((mediaItem, k) => {
-                                        mediaItem.href.startsWith('/media/documents/') ?
-                                        mediaItem.cls =['media-container', 'pdf'] :
-                                        mediaItem.cls = ['media-container'];
+                                        mediaItem.id = generateHexID();
                                     });
                                 }
                                 
@@ -110,26 +106,26 @@ export const newsStore = defineStore('newsData',
                 }
             },
 
-            fetchNews()
-            {
-                if (this.data.isLoaded) return;
+            async fetchData()
+            { 
+                const news = this.data;
+                if (news.isLoaded) return;
 
-                fetchApi(newsData).then((articles) => 
-                    {
-                        articles.forEach(article => {
-                            this.addArticle(article);
-                        });
-                        this.data.isLoaded = true;
-                    }).catch((error) => 
-                        {
-                            this.data.isLoaded = false;
-                            console.error("Error fetching news data: ", error);
-                            return;
+                const path = '/apis/sosent-news-api.json';
+                await fetch(path).then((response) => response.json()).then((data) => {
+                    data.data.forEach((item) => {
+                        this.addArticle(item);
+                    });
+                    news.isLoaded = true;
+                }).catch((error) =>
+                {
+
+                    this.data.isLoaded = false;
+                    console.error("Error fetching news: ", error);
+
                 });
-                console.warn("News articles added: ", this.data.isLoaded);
-                
-                
             },
+
         },
         getters:
         {
