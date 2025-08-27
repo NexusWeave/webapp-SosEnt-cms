@@ -1,8 +1,8 @@
 <template>
     <template v-if="!!data.members">
-        <ul class ="card-container flex-wrap-row-align-content-start-justify-space-evenly">
+        <ul :class ="[cls[0],'flex-wrap-row-align-content-start-justify-space-evenly']">
             <li v-for="member in data.members" :key="member.id"
-            :class="['card-item']">
+            :class="[cls[1]]">
                 <Anchor v-if="!!member.anchor" :data="member.anchor"/>
                 <span v-if="!member.anchor">{{ member.label }}</span>
                 <p>
@@ -37,11 +37,13 @@
         },
         cls: {
             type: Array,
-            required: false
+            required: false,
+            default: () => ['card-container', 'card-item']
         }
     });
 
     const data = props.data;
+    const cls = props.cls ?? [];
     const list = computed(() => {
         return !!data.list ? data.list : [];
     });
