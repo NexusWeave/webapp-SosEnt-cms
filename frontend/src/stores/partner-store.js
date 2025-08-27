@@ -1,8 +1,6 @@
 //  This file is a part of the SoSEnT web application project.
-import { computed } from 'vue';
 import { defineStore } from 'pinia';
 import { fetchApi } from '@/utils/utils.js';
-import { partnerData } from '@/services/sosent-partners-api.js';
 
 export const partnerStore = defineStore('partnerData',
     {
@@ -18,44 +16,31 @@ export const partnerStore = defineStore('partnerData',
         {
             addPartner(partner)
             {
-                const image = 'SosEnT-favicon.png';
-                const path = '/media/images/partners/';
-
-                partner.anchor =
-                {
-                    type: ['png', 'external'],
-                    href: partner.anchor.href ?? null,
-                    img:
-                    {
-                        alt: image,
-                        type: 'png',
-                        src: path + image,
-                        cls : ['partner-figure', 'partner-img'],
-                    },
-                }
+                partner.anchor.type = [partner.anchor.img.src.split('.')[1], 'external']
+                partner.anchor.href = !partner.anchor.href ? null : partner.anchor.href;
 
                 this.data.partners.push(partner);
-                //console.log("Partner added: ", partner);
+                console.warn("Partner added: ", partner);
                     
             },
-            fetchPartners()
+            async fetchData()
             {
-                if (this.data.isLoaded)  return;
+                if (this.data.isLoaded) return;
 
-                fetchApi(partnerData).then((partners) =>
-                    {
-                        partners.forEach(partner => {
-                            this.addPartner(partner);
-                        });
-                        this.data.isLoaded = true;
-                    }). catch((error) =>
-                    {
-                        this.data.isLoaded = false;
-                        console.warn("Partners Not found:", error);
-                        
+                const path = '/apis/sosent-partners-api.json';
+                await fetch(path).then((response) => response.json()).then((data) => {
+                    data.data.forEach((item) => {
+                        this.addPartner(item);
                     });
+                    this.data.isLoaded = true;
+                }).catch((error) =>
+                {
 
-            }
+                    this.data.isLoaded = false;
+                    console.error("Error fetching Partners: ", error);
+
+                });
+            },
         },
         getters:
         {
