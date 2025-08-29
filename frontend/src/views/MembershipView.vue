@@ -11,8 +11,9 @@
                     <Anchor v-if="content.anchor" :data="content.anchor" />
                 </p>
                 <List v-if="content.list" 
-                v-for="(bullet, i) in content.list" :key="i"
-                :data=" bullet"/>
+                    v-for="(list, i) in content.list" :key="i"
+                    :data="list" 
+                    :cls="list.cls"/>
             </section>
         </section>
         <section class="flex-column">
@@ -42,7 +43,7 @@
         </section>
         <section class="flex-wrap-row-justify-space-evenly">
             <section class="flex-column">
-                <section v-for="content in membership.content" :key="content.id"
+                <section v-for="content in membership.schema.content" :key="content.id"
                 class="section-content">
                     <h3>{{ content.title }}</h3>
                     <p>
@@ -51,9 +52,9 @@
                     </p>
 
                     <List v-if="content.list" 
-                    v-for="(bullet, i) in content.list" :key="i"
-                    :data=" bullet" 
-                    :cls="[]"/>
+                    v-for="(list, i) in content.list" :key="i"
+                    :data="list" 
+                    :cls="list.cls"/>
 
                 </section>
             </section>
@@ -89,66 +90,75 @@
     const isPartners = computed(() => partners.isLoaded);
   
     const membership = {
-        title: 'Medlemskap i SoSEnT Norge',
+        title: 'SosEnt Norge Meldlemsportal',
         cls: ['membership', 'section'],
         content: [
             {
                 id: 0,
-                title: 'Informasjon om medlemskap',
-                content:`Som medlem i SosEnt Norge får du tilgang til et
-                unikt nettverk av sosiale entreprenører, ressurser og
-                støtteordninger som kan hjelpe deg i din virksomhet.
-                Vi jobber for å fremme sosiale entreprenører i Norge,
-                og gir deg muligheten til å påvirke utviklingen av
-                sektoren. Bli med på laget og bidra til å styrke
-                sosialt entreprenørskap i Norge!`,
+                title: 'Medlemskap i SosEnT',
+                content:`Som medlem i SosEnt Norge blir du en del av et engasjert
+                fellesskap av sosiale entreprenører fra hele landet. Du får tilgang
+                til et verdifullt nettverk, nyttige ressurser og støtteordninger som
+                kan styrke din virksomhet. Vi jobber for å løfte frem sosialt
+                entreprenørskap i Norge – og som medlem får du mulighet til å påvirke
+                utviklingen av sektoren.`,
                 list:
-                {
-                    title: `Foreslått årlig medlemsavgift:`,
-                    list: 
-                    [
-                        {
-                            id: 0,
-                            cls: ['list-item'],
-                            bullet:`Virksomheter med 1-2 årsverk: 1000 kr,`,
-                        },
-                        {
-                            id: 1,
-                            cls: ['list-item'],
-                            bullet:`3-5 Årsverk: 3000 kr,`,
-                        },
-                        {
-                            id: 2,
-                            cls: ['list-item'],
-                            bullet:`over 5 ansatte 5000kr`,
-                        },
-                        {
-                            id: 3,
-                            cls: ['list-item'],
-                            bullet:`Ordninger for Støttemedlemmer, etter avtale.`,
-                        },
-                    ],
-                },
+                [
+                    {
+                        title: "Fordeler med medlemskap",
+                        list:
+                        [
+                            {
+                                id: 0,
+                                cls: ['list-item'],
+                                bullet:"Tilgang til faglige møteplasser og nettverk",
+                            },
+                            {
+                                id: 1,
+                                cls: ['list-item'],
+                                bullet:"Mulighet for samarbeid med offentlige og private aktører",
+                            },
+                            {
+                                id: 2,
+                                cls: ['list-item'],
+                                bullet:"Politisk påvirkning og synlighet for sektoren",
+                            },
+                            {
+                                id: 3,
+                                cls: ['list-item'],
+                                bullet:"Rådgivning og støtte i utviklingen av din virksomhet",
+                            }
+                        ]
+                    },
+                    {
+                        title: `Årlig medlemsavgift:`,
+                        list: 
+                        [
+                            {
+                                id: 0,
+                                cls: ['list-item'],
+                                bullet:`Virksomheter med 1-2 årsverk: 1000 kr,`,
+                            },
+                            {
+                                id: 1,
+                                cls: ['list-item'],
+                                bullet:`3-5 Årsverk: 3000 kr,`,
+                            },
+                            {
+                                id: 2,
+                                cls: ['list-item'],
+                                bullet:`over 5 ansatte: 5000 kr`,
+                            },
+                            {
+                                id: 3,
+                                cls: ['list-item'],
+                                bullet:`Ordninger for Støttemedlemmer : etter avtale.`,
+                            },
+                        ],
+                    }
+                ],
             },
-            {
-                id: 4,
-                title: 'Meld interesse',
-                content:`Er du, eller er i ferd med å bli en sosial
-                entreprenør kan du melde din interesse for SosEnt Norge
-                ved å kontakte oss. Å kontakte oss er uforpliktende, og
-                innebærer ikke innmelding i SosEnt Norge. Når foreningen
-                har finansieringen på plass vil det bli sendt ut et
-                innmeldingsskjema til de av dere som har svart at dere
-                ønsker tilbud om medlemskap`,                
-                anchor:
-                {
-                    cls: ['card-data'],
-                    label: 'Meld interesse her',
-                    type: ['external'],
-                    href: 'mailto:' + 'rune.kvarme' + '@' + 'samfunnsbedriftene.no',
-                },
-            },
-
+            
         ],
         
         schema: {
@@ -224,6 +234,17 @@
                     id: generateHexID(),
                     label: 'Start på nytt',
                 }
+            ],
+            content:
+            [
+                {
+                    id: 0,
+                    title: 'Meld interesse',
+                    content:`Er du – eller er du i ferd med å bli – en sosial
+                    entreprenør? Da kan du melde din interesse for medlemskap
+                    i SosEnt Norge. Det er helt uforpliktende og innebærer
+                    ikke innmelding. Meld interesse og vi vil kontakte deg.`,
+                },
             ]
         }
     };
