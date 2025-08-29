@@ -6,6 +6,8 @@
         </section>
         <section> 
             <NavMenu :data="menu"/>
+            <p>Besøksadresse: Haakon VIIs gate 9. 0161 Oslo</p>
+            <p>Postadresse: co/ Samfunnsbedriftene, postboks 1378 Vika,0114 Oslo</p>
         </section>
     </section>
     
