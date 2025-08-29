@@ -87,7 +87,7 @@
         {
           cls: ['flex-column-align-items-center'],
           title: 'Sosial Entreprenørskap i Norge',
-          text: 'Landsforeningen for Sosiale Etreprenører, sammen for et sterkere og inkluderende fjerde sektor',
+          text: '- Landsforeningen for Sosiale Entreprenører',
       },
 
       menu: 
@@ -102,7 +102,7 @@
         {
               type: 'router',
               href: '/aktuelt',
-              label: 'Aktuelt',
+              label: 'Aktuelt og Nyheter',
               cls: ['nav-link'],
               id: generateHexID(),
         },
