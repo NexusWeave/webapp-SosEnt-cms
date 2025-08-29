@@ -10,32 +10,31 @@ export const organizationStore = defineStore('organizationData',
                 {
                     title: 'Om SosEnt Norge',
                     content:
-                    [ `SosEnt Norge – Landsforeningen for sosiale
+                    [
+                        `SosEnt Norge – Landsforeningen for sosiale
                         entreprenører – er en interessepolitisk forening
                         som søker å styrke og påvirke rammebetingelser og
                         regelverk til beste for sosiale entreprenører i
                         Norge.`,
-
                         `Vi arbeider for å få etablert forståelsen og
                         aksepten for denne 4. sektoren hos myndigheter,
-                        beslutningstakerne og de andre sektorene;
-                        offentlig, privat og frivillig.`,
+                        beslutningstakerne og de andre sektorene; offentlig,
+                        privat og frivillig.`,
 
                         `Foreningen ønsker å være en kunnskapsbank for
-                        sosiale entreprenører, og en høringsinstans
-                        for saker som angår sosialt entreprenørskap. Vi
-                        vil rådgi våre medlemmer, gjøre tilgjengelig
+                        sosiale entreprenører, og en høringsinstans for
+                        saker som angår sosialt entreprenørskap. Vi vil
+                        rådgi våre medlemmer, gjøre tilgjengelig
                         informasjon om støtte- og tilskuddsordninger og
                         bidra med aktuelle tolkninger av forskrifter og
                         regelverk. Vi vil også arrangere møteplasser og
-                        nettverk for sosiale entreprenører og andre som er
-                        interessert i sosialt entreprenørskap.`,
-
+                        nettverk for sosiale entreprenører og andre som
+                        er interessert i sosialt entreprenørskap.`,
+                        
                         `Foreningen etablerer fordelsprogram med aktuelle
                         leverandører av varer, programvare og
                         forsikringsordninger. Et medlemskap i SosEnt Norge
                         lønner seg!`,
-
                         `Foreningen ble stiftet i april 2025.
                         Samfunnsbedriftene ivaretar foreningens
                         sekretariat/sekretariatsfunksjoner, og
