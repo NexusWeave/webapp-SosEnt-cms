@@ -66,95 +66,79 @@
         content: [
             {
                 id: 0,
-                title: 'Informasjon om medlemskap',
-                content:`Som medlem i SosEnt Norge får du tilgang til et
-                unikt nettverk av sosiale entreprenører, ressurser og
-                støtteordninger som kan hjelpe deg i din virksomhet.
-                Vi jobber for å fremme sosiale entreprenører i Norge,
-                og gir deg muligheten til å påvirke utviklingen av
-                sektoren. Bli med på laget og bidra til å styrke
-                sosialt entreprenørskap i Norge!`,
+                title: 'Medlemskap i SosEnt Norge',
+                content:`Som medlem i SosEnt Norge blir du en del av et
+                engasjert fellesskap av sosiale entreprenører fra hele landet.
+                 Du får tilgang til et verdifullt nettverk, nyttige ressurser
+                 og støtteordninger som kan styrke din virksomhet. Vi jobber
+                 for å løfte frem sosialt entreprenørskap i Norge – og som
+                 medlem får du mulighet til å påvirke utviklingen av
+                 sektoren.`,
                 list:
                 {
-                    title: `Foreslått årlig medlemsavgift:`,
+                    title: `Fordeler med medlemskap:`,
                     list: 
                     [
                         {
                             id: 0,
                             cls: ['list-item'],
-                            bullet:`Virksomheter med 1-2 årsverk: 1000 kr,`,
+                            bullet:`Tilgang til faglige møteplasser og nettverk`,
                         },
                         {
                             id: 1,
                             cls: ['list-item'],
-                            bullet:`3-5 Årsverk: 3000 kr,`,
+                            bullet:`Mulighet for samarbeid med offentlige og private aktører`,
                         },
                         {
                             id: 2,
                             cls: ['list-item'],
-                            bullet:`over 5 ansatte 5000kr`,
+                            bullet:`Politisk påvirkning og synlighet for sektoren`,
                         },
                         {
                             id: 3,
                             cls: ['list-item'],
-                            bullet:`Ordninger for Støttemedlemmer, etter avtale.`,
+                            bullet:`Rådgivning og støtte i utviklingen av din virksomhet`,
                         },
                     ],
                 },
             },
-            /*{
+            {
                 id: 1,
-                title: 'Våre Partnere',
-                partners: computed(() => 
+                title: 'Meld Interesse',
+                content:`Er du – eller er du i ferd med å bli – en sosial entreprenør?
+                Da kan du melde din interesse for medlemskap i SosEnt Norge. Det er helt
+                uforpliktende og innebærer ikke innmelding. Meld interesse her (vi tar kontakt).`,
+                list:
                 {
-                    if (!isPartners.value) return false;
-                    return {
-                        partners: partners.partners,
-                        isPartners: isPartners.value,
-                    };
-                }),
-                
-            },
-            {
-                id: 2,
-                title: 'Våre Medlemmer',
-                members: computed(() => 
-                {
-                    if (!isMembers.value) return false; 
-
-                    return {
-                        members: members.members,
-                        isMembers: members.isLoaded,
-                        };
-
-                }),
-            },
-            {
-                id: 3,
-                title: 'Foreningens dokumenter',
-                media: computed(() => 
-                {
-                    if (!isMedia.value) return false;
-                    return {
-                        title: 'Medlemskap',
-                        media: !! membersDocs,
-                    };
-                }),
-            },*/
-            {
-                id: 4,
-                title: 'Meld interesse',
-                content:`Er du, eller er i ferd med å bli en sosial
-                entreprenør kan du melde din interesse for SosEnt Norge
-                ved å kontakte oss. Å kontakte oss er uforpliktende, og
-                innebærer ikke innmelding i SosEnt Norge. Når foreningen
-                har finansieringen på plass vil det bli sendt ut et
-                innmeldingsskjema til de av dere som har svart at dere
-                ønsker tilbud om medlemskap`,                
+                    title: `Årlig medlemsavgift (gjelder frem til første generalforsamling):`,
+                    list: 
+                    [
+                        {
+                            id: 0,
+                            cls: ['list-item'],
+                            bullet:`Virksomheter med 1–2 årsverk: <b>1 000 kr</b>`,
+                        },
+                        {
+                            id: 1,
+                            cls: ['list-item'],
+                            bullet:`Virksomheter med 3–5 årsverk: <b>3 000 kr</b>`,
+                        },
+                        {
+                            id: 2,
+                            cls: ['list-item'],
+                            bullet:`Virksomheter over 5 ansatte: <b>5 000 kr</b>`,
+                        },
+                        {
+                            id: 3,
+                            cls: ['list-item'],
+                            bullet:`Støttemedlemmer: <b>Etter Avtale</b>`,
+                        },
+                    ],
+                },
                 anchor:
                 {
                     cls: ['card-data'],
-                    label: 'Meld interesse her',
+                    label: 'Meld interesse her (vi tar kontakt)',
                     type: ['external'],
                     href: 'mailto:' + 'rune.kvarme' + '@' + 'samfunnsbedriftene.no',
                 },
