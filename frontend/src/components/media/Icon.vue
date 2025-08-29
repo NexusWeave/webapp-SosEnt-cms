@@ -1,19 +1,13 @@
 <template>
-    
+    <template v-if ="!!isInput">
         <span :class="cls[0]">
-            
-            <template v-if ="!!isInput">
-                <i :class="[cls[cls.length - 1], 'relative']"  :aria-label="cls[0] + ' ' + cls[1]"></i>
-            </template>
-            <template v-else>
-                <i :class="[cls[cls.length - 1]]" :aria-label="cls[0] + ' ' + cls[1]"></i>
-            </template>
-            {{ label }}
-            
+            <span :class="[cls[cls.length - 1], 'relative']"  :aria-label="cls[0] + ' ' + cls[1]"></span>
         </span>
-    
-
-
+    </template>
+    <template v-else>
+        <span :class="[cls[cls.length - 1]]" :aria-label="cls[0] + ' ' + cls[1]"></span>
+    </template>
+    {{ label }}
 </template>
 
 <script setup>
