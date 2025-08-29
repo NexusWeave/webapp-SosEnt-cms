@@ -1,0 +1,35 @@
+@use './mixins' as mix
+@use '../colors/colors' as color
+
+.logo-container
+    ul
+        padding: 0
+        @include mix.media-queries($breakpoint: 'M')
+            padding-inline-start: 1em
+    li
+        list-style: none
+        max-inline-size: 7em
+
+    .logo-img
+        max-inline-size: 100%
+
+.img-container
+    max-inline-size: 8em
+
+    .logo-img
+        inline-size: 100%
+
+article
+    img
+        inline-size: 100%
+        border-radius: 0.5em
+
+    figure.article-figure, .content-figure
+        margin: .5em auto
+        inline-size: 100%
+
+        figcaption
+            font-size: 0.8em
+            font-style: italic
+            text-align: center
+            color: color.$Groovy-brown
