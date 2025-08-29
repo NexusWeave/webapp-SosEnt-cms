@@ -12,7 +12,7 @@
                         <Anchor v-if="content.anchor" :data="content.anchor" />
                     </p>
 
-                    <List v-if="content.list" :data=" content" :cls="[]"/>
+                    <List v-if="!!content.list" v-for="item in content.list" :key="item.id" :data="item" :cls="[]"/>
 
                     <Partners v-if ="isPartners && !!content.partners" :data="content.partners.value"
                     :cls="[['flex-wrap-row-justify-space-evenly',
@@ -75,70 +75,74 @@
                  medlem får du mulighet til å påvirke utviklingen av
                  sektoren.`,
                 list:
-                {
-                    title: `Fordeler med medlemskap:`,
-                    list: 
-                    [
-                        {
-                            id: 0,
-                            cls: ['list-item'],
-                            bullet:`Tilgang til faglige møteplasser og nettverk`,
-                        },
-                        {
-                            id: 1,
-                            cls: ['list-item'],
-                            bullet:`Mulighet for samarbeid med offentlige og private aktører`,
-                        },
-                        {
-                            id: 2,
-                            cls: ['list-item'],
-                            bullet:`Politisk påvirkning og synlighet for sektoren`,
-                        },
-                        {
-                            id: 3,
-                            cls: ['list-item'],
-                            bullet:`Rådgivning og støtte i utviklingen av din virksomhet`,
-                        },
-                    ],
-                },
+                [
+                    {
+                        id: 0,
+                        title: `Fordeler med medlemskap:`,
+                        list: 
+                        [
+                            {
+                                id: 0,
+                                cls: ['list-item'],
+                                bullet:`Tilgang til faglige møteplasser og nettverk`,
+                            },
+                            {
+                                id: 1,
+                                cls: ['list-item'],
+                                bullet:`Mulighet for samarbeid med offentlige og private aktører`,
+                            },
+                            {
+                                id: 2,
+                                cls: ['list-item'],
+                                bullet:`Politisk påvirkning og synlighet for sektoren`,
+                            },
+                            {
+                                id: 3,
+                                cls: ['list-item'],
+                                bullet:`Rådgivning og støtte i utviklingen av din virksomhet`,
+                            },
+                        ],
+                    },
+                    {
+                        id: 1,
+                        title: `Årlig medlemsavgift (gjelder frem til første generalforsamling):`,
+                        list: 
+                        [
+                            {
+                                id: 0,
+                                cls: ['list-item'],
+                                bullet:`Virksomheter med 1–2 årsverk: <b>1 000 kr</b>`,
+                            },
+                            {
+                                id: 1,
+                                cls: ['list-item'],
+                                bullet:`Virksomheter med 3–5 årsverk: <b>3 000 kr</b>`,
+                            },
+                            {
+                                id: 2,
+                                cls: ['list-item'],
+                                bullet:`Virksomheter over 5 ansatte: <b>5 000 kr</b>`,
+                            },
+                            {
+                                id: 3,
+                                cls: ['list-item'],
+                                bullet:`Støttemedlemmer: <b>Etter Avtale</b>`,
+                            },
+                        ],
+                    }
+                ],
             },
             {
                 id: 1,
                 title: 'Meld Interesse',
                 content:`Er du – eller er du i ferd med å bli – en sosial entreprenør?
                 Da kan du melde din interesse for medlemskap i SosEnt Norge. Det er helt
-                uforpliktende og innebærer ikke innmelding. Meld interesse her (vi tar kontakt).`,
-                list:
-                {
-                    title: `Årlig medlemsavgift (gjelder frem til første generalforsamling):`,
-                    list: 
-                    [
-                        {
-                            id: 0,
-                            cls: ['list-item'],
-                            bullet:`Virksomheter med 1–2 årsverk: <b>1 000 kr</b>`,
-                        },
-                        {
-                            id: 1,
-                            cls: ['list-item'],
-                            bullet:`Virksomheter med 3–5 årsverk: <b>3 000 kr</b>`,
-                        },
-                        {
-                            id: 2,
-                            cls: ['list-item'],
-                            bullet:`Virksomheter over 5 ansatte: <b>5 000 kr</b>`,
-                        },
-                        {
-                            id: 3,
-                            cls: ['list-item'],
-                            bullet:`Støttemedlemmer: <b>Etter Avtale</b>`,
-                        },
-                    ],
-                },
+                uforpliktende og innebærer ikke innmelding.`,
+
                 anchor:
                 {
                     cls: ['card-data'],
-                    label: 'Meld interesse her (vi tar kontakt)',
+                    label: 'Meld interesse her',
                     type: ['external'],
                     href: 'mailto:' + 'rune.kvarme' + '@' + 'samfunnsbedriftene.no',
                 },
