@@ -29,7 +29,8 @@ export const organizationStore = defineStore('organizationData',
                             Påvirke politisk for å bedre rammevilkårene for sektoren
                             Legge til rette for finansiering og partnerskap med offentlige aktører
                             Skape møteplasser og nettverk for erfaringsdeling og faglig utvikling
-                            Svare på relevante høringer og bidra i samfunnsdebatten`
+                            Svare på relevante høringer og bidra i samfunnsdebatten`,
+
                         `SosEnt Norge har valgt Samfunnsbedriftene som sekretariat, noe som gir foreningen
                         tilgang til solid kompetanse innen politisk påvirkning, juridisk rådgivning og
                         nettverksbygging. Dette gjør det mulig for SosEnt Norge å fokusere på sine
