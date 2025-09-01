@@ -99,6 +99,13 @@ const articles = reactive(
                     },
                 ],
             },
+            tags:
+            [
+                /*{
+                    id: generateHexID(),
+                    label: "Nyheter",
+                },*/
+            ]
         },
         {
             id: "1",
@@ -284,7 +291,7 @@ const articles = reactive(
             [
                 /*{
                     id: generateHexID(),
-                    label: 'SosEnt Norge',
+                    label: 'Nyheter',
                 }*/
             ],
             conclusion:
@@ -311,6 +318,102 @@ const articles = reactive(
                     caption: 'Foto: KIME Ressurssenter',
                 },
             },
+        },
+        {
+            id: "2",
+            title: "SosEnt Norge i møte med Arbeids- og inkluderingsdepartementet",
+            img:
+                {
+                    alt: "99ad4db9501e7456c8359501bbc9d0bffa7e6701-1814x1199.webp",
+                    caption: "Fra venstre: generalsekretær Rune Kvarme, statssekretær Per Olav Skurdal Hopsø, styreleder Helle Rødahl og assosiert administrasjonsrådgiver Anna Trageton Skofteland. Foto: Arbeids- og inkluderingsdepartementet.",
+                    cls: ["figure-grid","article-img"],
+                    src: "/media/images/news/99ad4db9501e7456c8359501bbc9d0bffa7e6701-1814x1199.webp"
+                },
+
+            date:
+            {
+                published: '2025.08.29',
+            },
+
+            ingress: {
+                content: "Som del av innsatsen med å gjøre seg kjent, var SosEnt Norge den 28. august i møte med statssekretær Per Olav Skurdal Hopsø (Ap) i Arbeids- og inkluderingsdepartementet."
+            },
+
+            section:
+            {
+                title: "- Som del av innsatsen med å gjøre seg kjent, var SosEnt Norge den 28. august i møte med statssekretær Per Olav Skurdal Hopsø (Ap) i Arbeids- og inkluderingsdepartementet.",
+                contents:
+                [
+                    {
+                        id: 0,
+                        content:
+                        [
+                            "Møtet fant sted i Arbeids- og inkluderingsdepartementets lokaler i Oslo. Fra SosEnt Norges side deltok generalsekretær Rune Kvarme, styreleder Helle Rødahl og assosiert administrasjonsrådgiver Anna Trageton Skofteland.",
+                            "Etter å ha presentert organisasjonen som han leder, belyste Kvarme noen av problemstillingene som må løses for at man for alvor kan sette sosialt entreprenørskap på kartet.",
+                            "Under sin presentasjon påpekte han blant annet at SosEnt Norge skal være et talerør for sosiale entreprenører, fremmer erfaringsutveksling og synliggjør medlemmenes betydelige samfunnsnytte."
+                        ],
+                    },
+                    {
+                        id: 1,
+                        title: "Foreningens formål",
+                        content:
+                        [
+                        ],
+
+                        list:
+                        [
+                            {
+                                id: generateHexID(),
+                                bullet: "Definere sosialt entreprenørskap i en norsk kontekst",
+                            },
+                            {
+                                id: generateHexID(),
+                                bullet: `Spre kunnskap om denne «fjerde sektoren».`,
+                            },
+                            {
+                                id: generateHexID(),
+                                bullet: "Påvirke rammevilkår for sosiale entreprenører"
+                            },
+                            {
+                                id: generateHexID(),
+                                bullet: "Skape møteplasser og nettverk",
+                            },
+                            {
+                                id: generateHexID(),
+                                bullet: "Skape møteplasser og nettverk",
+                            },
+                            {
+                                id: generateHexID(),
+                                bullet: `Spredning av kunnskap, og lage
+                                matnyttige nettverk og møteplasser for
+                                foreningens medlemmer.`,
+                            },
+                        ],
+                    },
+                    {
+                        id: 2,
+                        title: "Ønsker kontakt",
+                        content:
+                        [
+                            "Skurdal Hopsø ga uttrykk for at han syntes dette var et spennende initiativ. Han ønsket den nye foreningen velkommen, og vil at vi holder kontakt i tiden fremover.",
+                            "Dette møtet var en del av SosEnt Norges pågående innsats for å gjøre foreningen kjent. Dette vil omfatte møter med ulike departementer, direktorater og politiske partier."
+                            
+                        ],
+                    },
+
+                ],
+            },
+            tags:
+            [/*
+                {
+                    id: generateHexID(),
+                    label: "Nyheter",
+                },
+                {
+                    id: generateHexID(),
+                    label: "Arbeids- og inkluderingsdepartementet",
+                }*/
+            ]
         },
     ]);
 
