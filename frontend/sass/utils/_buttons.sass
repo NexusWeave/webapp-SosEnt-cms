@@ -1,0 +1,13 @@
+
+@use './mixins' as mix
+@use '../colors/colors' as color
+
+button
+    cursor: pointer
+
+    &:disabled
+        opacity: 0.3
+        cursor: not-allowed
+
+.orange-btn, .read-more
+    @include mix.generate-btn(color.$Groovy-orange, color.$soft-white, color.$Groovy-yellow)
