@@ -1,7 +1,10 @@
 <template>
     <div :class="cls[0]">
         <Menu :data="logo" :cls="['logo-container', 'img-list', 'img-item', 'img-container']"/>
-        <Menu :data="menu"/>
+        <Menu :data="menu" :cls="[['nav-bar', 'flex-wrap-row-justify-space-between'],
+                ['nav-list', 'flex-row-align-items-center'],
+                ['nav-item'],
+                ['anchor-item']]"/>
     </div>
     <section :class="cls[3]">
         <h1>{{ content.title }}</h1>
