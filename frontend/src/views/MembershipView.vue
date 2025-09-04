@@ -29,7 +29,7 @@
             <section v-if ="isMembers" class="member-container">
                 <List
                     :data="members"
-                    :cls="['member-list', 'list-item']"
+                    :cls="['member-list', 'member-item']"
                     />
             </section>
             <h3 v-if ="isMedia">Foreningens dokumenter</h3>
@@ -84,8 +84,9 @@
     const isMedia = computed(() => media.isLoaded);
 
     const members = memberStore();
-    const partners = partnerStore();
     const isMembers = computed(() => members.isLoaded);
+    
+    const partners = partnerStore();
     const isPartners = computed(() => partners.isLoaded);
   
     const membership = {
