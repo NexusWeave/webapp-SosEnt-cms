@@ -4,8 +4,8 @@
 @use './colors/colors' as color
 
 .component-theme
-    padding-block: 1em
     border-radius: 0
+    padding-block: 1em
     @include mix.component-theme(color.$soft-white, .5em, )
     @include mix.background-color(color.$Groovy-brown, color.$antique-soft)
     @include mix.link-color(color.$Groovy-yellow, color.$Groovy-green, color.$Groovy-green, color.$Groovy-yellow)
@@ -34,10 +34,6 @@
 
 .absolute
     position: absolute
-
-
-ul
-    margin-block: .5em
 
 @include mix.tag-generator()
 @include mix.icon-generator()
