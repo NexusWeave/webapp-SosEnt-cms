@@ -14,13 +14,11 @@
     </template>
 
     <template v-else>
-        <h4 v-if="list.title">{{ list.title }}</h4>
+        <h4 v-if="data.title">{{ data.title }}</h4>
         <ul>
-            <li v-for="(bullet, i) in list.list" :key="i">
-                <p>
-                    <Anchor v-if="bullet.anchor" :data="bullet.anchor"/>
-                    <span v-else>{{ bullet.bullet }}</span>
-                </p>
+            <li v-for="(bullet, i) in data.list" :key="i">
+                <Anchor v-if="bullet.anchor" :data="bullet.anchor"/>
+                <span v-else>{{ bullet.bullet }}</span>
             </li>
         </ul>
     </template>
@@ -40,7 +38,6 @@
             required: false
         }
     });
-
     const data = props.data;
     const list = computed(() => {
         return !!data.list ? data.list : [];

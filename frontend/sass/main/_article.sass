@@ -2,11 +2,11 @@
 @use '../utils/mixins' as mix
 @forward '../utils/grid'
 article.news-card
-    margin-block: 0
+    margin-block: 0.5em
     border-radius: 0.5em
-    max-inline-size: 29em
+    max-inline-size: 27em
     @include mix.media-queries($breakpoint: 'M')
-        box-shadow: 12px 13px 47px 17px rgba(89, 61, 43, 0.2)
+    box-shadow: 12px 13px 47px 17px rgba(89, 61, 43, 0.2)
 
     header
         span.article-date
@@ -28,13 +28,6 @@ article.news-card
                     text-align: justify
                     padding-inline: 1em
 
-    &:nth-child(odd)
-        margin-block: 1em
-        padding-block-end: 1em
-        @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$antique-soft)
-
-    &:nth-child(even)
-        @include mix.background-color(color.$soft-white, color.$Groovy-brown, color.$antique-soft)
 
 article
     img
@@ -53,8 +46,13 @@ article
 
     header
         section.article-ingress, .article-section-content
-            max-inline-size: 52em
             margin-block: 0.5em
+
+        section.article-ingress
+            max-inline-size: 37em
+
+        section.article-section-content
+            max-inline-size: 52em
 
             p
                 margin-block: 1em

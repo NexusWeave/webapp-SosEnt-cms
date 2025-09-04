@@ -12,43 +12,37 @@ export const organizationStore = defineStore('organizationData',
                     isLoaded: false,
                     title: 'Om SosEnt Norge',
                     content:
-                    [ `SosEnt Norge – Landsforeningen for sosiale
-                        entreprenører – er en interessepolitisk forening
-                        som søker å styrke og påvirke rammebetingelser og
-                        regelverk til beste for sosiale entreprenører i
-                        Norge.`,
+                    [ `SosEnt Norge er en landsforening for sosiale entreprenører i Norge.
+                        Foreningen ble etablert for å være et tydelig talerør for bransjen,
+                        styrke rammevilkårene for sosiale entreprenører og synliggjøre deres
+                        betydelige samfunnsbidrag.`,
 
-                        `Vi arbeider for å få etablert forståelsen og
-                        aksepten for denne 4. sektoren hos myndigheter,
-                        beslutningstakerne og de andre sektorene;
-                        offentlig, privat og frivillig.`,
+                        `I en tid med økende utenforskap og behov for nye løsninger på sosiale
+                        utfordringer, samler SosEnt Norge virksomheter som kombinerer sosialt
+                        engasjement med entreprenørskap. Disse aktørene bidrar til å skape verdighet,
+                        arbeid og kompetanse lokalt – og representerer det som ofte omtales som
+                        «den fjerde sektoren».`,
 
-                        `Foreningen ønsker å være en kunnskapsbank for
-                        sosiale entreprenører, og en høringsinstans
-                        for saker som angår sosialt entreprenørskap. Vi
-                        vil rådgi våre medlemmer, gjøre tilgjengelig
-                        informasjon om støtte- og tilskuddsordninger og
-                        bidra med aktuelle tolkninger av forskrifter og
-                        regelverk. Vi vil også arrangere møteplasser og
-                        nettverk for sosiale entreprenører og andre som er
-                        interessert i sosialt entreprenørskap.`,
+                       `Foreningens hovedformål er å:
+                            Definere og tydeliggjøre sosialt entreprenørskap i en norsk kontekst
+                            Spre kunnskap om sosiale entreprenører og deres rolle i samfunnet
+                            Påvirke politisk for å bedre rammevilkårene for sektoren
+                            Legge til rette for finansiering og partnerskap med offentlige aktører
+                            Skape møteplasser og nettverk for erfaringsdeling og faglig utvikling
+                            Svare på relevante høringer og bidra i samfunnsdebatten`,
 
-                        `Foreningen etablerer fordelsprogram med aktuelle
-                        leverandører av varer, programvare og
-                        forsikringsordninger. Et medlemskap i SosEnt Norge
-                        lønner seg!`,
-
-                        `Foreningen ble stiftet i april 2025.
-                        Samfunnsbedriftene ivaretar foreningens
-                        sekretariat/sekretariatsfunksjoner, og
-                        generalsekretæren har sin ansettelse der`, 
+                        `SosEnt Norge har valgt Samfunnsbedriftene som sekretariat, noe som gir foreningen
+                        tilgang til solid kompetanse innen politisk påvirkning, juridisk rådgivning og
+                        nettverksbygging. Dette gjør det mulig for SosEnt Norge å fokusere på sine
+                        kjerneoppgaver og styrke fellesskapet blant sosiale entreprenører i hele
+                        landet`, 
                     ],
 
                     team: 
                     {
                         team: [],
                         isLoaded: false,
-                        title: 'Kontakt oss',
+                        title: 'styre / sekretariat',
                     },
                 }
             }),

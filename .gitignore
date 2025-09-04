@@ -13,6 +13,7 @@
 *.tsbuildinfo
 
 # Folders
+dist/
 logs
 .idea
 dist-ssr
