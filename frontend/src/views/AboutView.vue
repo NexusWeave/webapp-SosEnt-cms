@@ -5,7 +5,7 @@
             :cls="[['flex-column-align-items-center', 'article-section'],
             'article-section', 'article-title-h2', 'tags', 'news-card']"/>
     </section>
-    {{ organization.isLoaded }}
+
     <section class="flex-column-align-items-center">
         <section class="section-content">
                 <h2> {{ organization.title }}</h2>
