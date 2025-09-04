@@ -30,6 +30,15 @@ const router = createRouter({
       name: 'news',
       path: '/aktuelt',
       component: () => import('../views/NewsView.vue'),
+
+      beforeEnter: async (to, from, next) => {
+
+        const news = newsStore();
+        await news.fetchData();
+
+        news.articles ? next() : next('/404');
+        
+      }
     },
     {
       name: 'article',
@@ -55,6 +64,7 @@ const router = createRouter({
       beforeEnter: async (to, from, next) => {
       const media = mediaStore();
       await media.fetchData();
+
       media.isLoaded ? next() : next('/404');
       }
     },
@@ -79,8 +89,19 @@ const router = createRouter({
       }
 
     },
-    
+    {
+      name: '404',
+      path: '/404',
+      component: () => import('../views/error/404.vue'),
 
+    },
+    {
+      name: '500',
+      path: '/500',
+      component: () => import('../views/error/500.vue'),
+
+    },
+  
     {
       name: 'file-redirect',
       path: '/media/files/:pathMatch(.*)*',
