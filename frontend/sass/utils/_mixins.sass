@@ -7,10 +7,6 @@
 @use '../mappings/devices-breakpoints' as devices
 
 @mixin grid-layout()
-    grid-template-rows: 100%
-    grid-template-columns: 1fr
-    grid-template-areas: "content"
-
     @include media-queries($breakpoint: 'M')
         font-size: 1.3em
 
@@ -44,6 +40,10 @@
         grid-row: auto
         grid-area: image
 
+    grid-template-rows: 100%
+    grid-template-columns: 1fr
+    grid-template-areas: "content"
+
 @mixin media-queries ($size: null, $breakpoint: null)
 
     @if $breakpoint == 'prefers-color-scheme' and $size == null
@@ -70,12 +70,6 @@
             @content
 
 @mixin apply-theme-colors($bg-color, $border, $text-color)
-
-    border: $border
-    color: $text-color
-    border-radius: 0.5em
-    background-color: $bg-color
-
     h1, h2
         font-weight: 600
     
@@ -86,6 +80,11 @@
     h3 > a
             font-size: 1.5em
             font-weight: bold
+    
+    border: $border
+    color: $text-color
+    border-radius: 0.5em
+    background-color: $bg-color
 
 @mixin component-theme($border-color, $pad-block: .3em)
 
@@ -113,19 +112,14 @@
     border-radius: 0.5em
     border: 1px solid $border-color
 
-
 @mixin link-color($color, $color-hover, $color-active, $color-visited)
 
-    a[aria-disabled="true"]
-        color: #a0a0a0
-        cursor: not-allowed
-        pointer-events: none
-        text-decoration: none
-
     a
-        color: $color
-        text-decoration: none
-
+        [aria-disabled="true"]
+            color: #a0a0a0
+            cursor: not-allowed
+            pointer-events: none
+            text-decoration: none
         &:active
             color: $color-active
         
@@ -140,6 +134,9 @@
 
         h1, h2, h3, h4, h5, h6
             color: $color !important
+
+        color: $color
+        text-decoration: none
 
 @mixin background-color($bg-color, $text-color)
 
@@ -190,8 +187,6 @@
     @each $name, $group in icon.$icons
         @each $icon, $prop in $group
             .#{$icon}
-                font-family: "Bootstrap-icons"
-
                 i
                     font-style: normal
 
@@ -199,6 +194,8 @@
                     &::before
                         content: map.get($prop, icon)
                         color : map.get($prop, icon-color)
+
+                font-family: "Bootstrap-icons"
 
 @mixin tag-generator()
 
