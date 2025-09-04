@@ -5,11 +5,15 @@
 
 .component-theme
     padding-block: 1em
-    @include mix.component-theme(color.$Groovy-brown, color.$antique-soft, color.$Groovy-yellow, color.$Groovy-green)
+    border-radius: 0
+    @include mix.component-theme(color.$soft-white, .5em, )
+    @include mix.background-color(color.$Groovy-brown, color.$antique-soft)
+    @include mix.link-color(color.$Groovy-yellow, color.$Groovy-green, color.$Groovy-green, color.$Groovy-yellow)
+    
 
 .section-theme
     @include mix.background-color(color.$antique-soft, color.$Groovy-brown)
-    @include mix.link-color(color.$Groovy-orange)
+    @include mix.link-color(color.$Groovy-yellow, color.$Groovy-green, color.$Groovy-green, color.$Groovy-green)
 
 #app
     margin: 0 auto

@@ -9,8 +9,11 @@ button
         cursor: not-allowed
 
 .read-more, .orange-btn, input[type="submit"], input[type="reset"]
-    @include mix.generate-btn(color.$Groovy-orange, color.$soft-white,  color.$Groovy-brown)
+    @include mix.base-btn(color.$Groovy-brown)
+    @include mix.background-color(color.$Groovy-orange, color.$soft-white)
+    
 
 .white-btn
-    @include mix.generate-btn(color.$soft-white, color.$Groovy-orange)
+    @include mix.base-btn(color.$Groovy-brown)
+    @include mix.background-color(color.$soft-white, color.$Groovy-brown)
 

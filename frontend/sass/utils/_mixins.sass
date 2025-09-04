@@ -87,52 +87,34 @@
             font-size: 1.5em
             font-weight: bold
 
-@mixin component-theme($bg-color, $color, $link-color, $link-visited, $pad-block: null, $padding-block: null,  $border-color: null)
-
-    @if $pad-block == null
-        $pad-block: .3em
-
-    @if $border-color == null
-        $border-color: rgba($color, 0.2)
-
-    @if $bg-color == null
-        $bg-color: rgba($color, 0.1)
-
-    @if $bg-color== color.$Groovy-brown
-        $border-color: rgba(color.$Groovy-orange, 0.2)
+@mixin component-theme($border-color, $pad-block: .3em)
 
     p
-        color: $color
         padding-block-start: $pad-block
 
     img
+        inline-size: 100%
         padding-block-start: $pad-block
     
     h1, h2, h3, h4, h5, h6
-        color: $color
         font-weight: bold
         padding-block-start: $pad-block
+   
     .icon
-        color: rgba(255, 248, 241, 0.7)
+        color: $border-color
 
     border-radius: 0.5em
-    @include background-color($bg-color,$color)
-    @include link-color($color: $link-color, $color-hover: color.$Groovy-orange, $color-active: $link-color, $color-visited: $link-visited)
 
-
-    
-@mixin generate-btn($bg-color, $text-color, $link-color)
-
+@mixin base-btn($border-color)
     margin: 0.5em
     font-size: 1em
     font-weight: bold
     padding: 0.5em 1em
     border-radius: 0.5em
-    border: 1px solid color.$Groovy-brown
-    @include background-color($bg-color, $text-color, $link-color)
+    border: 1px solid $border-color
 
 
-@mixin link-color($color, $font-size, $color-hover, $color-active, $color-visited)
+@mixin link-color($color, $color-hover, $color-active, $color-visited)
 
     a[aria-disabled="true"]
         color: #a0a0a0
@@ -142,7 +124,6 @@
 
     a
         color: $color
-        font-size: $font-size
         text-decoration: none
 
         &:active
@@ -228,7 +209,7 @@
             border-radius: 0.5em
             display: inline-block
             @include background-color(map.get($props, bg-color), map.get($props, txt-color))
-            @include link-color( map.get($props, link-color))
+            @include link-color( map.get($props, link-color), map.get($props, hover-color), map.get($props, active-color), map.get($props, visited-color))
 
         span.tags
             font-size: 0.7em
