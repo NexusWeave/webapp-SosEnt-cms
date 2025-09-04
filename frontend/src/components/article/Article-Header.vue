@@ -3,10 +3,10 @@
     <section :class="cls[0]">
         <section :class="cls[1]">
             <Figure  v-if="!isArticlePage && !isNewsPage ||  article.archived"
-                :data="article.img" :cls="article.img.cls" />
+                :data="article.img" :cls="['article-figure']" />
             
                 
-            <h2 :class="cls[2]"> {{ article.title }}</h2>
+            <h2> {{ article.title }}</h2>
             <p>
                 <Date :data="article.date" :cls="['article-date', 'calendar']" />
                 
@@ -17,12 +17,12 @@
             </p>
             <p>{{ article.ingress.content }}</p>
             <Menu v-if="!isArticlePage && article.section"
-                :data="[anchor]"/>
+                :data="[anchor]" :cls="[[''], [''], ['', 'flex-wrap-row-justify-flex-start'], ['read-more']]"/>
 
-            <Figure  v-if="isArticlePage" :data="article.img" :cls="article.img.cls"/>
+            <Figure  v-if="isArticlePage" :data="article.img" :cls="['article-figure']" />
         </section>
         <section :class="cls[1]" v-if="isNewsPage && !isArticlePage && !article.archived">
-            <Figure :data="article.img" :cls="article.img.cls"/>
+            <Figure :data="article.img" :cls="['article-figure']" />
         </section>
     </section>
 </template>
