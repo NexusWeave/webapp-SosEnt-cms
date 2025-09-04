@@ -7,7 +7,6 @@
             "img":
             {
                 "alt": "KIME-ressurssenter.jpg",
-                "cls": ["article-figure", "article-img"],
                 "src": "/media/images/team/ressurssenter/KIME-ressurssenter.jpg",
                 "caption": "Illustrasjonsbilde fra KIMEs gründerprogram for flerkulturelle entreprenører. Foto: MIKS Ressurssenter"
             },
@@ -29,7 +28,6 @@
 
                         "alt": "KIME-ressurssenter.jpg",
                         "caption": "Foto: KIME Ressurssenter",
-                        "cls": ["figure-grid", "article-img"],
                         "src": "/media/images/team/ressurssenter/KIME-ressurssenter.jpg"
                 },
                 "contents":
@@ -47,7 +45,6 @@
                         {
                             "alt": "KIME-ressurssenter.jpg",
                             "caption": "Foto: KIME Ressurssenter",
-                            "cls": ["figure-grid", "article-img"],
                             "src": "/media/images/team/ressurssenter/KIME-ressurssenter.jpg"
                         }
                     },
@@ -61,7 +58,10 @@
                         ]
                     }
                 ]
-            }
+            },
+            "tags":
+            [
+            ]
         },
         {
             "id": "1",
@@ -69,7 +69,6 @@
             "img":
             {
                 "alt": "KIME-klar-kompetanse-kokk-herre-dame.jpg",
-                "cls": ["article-figure", "article-img"],
                 "src": "/media/images/misc-images/klar-kompetanse-kokk-herre-dame.jpg",
                 "caption": "Fotograf Karina Lange, Klar Kompetanse"
             },
@@ -182,30 +181,9 @@
                     }
                 ]
             },
-            "conclusion":
-            {
-                "title": "Oppsummering av artikkelen",
-                "list":
-                [
-                    {
-                        "id": 0,
-                        "bullet": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-                    },
-                    {
-                        "id": 1,
-                        "bullet": "Sed erat arcu, tempus in pretium quis, tempus vel lectus."
-                    },
-                    {
-                        "id": 2,
-                        "bullet": "Mauris vel sem elit. Vestibulum vitae dignissim purus."
-                    }
-                ],
-                "img":
-                {
-                    "alt": "KIME-ressurssenter.jpg",
-                    "caption": "Foto: KIME Ressurssenter"
-                }
-            }
+            "tags":
+            [
+            ]
         },
         {
             "id": "2",
@@ -213,9 +191,9 @@
             "img":
                 {
                     "alt": "99ad4db9501e7456c8359501bbc9d0bffa7e6701-1814x1199.webp",
-                    "caption": "Fra venstre: generalsekretær Rune Kvarme, statssekretær Per Olav Skurdal Hopsø, styreleder Helle Rødahl og assosiert administrasjonsrådgiver Anna Trageton Skofteland. Foto: Arbeids- og inkluderingsdepartementet.",
-                    "cls": ["figure-grid","article-img"],
-                    "src": "/media/images/news/99ad4db9501e7456c8359501bbc9d0bffa7e6701-1814x1199.webp"
+                    "src": "/media/images/news/99ad4db9501e7456c8359501bbc9d0bffa7e6701-1814x1199.webp",
+                    "caption": "Fra venstre: generalsekretær Rune Kvarme, statssekretær Per Olav Skurdal Hopsø, styreleder Helle Rødahl og assosiert administrasjonsrådgiver Anna Trageton Skofteland. Foto: Arbeids- og inkluderingsdepartementet."
+                    
                 },
 
             "date":
@@ -298,7 +276,6 @@
             "img":
             {
                 "alt": "KIME-ressurssenter.jpg",
-                "cls": ["article-figure", "article-img"],
                 "src": "/media/images/team/ressurssenter/KIME-ressurssenter.jpg",
                 "caption": "Illustrasjonsbilde fra KIMEs gründerprogram for flerkulturelle entreprenører. Foto: MIKS Ressurssenter"
             },
@@ -320,7 +297,6 @@
 
                         "alt": "KIME-ressurssenter.jpg",
                         "caption": "Foto: KIME Ressurssenter",
-                        "cls": ["figure-grid", "article-img"],
                         "src": "/media/images/team/ressurssenter/KIME-ressurssenter.jpg"
                 },
                 "contents":
@@ -352,7 +328,10 @@
                         ]
                     }
                 ]
-            }
+            },
+            "tags":
+            [
+            ]
         },
         {
             "id": "4",
@@ -360,7 +339,7 @@
             "img":
             {
                 "alt": "KIME-ressurssenter.jpg",
-                "cls": ["article-figure", "article-img"],
+                
                 "src": "/media/images/team/ressurssenter/KIME-ressurssenter.jpg",
                 "caption": "Illustrasjonsbilde fra KIMEs gründerprogram for flerkulturelle entreprenører. Foto: MIKS Ressurssenter"
             },
@@ -382,7 +361,6 @@
 
                         "alt": "KIME-ressurssenter.jpg",
                         "caption": "Foto: KIME Ressurssenter",
-                        "cls": ["figure-grid", "article-img"],
                         "src": "/media/images/team/ressurssenter/KIME-ressurssenter.jpg"
                 },
                 "contents":
@@ -422,7 +400,6 @@
             "img":
             {
                 "alt": "KIME-ressurssenter.jpg",
-                "cls": ["article-figure", "article-img"],
                 "src": "/media/images/team/ressurssenter/KIME-ressurssenter.jpg",
                 "caption": "Illustrasjonsbilde fra KIMEs gründerprogram for flerkulturelle entreprenører. Foto: MIKS Ressurssenter"
             },
@@ -444,7 +421,6 @@
 
                         "alt": "KIME-ressurssenter.jpg",
                         "caption": "Foto: KIME Ressurssenter",
-                        "cls": ["figure-grid", "article-img"],
                         "src": "/media/images/team/ressurssenter/KIME-ressurssenter.jpg"
                 },
                 "contents":
@@ -476,7 +452,10 @@
                         ]
                     }
                 ]
-            }
+            },
+            "tags":
+            [
+            ]
         },
         {
             "id": "6",
@@ -484,7 +463,7 @@
             "img":
             {
                 "alt": "KIME-ressurssenter.jpg",
-                "cls": ["article-figure", "article-img"],
+                
                 "src": "/media/images/team/ressurssenter/KIME-ressurssenter.jpg",
                 "caption": "Illustrasjonsbilde fra KIMEs gründerprogram for flerkulturelle entreprenører. Foto: MIKS Ressurssenter"
             },
@@ -506,7 +485,6 @@
 
                         "alt": "KIME-ressurssenter.jpg",
                         "caption": "Foto: KIME Ressurssenter",
-                        "cls": ["figure-grid", "article-img"],
                         "src": "/media/images/team/ressurssenter/KIME-ressurssenter.jpg"
                 },
                 "contents":
@@ -524,7 +502,6 @@
                         {
                             "alt": "KIME-ressurssenter.jpg",
                             "caption": "Foto: KIME Ressurssenter",
-                            "cls": ["figure-grid", "article-img"],
                             "src": "/media/images/team/ressurssenter/KIME-ressurssenter.jpg"
                         }
                     },
@@ -538,7 +515,10 @@
                         ]
                     }
                 ]
-            }
+            },
+            "tags":
+            [
+            ]
         }
     ]
 }
