@@ -38,7 +38,7 @@
 
     const page = reactive(
         {
-            title: 'Siste nytt fra foreningen',
+            title: 'Nyheter fra SosEnt Norge',
             cls: ['flex-wrap-row-justify-center'],
             section: {
                 title: 'Nyhetsarkiv',

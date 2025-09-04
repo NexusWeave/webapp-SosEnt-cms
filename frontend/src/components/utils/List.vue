@@ -17,10 +17,8 @@
         <h4 v-if="data.title">{{ data.title }}</h4>
         <ul>
             <li v-for="(bullet, i) in data.list" :key="i">
-                <p>
-                    <Anchor v-if="bullet.anchor" :data="bullet.anchor"/>
-                    <span v-else>{{ bullet.bullet }}</span>
-                </p>
+                <Anchor v-if="bullet.anchor" :data="bullet.anchor"/>
+                <span v-else>{{ bullet.bullet }}</span>
             </li>
         </ul>
     </template>
@@ -41,7 +39,6 @@
             default: () => ['card-container', 'card-item']
         }
     });
-
     const data = props.data;
     const cls = props.cls ?? [];
     const list = computed(() => {

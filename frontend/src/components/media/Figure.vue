@@ -7,7 +7,10 @@
 
     </template>
     <template v-else>
-        <img :src="data.src" :alt="data.alt" :class="cls[0]">
+        <picture>
+            <source :srcset="data.src" type="image/webp">
+            <img :src="data.src" :alt="data.alt" :class="cls[1]">
+        </picture>
     </template>
 
 </template>

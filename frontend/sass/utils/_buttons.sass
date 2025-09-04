@@ -1,8 +1,16 @@
 @use '../utils/mixins' as mix
 @use '../colors/colors' as color
 
+button
+    cursor: pointer
+
+    &:disabled
+        opacity: 0.3
+        cursor: not-allowed
 
 .read-more, .orange-btn, input[type="submit"], input[type="reset"]
-    @include mix.button-pallette(color.$Groovy-orange, color.$soft-white,  color.$Groovy-brown)
+    @include mix.generate-btn(color.$Groovy-orange, color.$soft-white,  color.$Groovy-brown)
+
 .white-btn
-    @include mix.button-pallette(color.$soft-white, color.$Groovy-orange)
+    @include mix.generate-btn(color.$soft-white, color.$Groovy-orange)
+

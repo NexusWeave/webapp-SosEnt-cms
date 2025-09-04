@@ -52,7 +52,7 @@
     {
         files: ['pdf'],
         contact: ['email', 'telephone'],
-        images: ['jpg', 'jpeg', 'png', 'svg'],
+        images: ['jpg', 'jpeg', 'png', 'svg','webp'],
         downloadFiles: ['docx', 'xlsx', 'csv'],
     }
 

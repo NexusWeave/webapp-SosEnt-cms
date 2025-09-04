@@ -119,21 +119,20 @@
     @include background-color($bg-color,$color)
     @include link-color($color: $link-color, $color-hover: color.$Groovy-orange, $color-active: $link-color, $color-visited: $link-visited)
 
-@mixin link-color($color, $color-hover: null, $color-active: null, $color-visited: null, $font-size: null)
-
-    @if $font-size == null
-        $font-size: 1.3em
-
-    @if $color-hover == null
-        $color-hover: rgba($color, 0.8)
-
-    @if $color-active == null
-        $color-active: rgba($color, 0.9)
-    
-    @if $color-visited == null
-        $color-visited: rgba($color, 0.6)
 
     
+@mixin generate-btn($bg-color, $text-color, $link-color)
+
+    margin: 0.5em
+    font-size: 1em
+    font-weight: bold
+    padding: 0.5em 1em
+    border-radius: 0.5em
+    border: 1px solid color.$Groovy-brown
+    @include background-color($bg-color, $text-color, $link-color)
+
+
+@mixin link-color($color, $font-size, $color-hover, $color-active, $color-visited)
 
     a[aria-disabled="true"]
         color: #a0a0a0

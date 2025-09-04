@@ -52,7 +52,19 @@ export const newsStore = defineStore('newsData',
                     const cta = content.cta;
                     if (cta)
                     {
-                        cta.forEach((item, i) =>
+                        cta.type = ['anchor'];
+                        cta.label = 'Les mer';
+                        cta.cls = ['read-more'];
+                        cta.href = '#/aktuelt/artikkel/' + article.id;
+                    };
+
+                    const date = article.date;
+                    date.type = 'news';
+
+                    const contents = article.section.contents;
+                    contents.forEach((content) => {
+                        const figure = content.img;
+                        if (figure)
                         {
                             item.id = generateHexID();
                             if (item.anchor > 0)
