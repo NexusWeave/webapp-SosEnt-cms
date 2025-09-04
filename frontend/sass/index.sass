@@ -3,9 +3,10 @@
 @use './colors/colors' as color
 
 @forward './misc'
-@forward './header'
+
 @forward './footer'
 @forward './flexbox'
+@forward './navigation'
 @forward './main/article'
 @forward './main/section'
 @forward './utils/inputs'
@@ -31,22 +32,18 @@ body
     -webkit-font-smoothing: antialiased
     transition: color 0.5s, background-color 0.5s
     @include mix.apply-theme-colors(color.$antique-white, color.$Groovy-orange, color.$Groovy-brown)
-    @include mix.link-color(color.$Groovy-yellow, color.$Groovy-green, color.$Groovy-green, color.$Groovy-yellow)
     font-family: 'Nunito', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
 
-nav
-    text-align: center
-
 main
-    margin-block: 1em
-    min-block-size: 38vh
-
     section
         display: block
         margin-block: 2em
 
         div
             margin-block: 1em
+
+    margin-block: 1em
+    min-block-size: 38vh
 
 table
     td, th
