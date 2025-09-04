@@ -41,7 +41,7 @@
             </section>
 
         </section>
-        <section class="flex-wrap-row-justify-space-evenly">
+        <section class="flex-wrap-row-justify-space-evenly" v-if="!!membership.schema">
             <section class="flex-column">
                 <section v-for="content in membership.schema.content" :key="content.id"
                 class="section-content">
@@ -58,7 +58,7 @@
 
                 </section>
             </section>
-            <Form v-if="!!membership.schema"
+            <Form
                 @formData="handleSubmit"
                 :data="membership.schema"
                 :cls="membership.schema.cls"
@@ -70,7 +70,6 @@
 <script setup>
 
     import { computed } from 'vue';
-    import { generateHexID } from '@/utils/utils';
 
     import { mediaStore } from '@/stores/media-store';
     import { memberStore } from '@/stores/member-store';
@@ -178,73 +177,8 @@
             },
 
         ],
-        
 
         /*schema: {
-            title:'Meld Interesse',
-            description: 'Bli medlem i SoSEnT Norge',
-            form: 
-            {
-                name: 'membershipForm',
-                fields: [
-                    {
-                        title: "Fordeler med medlemskap",
-                        list:
-                        [
-                            {
-                                id: 0,
-                                cls: ['list-item'],
-                                bullet:"Tilgang til faglige møteplasser og nettverk",
-                            },
-                            {
-                                id: 1,
-                                cls: ['list-item'],
-                                bullet:"Mulighet for samarbeid med offentlige og private aktører",
-                            },
-                            {
-                                id: 2,
-                                cls: ['list-item'],
-                                bullet:"Politisk påvirkning og synlighet for sektoren",
-                            },
-                            {
-                                id: 3,
-                                cls: ['list-item'],
-                                bullet:"Rådgivning og støtte i utviklingen av din virksomhet",
-                            }
-                        ]
-                    },
-                    {
-                        title: `Årlig medlemsavgift:`,
-                        list: 
-                        [
-                            {
-                                id: 0,
-                                cls: ['list-item'],
-                                bullet:`Virksomheter med 1-2 årsverk: 1000 kr,`,
-                            },
-                            {
-                                id: 1,
-                                cls: ['list-item'],
-                                bullet:`3-5 Årsverk: 3000 kr,`,
-                            },
-                            {
-                                id: 2,
-                                cls: ['list-item'],
-                                bullet:`over 5 ansatte: 5000 kr`,
-                            },
-                            {
-                                id: 3,
-                                cls: ['list-item'],
-                                bullet:`Ordninger for Støttemedlemmer : etter avtale.`,
-                            },
-                        ],
-                    }
-                ],
-            },
-            
-        ],
-        
-        schema: {
             
             name: 'membershipForm',
             title:'Meld Interesse',
@@ -329,7 +263,7 @@
                     ikke innmelding. Meld interesse og vi vil kontakte deg.`,
                 },
             ]
-        }
+        }*/
     };
 
     const handleSubmit = (inputs) => {
@@ -345,5 +279,5 @@
         
         // Handle form submission logic here
     };
-    console.warn("Membership View: ", isMembers.value, isMedia.value, isPartners.value);
+    //console.warn("Membership View: ", isMembers.value, isMedia.value, isPartners.value);
 </script>
