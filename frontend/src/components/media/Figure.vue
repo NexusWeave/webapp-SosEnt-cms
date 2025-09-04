@@ -1,7 +1,7 @@
 <template >
     <template v-if="!!isFigure">
         <figure :class="cls[0]">
-            <img :src="data.src" :alt="data.alt" :class="cls[1]">
+            <img :src="data.src" :alt="data.alt">
             <figcaption v-if="!!data.caption">{{ data.caption }}</figcaption>
         </figure>
 
@@ -9,7 +9,7 @@
     <template v-else>
         <picture>
             <source v-if="data.type === 'image/webp'" :srcset="data.srcset" type="image/webp">
-            <img :src="data.src" :alt="data.alt" :class="cls[1]">
+            <img :src="data.src" :alt="data.alt" :class="cls[0]">
         </picture>
     </template>
 
@@ -33,6 +33,6 @@
     const isFigure = computed(() => {
         return !!data.caption;
     });
-    const cls = props.cls ? props.cls : data.cls ?? [];
-    console.log('Figure data:', data, cls);
+    const cls = props.cls ?? [];
+    //console.log('Figure data:', data, cls);
 </script>
