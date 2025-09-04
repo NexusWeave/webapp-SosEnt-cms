@@ -13,7 +13,9 @@
         </time>
 
         <template v-if="cls.includes('icon')">
-            <Icon :cls="[cls[1]]"/>
+            <span class="calendar">
+                <Icon :cls="cls"/>
+            </span>
         </template>
     </span>
 
@@ -23,7 +25,6 @@
     import { defineProps } from 'vue';
 
     import Icon from '@/components/media/Icon.vue';
-    import Anchor from '@/components/navigation/Anchor.vue';
 
     const props = defineProps({
         data: {
