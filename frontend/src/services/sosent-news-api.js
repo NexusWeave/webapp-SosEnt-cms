@@ -384,8 +384,7 @@ const articles = reactive(
                             },
                             {
                                 id: generateHexID(),
-                                bullet: `Spredning av kunnskap, og lage
-                                matnyttige nettverk og møteplasser for
+                                nyttige nettverk og møteplasser for
                                 foreningens medlemmer.`,
                             },
                         ],
