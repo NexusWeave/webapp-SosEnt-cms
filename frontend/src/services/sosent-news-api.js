@@ -5,17 +5,6 @@ import { generateHexID } from '@/utils/utils.js';
 // API simulation
 const articles = reactive(
     [
-        {
-            id: '0',
-            title: 'Sosialt entreprenørskap må ikke svekkes av registerkrav',
-            img:
-            { 
-                alt: 'KIME-ressurssenter.jpg',
-                cls: ['article-figure','article-img'],
-                src: '/media/images/team/ressurssenter/KIME-ressurssenter.jpg',
-                caption: 'Illustrasjonsbilde fra KIMEs gründerprogram for flerkulturelle entreprenører. Foto: MIKS Ressurssenter',
-            },
-
             date:
             {
                 published: '2025.06.13',

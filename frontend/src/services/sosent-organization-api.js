@@ -7,27 +7,6 @@ const organization = reactive(
     {
         team:
         [
-        {
-            id: generateHexID(),
-            title: 'Styreleder',
-            name: 'Helle V. Rødahl',
-            contactInfo:
-            [
-                {
-                    id: 0,
-                    anchor:
-                    {
-                        href: 'mailto:' + 'helle.' + 'rodahl' +'@' + 'bsn.oslo.kommune.no',
-                    },
-                },
-                {
-                    id: 1,
-                    anchor:
-                    {
-                        href : 'tel:' + '+47' + '41' + '45' + '45' + '00',
-                    },
-                },
-            ],
 
             img:
             {
