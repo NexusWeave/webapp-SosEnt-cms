@@ -38,7 +38,6 @@
             required: false
         }
     });
-    console.error(props.data)
     const data = props.data;
     const list = computed(() => {
         return !!data.list ? data.list : [];
