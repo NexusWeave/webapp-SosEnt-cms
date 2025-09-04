@@ -8,7 +8,9 @@
                 !!content.img ? ['grid-container-image', 'article-section'] :
                 ['grid-container-content','article-section']"
                 :key="content.id"> 
+
                 <Figure v-if="!!content.img" :data="content.img" :cls="[['img-grid','figure-container'], 'image']"/>
+                
                 <section :class="['main-grid', 'article-section']">
                     <h4 v-if="content.title"
                     :class="cls[3]">
