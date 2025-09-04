@@ -83,8 +83,8 @@ export const newsStore = defineStore('newsData',
                                 }
                                 
                             }
-                        });
-                    }
+                        }
+                    });
                 });
 
                 this.data.articles.push(article);
