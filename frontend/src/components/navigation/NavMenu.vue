@@ -10,7 +10,7 @@
                 </template>
 
                 <template v-else-if="!!isAnchor">
-                    <Anchor :data="item.anchor" :cls="['',cls[3]]"/>
+                    <Anchor :data="item.anchor" :cls="[cls[3]]"/>
                 </template>
 
                 <template v-else-if="!!isPagination">
@@ -46,8 +46,7 @@
         },
         cls: {
             type: Array,
-            required: false,
-            default: () => [['nav-bar', 'flex-wrap-row-justify-space-between'], ['nav-list', 'flex-row-align-items-center'], ['nav-item'], ['anchor-item']]
+            required: true,
         }
     });
 
