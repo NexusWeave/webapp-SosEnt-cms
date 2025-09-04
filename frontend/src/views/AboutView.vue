@@ -8,17 +8,17 @@
     {{ organization.isLoaded }}
     <section class="flex-column-align-items-center">
         <section class="section-content">
-                <h2 class="title-h2"> {{ organization.title }}</h2>
+                <h2> {{ organization.title }}</h2>
                 <p v-for="paragraph in organization.content"
                     :key="paragraph.id">{{ paragraph }}</p>
         </section>
 
         <section v-if="organization.team.isLoaded"
             :class="['flex-column-align-content-center', 'card-container']">
-            <h2 class="title-h2"> {{ organization.team.title }}</h2>
+            <h2 class="flex-wrap-row-justify-center"> {{ organization.team.title }}</h2>
 
             <section v-if="organization.team.isLoaded"
-                class="flex-wrap-row-justify-space-evenly card-container">
+                class="flex-wrap-row-justify-space-evenly">
 
                 <div v-for="person in organization.team.team" 
                     :class="[['card-content', 'component-theme'],'title-h4']" :key="person.id">
