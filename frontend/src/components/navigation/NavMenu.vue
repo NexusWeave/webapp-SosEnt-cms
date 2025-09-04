@@ -37,7 +37,7 @@
     import Anchor from './Anchor.vue';
 
     import { RouterLink } from 'vue-router';
-    import { defineProps, computed } from 'vue';
+    import { computed } from 'vue';
 
     const props = defineProps({
         data: {
@@ -46,14 +46,18 @@
         },
         cls: {
             type: Array,
-            required: true,
+            required: false,
+            default: () => [['nav-bar', 'flex-wrap-row-justify-space-between'],
+                ['nav-list', 'flex-row-align-items-center'],
+                ['nav-item'],
+                ['nav-link']]
         }
     });
 
     const cls = props.cls;
     const data = props.data;
     
-
+console.log("NavigationMenu loaded with data: ", data );
     const isAnchor = computed(() => {
 
         const anchorData = data.filter(item => item.type === 'anchor');
@@ -68,5 +72,5 @@
         return !!paginationData.length;
     });
 
-    //console.log("NavigationMenu loaded with data: ", data, isAnchor.value, isRouterLink.value);
+    
 </script>
