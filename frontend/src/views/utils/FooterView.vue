@@ -1,20 +1,17 @@
 <template>
-    <section class="flex-column component-theme
+    <section class="flex-column-justify-space-evenly-items-center component-theme
 ">
-    <section :class="['flex-wrap-row', 'component-theme',
-      'flex-wrap-row-justify-center']">
+    <section :class="['flex-wrap-row-justify-space-evenly']">
         <address>
             <p v-for="addr in content.address" :key="addr.postal">
                 {{ addr.msg }} {{ addr.address }}, {{ addr.postal }} <br/>
             </p>
 
         </address>
-        <section class="flex-column"> 
             <Menu :data="menu" :cls="[['nav-bar', 'flex-column'],
                 ['nav-list'],
                 ['nav-item'],
                 ['nav-link']]"/>
-        </section>
     </section>
     <p>{{ content.copyRight }}</p>
     
