@@ -66,8 +66,8 @@ export const newsStore = defineStore('newsData',
                         const figure = content.img;
                         if (figure)
                         {
-                            item.id = generateHexID();
-                            if (item.anchor > 0)
+                            content.id = generateHexID();
+                            if (content.anchor > 0)
                             {
                                 const anchor = item.anchor;
                                 anchor.forEach((anchorItem, j) => {
