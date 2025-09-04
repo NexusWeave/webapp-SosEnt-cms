@@ -1,6 +1,6 @@
 <template>
     <div :class="cls[0]">
-        <Menu :data="logo" :cls="['logo-container', 'nav-list', 'nav-item', 'img-container']"/>
+        <Menu :data="logo" :cls="['logo-container', 'img-list', 'img-item', 'img-container']"/>
         <Menu :data="menu"/>
     </div>
     <section :class="cls[3]">
