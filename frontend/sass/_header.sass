@@ -5,10 +5,37 @@
     min-height: 50px
     position: relative
 
-.nav-link
-    transition: 0.4s
-    padding: 0.5em 1.5em
-    text-decoration: none
+.nav-bar
+    min-inline-size: 10em
+    max-inline-size: 100%
+    padding-block: 3em 3em
+
+    ul.nav-list
+        padding: 0
+        max-inline-size: 100%
+
+        @include mix.media-queries($breakpoint: 'M')
+            padding-inline-start: 4em
+
+    .nav-item
+        list-style: none
+        max-inline-size: 15em
+        margin-inline-end: 1em
+
+    .nav-link
+        transition: 0.4s
+        padding: 0.5em 1.5em
+        text-decoration: none
+
+.logo-container
+    ul.img-list
+        padding: 0
+        @include mix.media-queries($breakpoint: 'M')
+            padding-inline-start: 1em
+    li.img-item
+        list-style: none
+        max-inline-size: 15em
+        margin-inline-end: 4em
 
 .router-link-exact-active
     font-weight: 600
