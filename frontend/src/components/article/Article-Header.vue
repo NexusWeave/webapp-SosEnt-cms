@@ -1,5 +1,5 @@
 <template>
-    <Btn  v-if="isArticlePage" :data="anchor"/>
+    <Btn  v-if="isArticlePage" :data="anchor" :cls="['orange-btn']"/>
     <section :class="cls[0]">
         <section :class="cls[1]">
             <Figure  v-if="!isArticlePage && !isNewsPage ||  article.archived"
@@ -15,7 +15,7 @@
                         :key="tag.id" :data="tag" :cls="[tag.cls]"/>
                 </span>
             </p>
-            <p>{{ article.ingress.content }}</p>
+            <p> {{ article.ingress.content }}</p>
             <Menu v-if="!isArticlePage && article.section"
                 :data="[anchor]" :cls="[[''], [''], ['', 'flex-wrap-row-justify-flex-start'], ['read-more']]"/>
 
@@ -65,7 +65,7 @@
 
     const anchor = computed(() => {
         return isArticlePage ? {
-            cls: ['orange-btn'],
+
             label: 'Gå tilbake',
             action: () => { window.history.back() }
         } : { type: 'anchor', anchor: article.anchor };
