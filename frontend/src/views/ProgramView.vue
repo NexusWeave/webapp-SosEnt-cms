@@ -9,7 +9,7 @@
     </section>
     <section v-if="isLoggedIn">
         <section class="flex-wrap-row-justify-center" >
-            <Btn v-for="btn in buttons" :key="btn.id" :data="btn" :cls="['btn', 'white-btn']" />
+            <Btn v-for="btn in buttons" :key="btn.id" :data="btn" :cls="['btn', 'orange-btn']" />
         </section>
         <section v-show="!!program">
             <h2 class="title-h2">Fordeler</h2>
@@ -97,7 +97,6 @@
             id: generateHexID(),
 
             action: () => {
-                console.log("Fordeler clicked");
                 program.value = true;
                 archieve.value = false;
             },
