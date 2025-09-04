@@ -44,11 +44,20 @@ article.news-card
 article
 
     header
-        section.article-ingress, .article-section-content
+        section.article-ingress,
+        .article-section-content,
+        .news-card-ingress
             margin-block: 0.5em
 
-        section.article-ingress
+        section.article-ingress,
+        .news-card-ingress
             max-inline-size: 37em
+
+        section.article-ingress
+            h2
+                font-size: 3em
+
+            max-inline-size: 50em
 
         section.article-section-content
             max-inline-size: 52em
@@ -68,6 +77,12 @@ article
 
                 h2, h3, h4
                     font-weight: bold
+
+                h2.article-title
+                    font-size: 3em
+
+                h3.sction-title
+                    font-size: 2em
 
             .article-section-content
                 max-inline-size: 55em
@@ -107,9 +122,9 @@ article
 
                 padding: 1em
 
+        h3
+            font-size: 2em
+
         padding: 1em
         margin: 0 auto
         inline-size: 100%
-        @include mix.background-color(color.$Groovy-brown,color.$antique-soft)
-        @include mix.link-color(color.$Groovy-yellow, color.$Groovy-green, color.$Groovy-green, color.$Groovy-yellow)
-
