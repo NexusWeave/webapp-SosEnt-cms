@@ -8,14 +8,17 @@
                         {{ item.label }}
                     </RouterLink>
                 </template>
+
                 <template v-else-if="!!isAnchor">
                     <Anchor :data="item.anchor" :cls="['',cls[3]]"/>
                 </template>
+
                 <template v-else-if="!!isPagination">
                     <Btn :data="btn[0]" :cls="['button', 'orange-btn']"/>
                         <span :class="cls[1]"> {{ activePage > 0 ?  activePage + ' / ' + totalPages : '' }}</span>
                     <Btn :data="btn[1]" :cls="['button', 'orange-btn']"/>
                 </template>
+
             </li>
             <template v-if="!!isPagination">
                 <li>
