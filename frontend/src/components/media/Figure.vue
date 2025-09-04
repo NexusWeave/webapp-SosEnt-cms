@@ -8,7 +8,7 @@
     </template>
     <template v-else>
         <picture>
-            <source :srcset="data.src" type="image/webp">
+            <source v-if="data.type === 'image/webp'" :srcset="data.srcset" type="image/webp">
             <img :src="data.src" :alt="data.alt" :class="cls[1]">
         </picture>
     </template>
