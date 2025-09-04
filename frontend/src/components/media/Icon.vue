@@ -5,7 +5,7 @@
         </span>
     </template>
     <template v-else>
-        <span :class="[cls[cls.length - 1]]" :aria-label="cls[0] + ' ' + cls[1]"></span>
+        <span :class="[cls[cls.length - 1]]" :aria-label="cls[0]"></span>
     </template>
     {{ label }}
 </template>
