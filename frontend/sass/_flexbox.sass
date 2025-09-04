@@ -1,15 +1,13 @@
 //  Flexbox
 @use './utils/mixins' as mix
 
-$path: '../flexbox'
-
-@forward '#{path}/flexbox-row'
-@forward '#{path}/flexbox-column'
-@forward '#{path}/flexbox-wrap-row'
-@forward '#{path}/flexbox-reversed-row'
-@forward '#{path}/row-align-justify-mix/wrap-row-justify-items'
-@forward '#{path}/row-align-justify-mix/wrap-row-justify-content'
-@forward '#{path}/column-align-justify-mix/nowrap-column-justify-items'
+@forward 'flexbox/flexbox-row'
+@forward 'flexbox/flexbox-column'
+@forward 'flexbox/flexbox-wrap-row'
+@forward 'flexbox/flexbox-reversed-row'
+@forward 'flexbox/row-align-justify-mix/wrap-row-justify-items'
+@forward 'flexbox/row-align-justify-mix/wrap-row-justify-content'
+@forward 'flexbox/column-align-justify-mix/nowrap-column-justify-items'
 
 .flex-row
     @include mix.flexbox-generator('flex-row')
