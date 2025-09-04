@@ -5,7 +5,10 @@
         <p>{{ data.copyRight }}</p>
         </section>
         <section> 
-            <NavMenu :data="menu"/>
+            <Menu :data="menu" :cls="[['nav-bar', 'flex-wrap-row-justify-flex-end'],
+                ['nav-list'],
+                ['nav-item'],
+                ['anchor-item']]"/>
             <p>Besøksadresse: Haakon VIIs gate 9. 0161 Oslo</p>
             <p>Postadresse: co/ Samfunnsbedriftene, postboks 1378 Vika,0114 Oslo</p>
         </section>
@@ -17,7 +20,7 @@
 <script setup>
 
     import { defineProps } from 'vue';
-    import NavMenu from '@/components/navigation/NavMenu.vue';
+    import Menu from '@/components/navigation/NavMenu.vue';
 
     const props = defineProps({
         data:
