@@ -380,10 +380,6 @@ const articles = reactive(
                             },
                             {
                                 id: generateHexID(),
-                                bullet: "Skape møteplasser og nettverk",
-                            },
-                            {
-                                id: generateHexID(),
                                 nyttige nettverk og møteplasser for
                                 foreningens medlemmer.`,
                             },
