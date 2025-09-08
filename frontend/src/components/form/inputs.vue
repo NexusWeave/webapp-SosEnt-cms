@@ -31,7 +31,7 @@
             :id="data.id"
             :class="cls[1]"
             :name="data.name"
-            :type="data.type ?? data.type"
+            :type="data.type"
             :required="!!data.required ? data.required : false"
             :disabled="!!data.disabled ? data.disabled : false"
             :autofocus="!!data.autofocus ? data.autofocus : false"
