@@ -44,7 +44,7 @@
 
     const schema = {
         name: 'programs',
-        title:'Innloggins skjema',
+        title:'Innloggings skjema',
         description: 'Bli medlem i SoSEnT Norge',
 
         inputControl:
