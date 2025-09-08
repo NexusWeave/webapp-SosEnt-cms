@@ -14,9 +14,3 @@ export function generateHexID()
     return result;
 }
 
-export function fetchApi(data, delay = 10)
-{
-    return new Promise(resolve => {
-        setTimeout(() => {resolve(data);}, delay);
-    });
-}
