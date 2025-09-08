@@ -20,7 +20,7 @@ export const partnerStore = defineStore('partnerData',
                 partner.anchor.href = !partner.anchor.href ? null : partner.anchor.href;
 
                 this.data.partners.push(partner);
-                console.warn("Partner added: ", partner);
+                //console.warn("Partner added: ", partner);
                     
             },
             async fetchData()
