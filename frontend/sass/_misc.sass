@@ -4,49 +4,36 @@
 @use './colors/colors' as color
 
 .component-theme
+    border-radius: 0
     padding-block: 1em
-    @include mix.light-component-theme(color.$Groovy-brown)
+    @include mix.component-theme(color.$antique-soft, .5em, 1.3em)
+    @include mix.background-color(color.$Groovy-brown, color.$antique-soft)
+    @include mix.link-color(color.$Groovy-yellow, color.$Groovy-green, color.$Groovy-green, color.$Groovy-yellow)
+    
 
 .section-theme
-    @include mix.background-color(color.$antique-soft, color.$Groovy-brown, color.$Groovy-orange)    
+    @include mix.background-color(color.$antique-soft, color.$Groovy-brown)
+    @include mix.link-color(color.$Groovy-yellow, color.$Groovy-green, color.$Groovy-green, color.$Groovy-green)
 
 #app
     margin: 0 auto
     font-weight: normal
+
+.icon
+    font-size: 1em
+    display: inline-block
+
+    &::before
+        padding: 0.5em
+
+.relative
+    opacity: 0.5
+    top: 1.9em
+    position: relative
     
-.nav-bar
-    min-inline-size: 10em
-    max-inline-size: 100%
-    padding-block: 3em 3em
 
-    ul.nav-list
-        padding: 0
-        max-inline-size: 100%
-
-        @include mix.media-queries($breakpoint: 'M')
-            padding-inline-start: 1em
-
-    .nav-item
-        list-style: none
-        max-inline-size: 15em
-        margin-inline-end: 1em
-
-.logo-container
-
-    ul
-        padding: 0
-        @include mix.media-queries($breakpoint: 'M')
-            padding-inline-start: 1em
-    li
-        list-style: none
-        max-inline-size: 15em
-
-    .logo-img
-        max-inline-size: 100%
-
-
-ul
-    margin-block: .5em
+.absolute
+    position: absolute
 
 @include mix.tag-generator()
 @include mix.icon-generator()

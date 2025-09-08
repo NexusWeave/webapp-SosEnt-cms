@@ -1,4 +1,4 @@
-
+//  Utility functions for the application
 
 export function generateHexID()
 {    
@@ -13,3 +13,4 @@ export function generateHexID()
     }
     return result;
 }
+

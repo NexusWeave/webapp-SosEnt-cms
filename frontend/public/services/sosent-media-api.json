@@ -1,0 +1,35 @@
+{
+    "data": 
+    [
+        {
+            "type": "pdf",
+            "isFiltered": false,
+            "id": "1",
+            "label": "Personvern",
+            "date": {"published": "2025-06-28"},
+            "name": "SosEnt-Norge-Personvern",
+            "description": "Personverns ærklering for nettstedet.",
+
+            "tag": 
+            [
+                "dokumenter", "personvern", "pdf"
+            ]
+        },
+        {
+            "type": "pdf",
+            "isFiltered": false,
+            "id": "2",
+            "label": "Grunnlags Dokument",
+            "date": {"published": "2025-02-28"},
+            "name": "SosEnt-Norge-GrunnlagsDokument",
+            "description": "Grunnlags Dokument for foreningen.",
+
+            "tag": 
+            [
+                "organisasjonen", "dokumenter", "medlemskap", "pdf",
+                "grunnlags-dokument"
+            ]
+
+        }
+    ]
+}

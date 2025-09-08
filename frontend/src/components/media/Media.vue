@@ -4,10 +4,10 @@
             :class="cls[2]">
             <h4 class="title-h4">
                 <Anchor :data="media.anchor"
-                    :Cls="[media.type]" />
+                    :cls="[media.type]" />
             </h4>
             <p>
-                <Date :data="media.date" :Cls="['meta-date', 'calendar']" />
+                <Date :data="media.date" :cls="['meta-date', 'calendar']" />
                 <span>
                     {{ media.description }}
                 </span>
@@ -28,7 +28,9 @@
         },
             cls: {
                 type: Array,
-                required: false
+                required: false,
+                default: () => [['media-container', 'flex-column'], 'title-h4',
+                ['media-content', 'flex-column', 'component-theme']]
             },
             filter: {
                 type: String,
@@ -39,7 +41,6 @@
     const data = props.data;
     const mediaFilter = props.filter;
     const cls = props.cls ?? null;
-    
 
     const media = computed(() => 
     {

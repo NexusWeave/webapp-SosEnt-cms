@@ -1,7 +1,6 @@
 //  This file is a part of the SoSEnT web application project.
 import { defineStore } from 'pinia';
-import { fetchData } from '@/services/sosent-organization-api.js';
-import { generateHexID } from '@/utils/utils';
+import { generateHexID} from '@/utils/utils';
 
 export const organizationStore = defineStore('organizationData',
     {
@@ -9,7 +8,6 @@ export const organizationStore = defineStore('organizationData',
             {
                 data:
                 {
-                    isLoaded: false,
                     title: 'Om SosEnt Norge',
                     content:
                     [ `SosEnt Norge er en landsforening for sosiale entreprenører i Norge.
@@ -48,42 +46,44 @@ export const organizationStore = defineStore('organizationData',
             }),
         actions:
         {
-            addOrganization(team)
+            addToTeam(member)
             {
 
-                team.forEach(member => {
-
-                    const contactInfo = member.contactInfo;
-                    contactInfo.forEach((card) =>
-                        {   
-                            const anchor = card.anchor;
-                            const label = anchor.href.split(':');
-
-                            card.id % 2 === 0 ? anchor.label = 'Send en Epost' : anchor.label = label[1];
-                            card.id % 2 === 0 ? anchor.type = ['email', 'external'] : anchor.type = ['telephone', 'external'];
-                            anchor.cls = anchor.type[0];
-                        });
-                        this.data.team.team.push(member);
-                    });
-                    this.data.team.isLoaded = true;
+                member.id = generateHexID();
                 
-                //console.warn("Organization added: ", organization);
+                const contactInfo = member.contactInfo;
+                contactInfo.forEach((card) =>
+                    {
+                        const anchor = card.anchor;
+                        const label = anchor.href.split(':');
+
+                        card.id % 2 === 0 ? anchor.label = 'Send en Epost' : anchor.label = label[1];
+                        card.id % 2 === 0 ? anchor.type = ['email', 'external'] : anchor.type = ['telephone', 'external'];
+                        anchor.cls = anchor.type[0];
+                    });
+                //console.warn("Added to Organization : ", member);
+                this.data.team.team.push(member);
             },
-            fetchOrganization()
-            {
+            async fetchData()
+            { 
                 if (this.data.isLoaded) return;
 
-                fetchData().then((data) =>
+                const path = '/services/sosent-organization-api.json';
+                await fetch(path).then((response) => response.json()).then((data) => 
                     {
-                        this.data.isLoaded = true;
-                        this.addOrganization(data.team);
-
+                        data.data.forEach((item) => {
+                            this.addToTeam(item);
+                        });
+                        this.data.team.isLoaded = true;
+                        //console.log("Organization fetched successfully: ", data.data);
                     }).catch((error) =>
                     {
-                        this.data.isLoaded = false;
-                        console.error("Error fetching organization: ", error);
+
+                        this.data.team.isLoaded = false;
+                        console.error("Error fetching media: ", error);
+
                     });
-            }
+            },
         },
         getters:
         {

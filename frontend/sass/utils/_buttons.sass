@@ -1,5 +1,4 @@
-
-@use './mixins' as mix
+@use '../utils/mixins' as mix
 @use '../colors/colors' as color
 
 button
@@ -9,5 +8,17 @@ button
         opacity: 0.3
         cursor: not-allowed
 
-.orange-btn, .read-more
-    @include mix.generate-btn(color.$Groovy-orange, color.$soft-white, color.$Groovy-yellow)
+.read-more, 
+.orange-btn, 
+input[type="submit"], input[type="reset"]
+    @include mix.base-btn(color.$Groovy-brown)
+    @include mix.background-color(color.$Groovy-orange, color.$soft-white)
+
+.read-more
+    text-decoration: none
+    
+
+.white-btn
+    @include mix.base-btn(color.$Groovy-brown)
+    @include mix.background-color(color.$soft-white, color.$Groovy-brown)
+
