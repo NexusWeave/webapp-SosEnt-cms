@@ -82,12 +82,11 @@
     const archieve = ref(false);
     const isLoggedIn = ref(false);
 
-    const handleSubmit = (inputs) => {
-        const value = inputs.filter(input => input.name === 'password')?.[0]?.value;
-        console.warn("Form retrived with data: ", inputs, value);
-
-        if (value === "x") isLoggedIn.value = !isLoggedIn.value;
-
+    const handleSubmit = (inputs) =>
+    {
+        const memberPassword = import.meta.env.VITE_PASS;
+        const value = inputs.password.trim().toLowerCase();
+        if (value === memberPassword) isLoggedIn.value = !isLoggedIn.value;
     };
 
     const buttons =
