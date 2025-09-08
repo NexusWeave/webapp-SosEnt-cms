@@ -68,7 +68,7 @@ export const organizationStore = defineStore('organizationData',
             { 
                 if (this.data.isLoaded) return;
 
-                const path = '/apis/sosent-organization-api.json';
+                const path = '/services/sosent-organization-api.json';
                 await fetch(path).then((response) => response.json()).then((data) => 
                     {
                         data.data.forEach((item) => {

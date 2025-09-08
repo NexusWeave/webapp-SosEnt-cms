@@ -122,7 +122,7 @@ export const newsStore = defineStore('newsData',
                 const news = this.data;
                 if (news.isLoaded) return;
 
-                const path = '/apis/sosent-news-api.json';
+                const path = '/services/sosent-news-api.json';
                 await fetch(path).then((response) => response.json()).then((data) => {
                     data.data.forEach((item) => {
                         this.addArticle(item);

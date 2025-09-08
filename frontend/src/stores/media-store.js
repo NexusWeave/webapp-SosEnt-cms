@@ -49,7 +49,7 @@ export const mediaStore = defineStore('mediaData',
                 const media = this.data;
                 if (media.isLoaded) return;
 
-                const path = '/apis/sosent-media-api.json';
+                const path = '/services/sosent-media-api.json';
                 await fetch(path).then((response) => response.json()).then((data) => {
                     data.data.forEach((item) => {
                         this.addMedia(item);

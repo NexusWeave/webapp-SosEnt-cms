@@ -26,7 +26,7 @@ export const partnerStore = defineStore('partnerData',
             {
                 if (this.data.isLoaded) return;
 
-                const path = '/apis/sosent-partners-api.json';
+                const path = '/services/sosent-partners-api.json';
                 await fetch(path).then((response) => response.json()).then((data) => {
                     data.data.forEach((item) => {
                         this.addPartner(item);
