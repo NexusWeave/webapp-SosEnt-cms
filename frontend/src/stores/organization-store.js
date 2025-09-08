@@ -61,7 +61,7 @@ export const organizationStore = defineStore('organizationData',
                         card.id % 2 === 0 ? anchor.type = ['email', 'external'] : anchor.type = ['telephone', 'external'];
                         anchor.cls = anchor.type[0];
                     });
-                console.warn("Member Added : ", member);
+                //console.warn("Added to Organization : ", member);
                 this.data.team.team.push(member);
             },
             async fetchData()
@@ -75,7 +75,7 @@ export const organizationStore = defineStore('organizationData',
                             this.addToTeam(item);
                         });
                         this.data.team.isLoaded = true;
-                        console.log("Media fetched successfully: ", data.data);
+                        //console.log("Organization fetched successfully: ", data.data);
                     }).catch((error) =>
                     {
 
