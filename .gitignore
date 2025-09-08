@@ -3,6 +3,7 @@
 *.local
 *.DS_Store
 *.env
+
 # Editor directories and files
 *.suo
 *.sln
