@@ -94,7 +94,7 @@
     const isPartners = computed(() => partners.isLoaded);
   
     const membership = {
-        title: 'SosEnt Norge Meldlemsportal',
+        title: 'SosEnt Norge Medlemsportal',
         cls: ['membership', 'section'],
         content: [
             {
