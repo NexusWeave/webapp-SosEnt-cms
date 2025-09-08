@@ -31,7 +31,6 @@
     });
 
     const cls = props.cls;
-    const data = props.data;
     const label = props.label ?? data?.label?.label ?? '';
 
     //console.log("Label.vue : ", props.label);

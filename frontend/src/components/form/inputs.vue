@@ -64,7 +64,7 @@
     });
     const cls = props.cls;
     const data = props.data;
-    const label = data.label.label ?? data.label
+    const label = data.label?.label ?? data.label
     const emit = defineEmits(['inputs']);
 
     const handleInput = (event) => {
