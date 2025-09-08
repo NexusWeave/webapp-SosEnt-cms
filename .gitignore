@@ -1,8 +1,8 @@
 # Logs
 *.log
 *.local
-.DS_Store
-
+*.DS_Store
+*.env
 # Editor directories and files
 *.suo
 *.sln
