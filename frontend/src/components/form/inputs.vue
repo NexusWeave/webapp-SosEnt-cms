@@ -9,7 +9,7 @@
             :id="data.id"
             :class="cls[1]"
             :name="data.name"
-            :value="data.value ?? data.value"
+            :value="data.value"
             :type="data.type ? data.type : 'text'"
             :size="!!data.size ? data.size : '30'"
             :width="!!data.width ? data.width : ''"
