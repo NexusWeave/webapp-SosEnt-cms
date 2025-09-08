@@ -68,9 +68,6 @@
                 }
             }
         }
-    ]
-    {
-        
-    };
+    ];
     //console.log("HeaderView loaded with data: ", content, logo);
 </script>

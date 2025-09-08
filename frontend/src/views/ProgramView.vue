@@ -85,7 +85,7 @@
     const handleSubmit = (inputs) =>
     {
         const memberPassword = import.meta.env.VITE_PASS;
-        const value = inputs.password.trim().toLowerCase();
+        const value = inputs.password;
         if (value === memberPassword) isLoggedIn.value = !isLoggedIn.value;
     };
 
