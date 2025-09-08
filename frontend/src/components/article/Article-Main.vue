@@ -8,7 +8,9 @@
                 !!content.img ? ['grid-container-image', 'article-section'] :
                 ['grid-container-content','article-section']"
                 :key="content.id"> 
+
                 <Figure v-if="!!content.img" :data="content.img" :cls="[['img-grid','figure-container'], 'image']"/>
+                
                 <section :class="['main-grid', 'article-section']">
                     <h4 v-if="content.title"
                     :class="cls[3]">
@@ -69,7 +71,7 @@
             type: Object,
             required: true
         },
-        Cls: {
+        cls: {
             type: Array,
             required: true
         },
@@ -79,11 +81,9 @@
         }
     });
 
-    const cls = props.Cls;
+    const cls = props.cls;
     
     const section = props.data ? props.data : props.Section;
-    
-
 
     //console.log("Article Main Component loaded with data: ", section);
 </script>

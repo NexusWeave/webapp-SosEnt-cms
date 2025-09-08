@@ -13,11 +13,13 @@
 *.tsbuildinfo
 
 # Folders
+dist/
 logs
 .idea
 dist-ssr
 coverage
 node_modules
+frontend/dist
 
 /cypress/videos/
 /cypress/screenshots/

@@ -1,16 +1,18 @@
 //  Importing Sass files for the main styles
-@use './misc'
 @use './utils/mixins' as mix
 @use './colors/colors' as color
 
-@use './footer.sass'
-@use './main/article.sass'
-@use './main/section.sass'
-@use '../node_modules/bootstrap-icons/font/bootstrap-icons'
+@forward './misc'
 
+@forward './footer'
 @forward './flexbox'
-@forward './header.sass'
-
+@forward './navigation'
+@forward './main/article'
+@forward './main/section'
+@forward './utils/inputs'
+@forward './utils/buttons'
+@forward './utils/images'
+@forward '../node_modules/bootstrap-icons/font/bootstrap-icons'
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css")
 
 
@@ -29,17 +31,10 @@ body
     text-rendering: optimizeLegibility
     -webkit-font-smoothing: antialiased
     transition: color 0.5s, background-color 0.5s
+    @include mix.apply-theme-colors(color.$antique-white, color.$Groovy-orange, color.$Groovy-brown)
     font-family: 'Nunito', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
 
-    @include mix.apply-theme-colors(color.$antique-white, color.$Groovy-orange, color.$Groovy-brown)
-
-nav
-    text-align: center
-
 main
-    margin-block: 1em
-    min-block-size: 38vh
-
     section
         display: block
         margin-block: 2em
@@ -47,10 +42,8 @@ main
         div
             margin-block: 1em
 
-footer, header
-    .component-theme
-        border-radius: 0
-        
+    margin-block: 1em
+    min-block-size: 38vh
 
 table
     td, th
@@ -58,21 +51,9 @@ table
         text-align: center
         vertical-align: middle
 
-nav
-    font-size: 1em
+button
+    cursor: pointer
 
 button[disabled]
     opacity: 0.3
     cursor: not-allowed
-
-.button
-    margin: 0.5em
-    font-size: 1em
-    font-weight: bold
-    padding: 0.5em 1em
-    border-radius: 0.5em
-    border: 1px solid color.$Groovy-brown
-    @include mix.background-color(color.$Groovy-orange, color.$soft-white)
-
-.title-h2
-    text-align: center

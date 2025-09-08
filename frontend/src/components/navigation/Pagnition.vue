@@ -1,8 +1,8 @@
 <template>
     <nav :class="cls[0]">
-        <Btn :data="btn[0]"/>
+        <Btn :data="btn[0]" :cls="['button', 'orange-btn']"/>
         <span :class="cls[1]"> {{ activePage > 0 ?  activePage + ' / ' + totalPages : '' }}</span>
-        <Btn :data="btn[1]"/>
+        <Btn :data="btn[1]" :cls="['button', 'orange-btn']"/>
     </nav>
 </template>
 
@@ -27,17 +27,14 @@
             type: Number,
             required: false,
         },
-        Cls:
+        cls:
         {
             type: Array,
             required: false
         },
     });
 
-    const data = props.data;
-    const cls = props.Cls ? props.Cls : [];
-
-    //  Watch for changes in the 'data' prop
+    const cls = props.cls;
     const activePage = ref(props.activePage);
 
     watch(() => props.activePage, (newValue) => 
@@ -57,7 +54,7 @@
             {
                 id: 0,
                 label: 'Forrige',
-                cls: ['button', 'pagnition-btn'],
+                
                 disabled: activePage.value <= 1 ? 'disabled' : false,
                 action: () => { if (activePage.value > 1)  activePage.value--; },
 

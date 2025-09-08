@@ -1,17 +1,17 @@
 <template>
     <button 
-        :class="btn.cls"    
+        :class="cls"    
         :type="btn ? btn.type : 'button'"
         @click="btn.action()"     
         :disabled="btn.disabled">
+
         <template v-if="btn.anchor">
             <Anchor :data="btn.anchor" v-if="btn.anchor"/>
         </template>
 
         <template v-else>
             {{ btn.label }}
-        </template>    
-            
+        </template>
     </button>
 </template>
 
@@ -26,6 +26,10 @@
             type: Object,
             required: true
         },
+        cls: {
+            type: Array,
+            default: () => []
+        }
     });
 
     const btn = props.data;

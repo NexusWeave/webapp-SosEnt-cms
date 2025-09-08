@@ -3,7 +3,7 @@
     <Articles  v-if="news.recent.length > 0"
         v-for="article in news.recent" :key="article.id" 
         :data="article"
-        :Cls="[ article.id % 2 ? 'flex-wrap-row-justify-space-around' : 
+        :cls="[ article.id % 2 ? 'flex-wrap-row-justify-space-around' : 
         'flex-row-reversed-justify-space-around-align-content-center',
         'article-ingress', article.cls[0],article.cls[1], 
         'news-article']"/>
@@ -11,7 +11,7 @@
     <section v-if="news.archived.length > 0">
         <h2 :class="page.section.cls"> {{ page.section.title }}</h2>
         <Pagnition v-if="archived.total > 1"
-            :Cls="archived.cls"
+            :cls="archived.cls"
             :totalPage="archived.total" 
             :activePage="archived.activePage"
             @update="(page) => archived.activePage = page" />
@@ -20,7 +20,7 @@
                 :class="[news.data.cls[1]]" >
             <Articles  v-for="article in archived.articles" :key="article.id"
                 :data="article" 
-                :Cls="[['flex-column-align-items-center', 'article-section'],
+                :cls="[['flex-column-align-items-center', 'article-section'],
             'article-section', article.cls[0], article.cls[1], 'news-card']"/>
         </section>
     </section>
@@ -38,7 +38,7 @@
 
     const page = reactive(
         {
-            title: 'Siste nytt fra foreningen',
+            title: 'Nyheter fra SosEnt Norge',
             cls: ['flex-wrap-row-justify-center'],
             section: {
                 title: 'Nyhetsarkiv',

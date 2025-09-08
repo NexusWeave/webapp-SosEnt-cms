@@ -7,10 +7,6 @@
 @use '../mappings/devices-breakpoints' as devices
 
 @mixin grid-layout()
-    grid-template-rows: 100%
-    grid-template-columns: 1fr
-    grid-template-areas: "content"
-
     @include media-queries($breakpoint: 'M')
         font-size: 1.3em
 
@@ -44,6 +40,10 @@
         grid-row: auto
         grid-area: image
 
+    grid-template-rows: 100%
+    grid-template-columns: 1fr
+    grid-template-areas: "content"
+
 @mixin media-queries ($size: null, $breakpoint: null)
 
     @if $breakpoint == 'prefers-color-scheme' and $size == null
@@ -70,13 +70,6 @@
             @content
 
 @mixin apply-theme-colors($bg-color, $border, $text-color)
-
-    $color-border: $border
-    border: $border
-    color: $text-color
-    border-radius: 0.5em
-    background-color: $bg-color
-
     h1, h2
         font-weight: 600
     
@@ -88,49 +81,46 @@
             font-size: 1.5em
             font-weight: bold
     
-@mixin light-component-theme($color, $padding-block: .5em)
+    border: $border
+    color: $text-color
+    border-radius: 0.5em
+    background-color: $bg-color
 
-    $color-text: color.$soft-white
-    $color-link: rgba($color, 0.6)
-    $color-border: rgba($color, 0.2)
-    $bg-color: rgba($color, 0.1)
-
-
-    @if  $color == color.$Groovy-brown
-        $bg-color: rgba($color, 1)
-        $color-link: color.$Groovy-yellow
-        $color-text: rgba(color.$soft-white, 0.8)
-        $color-border: rgba(color.$Groovy-orange, 0.2)
-        
+@mixin component-theme($border-color, $pad-block: .3em, $font-size: 1em)
 
     p
-        padding-block-start: $padding-block
+        font-size: $font-size
+        padding-block-start: $pad-block
 
     img
-        padding-block-start: $padding-block
+        inline-size: 100%
+        padding-block-start: $pad-block
     
     h1, h2, h3, h4, h5, h6
         font-weight: bold
-        color: rgba($color-text, 1)
-        padding-block-start: $padding-block
+        padding-block-start: $pad-block
+   
+    .icon
+        color: $border-color
 
     border-radius: 0.5em
-    @include background-color($bg-color, $color-text, $color-link)
 
-@mixin link-color($color, $font-size, $color-hover, $color-active, $color-visited)
+@mixin base-btn($border-color)
+    margin: 0.5em
+    font-size: 1em
+    font-weight: bold
+    padding: 0.5em 1em
+    border-radius: 0.5em
+    border: 1px solid $border-color
 
-    $color: rgba($color, 1)
-    a[aria-disabled="true"]
-        color: #a0a0a0
-        cursor: not-allowed
-        pointer-events: none
-        text-decoration: none
+@mixin link-color($color, $color-hover, $color-active, $color-visited)
 
     a
-        color: $color
-        font-size: $font-size
-        text-decoration: none
-
+        [aria-disabled="true"]
+            color: #a0a0a0
+            cursor: not-allowed
+            pointer-events: none
+            text-decoration: none
         &:active
             color: $color-active
         
@@ -146,40 +136,13 @@
         h1, h2, h3, h4, h5, h6
             color: $color !important
 
-        .read-more
-            padding: 0.1em
-            display: inline-block
+        color: $color
+        text-decoration: none
 
-@mixin background-color($bg-color, $text-color, $link-color:null, $font-size: null, $color-hover: null, $color-active: null, $color-visited: null)
-
-    @if $font-size == null
-        $font-size: 1.3em
-
-    @if not $link-color
-        $link-color: $text-color
-
-    @if $link-color == color.$Groovy-yellow
-        $color-active: rgba(color.$Groovy-green, 1) !important
-        $color-hover: rgba(color.$Groovy-green, 0.8) !important
-        $color-visited: rgba(color.$Groovy-orange, 0.3) !important
-
-    @else if $link-color == color.$Groovy-orange
-        $color-active: rgba(color.$Groovy-green, 1) !important
-        $color-hover: rgba(color.$Groovy-green, 0.8) !important
-        $color-visited: rgba(color.$Groovy-orange, 0.3) !important
-
-    @if $color-hover == null
-        $color-hover: rgba($link-color, 0.8)
-    @if $color-active == null
-        $color-active: rgba($link-color, 1)
-    @if $color-visited == null
-        $color-visited: rgba($link-color, 0.3)
+@mixin background-color($bg-color, $text-color)
 
     color: rgba($text-color, 1)
     background-color: rgba($bg-color, 1)
-
-
-    @include link-color($link-color, $font-size, $color-hover, $color-active, $color-visited)
 
 @mixin font($size, $font-family: 'Nunito', $line-height: null)
 
@@ -222,20 +185,18 @@
 
 @mixin icon-generator()
 
-    @each $icon, $props in icon.$icons
-        .#{$icon}
-            font-family: "Bootstrap-icons"
-            .icon
-                font-size: 1em
-                display: inline-block
-                
-                content: map.get($props, icon)
-                color : map.get($props, icon-color)
+    @each $name, $group in icon.$icons
+        @each $icon, $prop in $group
+            .#{$icon}
+                i
+                    font-style: normal
 
-                &::before
-                    padding: 0.5em
-                    content: map.get($props, icon)
-                    color : map.get($props, icon-color)
+                .icon
+                    &::before
+                        content: map.get($prop, icon)
+                        color : map.get($prop, icon-color)
+
+                font-family: "Bootstrap-icons"
 
 @mixin tag-generator()
 
@@ -245,8 +206,37 @@
             padding: 0.5em 0.5em
             border-radius: 0.5em
             display: inline-block
-            @include background-color(map.get($props, bg-color), map.get($props, txt-color), map.get($props, link-color))
+            @include background-color(map.get($props, bg-color), map.get($props, txt-color))
+            @include link-color( map.get($props, link-color), map.get($props, hover-color), map.get($props, active-color), map.get($props, visited-color))
 
         span.tags
             font-size: 0.7em
             font-weight: bold
+
+@mixin input-generator($border-color)
+
+    @each $type, $props in icon.$inputs
+        @if $type == 'inputControls'
+            @each $input in $props
+                input[type="#{$input}"]
+                    block-size: 2em
+                    padding-block: 1em
+                    padding-inline: 2em
+                    border-radius: 0.5em
+                    border: 1px solid $border-color
+
+@mixin button-pallette($bg-color, $text-color, $border-color: null)
+
+    @if $border-color == null
+        border: none
+    @else
+        border: 1px solid $border-color
+
+    margin: 0.5em
+    font-size: 1em
+    cursor: pointer
+    font-weight: bold
+    padding: 0.5em 1em
+    border-radius: 0.5em
+    display: inline-block
+    @include background-color($bg-color, $text-color)

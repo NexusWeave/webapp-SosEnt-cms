@@ -1,28 +1,28 @@
 <template>
-    <Btn  v-if="isArticlePage" :data="anchor"/>
+    <Btn  v-if="isArticlePage" :data="anchor" :cls="['orange-btn']"/>
     <section :class="cls[0]">
         <section :class="cls[1]">
             <Figure  v-if="!isArticlePage && !isNewsPage ||  article.archived"
-                :data="article.img" :cls="article.img.cls" />
+                :data="article.img" :cls="['article-figure']" />
             
                 
-            <h2 :class="cls[2]"> {{ article.title }}</h2>
+            <h2> {{ article.title }}</h2>
             <p>
-                <Date :data="article.date" :Cls="['article-date', 'calendar']" />
+                <Date :data="article.date" :cls="['article-date', 'calendar']" />
                 
                 <span v-if="!!article.tags" :class="cls[3]" >
                     <Tags v-for="tag in article.tags"
                         :key="tag.id" :data="tag" :cls="[tag.cls]"/>
                 </span>
             </p>
-            <p>{{ article.ingress.content }}</p>
+            <p> {{ article.ingress.content }}</p>
             <Menu v-if="!isArticlePage && article.section"
-                :data="[anchor]"/>
+                :data="[anchor]" :cls="[[''], [''], ['', 'flex-wrap-row-justify-flex-start'], ['read-more']]"/>
 
-            <Figure  v-if="isArticlePage" :data="article.img" :cls="article.img.cls"/>
+            <Figure  v-if="isArticlePage" :data="article.img" :cls="['article-figure']" />
         </section>
         <section :class="cls[1]" v-if="isNewsPage && !isArticlePage && !article.archived">
-            <Figure :data="article.img" :cls="article.img.cls"/>
+            <Figure :data="article.img" :cls="['article-figure']" />
         </section>
     </section>
 </template>
@@ -38,7 +38,6 @@
     import Figure from '@/components/media/Figure.vue';
     import Btn from '@/components/navigation/Button.vue';
     import Menu from '@/components/navigation/NavMenu.vue';
-    import Anchor from '@/components/navigation/Anchor.vue';
 
     const props = defineProps({
         article: {
@@ -53,20 +52,20 @@
             type: Boolean,
             required: false
         },
-        Cls: {
+        cls: {
             type: Array,
             default: () => []
         }
     });
     
-    const cls = props.Cls;
+    const cls = props.cls;
     const article = props.article;
     const isNewsPage = props.isNewsPage;
     const isArticlePage = props.isArticlePage;
 
     const anchor = computed(() => {
         return isArticlePage ? {
-            cls: ['button', 'read-more'],
+
             label: 'Gå tilbake',
             action: () => { window.history.back() }
         } : { type: 'anchor', anchor: article.anchor };

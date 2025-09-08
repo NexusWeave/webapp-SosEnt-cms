@@ -1,6 +1,6 @@
 //  This file is a part of the SoSEnT web application project.
 import { defineStore } from 'pinia';
-import { fetchMedia } from '@/services/sosent-media-api.js';
+import { generateHexID } from '@/utils/utils.js';
 
 export const mediaStore = defineStore('mediaData',
     {
@@ -24,6 +24,8 @@ export const mediaStore = defineStore('mediaData',
                 const paths = this.paths;
                 const media = this.data.media;
 
+                item.id = generateHexID();
+
                 switch (item.type)
                 {
                     case 'pdf':
@@ -42,23 +44,24 @@ export const mediaStore = defineStore('mediaData',
                 //console.warn('Media added:', item.label);
             },
 
-            fetchMedia()
+            async fetchData()
             { 
                 const media = this.data;
                 if (media.isLoaded) return;
 
-                fetchMedia().then((data) =>
-                    {
-                        data.forEach((item) => {
-                            this.addMedia(item);
-                            
-                        });
-                        media.isLoaded = true;
-                    }).catch((error) =>
-                    {
-                        this.data.isLoaded = false;
-                        console.error("Error fetching media: ", error);
+                const path = '/apis/sosent-media-api.json';
+                await fetch(path).then((response) => response.json()).then((data) => {
+                    data.data.forEach((item) => {
+                        this.addMedia(item);
                     });
+                    media.isLoaded = true;
+                }).catch((error) =>
+                {
+
+                    this.data.isLoaded = false;
+                    console.error("Error fetching media: ", error);
+
+                });
             },
 
         },

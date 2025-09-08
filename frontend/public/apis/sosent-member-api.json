@@ -1,0 +1,58 @@
+
+{
+    "data":
+    [
+        {
+            "isActive": true,
+            "description": "Beskrivelse av medlem 1.",
+
+            "anchor":
+            {
+                "label": "Medlem 1",
+                "href": "https://www.example.com"
+            }
+        },
+        {
+
+            "isActive": true,
+            "label": "Medlem 2",
+            "description": "Beskrivelse av medlem 2."
+        },
+        {
+            "isActive": true,
+            "description": "Beskrivelse av medlem 3.",
+            "anchor": 
+            {
+                "label": "Medlem 3",
+                "href": "https://www.example.com"
+            }
+        },
+        {
+            "isActive": true,
+            "description": "Beskrivelse av medlem 4.",
+            "anchor": 
+            {
+                "label": "Medlem 4",
+                "href": "https://www.example.com"
+            }
+        },
+        {
+            "isActive": true,
+            "description": "Beskrivelse av medlem 5.",
+            "anchor": 
+            {
+                "label": "Medlem 5",
+                "href": "https://www.example.com"
+            }
+        },
+        {
+            "isActive": true,
+            "description": "Beskrivelse av medlem 6.",
+            "anchor": 
+            {
+                "label": "Medlem 6",
+                "href": "https://www.example.com"
+            }
+        }
+    ]
+}
