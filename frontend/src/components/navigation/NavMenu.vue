@@ -57,7 +57,7 @@
     const cls = props.cls;
     const data = props.data;
     
-console.log("NavigationMenu loaded with data: ", data );
+    //console.log("NavigationMenu loaded with data: ", data );
     const isAnchor = computed(() => {
 
         const anchorData = data.filter(item => item.type === 'anchor');
