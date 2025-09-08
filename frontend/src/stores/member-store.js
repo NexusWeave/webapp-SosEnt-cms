@@ -37,7 +37,7 @@ export const memberStore = defineStore('memberData',
                 const media = this.data;
                 if (media.isLoaded) return;
 
-                const path = '/apis/sosent-member-api.json';
+                const path = '/services/sosent-member-api.json';
                 await fetch(path).then((response) => response.json()).then((data) => {
                     data.data.forEach((item) => {
                         this.addMembers(item);

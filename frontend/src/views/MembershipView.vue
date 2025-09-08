@@ -16,7 +16,7 @@
             </section>
         </section>
         <section class="flex-column">
-            <section v-if="!isPartners && partners.partners.length > 0">
+            <section v-if="!!isPartners && partners.partners.length > 0">
                 <h3>Partnere</h3>
                 <section :class="['flex-wrap-row-justify-space-evenly','partner-container']">
                     <Anchor v-for="partner in partners.partners" :key="partner.id"

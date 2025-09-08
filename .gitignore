@@ -1,7 +1,9 @@
 # Logs
 *.log
 *.local
-.DS_Store
+*.DS_Store
+*.env.development
+*.env.production
 
 # Editor directories and files
 *.suo
