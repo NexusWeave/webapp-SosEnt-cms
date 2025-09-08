@@ -1,6 +1,5 @@
 //  This file is a part of the SoSEnT web application project.
 import { defineStore } from 'pinia';
-import { fetchApi } from '@/utils/utils.js';
 
 export const partnerStore = defineStore('partnerData',
     {
