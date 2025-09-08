@@ -5,7 +5,7 @@
         <Menu :data="images" :cls="['logo-container', 'img-list', 'img-item', 'img-container']"/>
         <Menu :data="menu"/>
     </div>
-    <section class="">
+    <section class="flex-column-align-items-center">
         <h1>{{ content.title }}</h1>
         <p>{{ content.text }}</p>
     </section>
