@@ -84,9 +84,10 @@
 
     const handleSubmit = (inputs) => {
         const value = inputs.filter(input => input.name === 'password')?.[0]?.value;
-        console.warn("Form retrived with data: ", inputs, value);
+        const pass = import.meta.env.VITE_APP_MEMBER_PASS;
+        //console.warn("Form retrived with data: ", inputs, value);
 
-        if (value === "x") isLoggedIn.value = !isLoggedIn.value;
+        if (value === pass) isLoggedIn.value = !isLoggedIn.value;
 
     };
 
