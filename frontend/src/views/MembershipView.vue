@@ -16,27 +16,31 @@
             </section>
         </section>
         <section class="flex-column">
-            <h3 v-if="isPartners">Partnere</h3>
-            <section v-if ="isPartners"
-                :class="['flex-wrap-row-justify-space-evenly','partner-container']">
-                <Anchor v-for="partner in partners.partners" :key="partner.id"
-                    :data="partner.anchor"
-                    :cls="['partner-content', 'partner-img']"/>
+            <section v-if="!isPartners && partners.partners.length > 0">
+                <h3>Partnere</h3>
+                <section :class="['flex-wrap-row-justify-space-evenly','partner-container']">
+                    <Anchor v-for="partner in partners.partners" :key="partner.id"
+                        :data="partner.anchor"
+                        :cls="['partner-content', 'partner-img']"/>
+                </section>
             </section>
             
-            <h3 v-if ="isMembers">Medlemmer</h3>
-            <section v-if ="isMembers" class="member-container">
-                <List
-                    :data="members"
-                    :cls="['member-list', 'member-item']"
+            <section v-if ="isMembers && members.members.length > 0">
+                <h3>Medlemmer</h3>
+                <section class="member-container">
+                    <List :data="members"
+                        :cls="['member-list', 'member-item']"
                     />
+                </section>
             </section>
-            <h3 v-if ="isMedia">Foreningens dokumenter</h3>
-            <section v-if ="isMedia">
-                <Media
-                    :data="media"
-                    filter="medlemskap"
-                    />
+            <section v-if ="isMedia && media.media.length > 0">
+                <h3>Foreningens dokumenter</h3>
+                <section>
+                    <Media
+                        :data="media"
+                        filter="medlemskap"
+                        />
+                </section>
             </section>
 
         </section>

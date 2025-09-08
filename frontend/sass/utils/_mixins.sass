@@ -86,9 +86,10 @@
     border-radius: 0.5em
     background-color: $bg-color
 
-@mixin component-theme($border-color, $pad-block: .3em)
+@mixin component-theme($border-color, $pad-block: .3em, $font-size: 1em)
 
     p
+        font-size: $font-size
         padding-block-start: $pad-block
 
     img
