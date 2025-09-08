@@ -104,14 +104,14 @@
     const handleInput = (event) => {
         event.preventDefault();
 
-        if (!!data.outputs) emits('formData', data.outputs);
-        if (!!data.dataList) emits('formData', data.dataList);
-        if (!!data.textarea) emits('formData', data.textarea);
-        if (!!data.selections) emits('formData', data.selections);
-        if (!!data.inputControl)emits('formData', data.inputControl);
-        if (!!data.booleanControl) emits('formData', data.booleanControl);
-
-        //console.warn("Form submitted with data: ", inputs);
+        // Collect actual form values
+        const form = event.target;
+        const formData = new FormData(form);
+        const values = {};
+        for (const [key, value] of formData.entries()) {
+            values[key] = value;
+        }
+        emits('formData', values);
     };
 
     //console.warn(data.inputs);
