@@ -1,5 +1,6 @@
 @use '../utils/mixins' as mix
 @use '../colors/colors' as color
+
 .grid-container
     display: grid
 
@@ -19,5 +20,7 @@
         grid-template-columns: 1fr minmax(0, 2fr) minmax(0, 1fr)
 
 .grid-container-content
-    @include mix.grid-layout()
+    margin: auto
+    font-size: 1.3em
+    max-inline-size: 44em
 

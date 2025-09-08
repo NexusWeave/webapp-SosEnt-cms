@@ -10,14 +10,12 @@
         >
 
         <template v-if="isMedia() === 'img'">
-            <Figure :data="img" :cls="img.cls" />
+            <Figure :data="img" :cls="[cls[1]]" />
         </template>
 
         <template v-else-if="isMedia() == cls[cls.length - 1]">
-            <span :class="cls[0]">
-            <i :class="cls[cls.length - 1]" :aria-label="data.label"></i> 
-                {{ data.label }}
-            </span>
+            <Icon v-if="!!data.label" :label="data.label" :cls="[cls[1], cls[cls.length - 1]]"/>
+            <Icon v-else :cls="[cls[1], cls[cls.length - 1]]"/>
         </template>
 
         <template v-else>
@@ -32,6 +30,7 @@
 
     import { defineProps } from 'vue';
 
+    import Icon from '@/components/media/Icon.vue';
     import Figure from '@/components/media/Figure.vue';
 
     const props = defineProps({
@@ -39,7 +38,7 @@
             type: Object,
             required: true
         },
-        Cls: {
+        cls: {
             type: [String, Array],
             required: false,
         },
@@ -57,17 +56,16 @@
         downloadFiles: ['docx', 'xlsx', 'csv'],
     }
 
-    const data = props.data;
-    const img = !!data.img ? data.img : null;
-
     const classList = () => {
-        const cls = props.Cls ? props.Cls : (Array.isArray(data.cls) ? data.cls : [data.cls]);
+        const cls = props.cls ? props.cls : (Array.isArray(data.cls) ? data.cls : [data.cls]);
         cls.push('icon');
 
         return cls;
     };
-    
+
+    const data = props.data;
     const cls = classList();
+    const img = !!data.img ? data.img : null;
     
     const isExternal = () => {
         if (!data.type) return false;

@@ -18,13 +18,10 @@ const router = createRouter({
       beforeEnter: async (to, from, next) => {
 
         const news = newsStore();
-        await news.fetchNews();
-        
-        const media = mediaStore();
-        await media.fetchMedia();
+        await news.fetchData();
 
         const organization = organizationStore();
-        await organization.fetchOrganization();
+        await organization.fetchData();
 
         !!news.article && !!organization.team && media.media ? next() : next();
       }
@@ -33,6 +30,15 @@ const router = createRouter({
       name: 'news',
       path: '/aktuelt',
       component: () => import('../views/NewsView.vue'),
+
+      beforeEnter: async (to, from, next) => {
+
+        const news = newsStore();
+        await news.fetchData();
+
+        news.articles ? next() : next('/404');
+        
+      }
     },
     {
       name: 'article',
@@ -41,10 +47,10 @@ const router = createRouter({
       beforeEnter: async (to, from, next) => {
 
         const news = newsStore();
-        await news.fetchNews();
+        await news.fetchData();
 
         const media = mediaStore();
-        await media.fetchMedia();
+        await media.fetchData();
 
         news.articles ? next() : next('/404');
         
@@ -54,6 +60,13 @@ const router = createRouter({
       name: 'program',
       path: '/fordeler',
       component: () => import('../views/ProgramView.vue'),
+
+      beforeEnter: async (to, from, next) => {
+      const media = mediaStore();
+      await media.fetchData();
+
+      media.isLoaded ? next() : next('/404');
+      }
     },
     {
       name: 'membership',
@@ -64,20 +77,31 @@ const router = createRouter({
       {
 
         const members = memberStore();
-        await members.fetchMembers();
+        await members.fetchData();
         
         const media = mediaStore();
-        await media.fetchMedia();
+        await media.fetchData();
 
         const partners = partnerStore();
-        await partners.fetchPartners();
+        await partners.fetchData();
 
         members.isLoaded && partners.isLoaded && media.isLoaded ? next() : next();
       }
 
     },
-    
+    {
+      name: '404',
+      path: '/404',
+      component: () => import('../views/error/404.vue'),
 
+    },
+    {
+      name: '500',
+      path: '/500',
+      component: () => import('../views/error/500.vue'),
+
+    },
+  
     {
       name: 'file-redirect',
       path: '/media/files/:pathMatch(.*)*',

@@ -1,0 +1,67 @@
+@use 'utils/mixins' as mix
+@use 'colors/colors' as color
+
+nav
+    ul
+        margin-block: .5em
+        max-inline-size: 100%
+
+    font-size: 1em
+    padding-block: 1em 0em
+
+.nav-bar
+    ul
+        .nav-list
+            @include mix.media-queries($breakpoint: 'M')
+                padding-inline-start: 4em
+
+        padding: 0
+        max-inline-size: 100%
+    li
+        .nav-item
+            max-inline-size: 15em
+            margin-inline-end: 1em
+
+        .nav-link
+            transition: 0.4s
+            padding: 0.5em 1.5em
+            text-decoration: none
+
+        list-style: none
+
+    font-size: 1em
+    min-inline-size: 10em
+    max-inline-size: 100%
+    padding-block: 3em 3em
+
+.logo-container
+    ul
+        @include mix.media-queries($breakpoint: 'M')
+            padding-inline-start: 1em
+
+        li
+            list-style: none
+            max-inline-size: 15em
+            margin-inline-end: 4em
+
+        padding: 0
+
+.router-link-exact-active
+    font-weight: 600
+    color: color.$Groovy-green !important
+
+.router-link-exact-active:hover
+    background: transparent
+
+.member-container
+    ul
+        li
+            padding: .5em
+            list-style: none
+            margin-block: .5em
+            @include mix.background-color(color.$soft-white, color.$Groovy-brown)
+            @include mix.link-color(color.$Groovy-orange, color.$Groovy-green, color.$Groovy-green, color.$Groovy-orange)
+
+        padding: 0
+        max-inline-size: 45em
+

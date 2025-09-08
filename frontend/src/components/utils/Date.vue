@@ -13,21 +13,18 @@
         </time>
 
         <template v-if="cls.includes('icon')">
-            <span :class="cls[1]">
-                
-                <i :class="cls[cls.length - 1]" :aria-label="dateObject.type"></i>
+            <span class="calendar">
+                <Icon :cls="cls"/>
             </span>
         </template>
     </span>
 
-    <span :class="cls" v-if="data.anchor">
-        <Anchor :data="data"/>
-    </span>
+
 </template>
 <script setup>
     import { defineProps } from 'vue';
 
-    import Anchor from '@/components/navigation/Anchor.vue';
+    import Icon from '@/components/media/Icon.vue';
 
     const props = defineProps({
         data: {
@@ -35,7 +32,7 @@
             required: false
         },
         
-        Cls: {
+        cls: {
             type: Array,
             required: false
         },
@@ -44,7 +41,7 @@
     const data = props.data;
     const classList =() =>
     {
-        const cls = props.Cls ? props.Cls : [];
+        const cls = props.cls ?? [];
         const icons = ['calendar'];
 
 

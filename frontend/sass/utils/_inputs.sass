@@ -1,0 +1,11 @@
+@use '../utils/mixins' as mix
+@use '../colors/colors' as color
+
+form.form-container
+    inline-size: 17em
+
+input.radio-btn
+    block-size: 1em
+    inline-size: 7em
+
+@include mix.input-generator(color.$Groovy-orange)
