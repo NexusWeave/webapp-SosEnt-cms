@@ -20,7 +20,7 @@ export const newsStore = defineStore('newsData',
             {
                 article.archived = false;
 
-                article.cls = ['title-h2', 'tags'];
+                article.cls = ['tags'];
 
                 if (article.tags)
                 {
@@ -95,8 +95,7 @@ export const newsStore = defineStore('newsData',
 
             sortArticlesByDate()
             {
-                const articles = reactive(this.data.articles);
-                this.data.articles = articles.sort((a, b) => new Date(a.date) - new Date(b.date));
+                this.data.articles = this.data.articles.sort((a, b) => new Date(b.date.published) - new Date(a.date.published));
 
                 this.archiveArticle();
             },
