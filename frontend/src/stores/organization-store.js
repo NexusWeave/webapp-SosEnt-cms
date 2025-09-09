@@ -66,7 +66,7 @@ export const organizationStore = defineStore('organizationData',
             },
             async fetchData()
             { 
-                if (this.data.isLoaded) return;
+                if (this.data.team.isLoaded) return;
 
                 const path = '/services/sosent-organization-api.json';
                 await fetch(path).then((response) => response.json()).then((data) => 
