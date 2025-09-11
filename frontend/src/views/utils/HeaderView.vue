@@ -40,7 +40,7 @@
           type: 'router',
           href: '/fordeler',
           id: generateHexID(),
-          label: 'Medlemsfordeler',
+          label: 'Medlemsportal',
         },
         {
           type: 'router',
