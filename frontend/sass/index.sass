@@ -22,8 +22,8 @@
     box-sizing: border-box
     writing-mode: horizontal-tb
 
-
-body 
+body
+    
     font-size: 1em
     line-height: 1.6
     min-block-size: 100vh
@@ -35,8 +35,10 @@ body
     font-family: 'Nunito', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
 
     h2 
-        font-size: 2em
-        margin-block: 0.5em 0.75em
+        @include mix.media-queries($breakpoint: 'M')
+            font-size: 2em
+            margin-block: 0.5em 0.75em
+
         text-align: center
 
 main
@@ -49,6 +51,9 @@ main
 
     margin-block: 1em
     min-block-size: 38vh
+
+    @include mix.media-queries($breakpoint: 'S')
+    padding: 1em    
 
 table
     td, th

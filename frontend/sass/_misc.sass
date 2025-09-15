@@ -4,12 +4,14 @@
 @use './colors/colors' as color
 
 .component-theme
-    border-radius: 0
+    img
+        inline-size: 100%
+
     padding-block: 1em
-    @include mix.component-theme(color.$antique-soft, .5em, 1.3em)
+    
     @include mix.background-color(color.$Groovy-brown, color.$antique-soft)
     @include mix.link-color(color.$Groovy-yellow, color.$Groovy-green, color.$Groovy-green, color.$Groovy-yellow)
-    
+
 
 .section-theme
     @include mix.background-color(color.$antique-soft, color.$Groovy-brown)

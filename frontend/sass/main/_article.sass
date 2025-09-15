@@ -4,7 +4,6 @@
 @forward '../utils/grid'
 
 article.news-card
-
     header
         span.article-date
             display: block
@@ -13,6 +12,7 @@ article.news-card
 
         .article-section
             h2
+
                 text-align: center
                 margin-block-end: .1em
                 color: color.$Groovy-brown
@@ -28,17 +28,15 @@ article.news-card
     &:nth-child(odd)
         margin-block: 1em
         padding-block-end: 1em
-        @include mix.background-color(color.$soft-white, color.$Groovy-brown)
 
-    &:nth-child(even)
-        @include mix.background-color(color.$soft-white, color.$Groovy-brown)
     
     padding: 1em
     margin-block: 0.5em
     border-radius: 0.5em
-    max-inline-size: 27em
+    max-inline-size: 24em
     @include mix.media-queries($breakpoint: 'M')
     box-shadow: 12px 13px 47px 17px rgba(89, 61, 43, 0.2)
+    @include mix.background-color(color.$soft-white, color.$Groovy-brown)
 
 
 article
@@ -55,7 +53,8 @@ article
 
         section.article-ingress
             h2
-                font-size: 3em
+                @include mix.media-queries($breakpoint: 'M')
+                    font-size: 2em
 
             max-inline-size: 50em
 
@@ -121,6 +120,7 @@ article
                         padding: 0.2em
 
                 padding: 1em
+                border-radius: 0.5em
 
         h3
             font-size: 2em
