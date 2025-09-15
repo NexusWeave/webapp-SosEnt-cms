@@ -48,7 +48,7 @@
             type: Array,
             required: false,
             default: () => [['nav-bar', 'flex-wrap-row-justify-space-between'],
-                ['nav-list', 'flex-row-align-items-center'],
+                ['nav-list', 'flex-wrap-row-align-items-center'],
                 ['nav-item'],
                 ['nav-link']]
         }
