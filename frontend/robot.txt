@@ -1,2 +1,2 @@
 User-agent: *
-Disallow: /media/  # Disallow crawling the entire site
+Disallow: *  # Disallow crawling the entire site
