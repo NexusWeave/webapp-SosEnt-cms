@@ -2,7 +2,7 @@
     <section class="flex-column-align-items-center">
         <h2>{{ membership.title }}</h2>
 
-        <section class="flex-column">
+        <section>
             <section v-for="content in membership.content" :key="content.id"
             class="section-content">
                 <h3>{{ content.title }}</h3>
@@ -15,7 +15,8 @@
                 </section>
             </section>
         </section>
-        <section class="flex-column">
+
+        <section>
             <section v-if="!!isPartners && partners.partners.length > 0">
                 <h3>Partnere</h3>
                 <section :class="['flex-wrap-row-justify-space-evenly','partner-container']">
@@ -44,29 +45,19 @@
             </section>
 
         </section>
-        <section class="flex-wrap-row-justify-space-evenly" v-if="!!membership.schema">
-            <section class="flex-column">
-                <section v-for="content in membership.schema.content" :key="content.id"
-                class="section-content">
-                    <h3>{{ content.title }}</h3>
-                    <p>
-                        {{ content.content }}
-                        <Anchor v-if="content.anchor" :data="content.anchor" />
-                    </p>
-
-                    <List v-if="content.list" 
-                    v-for="(list, i) in content.list" :key="i"
-                    :data="list" 
-                    :cls="list.cls"/>
-
+        <section>
+            <section v-for="content in membership.schema.content" :key="content.id"
+            class="section-content">
+                <h3>{{ content.title }}</h3>
+                <p>
+                    {{ content.content }}
+                    <Anchor v-if="content.anchor" :data="content.anchor" />
+                </p>
+                <section v-if="content.list" v-for="(list, i) in content.list" :key="i">
+                <List :data="list"  :cls="list.cls"/>
                 </section>
             </section>
-            <Form
-                @formData="handleSubmit"
-                :data="membership.schema"
-                :cls="membership.schema.cls"
-            />
-        </section>    
+        </section>
     </section>
 </template>
 
@@ -77,7 +68,6 @@
     import { mediaStore } from '@/stores/media-store';
     import { memberStore } from '@/stores/member-store';
     import { partnerStore } from '@/stores/partner-store.js';
-    import { generateHexID } from '@/utils/utils.js';
 
     import List from '@/components/utils/List.vue';
     import Form from '@/components/form/Form.vue';
@@ -165,88 +155,14 @@
                     }
                 ],
             },
-
         ],
 
         schema: {
-            
-            /*name: 'membershipForm',
-            title:'Meld Interesse',
-            action: 'submitMembershipForm',
-            description: 'Bli medlem i SoSEnT Norge',
-            cls: [['form-container', 'flex-column'], 'input-group'],
-            icon: true,
-
-            inputControl:
-            [
-                {
-                    type: 'text',
-                    required: true,
-                    id: 'name-field',
-                    placeholder: 'E.G Ole Nordmann',
-
-                    label:
-                    {
-                        icon: true,
-                        label: 'Navn'
-                    },
-                },
-                {
-                    type: 'email',
-                    required: true,
-                    id: 'email-field',
-                    placeholder: 'E.G ole.nordmann@example.com',
-
-                    label:
-                    {
-                        icon: true,
-                        label: 'E-post',
-                    },
-                },
-                {
-                    type: 'tel',
-                    name: 'phone',
-                    required: true,
-                    id: 'telephone-field',
-                    placeholder: 'E.G +47 12 34 56 78',
-
-                    label:
-                    {
-                        icon: true,
-                        label: 'Telefon nummer',
-                    },
-                },
-            ],
-            booleanControl: 
-            [
-                {
-                    value: false,
-                    type: 'radio',
-                    name: 'contact',
-                    id: 'contact-radio',
-                    label: 'Kontakt meg :)',
-
-                    cls: ['flex-wrap-row-start', 'radio-btn'],
-                }
-            ],
-            btn:
-            [
-                {
-                    type: 'submit',
-                    label: 'Send inn',
-                    id: generateHexID(),
-                },
-                {
-                    type: 'reset',
-                    id: generateHexID(),
-                    label: 'Start på nytt',
-                }
-            ],*/
             content:
             [
                 {
                     id: 1,
-                    title: 'Meld Interesse',
+                    title: 'Innmelding til Sosent',
                     content:`Er du – eller er du i ferd med å bli – en sosial entreprenør?
                     Da kan du melde din interesse for medlemskap i SosEnt Norge. Det er helt
                     uforpliktende og innebærer ikke innmelding.`,
@@ -254,9 +170,9 @@
                     anchor:
                     {
                         cls: ['card-data'],
-                        label: 'Meld interesse her',
+                        label: 'Meld deg inn her',
                         type: ['external'],
-                        href: 'mailto:' + 'rune.kvarme' + '@' + 'samfunnsbedriftene.no',
+                        href: 'https://eu1.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhBO2mDHdknLOCKrU3vTgMAnMTgZFm_OfCeF0vH1gdy-9OyP13WiDEutOM256WcRMCc*',
                     },
                 }
             ]
