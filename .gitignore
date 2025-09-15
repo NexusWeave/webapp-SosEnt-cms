@@ -9,7 +9,7 @@
 *.suo
 *.sln
 *.sw?
-*.css*
+
 *.ntvs*
 *.njsproj
 *.tsbuildinfo
