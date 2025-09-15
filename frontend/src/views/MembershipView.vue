@@ -70,7 +70,6 @@
     import { partnerStore } from '@/stores/partner-store.js';
 
     import List from '@/components/utils/List.vue';
-    import Form from '@/components/form/Form.vue';
     import Media from '@/components/media/Media.vue';
     import Anchor from '@/components/navigation/Anchor.vue';
     
