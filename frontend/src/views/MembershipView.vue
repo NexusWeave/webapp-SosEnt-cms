@@ -178,19 +178,5 @@
             ]
         }
     };
-
-    const handleSubmit = (inputs) => {
-
-        const inputData = 
-        {
-            name: inputs.name.value,
-            email: inputs.email,
-            phone: inputs.phone,
-            member: inputs.member,
-            contact: inputs.contact
-        };
-        
-        // Handle form submission logic here
-    };
     //console.warn("Membership View: ", isMembers.value, isMedia.value, isPartners.value);
 </script>
