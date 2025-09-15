@@ -5,7 +5,7 @@
         <section>
             <section v-for="content in membership.content" :key="content.id"
             class="section-content">
-                <h3>{{ content.title }}</h3>
+                <h3> {{ content.title }} </h3>
                 <p>
                     {{ content.content }}
                     <Anchor v-if="content.anchor" :data="content.anchor" />
@@ -18,7 +18,7 @@
 
         <section>
             <section v-if="!!isPartners && partners.partners.length > 0">
-                <h3>Partnere</h3>
+                <h3> Partnere </h3>
                 <section :class="['flex-wrap-row-justify-space-evenly','partner-container']">
                     <Anchor v-for="partner in partners.partners" :key="partner.id"
                         :data="partner.anchor"
@@ -27,7 +27,7 @@
             </section>
             
             <section v-if ="isMembers && members.members.length > 0">
-                <h3>Medlemmer</h3>
+                <h3> Medlemmer </h3>
                 <section class="member-container">
                     <List :data="members"
                         :cls="['member-list', 'member-item']"
@@ -48,7 +48,7 @@
         <section>
             <section v-for="content in membership.schema.content" :key="content.id"
             class="section-content">
-                <h3>{{ content.title }}</h3>
+                <h3> {{ content.title }} </h3>
                 <p>
                     {{ content.content }}
                     <Anchor v-if="content.anchor" :data="content.anchor" />
