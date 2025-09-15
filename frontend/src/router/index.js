@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 import { mediaStore } from '@/stores/media-store';
 import { newsStore } from '@/stores/news-store.js';
