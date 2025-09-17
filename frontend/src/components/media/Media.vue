@@ -2,7 +2,7 @@
     <section :class="[cls[0], cls[1]]" :data-filetype="media.type">
         <section v-for="media in media" :key="media.id"
             :class="cls[2]">
-            <h4 class="title-h4">
+            <h4>
                 <Anchor :data="media.anchor"
                     :cls="[media.type]" />
             </h4>

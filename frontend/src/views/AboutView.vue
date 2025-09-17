@@ -8,14 +8,17 @@
 
     <section class="flex-column-align-items-center">
         <section class="section-content">
-                <h2> {{ organization.title }}</h2>
-                <p v-for="paragraph in organization.content"
-                    :key="paragraph.id">{{ paragraph }}</p>
+                <h2> {{ organization.title }} </h2>
+                <p v-for="paragraph in organization.content" :key="paragraph.id">
+                    {{ paragraph }}
+                </p>
         </section>
 
         <section v-if="organization.team.isLoaded"
             :class="['flex-column-align-content-center', 'card-container']">
-            <h2 class="flex-wrap-row-justify-center"> {{ organization.team.title }}</h2>
+            <h2 class="flex-wrap-row-justify-center">
+                {{ organization.team.title }}
+            </h2>
 
             <section v-if="organization.team.isLoaded"
                 class="flex-wrap-row-justify-space-evenly">
@@ -23,8 +26,8 @@
                 <div v-for="person in organization.team.team" 
                     :class="[['card-content', 'component-theme'],'title-h4']" :key="person.id">
                     <Figure v-if="person.img" :data="person.img" />
-                    <h2>{{ person.name }}</h2>
-                    <h3>{{ person.title }}</h3>
+                    <h2> {{ person.name }} </h2>
+                    <h3> {{ person.title }} </h3>
                         <p v-for="contact in person.contactInfo" :key="contact.id">
                             <Anchor :data="contact.anchor" :cls="[contact.anchor.type[0], 'title-h4']"/>
                         </p>
