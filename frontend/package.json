@@ -1,14 +1,13 @@
 {
   "name": "frontend",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "start": "vite preview",
-    "sass": "sass sass:src/assets --watch",
-    "serve": "cd dist && serve --single"
+    "start": "vite build && vite preview",
+    "sass": "sass sass:src/assets --watch"
   },
   "dependencies": {
     "axios": "^1.10.0",
