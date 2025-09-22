@@ -1,9 +1,7 @@
 <template>
     <section class="flex-column-align-items-center">
         <h2>{{ membership.title }}</h2>
-
-        <section>
-            <section v-for="content in membership.content" :key="content.id"
+        <section v-for="content in membership.content" :key="content.id"
             class="section-content">
                 <h3> {{ content.title }} </h3>
                 <p>
@@ -105,7 +103,25 @@
                  for å løfte frem sosialt entreprenørskap i Norge – og som
                  medlem får du mulighet til å påvirke utviklingen av
                  sektoren.`,
-                list:
+            },
+        ],
+
+        schema: {
+            content:
+            [
+                {
+                    id: 1,
+                    title: 'Innmelding til Sosent',
+                    content:`Som medlem i SosEnt Norge blir du en del av et engasjert felleskap av sosiale entreprenører fra hele landet. Du får tilgang til et verdifullt nettverk, nyttige ressurser og støtte ordninger som kan styrke din virksomhet. Vi jobber for å løfte frem sosialt entreprenørskap i Norge - og som medlem får du mulighet til å påvirke utviklingen av sektoren`,
+
+                    anchor:
+                    {
+                        cls: ['card-data'],
+                        label: 'Meld deg inn her',
+                        type: ['external'],
+                        href: 'https://eu1.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhBO2mDHdknLOCKrU3vTgMAnMTgZFm_OfCeF0vH1gdy-9OyP13WiDEutOM256WcRMCc*',
+                    },
+                    list:
                 [
                     {
                         id: 0,
@@ -142,46 +158,27 @@
                             {
                                 id: 0,
                                 cls: ['list-item'],
-                                bullet:`Virksomheter med 1–2 årsverk: <b>1 000 kr</b>`,
+                                bullet:`Virksomheter med 1–2 årsverk: 1 000 kr`,
                             },
                             {
                                 id: 1,
                                 cls: ['list-item'],
-                                bullet:`Virksomheter med 3–5 årsverk: <b>3 000 kr</b>`,
+                                bullet:`Virksomheter med 3–5 årsverk: 3 000 kr`,
                             },
                             {
                                 id: 2,
                                 cls: ['list-item'],
-                                bullet:`Virksomheter over 5 ansatte: <b>5 000 kr</b>`,
+                                bullet:`Virksomheter over 5 ansatte: 5 000 kr`,
                             },
                             {
                                 id: 3,
                                 cls: ['list-item'],
-                                bullet:`Støttemedlemmer: <b>Etter Avtale</b>`,
+                                bullet:`Støttemedlemmer: Etter Avtale`,
                             },
                         ],
                     }
                 ],
-            },
-        ],
 
-        schema: {
-            content:
-            [
-                {
-                    id: 1,
-                    title: 'Innmelding til Sosent',
-                    content:`Er du – eller er du i ferd med å bli – en sosial entreprenør?
-                    Da kan du melde din interesse for medlemskap i SosEnt Norge. Det er helt
-                    uforpliktende og innebærer ikke innmelding.`,
-
-                    anchor:
-                    {
-                        cls: ['card-data'],
-                        label: 'Meld deg inn her',
-                        type: ['external'],
-                        href: 'https://eu1.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhBO2mDHdknLOCKrU3vTgMAnMTgZFm_OfCeF0vH1gdy-9OyP13WiDEutOM256WcRMCc*',
-                    },
                 }
             ]
         }
