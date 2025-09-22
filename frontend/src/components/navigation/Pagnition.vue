@@ -1,8 +1,15 @@
 <template>
     <nav :class="cls[0]">
-        <Btn :data="btn[0]" :cls="['button', 'orange-btn']"/>
+        <Btn 
+            :data="btn[0]"
+            :cls="['button', 'orange-btn']"
+        />
         <span :class="cls[1]"> {{ activePage > 0 ?  activePage + ' / ' + totalPages : '' }}</span>
-        <Btn :data="btn[1]" :cls="['button', 'orange-btn']"/>
+        
+        <Btn 
+            :data="btn[1]"
+            :cls="['button', 'orange-btn']"
+        />
     </nav>
 </template>
 

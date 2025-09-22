@@ -37,13 +37,13 @@
             <Select v-for="selection in data.selections" :key="selection.id"
                 v-model:[selection.type]="selection.value"
                 :cls="!!selection.cls ? selection.cls : []" 
-                />
+            />
         </section>
 
         <section v-if="!!data.textarea" :class="cls[4]">
             <Textarea v-for="area in data.textarea" :key="area.id"
-            v-model="formData[area.name]" 
-            :data="area" 
+                v-model="formData[area.name]" 
+                :data="area" 
             />
         </section>
 
@@ -59,13 +59,15 @@
             <Outputs v-for="output in data.outputs" :key="output.id"
                 v-model:[output.type]="output.value"
                 :data="output"
-                :cls="!!output.cls ? output.cls : []" />
+                :cls="!!output.cls ? output.cls : []"
+            />
         </section>
 
         <section v-if="!!data.btn" class="flex-row-justify-space-evenly">
             <Btn v-for="btn in data.btn" :key="btn.id"
-            :data="btn"
-            :cls="['btn', 'orange-btn']"/>
+                :data="btn"
+                :cls="['btn', 'orange-btn']"
+            />
 
         </section>
     </form>

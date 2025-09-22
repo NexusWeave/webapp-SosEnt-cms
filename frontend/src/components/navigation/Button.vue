@@ -6,7 +6,9 @@
         :disabled="btn.disabled">
 
         <template v-if="btn.anchor">
-            <Anchor :data="btn.anchor" v-if="btn.anchor"/>
+            <Anchor v-if="btn.anchor"
+                :data="btn.anchor"
+            />
         </template>
 
         <template v-else>

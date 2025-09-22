@@ -8,10 +8,11 @@
             </p>
 
         </address>
-            <Menu :data="menu" :cls="[['nav-bar', 'flex-column'],
-                ['nav-list'],
-                ['nav-item'],
-                ['nav-link']]"/>
+            <Menu
+                :data="menu"
+                :cls="[['nav-bar', 'flex-column'],['nav-list'],
+                    ['nav-item'], ['nav-link']]"
+            />
     </section>
     <p>{{ content.copyRight }}</p>
     

@@ -1,7 +1,6 @@
 //  This file is a part of the SoSEnT web application project.
 
 import { defineStore } from 'pinia';
-import { reactive } from 'vue';
 import { generateHexID } from '@/utils/utils.js';
 
 export const newsStore = defineStore('newsData', 
@@ -35,7 +34,7 @@ export const newsStore = defineStore('newsData',
                     type: ['anchor'],
                     label: 'Les mer',
                     cls: ['read-more'],
-                    href: '#/aktuelt/artikkel/' + article.id
+                    href: 'aktuelt/artikkel/' + article.id
                 };  
 
                 const date = article.date;

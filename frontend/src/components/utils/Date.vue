@@ -14,7 +14,9 @@
 
         <template v-if="cls.includes('icon')">
             <span class="calendar">
-                <Icon :cls="cls"/>
+                <Icon
+                    :cls="cls"
+                />
             </span>
         </template>
     </span>

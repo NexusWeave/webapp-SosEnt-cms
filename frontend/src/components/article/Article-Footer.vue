@@ -1,6 +1,8 @@
 <template>
     <h4>{{ article.title }}</h4>
-    <Figure v-if="article.conclusion.img" :data="article.conclusion.img" />
+    <Figure v-if="article.conclusion.img"
+        :data="article.conclusion.img"
+    />
     <ul v-if="article.conclusion.list">
         <li v-for="item in article.conclusion.list" :key="item.id">
             {{ item.bullet }}
@@ -17,13 +19,18 @@
     </p>
 
     <p>
-        <MetaData :data="article.date" v-if="article.date" :text="'published'"/>
-        <MetaData v-if="article.anchor" :data="article.anchor" />
+        <MetaData v-if="article.date"
+            :data="article.date"
+            text="published"
+        />
+        <MetaData v-if="article.anchor"
+            :data="article.anchor"
+        />
     </p>
 </template>
 
 <script setup>
-    import { defineProps, reactive } from 'vue';
+    import { reactive } from 'vue';
 
     import Figure from '@/components/utils/Figure.vue';
     import MetaData from '@/components/utils/Span.vue';
@@ -45,7 +52,6 @@
     
     const data = reactive(props.data);
 
-    const date = data.date;
     const article = data.article[props.id].conclusion;
     //console.log("Article Footer Component loaded with data: ", article);
 </script>

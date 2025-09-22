@@ -3,11 +3,16 @@
         <section v-for="media in media" :key="media.id"
             :class="cls[2]">
             <h4>
-                <Anchor :data="media.anchor"
-                    :cls="[media.type]" />
+                <Anchor
+                    :data="media.anchor"
+                    :cls="[media.type]"
+                />
             </h4>
             <p>
-                <Date :data="media.date" :cls="['meta-date', 'calendar']" />
+                <Date
+                    :data="media.date"
+                    :cls="['meta-date', 'calendar']"
+                />
                 <span>
                     {{ media.description }}
                 </span>
@@ -17,7 +22,7 @@
 </template>
 <script setup>
 
-    import { computed, defineProps } from 'vue';
+    import { computed } from 'vue';
     import Date from '@/components/utils/Date.vue';
     import Anchor from '@/components/navigation/Anchor.vue';
 

@@ -1,6 +1,5 @@
 <template v-if="news.isLoaded">
     <Article  v-if="article" :data="article" :cls="cls"/>
-
 </template>
 
 <script setup>

@@ -4,29 +4,46 @@
             <li v-for="item in data" :key="item.id"
                 :class="cls[2]">
                 <template v-if="!!isRouterLink">
-                    <RouterLink :to="item.href" :class="item.cls">
+                    <RouterLink 
+                        :to="item.href"
+                        :class="item.cls">
                         {{ item.label }}
                     </RouterLink>
                 </template>
 
                 <template v-else-if="!!isAnchor">
-                    <Anchor :data="item.anchor" :cls="[cls[3]]"/>
+                    <Anchor
+                        :data="item.anchor" :cls="[cls[3]]"
+                        />
                 </template>
 
                 <template v-else-if="!!isPagination">
-                    <Btn :data="btn[0]" :cls="['button', 'orange-btn']"/>
+                    <Btn 
+                        :data="btn[0]"
+                        :cls="['button', 'orange-btn']"/>
+
                         <span :class="cls[1]"> {{ activePage > 0 ?  activePage + ' / ' + totalPages : '' }}</span>
-                    <Btn :data="btn[1]" :cls="['button', 'orange-btn']"/>
+
+                    <Btn
+                        :data="btn[1]" 
+                        :cls="['button', 'orange-btn']"
+                    />
                 </template>
 
             </li>
             <template v-if="!!isPagination">
                 <li>
-                    <Btn :data="btn[0]" :cls="['button', 'orange-btn']"/>
+                    <Btn 
+                        :data="btn[0]"
+                        :cls="['button', 'orange-btn']"
+                    />
                 </li>
                     <span :class="cls[1]"> {{ activePage > 0 ?  activePage + ' / ' + totalPages : '' }}</span>
                 <li>
-                    <Btn :data="btn[1]" :cls="['button', 'orange-btn']"/>
+                    <Btn
+                        :data="btn[1]"
+                        :cls="['button', 'orange-btn']"
+                    />
                 </li>
             </template>
         </ul>

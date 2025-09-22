@@ -3,7 +3,9 @@
         <ul :class ="[cls[0],'flex-wrap-row-align-content-start-justify-space-evenly']">
             <li v-for="member in data.members" :key="member.id"
             :class="[cls[1]]">
-                <Anchor v-if="!!member.anchor" :data="member.anchor"/>
+                <Anchor v-if="!!member.anchor"
+                    :data="member.anchor"
+                />
                 <span v-if="!member.anchor">{{ member.label }}</span>
                 <p>
                     
@@ -17,7 +19,9 @@
         <h4 v-if="data.title">{{ data.title }}</h4>
         <ul>
             <li v-for="(bullet, i) in data.list" :key="i">
-                <Anchor v-if="bullet.anchor" :data="bullet.anchor"/>
+                <Anchor v-if="bullet.anchor"
+                    :data="bullet.anchor"
+                />
                 <span v-else>{{ bullet.bullet }}</span>
             </li>
         </ul>

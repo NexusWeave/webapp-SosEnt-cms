@@ -10,20 +10,26 @@
         >
 
         <template v-if="isMedia() === 'img'">
-            <Figure :data="img" :cls="[cls[1]]" />
+            <Figure 
+                :data="img"
+                :cls="[cls[1]]"
+            />
         </template>
 
         <template v-else-if="isMedia() == cls[cls.length - 1]">
-            <Icon v-if="!!data.label" :label="data.label" :cls="[cls[1], cls[cls.length - 1]]"/>
-            <Icon v-else :cls="[cls[1], cls[cls.length - 1]]"/>
+            <Icon v-if="!!data.label"
+                :label="data.label"
+                :cls="[cls[1], cls[cls.length - 1]]"
+            />
+            <Icon v-else 
+                :cls="[cls[1], cls[cls.length - 1]]"
+            />
         </template>
 
         <template v-else>
                 {{ data.label }}
         </template>
-        
     </a>
-
 </template>
 
 <script setup>

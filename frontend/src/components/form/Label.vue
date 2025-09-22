@@ -1,6 +1,9 @@
 <template>
     <template v-if="isIcon">
-        <Icon :cls="cls" :isInput="isIcon"/>
+        <Icon 
+            :cls="cls"
+            :isInput="isIcon"
+        />
     </template>
     <label :for="id">{{ label }}</label>
 

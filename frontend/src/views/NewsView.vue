@@ -1,12 +1,13 @@
 <template v-if="news.isLoaded">
     <h2 :class="page.cls">{{ page.title}}</h2>
-    <Articles  v-if="news.recent.length > 0"
+    <Articles
         v-for="article in news.recent" :key="article.id" 
         :data="article"
-        :cls="[ article.id % 2 ? 'flex-wrap-row-justify-space-around' : 
+        :cls="[ parseInt(article.id) % 2 ? 'flex-wrap-row-justify-space-around' : 
         'flex-row-reversed-justify-space-around-align-content-center',
         'article-ingress', article.cls[0],article.cls[1], 
-        'news-article']"/>
+        'news-article']"
+    />
 
     <section v-if="news.archived.length > 0">
         <h2 :class="page.section.cls"> {{ page.section.title }}</h2>
@@ -14,14 +15,16 @@
             :cls="archived.cls"
             :totalPage="archived.total" 
             :activePage="archived.activePage"
-            @update="(page) => archived.activePage = page" />
+            @update="(page) => archived.activePage = page"
+        />
     
         <section v-if="news.archived.length > 0"
                 :class="[news.data.cls[1]]" >
             <Articles  v-for="article in archived.articles" :key="article.id"
                 :data="article" 
                 :cls="[['flex-column-align-items-center', 'article-section'],
-            'article-section', article.cls[0], article.cls[1], 'news-card']"/>
+                    'article-section', article.cls[0], article.cls[1], 'news-card']"
+            />
         </section>
     </section>
 </template>
