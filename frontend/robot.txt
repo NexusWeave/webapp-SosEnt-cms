@@ -1,2 +1,0 @@
-User-agent: *
-Disallow: *  # Disallow crawling the entire site

@@ -92,8 +92,6 @@
         font-size: $font-size
         padding-block-start: $pad-block
 
-    
-    
     h1, h2, h3, h4, h5, h6
         font-weight: bold
         padding-block-start: $pad-block
@@ -191,11 +189,15 @@
 
                 .icon
                     &::before
+                        padding: 0.5em
                         content: map.get($prop, icon)
                         color : map.get($prop, icon-color)
 
-                font-family: "Bootstrap-icons"
+                    font-size: 1em
+                    display: inline-block
 
+                font-family: "Bootstrap-icons"
+                
 @mixin tag-generator()
 
     @each $tag, $props in tags.$tags

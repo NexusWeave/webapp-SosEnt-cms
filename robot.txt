@@ -1,0 +1,13 @@
+User-agent: Googlebot
+Disallow: /assets/services
+
+User-agent: Bingbot
+Disallow: /assets/services
+
+User-agent: Bravebot
+Disallow: /assets/services
+
+User-agent: *
+Disallow: /assets/services, /assets/media/images  # Disallow crawling the entire site
+
+Sitemap: https://www.sosent.no/sitemap.xml

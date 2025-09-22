@@ -72,14 +72,6 @@
   font-weight: normal;
 }
 
-.icon {
-  font-size: 1em;
-  display: inline-block;
-}
-.icon::before {
-  padding: 0.5em;
-}
-
 .relative {
   opacity: 0.5;
   top: 1.9em;
@@ -92,7 +84,12 @@
 .pdf i {
   font-style: normal;
 }
+.pdf .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .pdf .icon::before {
+  padding: 0.5em;
   content: "\f63d";
   color: rgba(220, 53, 69, 0.7);
 }
@@ -103,7 +100,12 @@
 .dot i {
   font-style: normal;
 }
+.dot .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .dot .icon::before {
+  padding: 0.5em;
   content: "\f309";
 }
 
@@ -113,7 +115,12 @@
 .email i {
   font-style: normal;
 }
+.email .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .email .icon::before {
+  padding: 0.5em;
   content: "\f84b";
   color: rgba(255, 248, 241, 0.7);
 }
@@ -124,7 +131,12 @@
 .default i {
   font-style: normal;
 }
+.default .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .default .icon::before {
+  padding: 0.5em;
   content: "\f82e";
   color: rgba(255, 248, 241, 0.7);
 }
@@ -135,7 +147,12 @@
 .calendar i {
   font-style: normal;
 }
+.calendar .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .calendar .icon::before {
+  padding: 0.5em;
   content: "\f1f6";
 }
 
@@ -145,7 +162,12 @@
 .telephone i {
   font-style: normal;
 }
+.telephone .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .telephone .icon::before {
+  padding: 0.5em;
   content: "\f5c1";
   color: rgba(255, 248, 241, 0.7);
 }
@@ -156,7 +178,12 @@
 .external-link i {
   font-style: normal;
 }
+.external-link .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .external-link .icon::before {
+  padding: 0.5em;
   content: "\f35d";
   color: rgba(255, 248, 241, 0.7);
 }
@@ -167,7 +194,12 @@
 .file i {
   font-style: normal;
 }
+.file .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .file .icon::before {
+  padding: 0.5em;
   content: "\f0e7";
 }
 
@@ -177,7 +209,12 @@
 .submit i {
   font-style: normal;
 }
+.submit .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .submit .icon::before {
+  padding: 0.5em;
   content: "\f0e7";
 }
 
@@ -187,7 +224,12 @@
 .reset i {
   font-style: normal;
 }
+.reset .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .reset .icon::before {
+  padding: 0.5em;
   content: "\f0e7";
 }
 
@@ -197,7 +239,12 @@
 .button i {
   font-style: normal;
 }
+.button .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .button .icon::before {
+  padding: 0.5em;
   content: "\f0e7";
 }
 
@@ -207,7 +254,12 @@
 .range i {
   font-style: normal;
 }
+.range .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .range .icon::before {
+  padding: 0.5em;
   content: "\f0e7";
 }
 
@@ -217,7 +269,12 @@
 .color i {
   font-style: normal;
 }
+.color .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .color .icon::before {
+  padding: 0.5em;
   content: "\f4b0";
 }
 
@@ -227,7 +284,12 @@
 .hidden i {
   font-style: normal;
 }
+.hidden .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .hidden .icon::before {
+  padding: 0.5em;
   content: "\f0e7";
 }
 
@@ -237,7 +299,12 @@
 .tel i {
   font-style: normal;
 }
+.tel .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .tel .icon::before {
+  padding: 0.5em;
   content: "\f5bb";
 }
 
@@ -247,7 +314,12 @@
 .url i {
   font-style: normal;
 }
+.url .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .url .icon::before {
+  padding: 0.5em;
   content: "\f882";
 }
 
@@ -257,7 +329,12 @@
 .text i {
   font-style: normal;
 }
+.text .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .text .icon::before {
+  padding: 0.5em;
   content: "\f435";
 }
 
@@ -267,7 +344,12 @@
 .search i {
   font-style: normal;
 }
+.search .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .search .icon::before {
+  padding: 0.5em;
   content: "\f52a";
 }
 
@@ -277,7 +359,12 @@
 .number i {
   font-style: normal;
 }
+.number .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .number .icon::before {
+  padding: 0.5em;
   content: " \f67f";
 }
 
@@ -287,7 +374,12 @@
 .password i {
   font-style: normal;
 }
+.password .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .password .icon::before {
+  padding: 0.5em;
   content: "\f44e";
 }
 
@@ -297,7 +389,12 @@
 .radio i {
   font-style: normal;
 }
+.radio .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .radio .icon::before {
+  padding: 0.5em;
   content: "\f1d0";
 }
 
@@ -307,7 +404,12 @@
 .checkbox i {
   font-style: normal;
 }
+.checkbox .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .checkbox .icon::before {
+  padding: 0.5em;
   content: "\f272";
 }
 
@@ -317,7 +419,12 @@
 .date i {
   font-style: normal;
 }
+.date .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .date .icon::before {
+  padding: 0.5em;
   content: "\f073";
 }
 
@@ -327,7 +434,12 @@
 .time i {
   font-style: normal;
 }
+.time .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .time .icon::before {
+  padding: 0.5em;
   content: "\f017";
 }
 
@@ -337,7 +449,12 @@
 .week i {
   font-style: normal;
 }
+.week .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .week .icon::before {
+  padding: 0.5em;
   content: "\f4c0";
 }
 
@@ -347,7 +464,12 @@
 .month i {
   font-style: normal;
 }
+.month .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .month .icon::before {
+  padding: 0.5em;
   content: "\f4c1";
 }
 
@@ -357,7 +479,12 @@
 .datetime-local i {
   font-style: normal;
 }
+.datetime-local .icon {
+  font-size: 1em;
+  display: inline-block;
+}
 .datetime-local .icon::before {
+  padding: 0.5em;
   content: "\f017";
 }
 
@@ -760,6 +887,13 @@ nav ul {
   grid-template-columns: 1fr;
   grid-template-areas: "content";
 }
+@media screen and (min-width: 768px) {
+  .grid-container-cta {
+    display: grid;
+    grid-template-areas: "image content cta";
+    grid-template-columns: 1fr minmax(0, 2fr) minmax(0, 1fr);
+  }
+}
 @media screen and (min-width: 500px) {
   .grid-container-cta {
     font-size: 1.3em;
@@ -812,13 +946,6 @@ nav ul {
 .grid-container-cta .figure-grid {
   grid-row: auto;
   grid-area: image;
-}
-@media screen and (min-width: 768px) {
-  .grid-container-cta {
-    display: grid;
-    grid-template-areas: "image content cta";
-    grid-template-columns: 1fr minmax(0, 2fr) minmax(0, 1fr);
-  }
 }
 
 .grid-container-content {
@@ -1112,11 +1239,6 @@ article main h3 {
 
 form.form-container {
   inline-size: 17em;
-}
-
-input.radio-btn {
-  block-size: 1em;
-  inline-size: 7em;
 }
 
 input[type=tel] {

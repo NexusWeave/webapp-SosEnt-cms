@@ -12,12 +12,12 @@
         grid-template-columns: 1fr minmax(0, 2fr) minmax(0, 1fr)
 
 .grid-container-cta
-    
-    @include mix.grid-layout()
     @include mix.media-queries($breakpoint: 'L')
         display: grid
         grid-template-areas: "image content cta"
         grid-template-columns: 1fr minmax(0, 2fr) minmax(0, 1fr)
+
+    @include mix.grid-layout()
 
 .grid-container-content
     margin: auto
