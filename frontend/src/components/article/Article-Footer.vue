@@ -20,8 +20,9 @@
 
     <p>
         <MetaData v-if="article.date"
-            :data="article.date"  text="published"
-            />
+            :data="article.date"
+            text="published"
+        />
         <MetaData v-if="article.anchor"
             :data="article.anchor"
         />

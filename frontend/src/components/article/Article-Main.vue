@@ -61,7 +61,6 @@
 </template>
 
 <script setup>
-    import { defineProps } from 'vue';
 
     import Media from '@/components/media/Media.vue';
     import Figure from '@/components/media/Figure.vue';

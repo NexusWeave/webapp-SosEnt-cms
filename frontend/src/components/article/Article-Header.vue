@@ -1,22 +1,24 @@
 <template>
     <Btn  v-if="isArticlePage" 
-        :data="anchor" :cls="['orange-btn']"
+        :data="anchor"
+        :cls="['orange-btn']"
     />
     <section :class="cls[0]">
         <section :class="cls[1]">
             <Figure  v-if="!isArticlePage && !isNewsPage ||  article.archived"
-                :data="article.img" :cls="['article-figure']"
+                :data="article.img"
+                :cls="['article-figure']"
             />
-            
-                
+ 
             <h2> {{ article.title }}</h2>
             <p>
                 <Date :data="article.date" :cls="['article-date', 'calendar']"
                 />
                 
                 <span v-if="!!article.tags" :class="cls[3]" >
-                    <Tags v-for="tag in article.tags"
-                        :key="tag.id" :data="tag" :cls="[tag.cls]"
+                    <Tags v-for="tag in article.tags" :key="tag.id"
+                        :data="tag"
+                        :cls="[tag.cls]"
                     />
                 </span>
             </p>
@@ -32,7 +34,9 @@
             />
         </section>
         <section :class="cls[1]" v-if="isNewsPage && !isArticlePage && !article.archived">
-            <Figure :data="article.img" :cls="['article-figure']"
+            <Figure
+                :data="article.img"
+                :cls="['article-figure']"
             />
         </section>
     </section>
