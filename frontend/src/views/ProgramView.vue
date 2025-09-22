@@ -3,13 +3,15 @@
     <section v-if="!isLoggedIn"
         :class="['login-container', 'flex-wrap-column-align-center-justify-space-evenly']">
         <Form 
-        :data="schema"
-        @formData="handleSubmit"
-    />
+            :data="schema"
+            @formData="handleSubmit"
+        />
     </section>
     <section v-if="isLoggedIn">
         <section class="flex-wrap-row-justify-center" >
-            <Btn v-for="btn in buttons" :key="btn.id" :data="btn" :cls="['btn', 'orange-btn']" />
+            <Btn v-for="btn in buttons" :key="btn.id"
+                :data="btn" :cls="['btn', 'orange-btn']"
+            />
         </section>
         <section v-show="!!program">
             <h2 class="title-h2">Fordeler</h2>
@@ -20,11 +22,13 @@
 
         <section v-if="!!isMedia" v-show="!!archieve">
             <h2 class="title-h2">Dokument Arkiv</h2>
-            <Media v-if="!!media" :data="media"
+            <Media v-if="!!media" 
+                :data="media"
                 filter="dokumenter"
                 :cls="['media-container',
                 'flex-wrap-row-justify-space-evenly',
-                ['media-content', 'flex-column', 'component-theme']]"/>
+                ['media-content', 'flex-column', 'component-theme']]"
+            />
         </section>
     </section>
 </template>

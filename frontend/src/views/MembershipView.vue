@@ -8,10 +8,14 @@
                 <h3> {{ content.title }} </h3>
                 <p>
                     {{ content.content }}
-                    <Anchor v-if="content.anchor" :data="content.anchor" />
+                    <Anchor v-if="content.anchor"
+                        :data="content.anchor"
+                    />
                 </p>
                 <section v-if="content.list" v-for="(list, i) in content.list" :key="i">
-                <List :data="list"  :cls="list.cls"/>
+                <List
+                    :data="list"  :cls="list.cls"
+                />
                 </section>
             </section>
         </section>
@@ -22,15 +26,16 @@
                 <section :class="['flex-wrap-row-justify-space-evenly','partner-container']">
                     <Anchor v-for="partner in partners.partners" :key="partner.id"
                         :data="partner.anchor"
-                        :cls="['partner-content', 'partner-img']"/>
+                        :cls="['partner-content', 'partner-img']"
+                    />
                 </section>
             </section>
             
             <section v-if ="isMembers && members.members.length > 0">
                 <h3> Medlemmer </h3>
                 <section class="member-container">
-                    <List :data="members"
-                        :cls="['member-list', 'member-item']"
+                    <List
+                        :data="members" :cls="['member-list', 'member-item']"
                     />
                 </section>
             </section>
@@ -40,7 +45,7 @@
                     <Media
                         :data="media"
                         filter="medlemskap"
-                        />
+                    />
                 </section>
             </section>
 
@@ -51,10 +56,14 @@
                 <h3> {{ content.title }} </h3>
                 <p>
                     {{ content.content }}
-                    <Anchor v-if="content.anchor" :data="content.anchor" />
+                    <Anchor v-if="content.anchor"
+                        :data="content.anchor"
+                    />
                 </p>
                 <section v-if="content.list" v-for="(list, i) in content.list" :key="i">
-                <List :data="list"  :cls="list.cls"/>
+                <List 
+                    :data="list"  :cls="list.cls"
+                />
                 </section>
             </section>
         </section>

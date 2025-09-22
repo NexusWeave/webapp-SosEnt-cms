@@ -2,8 +2,14 @@
     <div :class="['flex-wrap-row-align-items-end','component-theme',
       'logo-container']">
 
-        <Menu :data="images" :cls="['logo-container', 'img-list', 'img-item', 'img-container']"/>
-        <Menu :data="menu"/>
+        <Menu 
+          :data="images"
+          :cls="['logo-container', 'img-list', 'img-item', 'img-container']"
+        />
+        <Menu
+          :data="menu"
+        />
+
     </div>
     <section class="flex-column-align-items-center">
         <h1>{{ content.title }}</h1>

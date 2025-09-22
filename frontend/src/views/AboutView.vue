@@ -3,7 +3,8 @@
         <NewsCard v-for="article in news.recent"  :key="article.id"
             :data="article"
             :cls="[['flex-column-align-items-center', 'article-section'],
-            'article-section', 'article-title-h2', 'tags', 'news-card']"/>
+            'article-section', 'article-title-h2', 'tags', 'news-card']"
+        />
     </section>
 
     <section class="flex-column-align-items-center">
@@ -25,11 +26,16 @@
 
                 <div v-for="person in organization.team.team" 
                     :class="[['card-content', 'component-theme'],'title-h4']" :key="person.id">
-                    <Figure v-if="person.img" :data="person.img" />
+                    <Figure v-if="person.img"
+                        :data="person.img"
+                    />
                     <h2> {{ person.name }} </h2>
                     <h3> {{ person.title }} </h3>
                         <p v-for="contact in person.contactInfo" :key="contact.id">
-                            <Anchor :data="contact.anchor" :cls="[contact.anchor.type[0], 'title-h4']"/>
+                            <Anchor
+                                :data="contact.anchor"
+                                :cls="[contact.anchor.type[0], 'title-h4']"
+                            />
                         </p>
                 </div>
             </section>
