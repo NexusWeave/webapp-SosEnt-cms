@@ -1,35 +1,46 @@
 <template>
-    <Btn  v-if="isArticlePage" :data="anchor" :cls="['orange-btn']"/>
+    <Btn  v-if="isArticlePage" 
+        :data="anchor" :cls="['orange-btn']"
+    />
     <section :class="cls[0]">
         <section :class="cls[1]">
             <Figure  v-if="!isArticlePage && !isNewsPage ||  article.archived"
-                :data="article.img" :cls="['article-figure']" />
+                :data="article.img" :cls="['article-figure']"
+            />
             
                 
             <h2> {{ article.title }}</h2>
             <p>
-                <Date :data="article.date" :cls="['article-date', 'calendar']" />
+                <Date :data="article.date" :cls="['article-date', 'calendar']"
+                />
                 
                 <span v-if="!!article.tags" :class="cls[3]" >
                     <Tags v-for="tag in article.tags"
-                        :key="tag.id" :data="tag" :cls="[tag.cls]"/>
+                        :key="tag.id" :data="tag" :cls="[tag.cls]"
+                    />
                 </span>
             </p>
             <p> {{ article.ingress.content }}</p>
             <Menu v-if="!isArticlePage && article.section"
-                :data="[anchor]" :cls="[[''], [''], ['', 'flex-wrap-row-justify-flex-start'], ['read-more']]"/>
+                :data="[anchor]" :cls="[
+                    [''], [''], ['', 'flex-wrap-row-justify-flex-start'],
+                    ['read-more']]"
+            />
 
-            <Figure  v-if="isArticlePage" :data="article.img" :cls="['article-figure']" />
+            <Figure  v-if="isArticlePage"
+                :data="article.img" :cls="['article-figure']"
+            />
         </section>
         <section :class="cls[1]" v-if="isNewsPage && !isArticlePage && !article.archived">
-            <Figure :data="article.img" :cls="['article-figure']" />
+            <Figure :data="article.img" :cls="['article-figure']"
+            />
         </section>
     </section>
 </template>
 
 <script setup>
 
-    import { computed, defineProps } from 'vue';
+    import { computed } from 'vue';
 
     
     import Tags from '@/components/utils/Tags.vue';

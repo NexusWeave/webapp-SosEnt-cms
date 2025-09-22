@@ -1,7 +1,9 @@
 <template>
     <section :class="cls[0]">
+
         <h3 v-if="section.title">{{ section.title }}</h3>
         <section class="flex-column">
+
             <section v-for="content in section.contents"
                 :class="!!content.cta && !!content.media? ['grid-container', 'article-section']: 
                 !!content.cta ? ['grid-container-cta', 'article-section']:
@@ -9,7 +11,10 @@
                 ['grid-container-content','article-section']"
                 :key="content.id"> 
 
-                <Figure v-if="!!content.img" :data="content.img" :cls="[['img-grid','figure-container'], 'image']"/>
+                <Figure v-if="!!content.img" 
+                    :data="content.img"
+                    :cls="[['img-grid','figure-container'], 'image']"
+                />
                 
                 <section :class="['main-grid', 'article-section']">
                     <h4 v-if="content.title">
@@ -28,6 +33,7 @@
                     :class="cls[4]">
 
                     <section :class="cls[5]">
+
                         <section v-for="(cta, i) in content.cta" 
                             :key="i"
                             :class=cls[6]>
@@ -41,13 +47,15 @@
                                     :data="media"
                                     :cls="['media-container',
                                     'flex-wrap-row-justify-space-evenly',
-                            ['media-content', 'flex-column', 'component-theme']]"/>
+                                    ['media-content', 'flex-column', 'component-theme']]"
+                                />
 
                             </section>
                         </section>
                     </section>
                 </aside>
             </section>
+
         </section>
     </section>
 </template>

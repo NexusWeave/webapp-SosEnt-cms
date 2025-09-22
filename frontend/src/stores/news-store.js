@@ -1,7 +1,6 @@
 //  This file is a part of the SoSEnT web application project.
 
 import { defineStore } from 'pinia';
-import { reactive } from 'vue';
 import { generateHexID } from '@/utils/utils.js';
 
 export const newsStore = defineStore('newsData', 
