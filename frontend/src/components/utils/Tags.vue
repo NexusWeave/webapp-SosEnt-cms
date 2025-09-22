@@ -3,7 +3,10 @@
         {{ data }}
         <span>
             <i :class="cls"></i>
-            <Anchor :data="data.anchor" :cls="cls" /> 
+            <Anchor
+                :data="data.anchor"
+                :cls="cls"
+            /> 
         </span>
     </template>
     <template v-else>
