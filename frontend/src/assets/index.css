@@ -971,6 +971,7 @@ article.news-card header .article-section {
   margin-block: 0;
 }
 article.news-card header .article-section h2 {
+  font-size: 1.5em;
   text-align: center;
   margin-block-end: 0.1em;
   color: rgb(89, 61, 43);
@@ -1005,7 +1006,7 @@ article header .news-card-ingress {
   max-inline-size: 37em;
 }
 article header section.article-ingress {
-  max-inline-size: 50em;
+  max-inline-size: 58em;
 }
 @media screen and (min-width: 500px) {
   article header section.article-ingress h2 {
@@ -1027,6 +1028,13 @@ article main {
   margin: 0 auto;
   inline-size: 100%;
 }
+article main h2 {
+  max-inline-size: 29em;
+}
+article main h3 {
+  font-size: 2em;
+  max-inline-size: 29em;
+}
 article main section {
   margin-block: 1em;
 }
@@ -1037,10 +1045,10 @@ article main section .article-section {
 article main section .article-section h2, article main section .article-section h3, article main section .article-section h4 {
   font-weight: bold;
 }
-article main section .article-section h2.article-title {
+article main section .article-section h2 {
   font-size: 3em;
 }
-article main section .article-section h3.sction-title {
+article main section .article-section h3 {
   font-size: 2em;
 }
 article main section .article-section-content {
@@ -1081,9 +1089,6 @@ article main aside .cta-section .cta-section-content .media-content {
 }
 article main aside .cta-section .media-link .icon::before {
   padding: 0.2em;
-}
-article main h3 {
-  font-size: 2em;
 }
 
 .media-container {
@@ -9729,24 +9734,12 @@ body {
   background-color: rgb(252, 245, 235);
   font-family: "Nunito", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
-body h1, body h2 {
-  font-weight: 600;
-}
-@media screen and (min-width: 500px) {
-  body h1 {
-    font-size: 4em;
-  }
-}
-body h3 > a {
-  font-size: 1.5em;
-  font-weight: bold;
-}
 body h1 {
   font-size: 1.77em;
 }
 @media screen and (min-width: 500px) {
   body h1 {
-    font-size: 2em;
+    font-size: 3em;
   }
 }
 @media screen and (min-width: 500px) {
@@ -9757,6 +9750,13 @@ body h1 {
 }
 body h2, body h3, body h4, body h5, body h6 {
   padding-block-end: 1em;
+}
+body h1, body h2 {
+  font-weight: 600;
+}
+body h3 > a {
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 main {
