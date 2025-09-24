@@ -1,5 +1,5 @@
 <template>
-    <h2 class="title-h2"> SosEnt Norge Medlemsportal</h2>
+    <h2 style="text-align: center;"> SosEnT Medlemsportal</h2>
     <section v-if="!isLoggedIn"
         :class="['login-container', 'flex-wrap-column-align-center-justify-space-evenly']">
         <Form 
@@ -14,14 +14,14 @@
             />
         </section>
         <section v-show="!!program">
-            <h2 class="title-h2">Fordeler</h2>
+            <h2 style="text-align: center;">Fordeler</h2>
             <section class="flex-wrap-column-align-center-justify-space-evenly">
             <p>Some text about the program</p>
             </section>
         </section>
 
         <section v-if="!!isMedia" v-show="!!archieve">
-            <h2 class="title-h2">Dokument Arkiv</h2>
+            <h2 style="text-align: center;">Dokument Arkiv</h2>
             <Media v-if="!!media" 
                 :data="media"
                 filter="dokumenter"
