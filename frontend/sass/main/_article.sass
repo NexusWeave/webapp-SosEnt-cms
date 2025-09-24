@@ -12,7 +12,7 @@ article.news-card
 
         .article-section
             h2
-
+                font-size: 1.5em
                 text-align: center
                 margin-block-end: .1em
                 color: color.$Groovy-brown
@@ -39,7 +39,6 @@ article.news-card
         max-inline-size: 27em
     @include mix.background-color(color.$soft-white, color.$Groovy-brown)
 
-
 article
 
     header
@@ -57,7 +56,7 @@ article
                 @include mix.media-queries($breakpoint: 'M')
                     font-size: 2em
 
-            max-inline-size: 50em
+            max-inline-size: 58em
 
         section.article-section-content
             max-inline-size: 52em
@@ -70,6 +69,13 @@ article
             margin-block: 1em
 
     main
+        h2
+            max-inline-size:29em
+        
+        h3
+            font-size: 2em
+            max-inline-size: 29em
+            
         section
             .article-section
                 margin-inline: auto
@@ -78,10 +84,10 @@ article
                 h2, h3, h4
                     font-weight: bold
 
-                h2.article-title
+                h2
                     font-size: 3em
 
-                h3.sction-title
+                h3
                     font-size: 2em
 
             .article-section-content
@@ -124,8 +130,7 @@ article
                 padding: 1em
                 border-radius: 0.5em
 
-        h3
-            font-size: 2em
+        
 
         padding: 1em
         margin: 0 auto
