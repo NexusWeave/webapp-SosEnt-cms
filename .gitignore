@@ -14,8 +14,8 @@
 
 # Frontend Directories
 frontend/dist/
-frontend/node_modules
-frontend/logs
-frontend/package-lock.json
 /cypress/videos/
 /cypress/screenshots/
+frontend/node_modules/
+frontend/package-lock.json
+
