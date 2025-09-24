@@ -23,7 +23,7 @@
 
     const content =
     {
-      title: 'Sosial Entreprenørskap i Norge',
+      title: 'Sosial Entreprenørskap',
       text: '- Landsforeningen for Sosiale Entreprenører',
     };
 
